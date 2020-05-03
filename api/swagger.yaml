@@ -1,0 +1,560 @@
+---
+swagger: "2.0"
+info:
+  description: "This is the website of Insieme - Italian Teaching association"
+  version: "1.0.0"
+  title: "Insieme"
+  contact:
+    email: "contact@insieme.it"
+host: "localhost:8080"
+basePath: "/v1"
+tags:
+- name: "Course"
+  description: "Courses that the association is offering"
+- name: "Event"
+  description: "Events organized by the association"
+- name: "Volunteers"
+  description: "Volunteers"
+paths:
+  /events:
+    get:
+      tags:
+      - "Event"
+      summary: "events inventory"
+      operationId: "eventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+    post:
+      tags:
+      - "Event"
+      summary: "Add a new event"
+      operationId: "eventsPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "event"
+        required: true
+        schema:
+          $ref: "#/definitions/Event"
+      responses:
+        "201":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Event"
+      x-swagger-router-controller: "Event"
+  /events/{id}:
+    get:
+      tags:
+      - "Event"
+      summary: "A specific event"
+      operationId: "eventsIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "event id"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "An event with the specified id"
+          schema:
+            $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+  /courses:
+    get:
+      tags:
+      - "Course"
+      summary: "courses inventory"
+      operationId: "coursesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of course"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Course"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+  /courses/{id}:
+    get:
+      tags:
+      - "Course"
+      summary: "A specific course"
+      operationId: "coursesIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A course with the specified id"
+          schema:
+            $ref: "#/definitions/Course"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+  /volunteers:
+    get:
+      tags:
+      - "Volunteers"
+      summary: "volunteers inventory"
+      operationId: "volunteersGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of Volunteers"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Volunteers"
+  /volunteers/{id}:
+    get:
+      tags:
+      - "Volunteers"
+      summary: "A specific volunteer"
+      operationId: "volunteersIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "volunteer ID"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A volunteer with the specified id"
+          schema:
+            $ref: "#/definitions/Person"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Volunteers"
+definitions:
+  Event:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+        example: "Museum visit"
+      description:
+        type: "string"
+      photos:
+        type: "string"
+      coordinator:
+        $ref: "#/definitions/Person"
+      courses:
+        type: "array"
+        items:
+          $ref: "#/definitions/Course"
+    title: "Event"
+    description: "an event"
+    example:
+      courses:
+      - level: "introductory"
+        teachers:
+        - null
+        - null
+        CERF: "A2"
+        resources:
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        location: "location"
+        id: 1
+        time: "16:00"
+        day: "Monday"
+        events:
+        - null
+        - null
+      - level: "introductory"
+        teachers:
+        - null
+        - null
+        CERF: "A2"
+        resources:
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        location: "location"
+        id: 1
+        time: "16:00"
+        day: "Monday"
+        events:
+        - null
+        - null
+      coordinator:
+        role: "teacher"
+        quote: "quote"
+        comments:
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        city: "city"
+        name: "Marco Rossi"
+        photo: "photo"
+        description: "description"
+        course:
+        - level: "introductory"
+          teachers:
+          - null
+          - null
+          CERF: "A2"
+          resources:
+          - CERF: "A2"
+            id: 5
+            title: "Italian Book"
+            url: "url"
+          - CERF: "A2"
+            id: 5
+            title: "Italian Book"
+            url: "url"
+          location: "location"
+          id: 1
+          time: "16:00"
+          day: "Monday"
+          events:
+          - null
+          - null
+        - level: "introductory"
+          teachers:
+          - null
+          - null
+          CERF: "A2"
+          resources:
+          - CERF: "A2"
+            id: 5
+            title: "Italian Book"
+            url: "url"
+          - CERF: "A2"
+            id: 5
+            title: "Italian Book"
+            url: "url"
+          location: "location"
+          id: 1
+          time: "16:00"
+          day: "Monday"
+          events:
+          - null
+          - null
+        id: 6
+        job: "job"
+        events:
+        - null
+        - null
+      description: "description"
+      id: 0
+      title: "Museum visit"
+      photos: "photos"
+  Person:
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Marco Rossi"
+      role:
+        type: "string"
+        enum:
+        - "teacher"
+        - "coordinator"
+      photo:
+        type: "string"
+      description:
+        type: "string"
+      job:
+        type: "string"
+      city:
+        type: "string"
+      quote:
+        type: "string"
+      course:
+        type: "array"
+        items:
+          $ref: "#/definitions/Course"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event"
+      comments:
+        type: "array"
+        items:
+          $ref: "#/definitions/Comment"
+    example:
+      role: "teacher"
+      quote: "quote"
+      comments:
+      - date: "12th of March 2019"
+        studentName: "Nils Jung"
+        id: 5
+        text: "This teacher was very nice"
+      - date: "12th of March 2019"
+        studentName: "Nils Jung"
+        id: 5
+        text: "This teacher was very nice"
+      city: "city"
+      name: "Marco Rossi"
+      photo: "photo"
+      description: "description"
+      course:
+      - level: "introductory"
+        teachers:
+        - null
+        - null
+        CERF: "A2"
+        resources:
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        location: "location"
+        id: 1
+        time: "16:00"
+        day: "Monday"
+        events:
+        - null
+        - null
+      - level: "introductory"
+        teachers:
+        - null
+        - null
+        CERF: "A2"
+        resources:
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        - CERF: "A2"
+          id: 5
+          title: "Italian Book"
+          url: "url"
+        location: "location"
+        id: 1
+        time: "16:00"
+        day: "Monday"
+        events:
+        - null
+        - null
+      id: 6
+      job: "job"
+      events:
+      - null
+      - null
+  Course:
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      level:
+        type: "string"
+        enum:
+        - "introductory"
+        - "basic"
+        - "intermediate"
+      day:
+        type: "string"
+        enum:
+        - "Monday"
+        - "Tuesday"
+        - "Wednesday"
+        - "Thursday"
+        - "Friday"
+        - "Saturday"
+        - "Sunday"
+      time:
+        type: "string"
+        example: "16:00"
+      location:
+        type: "string"
+      CERF:
+        type: "string"
+        example: "A2"
+      teachers:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event"
+      resources:
+        type: "array"
+        items:
+          $ref: "#/definitions/Resource"
+    example:
+      level: "introductory"
+      teachers:
+      - null
+      - null
+      CERF: "A2"
+      resources:
+      - CERF: "A2"
+        id: 5
+        title: "Italian Book"
+        url: "url"
+      - CERF: "A2"
+        id: 5
+        title: "Italian Book"
+        url: "url"
+      location: "location"
+      id: 1
+      time: "16:00"
+      day: "Monday"
+      events:
+      - null
+      - null
+  Resource:
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      CERF:
+        type: "string"
+        example: "A2"
+      title:
+        type: "string"
+        example: "Italian Book"
+      url:
+        type: "string"
+    example:
+      CERF: "A2"
+      id: 5
+      title: "Italian Book"
+      url: "url"
+  Comment:
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      text:
+        type: "string"
+        example: "This teacher was very nice"
+      studentName:
+        type: "string"
+        example: "Nils Jung"
+      date:
+        type: "string"
+        example: "12th of March 2019"
+      person:
+        $ref: "#/definitions/Person"
+    example:
+      date: "12th of March 2019"
+      studentName: "Nils Jung"
+      id: 5
+      text: "This teacher was very nice"
