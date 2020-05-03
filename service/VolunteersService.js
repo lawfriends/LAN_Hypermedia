@@ -12,6 +12,7 @@ exports.volunteersGET = function(limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
+  "courses" : [ 1, 1 ],
   "role" : "teacher",
   "quote" : "quote",
   "comments" : [ {
@@ -29,51 +30,11 @@ exports.volunteersGET = function(limit,offset) {
   "name" : "Marco Rossi",
   "photo" : "photo",
   "description" : "description",
-  "course" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
   "id" : 6,
   "job" : "job",
-  "events" : [ null, null ]
+  "events" : [ 5, 5 ]
 }, {
+  "courses" : [ 1, 1 ],
   "role" : "teacher",
   "quote" : "quote",
   "comments" : [ {
@@ -91,50 +52,9 @@ exports.volunteersGET = function(limit,offset) {
   "name" : "Marco Rossi",
   "photo" : "photo",
   "description" : "description",
-  "course" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
   "id" : 6,
   "job" : "job",
-  "events" : [ null, null ]
+  "events" : [ 5, 5 ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -157,6 +77,7 @@ exports.volunteersIdGET = function(id,limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
+  "courses" : [ 1, 1 ],
   "role" : "teacher",
   "quote" : "quote",
   "comments" : [ {
@@ -174,50 +95,9 @@ exports.volunteersIdGET = function(id,limit,offset) {
   "name" : "Marco Rossi",
   "photo" : "photo",
   "description" : "description",
-  "course" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
   "id" : 6,
   "job" : "job",
-  "events" : [ null, null ]
+  "events" : [ 5, 5 ]
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

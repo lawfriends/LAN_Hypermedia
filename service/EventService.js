@@ -12,48 +12,9 @@ exports.eventsGET = function(limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "courses" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
+  "courses" : [ 2, 2 ],
   "coordinator" : {
+    "courses" : [ 1, 1 ],
     "role" : "teacher",
     "quote" : "quote",
     "comments" : [ {
@@ -71,98 +32,18 @@ exports.eventsGET = function(limit,offset) {
     "name" : "Marco Rossi",
     "photo" : "photo",
     "description" : "description",
-    "course" : [ {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    }, {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    } ],
     "id" : 6,
     "job" : "job",
-    "events" : [ null, null ]
+    "events" : [ 5, 5 ]
   },
   "description" : "description",
   "id" : 0,
   "title" : "Museum visit",
   "photos" : "photos"
 }, {
-  "courses" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
+  "courses" : [ 2, 2 ],
   "coordinator" : {
+    "courses" : [ 1, 1 ],
     "role" : "teacher",
     "quote" : "quote",
     "comments" : [ {
@@ -180,50 +61,9 @@ exports.eventsGET = function(limit,offset) {
     "name" : "Marco Rossi",
     "photo" : "photo",
     "description" : "description",
-    "course" : [ {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    }, {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    } ],
     "id" : 6,
     "job" : "job",
-    "events" : [ null, null ]
+    "events" : [ 5, 5 ]
   },
   "description" : "description",
   "id" : 0,
@@ -251,48 +91,9 @@ exports.eventsIdGET = function(id,limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "courses" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
+  "courses" : [ 2, 2 ],
   "coordinator" : {
+    "courses" : [ 1, 1 ],
     "role" : "teacher",
     "quote" : "quote",
     "comments" : [ {
@@ -310,50 +111,9 @@ exports.eventsIdGET = function(id,limit,offset) {
     "name" : "Marco Rossi",
     "photo" : "photo",
     "description" : "description",
-    "course" : [ {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    }, {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    } ],
     "id" : 6,
     "job" : "job",
-    "events" : [ null, null ]
+    "events" : [ 5, 5 ]
   },
   "description" : "description",
   "id" : 0,
@@ -379,48 +139,9 @@ exports.eventsPOST = function(event) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "courses" : [ {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  }, {
-    "level" : "introductory",
-    "teachers" : [ null, null ],
-    "CERF" : "A2",
-    "resources" : [ {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    }, {
-      "CERF" : "A2",
-      "id" : 5,
-      "title" : "Italian Book",
-      "url" : "url"
-    } ],
-    "location" : "location",
-    "id" : 1,
-    "time" : "16:00",
-    "day" : "Monday",
-    "events" : [ null, null ]
-  } ],
+  "courses" : [ 2, 2 ],
   "coordinator" : {
+    "courses" : [ 1, 1 ],
     "role" : "teacher",
     "quote" : "quote",
     "comments" : [ {
@@ -438,50 +159,9 @@ exports.eventsPOST = function(event) {
     "name" : "Marco Rossi",
     "photo" : "photo",
     "description" : "description",
-    "course" : [ {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    }, {
-      "level" : "introductory",
-      "teachers" : [ null, null ],
-      "CERF" : "A2",
-      "resources" : [ {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      }, {
-        "CERF" : "A2",
-        "id" : 5,
-        "title" : "Italian Book",
-        "url" : "url"
-      } ],
-      "location" : "location",
-      "id" : 1,
-      "time" : "16:00",
-      "day" : "Monday",
-      "events" : [ null, null ]
-    } ],
     "id" : 6,
     "job" : "job",
-    "events" : [ null, null ]
+    "events" : [ 5, 5 ]
   },
   "description" : "description",
   "id" : 0,

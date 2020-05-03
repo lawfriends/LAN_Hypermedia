@@ -242,54 +242,18 @@ definitions:
       courses:
         type: "array"
         items:
-          $ref: "#/definitions/Course"
+          type: "integer"
+          format: "int64"
     title: "Event"
     description: "an event"
     example:
       courses:
-      - level: "introductory"
-        teachers:
-        - null
-        - null
-        CERF: "A2"
-        resources:
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        location: "location"
-        id: 1
-        time: "16:00"
-        day: "Monday"
-        events:
-        - null
-        - null
-      - level: "introductory"
-        teachers:
-        - null
-        - null
-        CERF: "A2"
-        resources:
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        location: "location"
-        id: 1
-        time: "16:00"
-        day: "Monday"
-        events:
-        - null
-        - null
+      - 2
+      - 2
       coordinator:
+        courses:
+        - 1
+        - 1
         role: "teacher"
         quote: "quote"
         comments:
@@ -305,59 +269,17 @@ definitions:
         name: "Marco Rossi"
         photo: "photo"
         description: "description"
-        course:
-        - level: "introductory"
-          teachers:
-          - null
-          - null
-          CERF: "A2"
-          resources:
-          - CERF: "A2"
-            id: 5
-            title: "Italian Book"
-            url: "url"
-          - CERF: "A2"
-            id: 5
-            title: "Italian Book"
-            url: "url"
-          location: "location"
-          id: 1
-          time: "16:00"
-          day: "Monday"
-          events:
-          - null
-          - null
-        - level: "introductory"
-          teachers:
-          - null
-          - null
-          CERF: "A2"
-          resources:
-          - CERF: "A2"
-            id: 5
-            title: "Italian Book"
-            url: "url"
-          - CERF: "A2"
-            id: 5
-            title: "Italian Book"
-            url: "url"
-          location: "location"
-          id: 1
-          time: "16:00"
-          day: "Monday"
-          events:
-          - null
-          - null
         id: 6
         job: "job"
         events:
-        - null
-        - null
+        - 5
+        - 5
       description: "description"
       id: 0
       title: "Museum visit"
       photos: "photos"
   Person:
+    type: "object"
     properties:
       id:
         type: "integer"
@@ -380,19 +302,26 @@ definitions:
         type: "string"
       quote:
         type: "string"
-      course:
+      courses:
         type: "array"
         items:
-          $ref: "#/definitions/Course"
+          type: "integer"
+          format: "int64"
       events:
         type: "array"
         items:
-          $ref: "#/definitions/Event"
+          type: "integer"
+          format: "int64"
       comments:
         type: "array"
         items:
           $ref: "#/definitions/Comment"
+    title: "Person"
+    description: "a volunteer"
     example:
+      courses:
+      - 1
+      - 1
       role: "teacher"
       quote: "quote"
       comments:
@@ -408,55 +337,13 @@ definitions:
       name: "Marco Rossi"
       photo: "photo"
       description: "description"
-      course:
-      - level: "introductory"
-        teachers:
-        - null
-        - null
-        CERF: "A2"
-        resources:
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        location: "location"
-        id: 1
-        time: "16:00"
-        day: "Monday"
-        events:
-        - null
-        - null
-      - level: "introductory"
-        teachers:
-        - null
-        - null
-        CERF: "A2"
-        resources:
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        - CERF: "A2"
-          id: 5
-          title: "Italian Book"
-          url: "url"
-        location: "location"
-        id: 1
-        time: "16:00"
-        day: "Monday"
-        events:
-        - null
-        - null
       id: 6
       job: "job"
       events:
-      - null
-      - null
+      - 5
+      - 5
   Course:
+    type: "object"
     properties:
       id:
         type: "integer"
@@ -492,34 +379,82 @@ definitions:
       events:
         type: "array"
         items:
-          $ref: "#/definitions/Event"
+          type: "integer"
+          format: "int64"
       resources:
         type: "array"
         items:
           $ref: "#/definitions/Resource"
+    title: "Course"
+    description: "a course"
     example:
       level: "introductory"
       teachers:
-      - null
-      - null
+      - courses:
+        - 1
+        - 1
+        role: "teacher"
+        quote: "quote"
+        comments:
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        city: "city"
+        name: "Marco Rossi"
+        photo: "photo"
+        description: "description"
+        id: 6
+        job: "job"
+        events:
+        - 5
+        - 5
+      - courses:
+        - 1
+        - 1
+        role: "teacher"
+        quote: "quote"
+        comments:
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        - date: "12th of March 2019"
+          studentName: "Nils Jung"
+          id: 5
+          text: "This teacher was very nice"
+        city: "city"
+        name: "Marco Rossi"
+        photo: "photo"
+        description: "description"
+        id: 6
+        job: "job"
+        events:
+        - 5
+        - 5
       CERF: "A2"
       resources:
       - CERF: "A2"
-        id: 5
+        id: 1
         title: "Italian Book"
         url: "url"
       - CERF: "A2"
-        id: 5
+        id: 1
         title: "Italian Book"
         url: "url"
       location: "location"
-      id: 1
+      id: 0
       time: "16:00"
       day: "Monday"
       events:
-      - null
-      - null
+      - 6
+      - 6
   Resource:
+    type: "object"
     properties:
       id:
         type: "integer"
@@ -532,12 +467,15 @@ definitions:
         example: "Italian Book"
       url:
         type: "string"
+    title: "Resource"
+    description: "a course resource"
     example:
       CERF: "A2"
-      id: 5
+      id: 1
       title: "Italian Book"
       url: "url"
   Comment:
+    type: "object"
     properties:
       id:
         type: "integer"
@@ -553,6 +491,8 @@ definitions:
         example: "12th of March 2019"
       person:
         $ref: "#/definitions/Person"
+    title: "Comment"
+    description: "a comment about a teacher"
     example:
       date: "12th of March 2019"
       studentName: "Nils Jung"
