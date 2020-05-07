@@ -1,0 +1,82 @@
+/*to import the fonts in the HTML
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Open+Sans&display=swap" rel="stylesheet">
+*/
+body {
+    background-color:#ffffff;
+    color:#4d4d4d;
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    line-height: 1.5;
+    color: #A80042;
+}
+h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: #A80042;
+}
+p.normal {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #4d4d4d;
+}
+p.small {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #4d4d4d;
+}
+.overline {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+p.bquote {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
+p.mquote{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.7em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
+p.squote{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.3em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
+#main {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.7em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-align: center;
+}
+.carouseltitle{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    line-height: 1.5;
+    color: #ffffff;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+}
