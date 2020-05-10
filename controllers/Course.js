@@ -27,3 +27,14 @@ module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.coursePOST = function coursePOST (req, res, next) {
+  var course = req.swagger.params['course'].value;
+  Course.coursePOST(course)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};

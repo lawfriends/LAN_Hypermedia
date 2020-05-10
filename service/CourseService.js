@@ -1,6 +1,4 @@
 'use strict';
-
-
 /**
  * courses inventory
  *
@@ -8,144 +6,19 @@
  * offset Integer Pagination offset, with default zero (optional)
  * returns List
  **/
+
+var courseDAO = require('../dao/CourseDAO');
+
 exports.coursesGET = function(limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "level" : "introductory",
-  "teachers" : [ {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  }, {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  } ],
-  "CERF" : "A2",
-  "resources" : [ {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  }, {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  } ],
-  "location" : "location",
-  "id" : 0,
-  "time" : "16:00",
-  "day" : "Monday",
-  "events" : [ 6, 6 ]
-}, {
-  "level" : "introductory",
-  "teachers" : [ {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  }, {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  } ],
-  "CERF" : "A2",
-  "resources" : [ {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  }, {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  } ],
-  "location" : "location",
-  "id" : 0,
-  "time" : "16:00",
-  "day" : "Monday",
-  "events" : [ 6, 6 ]
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+
+  // return sqlDB("courses").limit(limit).offset(offset).then((data)
+  return courseDAO.getCourses().then((data) => {
+    return data.map( element => {
+      //composed resourse; element.price = {value: element.value, currency: element.currency}
+        return element;
+    })
+  })
+
 }
 
 
@@ -161,70 +34,13 @@ exports.coursesIdGET = function(id,limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "level" : "introductory",
-  "teachers" : [ {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  }, {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  } ],
-  "CERF" : "A2",
-  "resources" : [ {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  }, {
-    "CERF" : "A2",
-    "id" : 1,
-    "title" : "Italian Book",
-    "url" : "url"
-  } ],
-  "location" : "location",
-  "id" : 0,
-  "time" : "16:00",
-  "day" : "Monday",
-  "events" : [ 6, 6 ]
-};
+      "level" : "Intermediate",
+      "day": "Wednesday",
+      "time": "17:00",
+      "description": "This is the intermediate course of the Italian Language lessons",
+      "location": "Via Edmondo de Amicis, 17, 20123 Milano MI",
+      "cerf_level": "B1"
+    };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -233,3 +49,15 @@ exports.coursesIdGET = function(id,limit,offset) {
   });
 }
 
+exports.coursePOST = function(course) {
+  return new Promise(function(resolve, reject) {
+    if (Object.keys(course).length > 0) {
+
+      courseDAO.save(course).then((course) => {
+        resolve(course);
+      });
+    } else {
+      resolve();
+    }
+  });
+}
