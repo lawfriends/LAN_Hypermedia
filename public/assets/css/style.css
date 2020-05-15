@@ -103,11 +103,11 @@ p.squote{
     background-color: #A80042;
     width: 200px;
     height: 50px;
-    /*position: static;*/
     position: absolute;
     bottom: 55px;
     left: 100px;
     line-height: 38px;
+    border-radius: 10px;
 }
 .button:hover{
     background-color: #d20644;
@@ -136,5 +136,6 @@ p.squote{
     .carouseltitle{
         position: static;
         font-size: 2.5em;
+        margin-top: 45px;
     }
 }
