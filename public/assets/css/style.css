@@ -71,7 +71,7 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
     text-align: center;
-    padding: 0em 4em;
+    padding: 3.5vw 14vw 4.5vw 14vw;
 }
 .carousel-item{
     width: 100%;
@@ -80,6 +80,7 @@ p.squote{
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
+    position: relative;
 }
 .carouseltitle{
     font-family: 'Nunito Sans', sans-serif;
@@ -100,11 +101,12 @@ p.squote{
     text-transform: uppercase;
     text-align: center;
     background-color: #A80042;
-    width: 198px;
+    width: 200px;
     height: 50px;
+    /*position: static;*/
     position: absolute;
-    bottom: 4vw;
-    left: 7vw;
+    bottom: 55px;
+    left: 100px;
     line-height: 38px;
 }
 .button:hover{
@@ -121,4 +123,18 @@ p.squote{
 .carousel-control-next-icon{
     position: absolute;
     right: 45px;
+}
+@media screen and (max-width: 700px) {
+    .button {
+        position: absolute;
+        bottom: 72px;
+        left: calc(50% - 100px);
+    }
+    .carousel-item{
+        text-align: center;
+    }
+    .carouseltitle{
+        position: static;
+        font-size: 2.5em;
+    }
 }
