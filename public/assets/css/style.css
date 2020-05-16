@@ -103,7 +103,7 @@ p.squote{
     left: 89px;
 }
 .button{
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.875em;
     color: #ffffff;
@@ -133,7 +133,25 @@ p.squote{
     position: absolute;
     right: 45px;
 }
-@media screen and (max-width: 700px) {
+.homepageImg{
+    background-image: url("../img/homepage/groupstudents3.png");
+    height: 318px;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+.homepagePar{
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+@media screen and (max-width: 768px) {
     .button {
         position: absolute;
         bottom: 72px;
@@ -149,5 +167,17 @@ p.squote{
     }
     #main {
     font-size: 1.4em;
-	}
+    }
+    .homepageImg{
+        margin-bottom: 50px;
+    }
+    .homepagePar{
+        padding-left: 63px;
+    }
+    .homepagePar .button{
+        position: absolute;
+        bottom: 27px;
+        top: 230px;
+        left: calc(50% - 100px);
+    }
 }
