@@ -141,12 +141,29 @@ p.squote{
     background-position-x: center;
     background-repeat: no-repeat;
 }
-.homepagePar{
+.homepagePar1{
     padding-left: 4vw;
     padding-right: 7vw;
     padding-bottom: 50px;
 }
-.homepagePar .button{
+.homepagePar1 .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+.homepageTitle{
+    padding: 100px 0px 0px 97px;
+}
+.homepageTitle h1{
+    line-height: 1.2em;
+}
+.homepagePar2{
+    padding-top: 100px;
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar2 .button{
     position: absolute;
     bottom: 0px;
     left: 4vw;
@@ -171,13 +188,31 @@ p.squote{
     .homepageImg{
         margin-bottom: 50px;
     }
-    .homepagePar{
-        padding-left: 63px;
+    .homepagePar1{
+        padding-left: 60px;
     }
-    .homepagePar .button{
+    .homepagePar1 .button{
         position: absolute;
         bottom: 27px;
         top: 230px;
+        left: calc(50% - 100px);
+    }
+    .homepageTitle{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepageTitle h1{
+        line-height: 1.2em;
+    }
+    .homepagePar2{
+        padding-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepagePar2 .button{
+        position: absolute;
+        bottom: 27px;
+        top: 125px;
         left: calc(50% - 100px);
     }
 }
