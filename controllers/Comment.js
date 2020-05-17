@@ -1,12 +1,12 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var CourseService = require('../service/CourseService');
+var CommentService = require('../service/CommentService');
 
-module.exports.coursesGET = function coursesGET (req, res, next) {
+module.exports.commentsGET = function commentsGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  CourseService.coursesGET(limit,offset)
+  CommentService.commentsGET(limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -15,11 +15,11 @@ module.exports.coursesGET = function coursesGET (req, res, next) {
     });
 };
 
-module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
+module.exports.commentsIdGET = function commentsIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  CourseService.coursesIdGET(id,limit,offset)
+  CommentService.commentsIdGET(id,limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -28,9 +28,9 @@ module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
     });
 };
 
-module.exports.coursePOST = function coursePOST (req, res, next) {
-  var course = req.swagger.params['course'].value;
-  CourseService.coursePOST(course)
+module.exports.commentPOST = function commentPOST (req, res, next) {
+  var comment = req.swagger.params['comment'].value;
+  CommentService.commentPOST(comment)
     .then(function (response) {
       utils.writeJson(res, response);
     })

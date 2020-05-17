@@ -8,7 +8,11 @@
  * offset Integer Pagination offset, with default zero (optional)
  * returns List
  **/
-exports.volunteersGET = function(limit,offset) {
+
+ 
+var personDAO = require('../dao/PersonDAO');
+
+exports.peopleGET = function(limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -68,12 +72,12 @@ exports.volunteersGET = function(limit,offset) {
 /**
  * A specific volunteer
  *
- * id Long volunteer ID
+ * id Long person ID
  * limit Integer limit num of items per page (optional)
  * offset Integer Pagination offset, with default zero (optional)
  * returns Person
  **/
-exports.volunteersIdGET = function(id,limit,offset) {
+exports.personIdGET = function(id,limit,offset) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -101,6 +105,19 @@ exports.volunteersIdGET = function(id,limit,offset) {
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+exports.personPOST = function(person) {
+  return new Promise(function(resolve, reject) {
+    if (Object.keys(person).length > 0) {
+
+      personDAO.save(person).then((person) => {
+        resolve(person);
+      });
     } else {
       resolve();
     }

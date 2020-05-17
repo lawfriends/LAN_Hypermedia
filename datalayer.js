@@ -1,7 +1,8 @@
-let { coursesDBSetup } = require('./dao/CourseDAO')
+let { courseDBSetup } = require('./dao/CourseDAO')
+let { commentDBSetup } = require('./dao/CommentDAO')
+let { personDBSetup } = require('./dao/PersonDAO')
 
 const sqlDBFactory = require("knex");
-
 let sqlDB = sqlDBFactory({
     client: "pg",
     debug: true,
@@ -16,7 +17,12 @@ let sqlDB = sqlDBFactory({
 
 function setupDataLayer() {
     console.log("setting up data layer");
-    return coursesDBSetup(sqlDB);
+    return Promise.all([
+        courseDBSetup(sqlDB),
+        personDBSetup(sqlDB),
+        commentDBSetup(sqlDB),
+
+    ]);
     //if you have other services, yoou should invoke all inside a promise and return it : Promise.all (...)
 }
 
