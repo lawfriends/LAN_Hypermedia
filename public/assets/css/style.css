@@ -194,7 +194,8 @@ p.squote{
     .homepagePar1 .button{
         position: absolute;
         bottom: 27px;
-        top: 230px;
+        /* top: 250px; */
+        top: 90%;
         left: calc(50% - 100px);
     }
     .homepageTitle{
@@ -212,7 +213,8 @@ p.squote{
     .homepagePar2 .button{
         position: absolute;
         bottom: 27px;
-        top: 125px;
+        /*top: 145px;*/
+        top: 80%;
         left: calc(50% - 100px);
     }
 }
