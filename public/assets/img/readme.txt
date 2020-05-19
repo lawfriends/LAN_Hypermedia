@@ -1,1 +1,1 @@
-just a file to create the folder
+Created img folder
