@@ -168,6 +168,40 @@ p.squote{
     bottom: 0px;
     left: 4vw;
 }
+.homepageDonate{
+    position: relative;
+    background-image: url("../img/homepage/world1.png");
+    height: 468px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80% 50%;
+}
+.homepageDonate p{
+    position: absolute;
+    top: 5vw;
+    right: 13%;
+    /*left: 35%;*/
+    /* height: 40%; */
+    width: 35%;
+}
+.volunteerButton{
+    position: absolute;
+    bottom: 3%;
+    left: 52%;
+}
+.donateButton{
+    position: absolute;
+    bottom: 3%;
+    left: 75%;
+}
+@media screen and (max-width: 1080px) {
+    .volunteerButton{
+        left: 40%;
+    }
+    .donateButton{
+        left: 70%;
+    }
+}
 @media screen and (max-width: 768px) {
     .button {
         position: absolute;
@@ -216,5 +250,35 @@ p.squote{
         /*top: 145px;*/
         top: 80%;
         left: calc(50% - 100px);
+    }
+    .homepageDonate{
+        height: 260px;
+        background-position: center;
+    }
+    .homepageDonate p{
+        position: absolute;
+        top: 100%;
+        margin-top: 20px;
+        width: 65%;
+    }
+    .volunteerButton{
+        position: absolute;
+        top: 200%;
+        left: 15%;
+    }
+    .donateButton{
+        position: absolute;
+        top: 200%;
+        left: 58%;
+    }
+}
+@media screen and (max-width: 550px) {
+    .volunteerButton{
+        margin-top: 30%;
+        left: calc(50% - 100px);;
+    }
+    .donateButton{
+        margin-top: 50%;
+        left: calc(50% - 100px);;
     }
 }
