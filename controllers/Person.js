@@ -1,12 +1,12 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Volunteers = require('../service/VolunteersService');
+var PersonService = require('../service/PersonService');
 
-module.exports.volunteersGET = function volunteersGET (req, res, next) {
+module.exports.peopleGET = function peopleGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  Volunteers.volunteersGET(limit,offset)
+  PersonService.peopleGET(limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -15,11 +15,22 @@ module.exports.volunteersGET = function volunteersGET (req, res, next) {
     });
 };
 
-module.exports.volunteersIdGET = function volunteersIdGET (req, res, next) {
+module.exports.personIdGET = function personIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  Volunteers.volunteersIdGET(id,limit,offset)
+  PersonService.personIdGET(id,limit,offset)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.personPOST = function personPOST (req, res, next) {
+  var person = req.swagger.params['person'].value;
+  PersonService.personPOST(person)
     .then(function (response) {
       utils.writeJson(res, response);
     })

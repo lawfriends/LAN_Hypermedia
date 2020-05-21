@@ -13,8 +13,10 @@ tags:
   description: "Courses that the association is offering"
 - name: "Event"
   description: "Events organized by the association"
-- name: "Volunteers"
-  description: "Volunteers"
+- name: "Person"
+  description: "People, volunteers"
+- name: "Comments"
+  description: "Comments about volunteers or about the association"
 paths:
   /events:
     get:
@@ -181,12 +183,12 @@ paths:
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Course"
-  /volunteers:
+  /people:
     get:
       tags:
-      - "Volunteers"
-      summary: "volunteers inventory"
-      operationId: "volunteersGET"
+      - "Person"
+      summary: "people, volunteers inventory"
+      operationId: "peopleGET"
       produces:
       - "application/json"
       parameters:
@@ -202,20 +204,41 @@ paths:
         type: "integer"
       responses:
         "200":
-          description: "A collection of Volunteers"
+          description: "A collection of people"
           schema:
             type: "array"
             items:
               $ref: "#/definitions/Person"
         "404":
           description: "Unexpected error"
-      x-swagger-router-controller: "Volunteers"
-  /volunteers/{id}:
+      x-swagger-router-controller: "Person"
+    post:
+      tags:
+      - "Person"
+      summary: "Add a new person"
+      operationId: "personPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "person"
+        required: true
+        schema:
+          $ref: "#/definitions/Person"
+      responses:
+        "201":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Person"
+      x-swagger-router-controller: "Person"
+  /person/{id}:
     get:
       tags:
-      - "Volunteers"
+      - "Person"
       summary: "A specific volunteer"
-      operationId: "volunteersIdGET"
+      operationId: "personIdGET"
       produces:
       - "application/json"
       parameters:
@@ -241,7 +264,57 @@ paths:
             $ref: "#/definitions/Person"
         "404":
           description: "Unexpected error"
-      x-swagger-router-controller: "Volunteers"
+      x-swagger-router-controller: "Person"
+  /comments:
+    get:
+      tags:
+      - "Comments"
+      summary: "Comments inventory"
+      operationId: "commentsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of Comments"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Comment"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Comment"
+    post:
+      tags:
+      - "Comments"
+      summary: "Add a new Comment"
+      operationId: "commentPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "comment"
+        required: true
+        schema:
+          $ref: "#/definitions/Comment"
+      responses:
+        "201":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Comment"
+      x-swagger-router-controller: "Comment"
 definitions:
   Event:
     type: "object"
@@ -494,18 +567,18 @@ definitions:
       text:
         type: "string"
         example: "This teacher was very nice"
-      studentName:
+      student_name:
         type: "string"
         example: "Nils Jung"
       date:
         type: "string"
         example: "12th of March 2019"
       person:
-        $ref: "#/definitions/Person"
+        type: "integer"
     title: "Comment"
     description: "a comment about a teacher"
     example:
       date: "12th of March 2019"
-      studentName: "Nils Jung"
+      student_name: "Nils Jung"
       id: 5
       text: "This teacher was very nice"
