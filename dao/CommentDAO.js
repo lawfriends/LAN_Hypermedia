@@ -20,14 +20,13 @@ exports.commentDBSetup = function (connection) {
 var { database } = require("../datalayer");
 
 exports.save = function(comment) {
-  /* example: 
+  /*example:
   {
     "person_id" : 1,
     "text": "This is a very nice review about Alexandra Pozzi",
     "date": "2019-10-19 10:23:54+02",
     "student_name": "Michael B"
-  }
-*/
+  }*/
   return sqlDB('comment')
       .returning()
       .insert({
