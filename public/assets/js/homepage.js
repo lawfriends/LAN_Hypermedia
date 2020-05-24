@@ -1,50 +1,39 @@
 function getAssociationComments() {
-    var mylist = document.querySelector(".carouselComment .row .col-md-4");
-    console.log(mylist);
+    var carousel = document.querySelector(".associationTestimonials");
     fetch("/v1/comments").then(function(response) {
         return response.json();
-    }).then(function(list) {
-        console.log(list)
-        for(var i=0; i<3; i++) {
-            if(list[i].person_id==null) {
-                console.log("NUll ok");
-                var studentName = document.createElement("p");
-                console.log("ok");
-                let {student_name} = list[i];
-                studentName.innerHTML = `${student_name}`;
-                studentName.classList.add("overline");
-                /*var text = document.createTextNode("ciaociao");*/
-                /*studentName.appendChild(text);*/
-                mylist.appendChild(studentName);
+    }).then(function(comments) {
+        a=0;
+        while(a<2) {
+            for(var i=0; i<comments.length; i++) {
+                if(comments[i].person_id==null) {
+                    a++;
+                    var carouselComment = document.createElement("div");
+                    carouselComment.classList.add("carousel-item", "carouselComment");
+                    if(a==1){
+                        carouselComment.classList.add("active");
+                    }
+                    var row = document.createElement("div");
+                    row.classList.add("row", "align-items-center");
+                    var firstCol = document.createElement("div");
+                    firstCol.classList.add("col-md-4");
+                    var secondCol = document.createElement("div");
+                    secondCol.classList.add("col-md-8");
+                    var studentName = document.createElement("p");
+                    studentName.classList.add("overline");
+                    var studentComment = document.createElement("p");
+                    studentComment.classList.add("bquote");
+                    let {student_name, text} = comments[i];
+                    studentName.innerHTML = `${student_name}`;
+                    studentComment.innerHTML = `${text}`;
+                    carousel.appendChild(carouselComment);
+                    carouselComment.appendChild(row);
+                    row.appendChild(firstCol);
+                    firstCol.appendChild(studentName);
+                    row.appendChild(secondCol);
+                    secondCol.appendChild(studentComment);
+                }
             }
-            /*var studentName = document.createElement("li");
-            let {level, description } = list[i];
-            studentName.innerHTML = `${level} - ${description}`;
-            mylist.appendChild(studentName);*/
-        }
-    })
-    var mylist1 = document.querySelector(".carouselComment .row .col-md-8");
-    console.log(mylist1);
-    fetch("/v1/comments").then(function(response) {
-        return response.json();
-    }).then(function(list1) {
-        console.log(list1)
-        for(var i=0; i<3; i++) {
-            if(list1[i].person_id==null) {
-                console.log("NUll ok");
-                var studentComment = document.createElement("p");
-                console.log("ok");
-                let {text} = list1[i];
-                studentComment.innerHTML = `${text}`;
-                studentComment.classList.add("bquote");
-                /*var text = document.createTextNode("ciaociao");*/
-                /*studentName.appendChild(text);*/
-                mylist1.appendChild(studentComment);
-            }
-            /*var studentName = document.createElement("li");
-            let {level, description } = list[i];
-            studentName.innerHTML = `${level} - ${description}`;
-            mylist.appendChild(studentName);*/
         }
     })
 }
