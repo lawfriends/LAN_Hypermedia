@@ -56,6 +56,14 @@ p.mquote{
     line-height: 1.5;
     color: #004D4A;
 }
+div.mquote{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.7em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
 p.squote{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -176,30 +184,40 @@ p.squote{
     background-repeat: no-repeat;
     background-position: 80% 50%;
 }
-.homepageDonate p{
-    position: absolute;
-    top: 5vw;
-    right: 13%;
+.homepageDonate .mquote{
     /*left: 35%;*/
     /* height: 40%; */
-    width: 35%;
+    margin-top: 100px;
+    margin-right: 50px;
 }
 .volunteerButton{
-    position: absolute;
-    bottom: 3%;
-    left: 52%;
+    position: static;
+    /*bottom: 3%;
+    left: 52%;*/
+    margin-top: 50px;
 }
 .donateButton{
-    position: absolute;
-    bottom: 3%;
-    left: 75%;
+    position: static;
+    /*bottom: 3%;
+    left: 75%;*/
+    margin-top: 50px;
 }
-@media screen and (max-width: 1080px) {
+.emptyCol{
+    height: 468px;
+}
+@media screen and (max-width: 1200px) {
+    .homepageDonate .mquote{
+        /*left: 35%;*/
+        /* height: 40%; */
+        margin-top: 100px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
     .volunteerButton{
-        left: 40%;
+        margin-left: calc(50% - 100px);
     }
     .donateButton{
-        left: 70%;
+        margin-left: calc(50% - 100px);
     }
 }
 @media screen and (max-width: 768px) {
@@ -255,7 +273,18 @@ p.squote{
         height: 260px;
         background-position: center;
     }
-    .homepageDonate p{
+    .emptyCol{
+        height: 260px;
+    }
+    .volunteerButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    .donateButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    /* .homepageDonate p{
         position: absolute;
         top: 100%;
         margin-top: 20px;
@@ -270,15 +299,13 @@ p.squote{
         position: absolute;
         top: 200%;
         left: 58%;
-    }
+    } */
 }
 @media screen and (max-width: 550px) {
     .volunteerButton{
-        margin-top: 30%;
-        left: calc(50% - 100px);;
+        margin-left: calc(50% - 100px);;
     }
     .donateButton{
-        margin-top: 50%;
-        left: calc(50% - 100px);;
+        margin-left: calc(50% - 100px);;
     }
 }
