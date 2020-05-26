@@ -575,6 +575,8 @@ definitions:
         example: "12th of March 2019"
       person:
         type: "integer"
+      photo:
+        type: "string"
     title: "Comment"
     description: "a comment about a teacher"
     example:
