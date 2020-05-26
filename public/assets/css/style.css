@@ -215,6 +215,43 @@ p.squote{
     bottom: 3%;
     left: 75%;
 }
+.footer{
+    height: auto;
+    background-color: #004D4A;
+}
+.footer .col-lg{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footer .col-lg-3{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footertitle{
+    font-family: 'Nunito Sans', 'sans-serif';
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody{
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody a{
+    color: white;
+}
+.footerbody a:visited{
+    color: white;
+}
+.footerbody a:hover{
+    color: #8dc9b1;
+}
+.footerbody a:active{
+    color: #498f73;
+}
 @media screen and (max-width: 1080px) {
     .volunteerButton{
         left: 40%;
