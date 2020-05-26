@@ -1,12 +1,12 @@
 var sqlDB;
 
-exports.coursesDBSetup = function (connection) {
+exports.courseDBSetup = function (connection) {
   sqlDB = connection;
   console.log('checking if the couses table exist');
-  return sqlDB.schema.hasTable('courses').then((exists) => {
+  return sqlDB.schema.hasTable('course').then((exists) => {
     if(!exists) {
       console.log('CREATE TABLE');
-      return sqlDB.schema.withSchema('public').createTable('courses', (table) => {
+      return sqlDB.schema.withSchema('public').createTable('course', (table) => {
         table.increments(); // the course id - PK
         table.enum('level', ['Introductory','Basic','Intermediate']);
         table.enum('day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
@@ -22,7 +22,7 @@ exports.coursesDBSetup = function (connection) {
 var { database } = require("../datalayer");
 
 exports.save = function(course) {
-    return sqlDB('courses')
+    return sqlDB('course')
         .returning()
         .insert({
             level: course.level,
@@ -35,5 +35,5 @@ exports.save = function(course) {
 }
 
 exports.getCourses = function() {
-    return sqlDB('courses');
+    return sqlDB('course');
 }
