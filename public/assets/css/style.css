@@ -72,6 +72,14 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
 }
+.peoplecaption{
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-align: center;
+}
 #main {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -176,6 +184,19 @@ p.squote{
     bottom: 0px;
     left: 4vw;
 }
+.carouselComment{
+    background-color: #cee8df;
+    height: 375px;
+    margin-top: 100px;
+    text-align: center;
+}
+.carouselComment .bquote{
+    text-align: center;
+}
+.carouselComment img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
 .homepageDonate{
     position: relative;
     background-image: url("../img/homepage/world1.png");
@@ -218,6 +239,9 @@ p.squote{
     }
     .donateButton{
         margin-left: calc(50% - 100px);
+    }
+    .carouselComment .bquote{
+        font-size: 1.7em;
     }
 }
 @media screen and (max-width: 768px) {
@@ -268,6 +292,13 @@ p.squote{
         /*top: 145px;*/
         top: 80%;
         left: calc(50% - 100px);
+    }
+    .carouselComment{
+        height: 650px;
+    }
+    .carouselComment .bquote{
+        text-align: center;
+        font-size: 2.5em;
     }
     .homepageDonate{
         height: 260px;

@@ -1,12 +1,12 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var CourseService = require('../service/CourseService');
+var PersonService = require('../service/PersonService');
 
-module.exports.coursesGET = function coursesGET (req, res, next) {
+module.exports.peopleGET = function peopleGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  CourseService.coursesGET(limit,offset)
+  PersonService.peopleGET(limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -15,11 +15,11 @@ module.exports.coursesGET = function coursesGET (req, res, next) {
     });
 };
 
-module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
+module.exports.personIdGET = function personIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  CourseService.coursesIdGET(id,limit,offset)
+  PersonService.personIdGET(id,limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -28,9 +28,9 @@ module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
     });
 };
 
-module.exports.coursePOST = function coursePOST (req, res, next) {
-  var course = req.swagger.params['course'].value;
-  CourseService.coursePOST(course)
+module.exports.personPOST = function personPOST (req, res, next) {
+  var person = req.swagger.params['person'].value;
+  PersonService.personPOST(person)
     .then(function (response) {
       utils.writeJson(res, response);
     })
