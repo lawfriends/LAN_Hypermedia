@@ -64,6 +64,14 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
 }
+.peoplecaption{
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-align: center;
+}
 #main {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -71,7 +79,25 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
     text-align: center;
-    padding: 0em 4em;
+    padding: 3.5vw 14vw 4.5vw 14vw;
+}
+.carousel1{
+    width: 100%;
+    height: 340px;
+    background-image: url("../img/homepage/studying6.png");
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.carousel2{
+    width: 100%;
+    height: 340px;
+    background-image: url("../img/homepage/studying7.png");
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 .carouseltitle{
     font-family: 'Nunito Sans', sans-serif;
@@ -80,4 +106,210 @@ p.squote{
     line-height: 1.5;
     color: #ffffff;
     text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 20px;
+    left: 89px;
+}
+.button{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #A80042;
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+    line-height: 38px;
+    border-radius: 10px;
+}
+.button:hover{
+    background-color: #d20644;
+    color: #ffffff;
+}
+.button:active{
+    background-color: #910039;
+}
+.carousel-control-prev-icon{
+    position: absolute;
+    left: 45px;
+}
+.carousel-control-next-icon{
+    position: absolute;
+    right: 45px;
+}
+.homepageImg{
+    background-image: url("../img/homepage/groupstudents3.png");
+    height: 318px;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+.homepagePar1{
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar1 .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+.homepageTitle{
+    padding: 100px 0px 0px 97px;
+}
+.homepageTitle h1{
+    line-height: 1.2em;
+}
+.homepagePar2{
+    padding-top: 100px;
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar2 .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+.carouselComment{
+    background-color: #cee8df;
+    height: 375px;
+    margin-top: 100px;
+    text-align: center;
+}
+.carouselComment .bquote{
+    text-align: center;
+}
+.carouselComment img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.homepageDonate{
+    position: relative;
+    background-image: url("../img/homepage/world1.png");
+    height: 468px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80% 50%;
+}
+.homepageDonate p{
+    position: absolute;
+    top: 5vw;
+    right: 13%;
+    /*left: 35%;*/
+    /* height: 40%; */
+    width: 35%;
+}
+.volunteerButton{
+    position: absolute;
+    bottom: 3%;
+    left: 52%;
+}
+.donateButton{
+    position: absolute;
+    bottom: 3%;
+    left: 75%;
+}
+@media screen and (max-width: 1080px) {
+    .volunteerButton{
+        left: 40%;
+    }
+    .donateButton{
+        left: 70%;
+    }
+    .carouselComment .bquote{
+        font-size: 1.7em;
+    }
+}
+@media screen and (max-width: 768px) {
+    .button {
+        position: absolute;
+        bottom: 72px;
+        left: calc(50% - 100px);
+    }
+    .carousel-item{
+        text-align: center;
+    }
+    .carouseltitle{
+        position: static;
+        font-size: 2.5em;
+        margin-top: 45px;
+    }
+    #main {
+    font-size: 1.4em;
+    }
+    .homepageImg{
+        margin-bottom: 50px;
+    }
+    .homepagePar1{
+        padding-left: 60px;
+    }
+    .homepagePar1 .button{
+        position: absolute;
+        bottom: 27px;
+        /* top: 250px; */
+        top: 90%;
+        left: calc(50% - 100px);
+    }
+    .homepageTitle{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepageTitle h1{
+        line-height: 1.2em;
+    }
+    .homepagePar2{
+        padding-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepagePar2 .button{
+        position: absolute;
+        bottom: 27px;
+        /*top: 145px;*/
+        top: 80%;
+        left: calc(50% - 100px);
+    }
+    .carouselComment{
+        height: 650px;
+    }
+    .carouselComment .bquote{
+        text-align: center;
+        font-size: 2.5em;
+    }
+    .homepageDonate{
+        height: 260px;
+        background-position: center;
+    }
+    .homepageDonate p{
+        position: absolute;
+        top: 100%;
+        margin-top: 20px;
+        width: 65%;
+    }
+    .volunteerButton{
+        position: absolute;
+        top: 200%;
+        left: 15%;
+    }
+    .donateButton{
+        position: absolute;
+        top: 200%;
+        left: 58%;
+    }
+}
+@media screen and (max-width: 550px) {
+    .volunteerButton{
+        margin-top: 30%;
+        left: calc(50% - 100px);;
+    }
+    .donateButton{
+        margin-top: 50%;
+        left: calc(50% - 100px);;
+    }
 }
