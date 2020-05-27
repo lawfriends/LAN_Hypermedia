@@ -12,6 +12,7 @@ exports.commentDBSetup = function (connection) {
         table.text('text');
         table.timestamp('date').defaultTo(sqlDB.fn.now());
         table.string('student_name');
+        table.string('photo');
       })
     }
   });
@@ -34,7 +35,8 @@ exports.save = function(comment) {
           person_id: comment.person_id,
           date: comment.date,
           student_name: comment.student_name,
-          },['id','text','date','person_id']);
+          photo: comment.photo
+          },['id','text','date','person_id','photo']);
 }
 
 exports.getComments = function() {

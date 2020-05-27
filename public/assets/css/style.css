@@ -118,6 +118,14 @@ p.mquote{
     line-height: 1.5;
     color: #004D4A;
 }
+div.mquote{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.7em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
 p.squote{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -259,30 +267,81 @@ p.squote{
     background-repeat: no-repeat;
     background-position: 80% 50%;
 }
-.homepageDonate p{
-    position: absolute;
-    top: 5vw;
-    right: 13%;
+.homepageDonate .mquote{
     /*left: 35%;*/
     /* height: 40%; */
-    width: 35%;
+    margin-top: 100px;
+    margin-right: 50px;
 }
 .volunteerButton{
-    position: absolute;
-    bottom: 3%;
-    left: 52%;
+    position: static;
+    /*bottom: 3%;
+    left: 52%;*/
+    margin-top: 50px;
 }
 .donateButton{
-    position: absolute;
-    bottom: 3%;
-    left: 75%;
+    position: static;
+    /*bottom: 3%;
+    left: 75%;*/
+    margin-top: 50px;
+}
+<<<<<<< HEAD
+.footer{
+    height: auto;
+    background-color: #004D4A;
+}
+.footer .col-lg{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footer .col-lg-3{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footertitle{
+    font-family: 'Nunito Sans', 'sans-serif';
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody{
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody a{
+    color: white;
+}
+.footerbody a:visited{
+    color: white;
+}
+.footerbody a:hover{
+    color: #8dc9b1;
+}
+.footerbody a:active{
+    color: #498f73;
 }
 @media screen and (max-width: 1080px) {
+=======
+.emptyCol{
+    height: 468px;
+}
+@media screen and (max-width: 1200px) {
+    .homepageDonate .mquote{
+        /*left: 35%;*/
+        /* height: 40%; */
+        margin-top: 100px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+>>>>>>> master
     .volunteerButton{
-        left: 40%;
+        margin-left: calc(50% - 100px);
     }
     .donateButton{
-        left: 70%;
+        margin-left: calc(50% - 100px);
     }
     .carouselComment .bquote{
         font-size: 1.7em;
@@ -354,7 +413,18 @@ p.squote{
         height: 260px;
         background-position: center;
     }
-    .homepageDonate p{
+    .emptyCol{
+        height: 260px;
+    }
+    .volunteerButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    .donateButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    /* .homepageDonate p{
         position: absolute;
         top: 100%;
         margin-top: 20px;
@@ -369,15 +439,13 @@ p.squote{
         position: absolute;
         top: 200%;
         left: 58%;
-    }
+    } */
 }
 @media screen and (max-width: 550px) {
     .volunteerButton{
-        margin-top: 30%;
-        left: calc(50% - 100px);;
+        margin-left: calc(50% - 100px);;
     }
     .donateButton{
-        margin-top: 50%;
-        left: calc(50% - 100px);;
+        margin-left: calc(50% - 100px);;
     }
 }
