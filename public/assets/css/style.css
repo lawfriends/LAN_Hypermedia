@@ -285,7 +285,6 @@ p.squote{
     left: 75%;*/
     margin-top: 50px;
 }
-<<<<<<< HEAD
 .footer{
     height: auto;
     background-color: #004D4A;
@@ -323,8 +322,6 @@ p.squote{
 .footerbody a:active{
     color: #498f73;
 }
-@media screen and (max-width: 1080px) {
-=======
 .emptyCol{
     height: 468px;
 }
@@ -336,7 +333,6 @@ p.squote{
         margin-right: 50px;
         margin-left: 50px;
     }
->>>>>>> master
     .volunteerButton{
         margin-left: calc(50% - 100px);
     }
@@ -349,8 +345,11 @@ p.squote{
     .navbar{
         flex-direction: column !important;
     }
+    .footer{
+        margin-top: calc(250px + 20vw);
+    }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .navbar{
         flex-direction: row !important;
     }
@@ -423,6 +422,9 @@ p.squote{
     .donateButton{
         position: static;
         margin-left: calc(50% - 100px);
+    }
+    .footer{
+        margin-top: calc(470px + 50vw);
     }
     /* .homepageDonate p{
         position: absolute;
