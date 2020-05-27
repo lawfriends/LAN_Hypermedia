@@ -21,15 +21,23 @@ function getAssociationComments() {
                     secondCol.classList.add("col-md-8");
                     var studentName = document.createElement("p");
                     studentName.classList.add("overline");
+                    var commentDate = document.createElement("p");
+                    commentDate.classList.add("peoplecaption");
+                    var studentPhoto = document.createElement("img");
                     var studentComment = document.createElement("p");
                     studentComment.classList.add("bquote");
-                    let {student_name, text} = comments[i];
+                    let {student_name, text, date, photo} = comments[i];
+                    studentPhoto.src = `${photo}`;
                     studentName.innerHTML = `${student_name}`;
+                    var commentYear = `${date}`.slice(0,4);
+                    commentDate.innerHTML = "Student ".concat(commentYear);
                     studentComment.innerHTML = `${text}`;
                     carousel.appendChild(carouselComment);
                     carouselComment.appendChild(row);
                     row.appendChild(firstCol);
+                    firstCol.appendChild(studentPhoto);
                     firstCol.appendChild(studentName);
+                    firstCol.appendChild(commentDate);
                     row.appendChild(secondCol);
                     secondCol.appendChild(studentComment);
                 }
