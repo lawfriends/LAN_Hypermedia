@@ -1,0 +1,32 @@
+#coursesImage{
+    padding-right: 0;
+}
+#coursesImage img{
+    width: 100%;
+}
+#coursesPar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.courses{
+    margin-top: 50px;
+}
+.card{
+    margin: 25px auto 80px auto;
+}
+.card-title{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #004D4A;
+}
+.card-title:hover{
+    color: #004D4A;
+}
+@media only screen and (max-width: 400px){
+    .coursesIntro{
+        width: 375px;
+        margin: 0;
+    }    
+}

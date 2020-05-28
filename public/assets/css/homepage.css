@@ -1,0 +1,210 @@
+.carousel1{
+    width: 100%;
+    height: 340px;
+    background-image: url("../img/homepage/studying6.png");
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.carousel2{
+    width: 100%;
+    height: 340px;
+    background-image: url("../img/homepage/studying7.png");
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.carouseltitle{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    line-height: 1.5;
+    color: #ffffff;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 20px;
+    left: 89px;
+}
+.carousel-control-prev-icon{
+    position: absolute;
+    left: 45px;
+}
+.carousel-control-next-icon{
+    position: absolute;
+    right: 45px;
+}
+.homepageImg{
+    background-image: url("../img/homepage/groupstudents3.png");
+    height: 318px;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+.homepagePar1{
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar1 .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+.homepageTitle{
+    padding: 100px 0px 0px 97px;
+}
+.homepageTitle h1{
+    line-height: 1.2em;
+}
+.homepagePar2{
+    padding-top: 100px;
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.homepagePar2 .button{
+    position: absolute;
+    bottom: 0px;
+    left: 4vw;
+}
+.carouselComment{
+    background-color: #cee8df;
+    height: 375px;
+    margin-top: 100px;
+    text-align: center;
+}
+.carouselComment .bquote{
+    text-align: center;
+}
+.carouselComment img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.homepageDonate{
+    position: relative;
+    background-image: url("../img/homepage/world1.png");
+    height: 468px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80% 50%;
+}
+.homepageDonate .mquote{
+    /*left: 35%;*/
+    /* height: 40%; */
+    margin-top: 100px;
+    margin-right: 50px;
+}
+.volunteerButton{
+    position: static;
+    /*bottom: 3%;
+    left: 52%;*/
+    margin-top: 50px;
+}
+.donateButton{
+    position: static;
+    /*bottom: 3%;
+    left: 75%;*/
+    margin-top: 50px;
+}
+.emptyCol{
+    height: 468px;
+}
+@media only screen and (max-width: 1200px) {
+    .homepageDonate .mquote{
+        /*left: 35%;*/
+        /* height: 40%; */
+        margin-top: 100px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    .volunteerButton{
+        margin-left: calc(50% - 100px);
+    }
+    .donateButton{
+        margin-left: calc(50% - 100px);
+    }
+    .carouselComment .bquote{
+        font-size: 1.7em;
+    }
+    .footer{
+        margin-top: 450px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .carousel-item{
+        text-align: center;
+    }
+    .carouseltitle{
+        position: static;
+        font-size: 2.5em;
+        margin-top: 45px;
+    }
+    .homepageImg{
+        margin-bottom: 50px;
+    }
+    .homepagePar1{
+        padding-left: 60px;
+    }
+    .homepagePar1 .button{
+        position: absolute;
+        bottom: 27px;
+        /* top: 250px; */
+        top: 90%;
+        left: calc(50% - 100px);
+    }
+    .homepageTitle{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepageTitle h1{
+        line-height: 1.2em;
+    }
+    .homepagePar2{
+        padding-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .homepagePar2 .button{
+        position: absolute;
+        bottom: 27px;
+        /*top: 145px;*/
+        top: 80%;
+        left: calc(50% - 100px);
+    }
+    .carouselComment{
+        height: 650px;
+    }
+    .carouselComment .bquote{
+        text-align: center;
+        font-size: 2.5em;
+    }
+    .homepageDonate{
+        height: 260px;
+        background-position: center;
+    }
+    .volunteerButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    .donateButton{
+        position: static;
+        margin-left: calc(50% - 100px);
+    }
+    .emptyCol{
+        height: 260px;
+    }
+    .footer{
+        margin-top: 700px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .volunteerButton{
+        margin-left: calc(50% - 100px);;
+    }
+    .donateButton{
+        margin-left: calc(50% - 100px);;
+    }
+}
