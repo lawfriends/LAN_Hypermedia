@@ -12,6 +12,7 @@ exports.commentDBSetup = function (connection) {
         table.text('text');
         table.timestamp('date').defaultTo(sqlDB.fn.now());
         table.string('student_name');
+        table.string('photo');
       })
     }
   });
@@ -20,14 +21,13 @@ exports.commentDBSetup = function (connection) {
 var { database } = require("../datalayer");
 
 exports.save = function(comment) {
-  /* example: 
+  /*example:
   {
     "person_id" : 1,
     "text": "This is a very nice review about Alexandra Pozzi",
     "date": "2019-10-19 10:23:54+02",
     "student_name": "Michael B"
-  }
-*/
+  }*/
   return sqlDB('comment')
       .returning()
       .insert({
@@ -35,7 +35,8 @@ exports.save = function(comment) {
           person_id: comment.person_id,
           date: comment.date,
           student_name: comment.student_name,
-          },['id','text','date','person_id']);
+          photo: comment.photo
+          },['id','text','date','person_id','photo']);
 }
 
 exports.getComments = function() {

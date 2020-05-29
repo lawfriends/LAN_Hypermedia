@@ -20,6 +20,68 @@ h6 {
     line-height: 1.5;
     color: #A80042;
 }
+.navbar{
+    margin-bottom: 20px;
+}
+.navbar-brand{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.625em;
+    color: #004d4a !important;
+    text-align: center;
+    background-color: white;
+    padding: 24px 10px;
+}
+.navItem{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.88em;
+    color: #004d4a !important;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: white;
+    border-bottom: 4px solid;
+    border-color: transparent;
+    padding: 24px 10px !important;
+}
+.navItem:hover{
+    color: #004d4a !important;
+    border-color: #004d4a;
+}
+.navItem:active{
+    color: #004d4a !important;
+    border-color: #004d4a;
+}
+.navDonate{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.88em;
+    color: #a80042 !important;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: white;
+    border-bottom: 4px solid;
+    border-color: transparent;
+    padding: 24px 10px !important;
+}
+.navDonate:hover{
+    color: #a80042 !important;
+    border-color: #a80042;
+}
+.navDonate:active{
+    color: #a80042 !important;
+    border-color: #a80042;
+}
+.navbar-toggler{
+    background-color: none;
+    color: gray;
+}
+.navbar-light .navbar-toggler-icon{
+    background-image: url("../img/association/menu-24px.svg");
+}
+.navbar-light .navbar-toggler{
+    border-color: transparent;
+}
 p.normal {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
@@ -56,6 +118,14 @@ p.mquote{
     line-height: 1.5;
     color: #004D4A;
 }
+div.mquote{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.7em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #004D4A;
+}
 p.squote{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -64,6 +134,14 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
 }
+.peoplecaption{
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-align: center;
+}
 #main {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -71,13 +149,99 @@ p.squote{
     line-height: 1.5;
     color: #004D4A;
     text-align: center;
-    padding: 0em 4em;
+    padding: 3.5vw 14vw 4.5vw 14vw;
 }
-.carouseltitle{
+.button{
     font-family: 'Nunito Sans', sans-serif;
-    font-weight: 600;
-    font-size: 3em;
-    line-height: 1.5;
+    font-weight: 700;
+    font-size: 0.875em;
     color: #ffffff;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #A80042;
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    bottom: 55px;
+    left: 100px;
+    line-height: 38px;
+    border-radius: 10px;
+}
+.button:hover{
+    background-color: #d20644;
+    color: #ffffff;
+}
+.button:active{
+    background-color: #910039;
+}
+.footer{
+    height: auto;
+    background-color: #004D4A;
+}
+.footer .col-lg{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footer .col-lg-3{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.footertitle{
+    font-family: 'Nunito Sans', 'sans-serif';
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody{
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: white;
+}
+.footerbody a{
+    color: white;
+}
+.footerbody a:visited{
+    color: white;
+}
+.footerbody a:hover{
+    color: #8dc9b1;
+}
+.footerbody a:active{
+    color: #498f73;
+}
+@media only screen and (max-width: 1200px) {
+    .navbar{
+        flex-direction: column !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .navbar{
+        flex-direction: row !important;
+    }
+    .button {
+        position: absolute;
+        bottom: 72px;
+        left: calc(50% - 100px);
+    }
+    #main {
+    font-size: 1.4em;
+    }
+    /* .homepageDonate p{
+        position: absolute;
+        top: 100%;
+        margin-top: 20px;
+        width: 65%;
+    }
+    .volunteerButton{
+        position: absolute;
+        top: 200%;
+        left: 15%;
+    }
+    .donateButton{
+        position: absolute;
+        top: 200%;
+        left: 58%;
+    } */
 }

@@ -12,7 +12,7 @@ var commentDAO = require('../dao/CommentDAO');
 exports.commentsGET = function(limit,offset) {
 
   // return sqlDB("comments").limit(limit).offset(offset).then((data)
-  return commentDAO.getComment().then((data) => {
+  return commentDAO.getComments().then((data) => {
     return data.map( element => {
       //composed resourse; element.price = {value: element.value, currency: element.currency}
         return element;

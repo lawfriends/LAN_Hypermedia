@@ -1,22 +1,158 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <title>Homepage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/homepage.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Open+Sans&family=Nunito&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c0ad3f730c.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        
-        <p>Hello world</p>
-        
-        
-        <!--scripts-->
-        
-        <script
-            src="https://code.jquery.com/jquery-3.5.0.min.js"
-            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-            crossorigin="anonymous"></script>
-
-        <script src="assets/js/script.js"></script>
-
-    </body>
+      <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#"><img src="./assets/img/association/Grupo 228.svg"> InSieme</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active navItem" href="#">Association <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link navItem" href="./pages/allcourses.html">Courses</a>
+            <a class="nav-item nav-link navItem" href="#">How to enroll</a>
+            <a class="nav-item nav-link navItem" href="#">Volunteers</a>
+            <a class="nav-item nav-link navItem" href="#">Events</a>
+            <a class="nav-item nav-link navItem" href="#">Contact</a>
+            <a class="nav-item nav-link navDonate" href="#">Donate</a>
+          </div>
+        </div>
+      </nav>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active carousel1">
+                <!-- <img src="./assets/img/studying6.png" class="d-block w-100" alt="..."> -->
+                <p class="carouseltitle">2021 Courses start!</p>
+                <a href="#" class="btn button" role="button">See how to enroll</a>
+              </div>
+              <div class="carousel-item carousel2">
+                <!-- <img src="./assets/img/studying6.png" class="d-block w-100" alt="..."> -->
+                <p class="carouseltitle">20 volunteers in 2021</p>
+                <a href="#" class="btn button" role="button">Meet the volunteers</a>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <div class="container-fluid" id="main">
+            The italian language school "InSieme" takes shape thanks to the help of about 20 volunteers, from different social and cultural backgrounds, and follows these different guidelines: Empathy, Patience, Flexibility and Heart.
+        </div>
+        <div class="row responsiveRow">
+          <div class="col-md-6 homepageImg">
+          </div>
+          <div class="col-md-6 homepagePar1">
+            <h1>Our courses</h1>
+            <p class="normal">
+              Courses are our association's core service. At InSieme, volunteers guide students through three levels of proficiency, from the very first steps to an intermediate level, to help them in integrating with life in Milan.
+            </p>
+            <a href="#" class="btn button" role="button">Explore all courses</a>
+          </div>
+        </div>
+        <div class="row responsiveRow">
+          <div class="col-md-6 homepageTitle">
+            <h1>Connect with Milan through our selection of guided visits and events</h1>
+          </div>
+          <div class="col-md-6 homepagePar2">
+            <p class="normal">
+              We program events for our students to enjoy the city's offer and to provide spaces to practice Italian out of the classroom.
+            </p>
+            <a href="#" class="btn button" role="button">See all events</a>
+          </div>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner associationTestimonials">
+             <!--<div class="carousel-item active carouselComment">
+              <div class="row align-items-center">
+                <div class="col-md-4">
+                  <img src="./assets/img/homepage/SMALLPROFILEPICTURE.png">
+                  <p class="overline">Daniela Sainz</p>
+                  <p class="peoplecaption">Student 2019</p>
+                </div>
+                <div class="col-md-8">
+                  <p class="bquote">"Classes are in small groups of different nationalities where we learn to share"</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item carouselComment">
+              
+            </div>
+            <div class="carousel-item carouselComment">
+              
+            </div>  -->
+          </div> 
+        </div>
+        <div class="container-fluid donateContainer">
+          <div class="row homepageDonate">
+            <div class="col-xl-7 emptyCol"></div>
+            <div class="col-xl-5">
+              <div class="row">
+                <div class="col-xl">
+                  <div class="mquote">As a voluntary association, InSieme is a group of people who contribute to make this project become real. There are a lot of ways in which also you can support us!</div>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <div><a href="#" class="btn button volunteerButton" role="button">Become a volunteer</a></div>
+                </div>
+                <div class="col-md-6">
+                  <a href="#" class="btn button donateButton" role="button">How to donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container-fluid homepageDonate">
+          <p class="mquote">As a voluntary association, InSieme is a group of people who contribute to make this project become real. There are a lot of ways in which also you can support us!</p>
+          <a href="#" class="btn button volunteerButton" role="button">Become a volunteer</a>
+          <a href="#" class="btn button donateButton" role="button">How to donate</a>
+        </div> -->
+        <div class="container-fluid footer">
+          <div class="row">
+            <div class="col-lg-3">
+              <p class="footertitle">You may be interested in</p>
+              <p class="footerbody"><a href="#">Contact</a></p>
+              <p class="footerbody"><a href="#">Enroll</a></p>
+              <p class="footerbody"><a href="#">Become a volunteer</a></p>
+            </div>
+            <div class="col-lg">
+              <p class="footertitle">Contact</p>
+              <p class="footerbody"><i class="far fa-envelope"></i> insiemesanfedele@gmail.com</p>
+              <p class="footerbody"><i class="fas fa-phone-alt"></i> 0286352.1</p>
+              <p class="footerbody"><i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/InSiemeSanFedele/"> Follow us on Facebook</a></p>
+            </div>
+            <div class="col-lg">
+              <p class="footertitle">Location</p>
+              <p class="footerbody"><i class="fas fa-home"></i> Fondazione Culturale San Fedele, Piazza San Fedele, 4 - Milano</p>
+            </div>
+          </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="./assets/js/homepage.js"></script>
+  </body>
 </html>
