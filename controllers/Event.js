@@ -6,7 +6,8 @@ var EventService = require('../service/EventService');
 module.exports.eventsGET = function eventsGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
-  EventService.eventsGET(limit,offset)
+  var month =  req.swagger.params['month'].value;
+  EventService.eventsGET(month,limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
     })

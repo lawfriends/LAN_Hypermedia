@@ -27,6 +27,11 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - name: "month"
+        in: "query"
+        description: "filter events by month"
+        required: false
+        type: "integer"
       - name: "limit"
         in: "query"
         description: "limit num of items per page"

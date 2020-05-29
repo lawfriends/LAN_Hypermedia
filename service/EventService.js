@@ -8,12 +8,19 @@ const eventDAO = require('../dao/EventDAO');
  * offset Integer Pagination offset, with default zero (optional)
  * returns List
  **/
-exports.eventsGET = function(limit,offset) {
+exports.eventsGET = function(month,limit,offset) {
+
   return eventDAO.getEvents().then((data) => {
-    return data.map( element => {
-      //composed resourse; element.price = {value: element.value, currency: element.currency}
-        return element;
-    })
+
+    if(month>-1 && month<13) {
+      return data.filter( event => {
+        const date = new Date(event.date);
+        const currentDate = new Date();
+        return date.getMonth() == month && currentDate.getFullYear() == date.getFullYear();
+      });
+    }
+
+    return data;
   });
 }
 
