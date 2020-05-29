@@ -330,44 +330,8 @@ definitions:
         type: "string"
       coordinator:
         $ref: "#/definitions/Person"
-      courses:
-        type: "array"
-        items:
-          type: "integer"
     title: "Event"
     description: "an event"
-    example:
-      courses:
-      - 2
-      - 2
-      coordinator:
-        courses:
-        - 1
-        - 1
-        role: "teacher"
-        quote: "quote"
-        comments:
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        city: "city"
-        name: "Marco Rossi"
-        photo: "photo"
-        description: "description"
-        id: 6
-        job: "job"
-        events:
-        - 5
-        - 5
-      description: "description"
-      id: 0
-      title: "Museum visit"
-      photos: "photos"
   Person:
     type: "object"
     properties:
