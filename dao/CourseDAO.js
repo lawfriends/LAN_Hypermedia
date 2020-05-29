@@ -19,8 +19,6 @@ exports.courseDBSetup = function (connection) {
   });
 };
 
-var { database } = require("../datalayer");
-
 exports.save = function(course) {
     return sqlDB('course')
         .returning()

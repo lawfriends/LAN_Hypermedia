@@ -8,6 +8,7 @@
  **/
 
 var courseDAO = require('../dao/CourseDAO');
+var resourceDAO = require('../dao/ResourceDAO');
 
 exports.coursesGET = function(limit,offset) {
 
@@ -60,4 +61,22 @@ exports.coursePOST = function(course) {
       resolve();
     }
   });
+}
+
+exports.courseResourcesGET = function(id,limit,offset) {
+  return resourceDAO.getResourcesByCourseId(id).then((data) => {
+    return data.map( element => {
+      //composed resourse; element.price = {value: element.value, currency: element.currency}
+        return element;
+    })
+  })
+}
+
+exports.courseResourcePOST = function(resource, courseId) {
+  return resourceDAO.saveResourceOfCourse(resource, courseId).then((data) => {
+    return data.map( element => {
+      //composed resourse; element.price = {value: element.value, currency: element.currency}
+        return element;
+    })
+  })
 }
