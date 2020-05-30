@@ -19,6 +19,21 @@ exports.courseDBSetup = function (connection) {
   });
 };
 
+exports.coursePresentationDBSetup = function (connection) {
+  sqlDB = connection;
+  console.log('checking if the course_presentation table exist');
+  return sqlDB.schema.hasTable('course_presentation').then((exists) => {
+    if(!exists) {
+      console.log('CREATE TABLE');
+      return sqlDB.schema.withSchema('public').createTable('course_presentation', (table) => {
+        table.integer('course_id').unsigned().references('id').inTable('course').notNullable(); // the course ID - FK - not nullable
+        table.integer('event_id').unsigned().references('id').inTable('event').notNullable(); // the event ID - FK - not nullable
+        table.primary(['course_id', 'event_id']);
+      })
+    }
+  });
+};
+
 var { database } = require("../datalayer");
 
 exports.save = function(course) {
