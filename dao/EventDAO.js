@@ -37,3 +37,19 @@ exports.save = function(event) {
       
       
 }
+
+exports.getEventById = function(id) {
+
+  return new Promise(function(resolve, reject) {
+
+    sqlDB('event').where('id',id).limit(1).then((result)=> {
+      if(result.length == 1) {
+        resolve(result[0]);
+      } else {
+        resolve(result);
+      }
+    });
+    
+  });
+  
+}
