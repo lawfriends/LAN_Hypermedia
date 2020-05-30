@@ -335,6 +335,10 @@ definitions:
         type: "string"
       coordinator:
         $ref: "#/definitions/Person"
+      courses: 
+        type: array
+        items:
+          $ref: "#/definitions/Course"
     title: "Event"
     description: "an event"
   Person:
