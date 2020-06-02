@@ -16,8 +16,8 @@ exports.coursesGET = function(limit,offset) {
     return data.map( element => {
       //composed resourse; element.price = {value: element.value, currency: element.currency}
         return element;
-    })
-  })
+    });
+  });
 
 }
 
@@ -31,21 +31,10 @@ exports.coursesGET = function(limit,offset) {
  * returns Course
  **/
 exports.coursesIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-      "level" : "Intermediate",
-      "day": "Wednesday",
-      "time": "17:00",
-      "description": "This is the intermediate course of the Italian Language lessons",
-      "location": "Via Edmondo de Amicis, 17, 20123 Milano MI",
-      "cerf_level": "B1"
-    };
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+  return courseDAO.getCourseById(id).then((data) => {
+    return data.map( element => {
+        return element;
+    });
   });
 }
 

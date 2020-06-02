@@ -61,3 +61,7 @@ exports.save = function(course) {
 exports.getCourses = function() {
     return sqlDB('course');
 }
+
+exports.getCourseById = function(id) {
+    return sqlDB('courses').where('id', id);
+}

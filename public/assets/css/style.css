@@ -161,11 +161,8 @@ p.squote{
     background-color: #A80042;
     width: 200px;
     height: 50px;
-    position: absolute;
-    bottom: 55px;
-    left: 100px;
-    line-height: 38px;
     border-radius: 10px;
+    line-height: 38px;
 }
 .button:hover{
     background-color: #d20644;
@@ -173,6 +170,29 @@ p.squote{
 }
 .button:active{
     background-color: #910039;
+}
+.onlineButton{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.88em;
+    color: #A80042;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #FFABA3;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+}
+.onlineButton:hover{
+    background-color: #FFD5D1;
+    color: #A80042;
+}
+.onlineButton:active{
+    background-color: #FFABA3;
+    color: #A80042;
 }
 .footer{
     height: auto;
