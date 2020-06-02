@@ -19,19 +19,43 @@ exports.courseDBSetup = function (connection) {
   });
 };
 
-var { database } = require("../datalayer");
-
 exports.save = function(course) {
-    return sqlDB('course')
-        .returning()
-        .insert({
-            level: course.level,
-            description: course.description,
-            location: course.location,
-            time: course.time,
-            day: course.day,
-            cerf_level: course.cerf_level
-            }, ['id', 'level', 'description']);
+  return new Promise((resolve, reject) => {
+    sqlDB('course')
+      .returning()
+      .insert({
+          level: course.level,
+          description: course.description,
+          location: course.location,
+          time: course.time,
+          day: course.day,
+          cerf_level: course.cerf_level
+          }, ['id', 'level', 'description'])
+            .then((courseSaved)=>{
+              if(course.volunteers.length > 0) {
+                var courseVolunteers = course.volunteers.map(volunteer => { 
+                  return { 
+                    course_id: courseSaved[0].id,
+                    person_id: volunteer.id 
+                  }
+                }); 
+                sqlDB.insert(courseVolunteers,['course_id', 'person_id']).into('course_volunteer')
+                  .then((result2) => {
+                    resolve(courseSaved);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    reject();
+                  });
+              } else {
+                resolve(courseSaved);
+              }
+            })
+            .catch((error)=> {
+              console.log(error)
+              reject();
+            });     
+          });
 }
 
 exports.getCourses = function() {
