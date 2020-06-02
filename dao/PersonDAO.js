@@ -49,7 +49,8 @@ exports.save = function(person) {
     "quote": "This is priceless"
   }
   */
-    return sqlDB('person')
+    return new Promise((resolve, reject) => {
+      sqlDB('person')
         .returning()
         .insert({
             name: person.name,
@@ -59,7 +60,32 @@ exports.save = function(person) {
             job: person.job,
             city: person.city,
             quote: person.quote,
-            },['id', 'name', 'role', 'photo', 'description', 'job', 'city', 'quote' ]);
+            },['id', 'name', 'role', 'photo', 'description', 'job', 'city', 'quote' ])
+              .then((personSaved)=>{
+                if(person.courses.length > 0) {
+                  var courseVolunteers = person.courses.map(course => { 
+                    return { 
+                      course_id: course.id,
+                      person_id: personSaved[0].id 
+                    }
+                  }); 
+                  sqlDB.insert(courseVolunteers,['course_id', 'person_id']).into('course_volunteer')
+                    .then((result2) => {
+                      resolve(personSaved);
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                      reject();
+                    });
+                } else {
+                  resolve(personSaved);
+                }
+              })
+              .catch((error)=> {
+                console.log(error)
+                reject();
+              });     
+            });
 }
 
 exports.getPeople = function() {

@@ -394,7 +394,7 @@ definitions:
       courses:
         type: "array"
         items:
-          type: "integer"
+          $ref: "#/definitions/Course"
       events:
         type: "array"
         items:

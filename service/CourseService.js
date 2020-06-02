@@ -53,9 +53,13 @@ exports.coursePOST = function(course) {
   return new Promise(function(resolve, reject) {
     if (Object.keys(course).length > 0) {
 
-      courseDAO.save(course).then((course) => {
-        resolve(course);
-      });
+      courseDAO.save(course)
+        .then((course) => {
+          resolve(course);
+        }).catch(()=>{
+          reject();
+        });
+
     } else {
       resolve();
     }
