@@ -1,0 +1,99 @@
+#title{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 3em;
+    color: #707070;
+}
+.elencation{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #004D4A;
+}
+.first{
+    margin-left: 50px;
+}
+.dates{
+    max-width: 380px;
+    min-width: 380px;
+    margin-left: 70px;
+    margin-right: 100px;
+    background-color: #FFEEBD;
+    border-radius: 10px;
+    height: 100px;
+    width: 400px;
+    text-align: center;
+}
+.dates .row:first-child{
+    margin-top: 20px;
+}
+.dates .row:nth-child(2) .col{
+    max-width: 200px;
+    padding: 15px 20px;
+}
+#enrollDatesTitle{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.8125em;
+    color: #004D4A;
+    text-transform: uppercase;
+    margin-left: calc(50% - 160px);
+}
+.card{
+    width: 150px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+.card-header{
+    background-color: #CEE8DF;
+}
+#enrollButton{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #A80042;
+    width: 200px;
+    height: 50px;
+    line-height: 38px;
+    border-radius: 10px;
+    margin-left: calc(50% - 100px);
+    margin-right: calc(50% - 100px);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#enrollButton:hover{
+    background-color: #d20644;
+    color: #ffffff;
+}
+#enrollButton:active{
+    background-color: #910039;
+}
+@media only screen and (max-width: 1201px){
+    .dates{
+        margin-left: 0;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .first{
+        margin-left: 20px;
+    }
+    .card{
+        width: 140px;
+    }
+    .dates{
+        max-width: 335px;
+        min-width: 335px;
+    }
+    .dates .row:nth-child(2) .col{
+        max-width: 167.5px;
+        padding: 15px 13.75px;
+    }
+}
