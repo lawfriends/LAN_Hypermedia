@@ -63,5 +63,33 @@ exports.getCourses = function() {
 }
 
 exports.getCourseById = function(id) {
-    return sqlDB('courses').where('id', id);
+    return new Promise((resolve, reject) => {
+      sqlDB('course')
+        .join('course_volunteer AS cv', 'cv.course_id', 'course.id')
+        .join('person AS p', 'p.id', 'cv.person_id')
+        .where('course.id', id)
+        .then((result)=> {
+
+          let course = {
+            id: (result[0].course_id || id),
+            level: result[0].level,
+            day: result[0].day,
+            time: result[0].time,
+            description: result[0].description,
+            location: result[0].location,
+            cerf_level: result[0].cerf_level,
+          };
+          let volunteers = [];
+          for(let i = 0, len = result.length; i < len; i++ ) {
+            volunteers.push({
+              id: result[i].person_id,
+              name: result[i].name,
+              photo: result[i].photo
+            });
+          }
+
+          course["volunteers"] = volunteers;
+          resolve(course);
+        })
+    });
 }
