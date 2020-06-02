@@ -142,6 +142,13 @@ p.squote{
     color: #004D4A;
     text-align: center;
 }
+.grayTitle{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #707070;
+    text-transform: uppercase;
+}
 #main {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
@@ -231,6 +238,47 @@ p.squote{
 .footerbody a:active{
     color: #498f73;
 }
+ol.breadcrumb {
+    padding: 10px 0px;
+    list-style: none;
+    background-color: #ffffff;
+    margin-left: 50px;
+}
+ol.breadcrumb li a{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #A80042;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+ol.breadcrumb .active{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #A80042 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+ol.breadcrumb li a:hover {
+    color: #A80042;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    color: #A80042;
+}
+
+.CERFlevel{
+    background-color: #FFABA3;
+    color: white;
+    width: 61px;
+    height: 47px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    border-radius: 0.75em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.CERFlevelPar{
+    line-height: 47px;
+}
+
 @media only screen and (max-width: 1200px) {
     .navbar{
         flex-direction: column !important;

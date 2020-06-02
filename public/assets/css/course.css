@@ -19,7 +19,7 @@
     margin-left: 50px;
     margin-right: 25px;
 }
-.CERFlevel{
+/* .CERFlevel{
     background-color: #FFABA3;
     color: white;
     width: 61px;
@@ -32,7 +32,7 @@
 }
 .CERFlevelPar{
     line-height: 47px;
-}
+} */
 .teachers{
     background-color: #FFEEBD;
     height: 230px;
@@ -77,13 +77,6 @@
 }
 .courseSchedule p{
     font-size: 1.25em;
-}
-#recommendEvents{
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.25em;
-    color: #707070;
-    text-transform: uppercase;
 }
 .courseSchedule .card-body{
     background-color: #ffffff;
@@ -134,36 +127,6 @@
 .no-gutters .col-3{
     margin-right: 80px;
 }
-
-
-ol.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #ffffff;
-}
-
-/* Add a color to all links inside the list */
-ol.breadcrumb li a{
-    font-family: 'Nunito Sans', sans-serif;
-    color: #A80042;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-ol.breadcrumb .active{
-    font-family: 'Nunito Sans', sans-serif;
-    color: #A80042 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-}
-/* Add a color on mouse-over */
-ol.breadcrumb li a:hover {
-    color: #A80042;
-}
-.breadcrumb-item+.breadcrumb-item::before{
-    color: #A80042;
-}
-
 @media only screen and (max-width: 1200px){
     .teachers{
         height: auto;
