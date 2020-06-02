@@ -1,0 +1,26 @@
+/*Added CSS for statistics page*/
+#studentmap{
+    width: 100%;
+} 
+.cumulativeImg{
+    width : 98%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*margin: 0em 1em;*/
+}
+.cumulativeImg .one{
+    padding-right: 0.3em;
+}
+.cumulativeImg .two{
+    padding: 0em 0.3em;
+}
+.cumulativeImg .three{
+    padding-left: 0.3em;
+}/*
+@media (max-width:991.98px){
+    .cumulativeImg{
+        height: 191px;
+        width : 229px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 0em 1em;
+    }
+}*/
