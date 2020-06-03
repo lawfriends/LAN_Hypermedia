@@ -20,16 +20,42 @@ exports.courseDBSetup = function (connection) {
 };
 
 exports.save = function(course) {
-    return sqlDB('course')
-        .returning()
-        .insert({
-            level: course.level,
-            description: course.description,
-            location: course.location,
-            time: course.time,
-            day: course.day,
-            cerf_level: course.cerf_level
-            }, ['id', 'level', 'description']);
+  return new Promise((resolve, reject) => {
+    sqlDB('course')
+      .returning()
+      .insert({
+          level: course.level,
+          description: course.description,
+          location: course.location,
+          time: course.time,
+          day: course.day,
+          cerf_level: course.cerf_level
+          }, ['id', 'level', 'description'])
+            .then((courseSaved)=>{
+              if(course.volunteers.length > 0) {
+                var courseVolunteers = course.volunteers.map(volunteer => { 
+                  return { 
+                    course_id: courseSaved[0].id,
+                    person_id: volunteer.id 
+                  }
+                }); 
+                sqlDB.insert(courseVolunteers,['course_id', 'person_id']).into('course_volunteer')
+                  .then((result2) => {
+                    resolve(courseSaved);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    reject();
+                  });
+              } else {
+                resolve(courseSaved);
+              }
+            })
+            .catch((error)=> {
+              console.log(error)
+              reject();
+            });     
+          });
 }
 
 exports.getCourses = function() {
@@ -37,5 +63,38 @@ exports.getCourses = function() {
 }
 
 exports.getCourseById = function(id) {
-    return sqlDB('courses').where('id', id);
+    return new Promise((resolve, reject) => {
+      sqlDB('course')
+        .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
+        .leftJoin('person AS p', 'p.id', 'cv.person_id')
+        .where('course.id', id)
+        .then((result)=> {
+
+          let course = {
+            id: (result[0].course_id || id),
+            level: result[0].level,
+            day: result[0].day,
+            time: result[0].time,
+            description: result[0].description,
+            location: result[0].location,
+            cerf_level: result[0].cerf_level,
+          };
+          let volunteers = [];
+          let selectedIds = [];
+          for(let i = 0, len = result.length; i < len; i++ ) {
+            if(result[i].person_id && selectedIds.indexOf(result[i].person_id) == -1) {
+              volunteers.push({
+                id: result[i].person_id,
+                name: result[i].name,
+                photo: result[i].photo
+              });
+              selectedIds.push(result[i].person_id);
+            }
+            
+          }
+
+          course["volunteers"] = volunteers;
+          resolve(course);
+        })
+    });
 }

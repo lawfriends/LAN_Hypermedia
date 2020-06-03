@@ -116,8 +116,10 @@ exports.personPOST = function(person) {
     if (Object.keys(person).length > 0) {
 
       personDAO.save(person).then((person) => {
-        resolve(person);
-      });
+          resolve(person);
+        }).catch(()=>{
+          reject();
+        });
     } else {
       resolve();
     }

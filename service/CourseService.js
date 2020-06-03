@@ -32,20 +32,20 @@ exports.coursesGET = function(limit,offset) {
  * returns Course
  **/
 exports.coursesIdGET = function(id,limit,offset) {
-  return courseDAO.getCourseById(id).then((data) => {
-    return data.map( element => {
-        return element;
-    });
-  });
+  return courseDAO.getCourseById(id);
 }
 
 exports.coursePOST = function(course) {
   return new Promise(function(resolve, reject) {
     if (Object.keys(course).length > 0) {
 
-      courseDAO.save(course).then((course) => {
-        resolve(course);
-      });
+      courseDAO.save(course)
+        .then((course) => {
+          resolve(course);
+        }).catch(()=>{
+          reject();
+        });
+
     } else {
       resolve();
     }
