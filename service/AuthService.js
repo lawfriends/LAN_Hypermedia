@@ -52,8 +52,20 @@ exports.register = function(user) {
     });
 }
 
-exports.verifyToken = function(token) {
+exports.verifyToken = function(headerToken) {
+    return new Promise(function(resolve,reject){
+        if(!headerToken ||  headerToken == '') reject("Unauthorized");
+        const bearer = headerToken.split(' ');
+        const bearerToken = bearer[1];
 
+        jwt.verify(bearerToken, SECRET, (err, authData) => {
+            if(err) {
+                reject("Unauthorized");
+            } else {
+                resolve(true);
+            }
+        });
+    });
 }
 
 function generateToken(user) {

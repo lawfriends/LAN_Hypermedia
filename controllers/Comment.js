@@ -2,6 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var CommentService = require('../service/CommentService');
+var authService = require('../service/AuthService');
 
 module.exports.commentsGET = function commentsGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
@@ -30,11 +31,19 @@ module.exports.commentsIdGET = function commentsIdGET (req, res, next) {
 
 module.exports.commentPOST = function commentPOST (req, res, next) {
   var comment = req.swagger.params['comment'].value;
-  CommentService.commentPOST(comment)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+  const bearerHeader = req.headers['authorization'];
+
+  authService.verifyToken(bearerHeader)
+    .then(()=>{
+      CommentService.commentPOST(comment)
+      .then(function (response) {
+        utils.writeJson(res, response);
+      })
+      .catch(function (response) {
+        utils.writeJson(res, response);
+      });
+    }).catch(function (response) {
+      utils.writeJson(res, response, 403);
     });
+  
 };

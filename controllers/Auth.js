@@ -10,7 +10,10 @@ module.exports.login = function login (req, res, next) {
         utils.writeJson(res, response);
       })
       .catch(function (response) {
-        utils.writeJson(res, response);
+        if(!response || response == '') {
+            response = 'Unauthorized';
+        }
+        utils.writeJson(res, response, 403);
       });
 };
 
