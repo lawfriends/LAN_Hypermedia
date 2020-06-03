@@ -104,7 +104,7 @@ paths:
           schema:
             $ref: "#/definitions/Event"
         "404":
-          description: "Unexpected error"
+          description: "There are no courses found with this id"
       x-swagger-router-controller: "Event"
   /courses:
     get:
@@ -435,11 +435,10 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Person"
-      # events:
-      #   type: "array"
-      #   items:
-      #     type: "integer"
-      #     format: "int64"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person"
       # resources:
       #   type: "array"
       #   items:

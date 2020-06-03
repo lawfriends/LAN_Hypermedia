@@ -80,8 +80,10 @@ exports.getCourses = function() {
 exports.getCourseById = function(id) {
     return new Promise((resolve, reject) => {
       sqlDB('course')
-        .join('course_volunteer AS cv', 'cv.course_id', 'course.id')
-        .join('person AS p', 'p.id', 'cv.person_id')
+        .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
+        .leftJoin('person AS p', 'p.id', 'cv.person_id')
+        .leftJoin('course_presentation AS cp', 'cp.course_id', 'course.id')
+        .leftJoin('event AS e', 'e.id', 'cp.event_id')
         .where('course.id', id)
         .then((result)=> {
 
@@ -94,17 +96,51 @@ exports.getCourseById = function(id) {
             location: result[0].location,
             cerf_level: result[0].cerf_level,
           };
-          let volunteers = [];
-          for(let i = 0, len = result.length; i < len; i++ ) {
-            volunteers.push({
-              id: result[i].person_id,
-              name: result[i].name,
-              photo: result[i].photo
-            });
-          }
-
+          const volunteers = extractVolunteers(result);
+          const events = extractEvents(result);
+          
           course["volunteers"] = volunteers;
+          course["events"] = events;
+
           resolve(course);
         })
+        .catch((error) => {
+          reject("There are no courses found with this id");
+        });
     });
+}
+
+function extractVolunteers(queryResult) {
+  let volunteers = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].person_id && selectedIds.indexOf(queryResult[i].person_id) == -1) {
+      volunteers.push({
+        id: queryResult[i].person_id,
+        name: queryResult[i].name,
+        photo: queryResult[i].photo
+      });
+      selectedIds.push(queryResult[i].person_id);
+    }
+  }
+  return volunteers;
+}
+
+function extractEvents(queryResult) {
+  let events = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].event_id && selectedIds.indexOf(queryResult[i].event_id) == -1) {
+
+      events.push({
+        id: queryResult[i].event_id,
+        title: queryResult[i].title,
+        date: queryResult[i].date,
+        location: queryResult[i].location,
+        photos: queryResult[i].photos
+      });
+      selectedIds.push(queryResult[i].event_id);
+    }
+  }
+  return events;
 }
