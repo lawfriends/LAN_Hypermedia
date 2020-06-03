@@ -4,16 +4,10 @@ const urlParams = new URLSearchParams(queryString);
 const courseId = urlParams.get('id')
 console.log(courseId);
 function getCourse() {
-    fetch("/v1/courses").then(function(response) {
+    fetch("/v1/courses/".concat(courseId)).then(function(response) {
         return response.json();
-    }).then(function(courses) {
-        var found = 0;
-        for(var i=0; i<courses.length && found==0; i++){
-            if(courses[i].id==courseId){
-                trovato = 1;
-                document.querySelector(".CERFlevelPar").innerHTML = courses[i].cerf_level;
-            }
-        }
+    }).then(function(course) {
+        document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
     })
 }
 
