@@ -104,3 +104,12 @@ p.normal.first{
     color: #004D4A;
     text-align: center;
 }
+#foundationsite{
+    color:#A80042;
+}
+#foundationsite:hover{
+    color: #D20644;
+}
+#foundationsite:active{
+    color: #910039;
+}
