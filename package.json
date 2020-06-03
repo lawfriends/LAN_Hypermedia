@@ -14,8 +14,10 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "bcrypt": "^4.0.1",
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
+    "jsonwebtoken": "^8.5.1",
     "knex": "0.21.1",
     "pg": "8.0.3",
     "serve-static": "1.14.1",
