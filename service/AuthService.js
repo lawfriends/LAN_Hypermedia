@@ -2,7 +2,7 @@
 
 const authDAO = require('../dao/AuthDAO');
 const jwt = require('jsonwebtoken');
-const bycript = require('bycript');
+const bycript = require('bcrypt');
 const SECRET = 'mLkubdcc2qosB0b1HMk9';
 
 exports.login = function(user) {
@@ -52,7 +52,7 @@ exports.register = function(user) {
 }
 
 exports.verifyToken = function(token) {
-    
+
 }
 
 function generateToken(user) {

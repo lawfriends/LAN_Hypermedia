@@ -1,6 +1,8 @@
 let { courseDBSetup } = require('./dao/CourseDAO')
 let { commentDBSetup } = require('./dao/CommentDAO')
 let { personDBSetup } = require('./dao/PersonDAO')
+let { authDBSetup } = require('./dao/AuthDAO')
+
 
 const sqlDBFactory = require("knex");
 let sqlDB = sqlDBFactory({
@@ -21,7 +23,7 @@ function setupDataLayer() {
         courseDBSetup(sqlDB),
         personDBSetup(sqlDB),
         commentDBSetup(sqlDB),
-
+        authDBSetup(sqlDB)
     ]);
     //if you have other services, yoou should invoke all inside a promise and return it : Promise.all (...)
 }

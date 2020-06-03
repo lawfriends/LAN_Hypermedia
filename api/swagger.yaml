@@ -17,6 +17,8 @@ tags:
   description: "People, volunteers"
 - name: "Comments"
   description: "Comments about volunteers or about the association"
+- name: "User"
+  description: "Users can have wider permissions related to data manipulation in the website"
 paths:
   /events:
     get:
@@ -315,6 +317,28 @@ paths:
           schema:
             $ref: "#/definitions/Comment"
       x-swagger-router-controller: "Comment"
+  /users:
+    post:
+      tags:
+      - "User"
+      summary: "Add a new user"
+      operationId: "usersPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user"
+        required: true
+        schema:
+          $ref: "#/definitions/Auth"
+      responses:
+        "201":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/User"
+      x-swagger-router-controller: "Auth"
 definitions:
   Event:
     type: "object"
@@ -584,3 +608,16 @@ definitions:
       student_name: "Nils Jung"
       id: 5
       text: "This teacher was very nice"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      username:
+        type: "string"
+      pass:
+        type: "string"
+      hash:
+        type: "string"
+      admin:
+        type: "boolean"

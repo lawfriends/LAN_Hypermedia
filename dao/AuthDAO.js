@@ -17,3 +17,12 @@ exports.authDBSetup = function (connection) {
   });
 };
 
+exports.save = function(user) {
+      return sqlDB('user')
+          .returning()
+          .insert({
+              username: user.username,
+              hash: user.hash,
+              admin: false,
+              },['id', 'username']);
+}
