@@ -65,6 +65,7 @@ exports.getCourses = function() {
 exports.getCourseById = function(id) {
     return new Promise((resolve, reject) => {
       sqlDB('course')
+        .select(['cv.course_id', 'course.level', 'course.day', 'course.time', 'course.description','course.location', 'course.cerf_level', 'cv.person_id', 'p.name','p.photo'])
         .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
         .leftJoin('person AS p', 'p.id', 'cv.person_id')
         .where('course.id', id)
