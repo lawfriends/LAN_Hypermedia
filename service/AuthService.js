@@ -2,7 +2,7 @@
 
 const authDAO = require('../dao/AuthDAO');
 const jwt = require('jsonwebtoken');
-const bycript = require('bcrypt');
+const bcrypt = require('bcrypt');
 const SECRET = 'mLkubdcc2qosB0b1HMk9';
 
 exports.login = function(user) {
@@ -10,11 +10,13 @@ exports.login = function(user) {
     if (Object.keys(user).length == 0) reject();
     if (!user.username) reject();
     if (!user.pass) reject();
-    
-    authDAO.findUser(username).then((savedUser)=>{
+
+    authDAO.findUser(user.username).then((result)=>{
+        let savedUser = (result.length > 0 ? result[0] : result);
         if(!savedUser.admin) reject();
         if(!savedUser || Object.keys(savedUser).length == 0) reject();
-        isCorrectPass(savedUser.pass, user.pass).then(()=>{
+
+        isCorrectPass(savedUser.hash, user.pass).then(()=>{
             generateToken(user)
                 .then((token)=> {
                     resolve(token);
@@ -33,7 +35,6 @@ exports.register = function(user) {
         if (Object.keys(user).length == 0) reject();
         if (!user.username) reject();
         if (!user.pass) reject();
-
         bcrypt.hash(user.pass, 10, function(err, hash) {
             if(hash) {
                 user.pass = hash;

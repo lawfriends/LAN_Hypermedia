@@ -332,12 +332,34 @@ paths:
         name: "user"
         required: true
         schema:
-          $ref: "#/definitions/Auth"
+          $ref: "#/definitions/User"
       responses:
         "201":
           description: "Created"
           schema:
             $ref: "#/definitions/User"
+      x-swagger-router-controller: "Auth"
+  /login: 
+    post:
+      tags:
+      - "User"
+      summary: "Login with a user's credentials"
+      operationId: "login"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        "201":
+          description: "Token"
+          schema:
+            type: string
       x-swagger-router-controller: "Auth"
 definitions:
   Event:

@@ -9,7 +9,7 @@ exports.authDBSetup = function (connection) {
       console.log('CREATE TABLE');
       return sqlDB.schema.withSchema('public').createTable('user', (table) => {
         table.increments(); // the user id - PK
-        table.string('username');
+        table.string('username').unique();
         table.string('hash');
         table.boolean('admin');
       })
@@ -22,7 +22,11 @@ exports.save = function(user) {
           .returning()
           .insert({
               username: user.username,
-              hash: user.hash,
+              hash: user.pass,
               admin: false,
               },['id', 'username']);
+}
+
+exports.findUser = function(username) {
+    return sqlDB('user').where('username', username);
 }
