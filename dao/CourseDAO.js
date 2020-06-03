@@ -65,8 +65,8 @@ exports.getCourses = function() {
 exports.getCourseById = function(id) {
     return new Promise((resolve, reject) => {
       sqlDB('course')
-        .join('course_volunteer AS cv', 'cv.course_id', 'course.id')
-        .join('person AS p', 'p.id', 'cv.person_id')
+        .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
+        .leftJoin('person AS p', 'p.id', 'cv.person_id')
         .where('course.id', id)
         .then((result)=> {
 
@@ -80,12 +80,17 @@ exports.getCourseById = function(id) {
             cerf_level: result[0].cerf_level,
           };
           let volunteers = [];
+          let selectedIds = [];
           for(let i = 0, len = result.length; i < len; i++ ) {
-            volunteers.push({
-              id: result[i].person_id,
-              name: result[i].name,
-              photo: result[i].photo
-            });
+            if(result[i].person_id && selectedIds.indexOf(result[i].person_id) == -1) {
+              volunteers.push({
+                id: result[i].person_id,
+                name: result[i].name,
+                photo: result[i].photo
+              });
+              selectedIds.push(result[i].person_id);
+            }
+            
           }
 
           course["volunteers"] = volunteers;
