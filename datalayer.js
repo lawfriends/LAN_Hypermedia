@@ -1,6 +1,6 @@
 let { courseDBSetup, coursePresentationDBSetup } = require('./dao/CourseDAO')
 let { commentDBSetup } = require('./dao/CommentDAO')
-let { personDBSetup } = require('./dao/PersonDAO')
+let { personDBSetup, courseVolunteerDBSetup } = require('./dao/PersonDAO')
 let { eventDBSetup } = require('./dao/EventDAO')
 
 
@@ -24,7 +24,8 @@ function setupDataLayer() {
         personDBSetup(sqlDB),
         commentDBSetup(sqlDB),
         eventDBSetup(sqlDB),
-        coursePresentationDBSetup(sqlDB)
+        coursePresentationDBSetup(sqlDB),
+        courseVolunteerDBSetup(sqlDB)
     ]);
     //if you have other services, yoou should invoke all inside a promise and return it : Promise.all (...)
 }

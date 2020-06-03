@@ -1,0 +1,192 @@
+.coursesIntro{
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+#courseImage{
+    padding-right: 0;
+    padding-left: 0;
+}
+#courseImage img{
+    width: 100%;
+}
+#coursePar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-left: 0;
+}
+.title{
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.CERFlevel{
+    background-color: #FFABA3;
+    color: white;
+    width: 61px;
+    height: 47px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    border-radius: 0.75em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.CERFlevelPar{
+    line-height: 47px;
+}
+.teachers{
+    background-color: #FFEEBD;
+    height: 230px;
+}
+.teachers .row{
+    margin-left: auto;
+}
+.teachers p{
+    font-size: 1.25em;
+}
+.teacher{
+    margin: 25px auto 80px auto;
+}
+.teacher img{
+    margin-bottom: 25px;
+}
+.card{
+    text-align: center;
+}
+.card-header{
+    background-color: #CEE8DF;
+}
+#schedule{
+    margin-bottom: 130px;
+    width: 100%;
+}
+.scheduleCol{
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.scheduleCol .card{
+    background-color: #CEE8DF;
+}
+.courseSchedule{
+    width: 180px;
+}
+.courseSchedule .card-header{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #004D4A;
+}
+.courseSchedule p{
+    font-size: 1.25em;
+}
+#recommendEvents{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #707070;
+    text-transform: uppercase;
+}
+.courseSchedule .card-body{
+    background-color: #ffffff;
+}
+#eventCard .card-body{
+    background-color: #FFEEBD;
+}
+#buttonRow{
+    margin-bottom: 70px;
+    width: 100%;
+    margin: 0 0 70px 0;
+}
+#buttonRow .col-sm{
+    padding-left: 50px;
+}
+#buttonRow .col-sm-auto{
+    padding-right: 50px;
+}
+#eventDate p:first-child{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: #3C3C3C;
+    font-size: 0.9375em;
+    margin: 0;
+}
+#eventDate p:nth-child(2){
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    color: #3C3C3C;
+    font-size: 1.8125em;
+}
+#eventInfo{
+    text-align: left;
+}
+#eventInfo p:first-child{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: #A80042;
+    font-size: 1.125em;
+    margin-bottom: 5px;
+}
+#eventInfo p:nth-child(2){
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: #3C3C3C;
+    font-size: 0.9375em;
+}
+.no-gutters .col-3{
+    margin-right: 80px;
+}
+
+
+ol.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #ffffff;
+}
+
+/* Add a color to all links inside the list */
+ol.breadcrumb li a{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #A80042;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+ol.breadcrumb .active{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #A80042 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Add a color on mouse-over */
+ol.breadcrumb li a:hover {
+    color: #A80042;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    color: #A80042;
+}
+
+@media only screen and (max-width: 1200px){
+    .teachers{
+        height: auto;
+    }
+    .teacher{
+        margin: 20px auto 0px auto
+    }
+    .courseSchedule{
+        width: 150px;
+    }
+    .coursesIntro{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .button{
+        position: static;
+    }
+}
+@media only screen and (max-width: 400px) {
+    #buttonRow div{
+        padding: 0 !important;
+        text-align: center !important;
+        margin-bottom: 40px;
+    }
+}

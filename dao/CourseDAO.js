@@ -34,21 +34,77 @@ exports.coursePresentationDBSetup = function (connection) {
   });
 };
 
-var { database } = require("../datalayer");
-
 exports.save = function(course) {
-    return sqlDB('course')
-        .returning()
-        .insert({
-            level: course.level,
-            description: course.description,
-            location: course.location,
-            time: course.time,
-            day: course.day,
-            cerf_level: course.cerf_level
-            }, ['id', 'level', 'description']);
+  return new Promise((resolve, reject) => {
+    sqlDB('course')
+      .returning()
+      .insert({
+          level: course.level,
+          description: course.description,
+          location: course.location,
+          time: course.time,
+          day: course.day,
+          cerf_level: course.cerf_level
+          }, ['id', 'level', 'description'])
+            .then((courseSaved)=>{
+              if(course.volunteers.length > 0) {
+                var courseVolunteers = course.volunteers.map(volunteer => { 
+                  return { 
+                    course_id: courseSaved[0].id,
+                    person_id: volunteer.id 
+                  }
+                }); 
+                sqlDB.insert(courseVolunteers,['course_id', 'person_id']).into('course_volunteer')
+                  .then((result2) => {
+                    resolve(courseSaved);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    reject();
+                  });
+              } else {
+                resolve(courseSaved);
+              }
+            })
+            .catch((error)=> {
+              console.log(error)
+              reject();
+            });     
+          });
 }
 
 exports.getCourses = function() {
     return sqlDB('course');
+}
+
+exports.getCourseById = function(id) {
+    return new Promise((resolve, reject) => {
+      sqlDB('course')
+        .join('course_volunteer AS cv', 'cv.course_id', 'course.id')
+        .join('person AS p', 'p.id', 'cv.person_id')
+        .where('course.id', id)
+        .then((result)=> {
+
+          let course = {
+            id: (result[0].course_id || id),
+            level: result[0].level,
+            day: result[0].day,
+            time: result[0].time,
+            description: result[0].description,
+            location: result[0].location,
+            cerf_level: result[0].cerf_level,
+          };
+          let volunteers = [];
+          for(let i = 0, len = result.length; i < len; i++ ) {
+            volunteers.push({
+              id: result[i].person_id,
+              name: result[i].name,
+              photo: result[i].photo
+            });
+          }
+
+          course["volunteers"] = volunteers;
+          resolve(course);
+        })
+    });
 }

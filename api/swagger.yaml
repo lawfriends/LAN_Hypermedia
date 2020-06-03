@@ -367,7 +367,7 @@ definitions:
       courses:
         type: "array"
         items:
-          type: "integer"
+          $ref: "#/definitions/Course"
       events:
         type: "array"
         items:
@@ -431,10 +431,10 @@ definitions:
       cerf_level:
         type: "string"
         example: "A2"
-      # teachers:
-      #   type: "array"
-      #   items:
-      #     $ref: "#/definitions/Person"
+      volunteers:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person"
       # events:
       #   type: "array"
       #   items:
