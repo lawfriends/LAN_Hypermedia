@@ -2,6 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var PersonService = require('../service/PersonService');
+var authService = require('../service/AuthService');
 
 module.exports.peopleGET = function peopleGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
@@ -30,11 +31,18 @@ module.exports.personIdGET = function personIdGET (req, res, next) {
 
 module.exports.personPOST = function personPOST (req, res, next) {
   var person = req.swagger.params['person'].value;
-  PersonService.personPOST(person)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+  const bearerHeader = req.headers['authorization'];
+
+  authService.verifyToken(bearerHeader)
+    .then(()=>{
+      PersonService.personPOST(person)
+        .then(function (response) {
+          utils.writeJson(res, response);
+        })
+        .catch(function (response) {
+          utils.writeJson(res, response);
+        });
+    }).catch(function (response) {
+      utils.writeJson(res, response, 403);
     });
 };

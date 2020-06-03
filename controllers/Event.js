@@ -2,6 +2,7 @@
 
 var utils = require('../utils/writer.js');
 var Event = require('../service/EventService');
+var authService = require('../service/AuthService');
 
 module.exports.eventsGET = function eventsGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
@@ -30,11 +31,18 @@ module.exports.eventsIdGET = function eventsIdGET (req, res, next) {
 
 module.exports.eventsPOST = function eventsPOST (req, res, next) {
   var event = req.swagger.params['event'].value;
-  Event.eventsPOST(event)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+  const bearerHeader = req.headers['authorization'];
+
+  authService.verifyToken(bearerHeader)
+    .then(()=>{
+      Event.eventsPOST(event)
+        .then(function (response) {
+          utils.writeJson(res, response);
+        })
+        .catch(function (response) {
+          utils.writeJson(res, response);
+        });
+    }).catch(function (response) {
+      utils.writeJson(res, response, 403);
     });
 };
