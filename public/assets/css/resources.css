@@ -1,0 +1,118 @@
+.resourceIntro{
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+#resourceImage{
+    padding-right: 0;
+    padding-left: 0;
+}
+#resourceImage img{
+    width: 100%;
+}
+#resourcePar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-left: 0;
+}
+.grayTitle{
+    margin-left: 5vw;
+}
+.resourceRow{
+    margin: 20px 5vw;
+    background-color: #CEE8DF;
+    border-radius: 10px;
+    height: 55px;
+}
+.resourceRow p{
+    line-height: 47px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.resourceRow .col-7 p{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #004D4A;
+}
+.resourceRow .col{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #004D4A;
+}
+.resourceRow .col a{
+    color: #004D4A;
+}
+.resourceRow .col a p{
+    margin-right: 5px;
+}
+.resourceRow .col a:hover{
+    color: #004D4A;
+}
+.resourceRow .col-auto{
+    padding-right: 25px;
+}
+#loadButton{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.88em;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #4d4d4d;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+    margin-left: calc(50% - 100px);
+    margin-right: calc(50% - 100px);
+    margin-bottom: 80px;
+}
+#loadButton:hover{
+    color: #4d4d4d;
+}
+#loadButton:active{
+    color: #4d4d4d;
+}
+.onlineButton{
+    margin-left: 5vw;
+    margin-bottom: 100px;
+}
+@media only screen and (max-width: 1000px){
+    .grayTitle{
+        margin-left: 50px;
+    }
+    .resourceRow{
+        margin: 20px 50px;
+    }
+    .resourceRow .col a i{
+        line-height: 55px;
+        font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 500px){
+    .grayTitle{
+        margin-left: 20px;
+    }
+    .resourceRow{
+        margin: 20px;
+    }
+    .resourceRow .col-auto{
+        padding-right: 10px;
+        padding-left: 5px;
+    }
+    .resourceRow .col-7{
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+    .resourceRow .col{
+        padding: 0;
+    }
+    .onlineButton{
+        margin-left: calc(50% - 100px);
+    }
+}
