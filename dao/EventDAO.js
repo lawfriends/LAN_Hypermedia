@@ -42,13 +42,37 @@ exports.getEventById = function(id) {
 
   return new Promise(function(resolve, reject) {
 
-    sqlDB('event').where('id',id).limit(1).then((result)=> {
-      if(result.length == 1) {
-        resolve(result[0]);
-      } else {
-        resolve(result);
-      }
-    });
+    sqlDB('event')
+      .select(['event.id', 'event.title', 'event.date', 'event.location', 'event.description', 'event.photos',
+                {contact_id: 'p.id'}, 'p.name', 'p.photo'])
+      .leftJoin('person AS p', 'p.id', 'event.contact_id')
+      .where('event.id',id)
+      .limit(1)
+      .then((result)=> {
+
+        if(!result) reject();
+
+        let event = {
+          id: (result[0].id || id),
+          title: result[0].title,
+          date: result[0].date,
+          photos: result[0].photos,
+          description: result[0].description,
+          location: result[0].location,
+        };
+        if(result[0].contact_id) {
+          let coordinator = {
+            id: result[0].contact_id,
+            name: result[0].name,
+            photo: result[0].photo
+          }
+          event["coordinator"] = coordinator;
+        }
+        resolve(event);
+      })
+      .catch((error)=>{
+        reject();
+      });
     
   });
   

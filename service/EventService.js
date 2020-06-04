@@ -34,11 +34,7 @@ exports.eventsGET = function(month,limit,offset) {
  * returns Event
  **/
 exports.eventsIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    return eventDAO.getEventById(id).then((event) => {
-      resolve(event);
-    });
-  });
+  return eventDAO.getEventById(id);
 }
 
 
