@@ -13,6 +13,7 @@ exports.courseDBSetup = function (connection) {
         table.string('time');
         table.text('description');
         table.string('location');
+        table.string('image');
         table.enum('cerf_level', ['A1','A2','B1','B2','C1','C2'])
       })
     }
@@ -29,10 +30,11 @@ exports.save = function(course) {
           location: course.location,
           time: course.time,
           day: course.day,
+          image: course.image,
           cerf_level: course.cerf_level
           }, ['id', 'level', 'description'])
             .then((courseSaved)=>{
-              if(course.volunteers.length > 0) {
+              if(course.volunteers && course.volunteers.length > 0) {
                 var courseVolunteers = course.volunteers.map(volunteer => { 
                   return { 
                     course_id: courseSaved[0].id,
@@ -65,7 +67,7 @@ exports.getCourses = function() {
 exports.getCourseById = function(id) {
     return new Promise((resolve, reject) => {
       sqlDB('course')
-        .select(['cv.course_id', 'course.level', 'course.day', 'course.time', 'course.description','course.location', 'course.cerf_level', 'cv.person_id', 'p.name','p.photo'])
+        .select(['cv.course_id', 'course.level', 'course.day', 'course.time', 'course.description','course.location', 'course.image', 'course.cerf_level', 'cv.person_id', 'p.name','p.photo'])
         .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
         .leftJoin('person AS p', 'p.id', 'cv.person_id')
         .where('course.id', id)
