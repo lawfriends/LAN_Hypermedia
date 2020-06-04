@@ -1,0 +1,106 @@
+/*Added css for association page*/
+/* .associationImg{
+    background-image: url("../img/association/association_topimage.png");
+    height: 478px;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+} */
+.row{
+    width: 100%;
+    margin: auto;
+}
+#founderRow{
+    margin-top: 100px;
+}
+#associationImg{
+    padding: 0;
+}
+#associationImg img{
+    width: 100%;
+}
+h1.innerpages{
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+#founderImg{
+    height: 320px;
+    width: 320px;
+    padding: 2em;
+}
+.founderprofile
+{
+    text-align: center;
+}
+.overline.centered{
+    text-align: center;
+}
+p.normal.first{
+    padding-top: 1em;
+}
+.carouselComment{
+    background-color: #cee8df;
+    height: 375px;
+    margin-top: 100px;
+    text-align: center;
+}
+.carouselComment .bquote{
+    text-align: center;
+}
+.carouselComment img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.onlineButton{
+    margin: 50px 50px 150px 0px;
+}
+@media only screen and (max-width: 1200px){
+    .carouselComment .bquote{
+        font-size: 1.7em;
+    }
+}
+@media screen and (max-width:767px){
+    h1.innerpages{
+        padding-left: 0.4em;
+    }
+    p{
+        padding-left: 0.8em;
+    }
+    .carouselComment{
+        height: 750px;
+    }
+    .carouselComment .bquote{
+        text-align: center;
+        font-size: 2.5em;
+        padding: 0;
+    }
+    #founderRow{
+        margin-top: 0px;
+    }
+}
+@media screen and (max-width: 400px){
+    #founderImg{
+        height: 274px;
+        width: 274px;
+        padding: 2em;
+    }
+    #buttonRow div{
+        padding: 0 !important;
+        text-align: center !important;
+        margin-bottom: 40px;
+    }
+}
+#associationPar1{
+    padding-left: 4vw;
+    padding-right: 7vw;
+    padding-bottom: 50px;
+}
+.peoplecaption{
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: normal;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #004D4A;
+    text-align: center;
+}
