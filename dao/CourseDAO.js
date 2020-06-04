@@ -142,7 +142,7 @@ function extractEvents(queryResult) {
         id: queryResult[i].event_id,
         title: queryResult[i].title,
         date: queryResult[i].date,
-        location: queryResult[i].location,
+        location: queryResult[i].eventLocation,
         photos: queryResult[i].photos
       });
       selectedIds.push(queryResult[i].event_id);
