@@ -8,6 +8,7 @@
  **/
 
 var courseDAO = require('../dao/CourseDAO');
+var resourceDAO = require('../dao/ResourceDAO');
 
 exports.coursesGET = function(limit,offset) {
 
@@ -16,8 +17,8 @@ exports.coursesGET = function(limit,offset) {
     return data.map( element => {
       //composed resourse; element.price = {value: element.value, currency: element.currency}
         return element;
-    })
-  })
+    });
+  });
 
 }
 
@@ -31,33 +32,40 @@ exports.coursesGET = function(limit,offset) {
  * returns Course
  **/
 exports.coursesIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-      "level" : "Intermediate",
-      "day": "Wednesday",
-      "time": "17:00",
-      "description": "This is the intermediate course of the Italian Language lessons",
-      "location": "Via Edmondo de Amicis, 17, 20123 Milano MI",
-      "cerf_level": "B1"
-    };
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  return courseDAO.getCourseById(id);
 }
 
 exports.coursePOST = function(course) {
   return new Promise(function(resolve, reject) {
     if (Object.keys(course).length > 0) {
 
-      courseDAO.save(course).then((course) => {
-        resolve(course);
-      });
+      courseDAO.save(course)
+        .then((course) => {
+          resolve(course);
+        }).catch(()=>{
+          reject();
+        });
+
     } else {
       resolve();
     }
   });
+}
+
+exports.courseResourcesGET = function(id,limit,offset) {
+  return resourceDAO.getResourcesByCourseId(id).then((data) => {
+    return data.map( element => {
+      //composed resourse; element.price = {value: element.value, currency: element.currency}
+        return element;
+    })
+  })
+}
+
+exports.courseResourcePOST = function(resource, courseId) {
+  return resourceDAO.saveResourceOfCourse(resource, courseId).then((data) => {
+    return data.map( element => {
+      //composed resourse; element.price = {value: element.value, currency: element.currency}
+        return element;
+    })
+  })
 }
