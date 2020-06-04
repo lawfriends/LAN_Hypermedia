@@ -8,10 +8,12 @@ function getCourse() {
     fetch("/v1/courses/".concat(courseId)).then(function(response) {
         return response.json();
     }).then(function(course) {
+        console.log(course);
         document.querySelector(".breadcrumb .active").innerHTML = course.level;
         document.querySelector("#coursePar h1").innerHTML = course.level.concat(" course");
         document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
         document.querySelector("#coursePar p.normal").innerHTML = course.description;
+        document.querySelector("#courseImage img").src = course.image;
         var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
