@@ -183,6 +183,64 @@ paths:
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Course"
+  /courses/{id}/resources:
+    get:
+      tags:
+      - "Course"
+      summary: "A collection of resources for a specific course"
+      operationId: "courseResourcesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of resources for a specific course"
+          schema:
+            $ref: "#/definitions/Resource"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+    post:
+      tags:
+      - "Course"
+      summary: "Add a new resource for the course"
+      operationId: "courseResourcePOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "resource"
+        required: true
+        schema:
+          $ref: "#/definitions/Resource"
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+      responses:
+        "201":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Resource"
+      x-swagger-router-controller: "Course"
   /people:
     get:
       tags:
@@ -394,7 +452,7 @@ definitions:
       courses:
         type: "array"
         items:
-          type: "integer"
+          $ref: "#/definitions/Course"
       events:
         type: "array"
         items:
@@ -458,10 +516,10 @@ definitions:
       cerf_level:
         type: "string"
         example: "A2"
-      # teachers:
-      #   type: "array"
-      #   items:
-      #     $ref: "#/definitions/Person"
+      volunteers:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person"
       # events:
       #   type: "array"
       #   items:
