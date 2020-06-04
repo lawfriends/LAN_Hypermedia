@@ -80,6 +80,7 @@ exports.getCourseById = function(id) {
             time: result[0].time,
             description: result[0].description,
             location: result[0].location,
+            image: result[0].image,
             cerf_level: result[0].cerf_level,
           };
           let volunteers = [];
