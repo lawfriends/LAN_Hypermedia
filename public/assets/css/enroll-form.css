@@ -1,11 +1,46 @@
-.elencation{
+label{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
     font-size: 1.1em;
     color: #004D4A;
 }
+input[type=text]{
+    border: 0.5px solid;
+    border-color: #004D4A;
+    border-radius: 10px;
+    width: 300px;
+}
+input[type=email]{
+    border: 0.5px solid;
+    border-color: #004D4A;
+    border-radius: 10px;
+    width: 300px;
+}
+input[type=submit]{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #A80042;
+    width: auto;
+    height: 50px;
+    border-radius: 10px;
+    line-height: 38px;
+}
+input[type=submit]{
+    background-color: #d20644;
+    color: #ffffff;
+}
+input[type=submit]{
+    background-color: #910039;
+}
 .first{
     margin-left: 50px;
+}
+.first .col-xl{
+    padding-left: 0;
 }
 .dates{
     max-width: 380px;
@@ -44,35 +79,19 @@
 .card-header{
     background-color: #CEE8DF;
 }
-#enrollButton{
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 700;
-    font-size: 0.875em;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: #A80042;
-    width: 200px;
-    height: 50px;
-    line-height: 38px;
-    border-radius: 10px;
-    margin-left: calc(50% - 100px);
-    margin-right: calc(50% - 100px);
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#enrollButton:hover{
-    background-color: #d20644;
-    color: #ffffff;
-}
-#enrollButton:active{
-    background-color: #910039;
+.onlineButton{
+    margin: 50px 0px 150px 50px;
 }
 @media only screen and (max-width: 1201px){
     .dates{
         margin-left: 0;
         margin-top: 50px;
         margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 700px){
+    .onlineButton{
+        margin-left: calc(50% - 135.5px);
     }
 }
 @media only screen and (max-width: 500px){
