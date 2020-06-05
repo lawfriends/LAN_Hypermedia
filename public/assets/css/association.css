@@ -1,18 +1,12 @@
-/*Added css for association page*/
-/* .associationImg{
-    background-image: url("../img/association/association_topimage.png");
-    height: 478px;
-    width: 100%;
-    background-size: cover;
-    background-position-x: center;
-    background-repeat: no-repeat;
-} */
 .row{
     width: 100%;
     margin: auto;
 }
 #founderRow{
     margin-top: 100px;
+}
+#associationPar1 p a{
+    color: #A80042;
 }
 #associationImg{
     padding: 0;
