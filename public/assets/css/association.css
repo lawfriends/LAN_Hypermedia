@@ -23,8 +23,7 @@ h1.innerpages{
     width: 320px;
     padding: 2em;
 }
-.founderprofile
-{
+.founderprofile{
     text-align: center;
 }
 .overline.centered{
@@ -48,6 +47,11 @@ p.normal.first{
 }
 .onlineButton{
     margin: 50px 50px 150px 0px;
+}
+#associationPar1{
+    padding-left: 50px;
+    padding-right: 60px;
+    margin-bottom: 50px;
 }
 @media only screen and (max-width: 1200px){
     .carouselComment .bquote{
@@ -84,17 +88,4 @@ p.normal.first{
         text-align: center !important;
         margin-bottom: 40px;
     }
-}
-#associationPar1{
-    padding-left: 4vw;
-    padding-right: 7vw;
-    padding-bottom: 50px;
-}
-.peoplecaption{
-    font-family: 'Open Sans', 'sans-serif';
-    font-weight: normal;
-    font-size: 0.9em;
-    line-height: 1.5;
-    color: #004D4A;
-    text-align: center;
 }
