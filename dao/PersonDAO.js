@@ -89,10 +89,55 @@ exports.save = function(person) {
 }
 
 exports.getPeople = function() {
-    return sqlDB('person');
+  return sqlDB('person');
 }
 
 exports.getPersonById = function(id) {
-    let result = sqlDB('person').where('id', id);
-    return result.length ? result[0] : result;
+  return new Promise(function(resolve, reject) {
+    sqlDB('person')
+      .select(['person.id', 'person.name', 'person.role', 'person.photo', 'person.description', 'person.job', 'person.city', 'person.quote',
+      {course_id: 'c.id'}, 'c.image', 'c.level', {course_description: 'c.description'}])
+      .leftJoin('course_volunteer as cv', 'cv.person_id', 'person.id')
+      .leftJoin('course as c', 'c.id', 'cv.course_id')
+      .where('person.id', id)
+      .then((result) => {
+        if(!result) reject();
+        if(!result.length) resolve([]);
+
+        let person = {
+          id: (result[0].id || id),
+          name: result[0].name,
+          role: result[0].role,
+          photo: result[0].photo,
+          description: result[0].description,
+          job: result[0].job,
+          city: result[0].city,
+          quote: result[0].quote,
+        };
+
+        let courses = extractCourses(result);
+        person["courses"] = courses;
+
+        resolve(person);
+      })
+
+
+  });
+}
+
+function extractCourses(queryResult) {
+  let courses = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].course_id && selectedIds.indexOf(queryResult[i].course_id) == -1) {
+      courses.push({
+        id: queryResult[i].course_id,
+        level: queryResult[i].level,
+        image: queryResult[i].image,
+        description: queryResult[i].course_description
+      });
+      selectedIds.push(queryResult[i].person_id);
+    }
+  }
+  return courses;
 }
