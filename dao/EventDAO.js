@@ -79,3 +79,7 @@ exports.getEventById = function(id) {
   });
   
 }
+
+exports.getEventsByPersonId = function(person_id) {
+  return sqlDB('event').where('contact_id',person_id);
+}
