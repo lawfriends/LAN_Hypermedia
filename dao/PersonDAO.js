@@ -91,3 +91,8 @@ exports.save = function(person) {
 exports.getPeople = function() {
     return sqlDB('person');
 }
+
+exports.getPersonById = function(id) {
+    let result = sqlDB('person').where('id', id);
+    return result.length ? result[0] : result;
+}
