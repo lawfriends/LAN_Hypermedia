@@ -176,3 +176,6 @@ exports.eventsPOST = function(event) {
   });
 }
 
+exports.eventsByPersonIdGET = function(person_id) {
+  
+}
