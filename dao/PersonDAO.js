@@ -136,7 +136,7 @@ function extractCourses(queryResult) {
         image: queryResult[i].image,
         description: queryResult[i].course_description
       });
-      selectedIds.push(queryResult[i].person_id);
+      selectedIds.push(queryResult[i].course_id);
     }
   }
   return courses;
