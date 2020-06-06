@@ -44,8 +44,11 @@ exports.getEventById = function(id) {
 
     sqlDB('event')
       .select(['event.id', 'event.title', 'event.date', 'event.location', 'event.description', 'event.photos',
-                {contact_id: 'p.id'}, 'p.name', 'p.photo'])
+                {contact_id: 'p.id'}, 'p.name', 'p.photo',
+                {course_id: 'c.id'}, 'c.level', 'c.cerf_level'])
       .leftJoin('person AS p', 'p.id', 'event.contact_id')
+      .leftJoin('course_presentation as cp', 'cp.event_id', 'event.id')
+      .leftJoin('course as c', 'c.id', 'cp.course_id')
       .where('event.id',id)
       .limit(1)
       .then((result)=> {
@@ -68,6 +71,9 @@ exports.getEventById = function(id) {
           }
           event["coordinator"] = coordinator;
         }
+
+        // let courses = extractCourses(result);
+
         resolve(event);
       })
       .catch((error)=>{
