@@ -4,9 +4,11 @@
     margin-bottom: 70px;
 }
 #eventsRow{
-    width: 100%;
+    width: auto;
     margin: auto;
     margin-bottom: 70px;
+    margin-left: 50px;
+    max-width: 1000px;
 }
 #eventsPar{
     width: auto;
@@ -19,20 +21,29 @@
 #eventsImg img{
     width: 100%;
 }
-#eventsRow .col-lg-2{
+#eventsRow .col-xl-3{
     padding: 0;
-    /* margin-left: 15px;
-    margin-right: 15px; */
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     margin-left: 0;
     margin-right: 0;
 }
 .card{
     width: 182px;
     height: 182px;
-    background-image: url("../img/allevents/jan-small.png");
     border: none;
 }
+#jan{ background-image: url("../img/allevents/jan-small.png"); }
+#feb{ background-image: url("../img/allevents/feb-small.png"); }
+#mar{ background-image: url("../img/allevents/mar-small.png"); }
+#apr{ background-image: url("../img/allevents/apr-small.png"); }
+#may{ background-image: url("../img/allevents/may-small.png"); }
+#jun{ background-image: url("../img/allevents/june-small.png"); }
+#jul{ background-image: url("../img/allevents/july-small.png"); }
+#aug{ background-image: url("../img/allevents/august-small.png"); }
+#sep{ background-image: url("../img/allevents/september-small.png"); }
+#oct{ background-image: url("../img/allevents/october-small.png"); }
+#nov{ background-image: url("../img/allevents/november-small.png"); }
+#dec{ background-image: url("../img/allevents/december-small.png"); }
 .card-body{
     background-color: #FFABA3;
     text-align: center;
@@ -45,6 +56,7 @@
     font-weight: bold;
     font-size: 1.25em;
     color: #ffffff;
+    text-transform: uppercase;
 }
 #redTitle{
     font-family: 'Nunito Sans', sans-serif;
@@ -54,6 +66,16 @@
     text-transform: uppercase;
     margin-left: 50px;
 }
+@media only screen and (max-width: 1200px){
+    #eventsRow{
+        max-width: 800px;
+    }
+} 
+@media only screen and (max-width: 800px){
+    #redTitle{
+        margin-bottom: 50px;
+    }
+} 
 @media only screen and (max-width: 400px){
     #eventsPar{
         margin-left: 20px;
@@ -63,6 +85,13 @@
         margin-bottom: 30px;
     }
     #redTitle{
-        margin-left: 20px;
+        margin-left: 0;
+        text-align: center;
+    }
+    #eventsRow{
+        margin-left: 0;
+    }
+    #eventsRow .col-xl-3{
+        padding-left: calc(50% - 91px);
     }
 }
