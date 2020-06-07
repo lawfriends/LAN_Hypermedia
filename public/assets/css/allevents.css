@@ -26,6 +26,8 @@
     margin-bottom: 50px;
     margin-left: 0;
     margin-right: 0;
+    max-width: 182px;
+    margin: 0 40px 50px 0;
 }
 .card{
     width: 182px;
@@ -51,12 +53,21 @@
     padding-top: 5px;
     border-radius: 10px 10px 0 0;
 }
-.card-body a{
+#eventsRow a{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
     font-size: 1.25em;
     color: #ffffff;
     text-transform: uppercase;
+}
+#eventsRow a:hover{
+    text-decoration: none;
+}
+#eventsRow a:hover .card-body{
+        background-color: #A80042;
+}
+#eventsRow a:active .card-body{
+    background-color: #910039;
 }
 #redTitle{
     font-family: 'Nunito Sans', sans-serif;
