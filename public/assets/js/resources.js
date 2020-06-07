@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 const courseId = urlParams.get('id')
 console.log(courseId);
 function getCourseResources() {
-    fetch("/v1/courses/".concat(courseId).concat("/resources?limit=2")).then(function(response) {
+    fetch("/v1/courses/".concat(courseId).concat("/resources")).then(function(response) {
         return response.json();
     }).then(function(resources) {
         var resourcesContainer = document.querySelector("#resourcesContainer");
