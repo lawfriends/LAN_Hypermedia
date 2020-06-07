@@ -1,24 +1,4 @@
-.row{
-    width: 100%;
-    margin: auto;
-    margin-bottom: 70px;
-}
-#eventsPar{
-    width: auto;
-    margin-left: 50px;
-    margin-right: 30px;
-}
-#eventsImg{
-    padding: 0;
-}
-#eventsImg img{
-    width: 100%;
-}
-@media only screen and (max-width: 400px){
-    #eventsPar{
-        margin-left: 20px;
-    }
-    #eventsImg{
-        margin-bottom: 30px;
-    }
+.calendarthumb{
+    /*width: 90%;*/
+    max-width: 170px;
 }
