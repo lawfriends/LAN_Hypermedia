@@ -11,26 +11,34 @@ h1{
 .card{
     background-color: #CEE8DF;
     width: 395px;
+    border: none;
 }
 #eventCard .card-body{
     text-align: center;
     background-color: #FFEEBD;
+}
+#eventCard .button{
+    margin-top: 20px;
 }
 #eventDate{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
     color: #4D4D4D;
     font-size: 3em;
+    border-right: 3px solid;
+    border-color: rgba(112, 112, 112, .3);
 }
 #eventInfo{
     text-align: left;
+}
+#eventInfo p{
+    margin: 0;
 }
 #eventInfo p:first-child{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
     color: #A80042;
     font-size: 1.625em;
-    margin-bottom: 5px;
 }
 #eventInfo p:nth-child(2){
     font-family: 'Open Sans', sans-serif;
@@ -52,7 +60,7 @@ h1{
         width: 342px;
     }
     #eventDate{
-        font-size: 2.625em;
+        font-size: 2.5em;
     }
     #eventInfo p:first-child{
         font-size: 1.375em;
