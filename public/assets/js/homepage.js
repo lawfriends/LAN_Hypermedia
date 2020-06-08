@@ -1,8 +1,11 @@
 function getAssociationComments() {
     var carousel = document.querySelector(".associationTestimonials");
     fetch("/v1/comments").then(function(response) {
-        return response.json();
+        return response.json() || {};
     }).then(function(comments) {
+
+        if(!comments) return;
+        
         a=0;
         while(a<2) {
             for(var i=0; i<comments.length; i++) {
