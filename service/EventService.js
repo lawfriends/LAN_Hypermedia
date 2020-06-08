@@ -10,18 +10,22 @@ const eventDAO = require('../dao/EventDAO');
  **/
 exports.eventsGET = function(month,limit,offset) {
 
-  return eventDAO.getEvents().then((data) => {
+  return eventDAO.getEvents()
+    .then((data) => {
 
-    if(month>-1 && month<13) {
-      return data.filter( event => {
-        const date = new Date(event.date);
-        const currentDate = new Date();
-        return date.getMonth() == month && currentDate.getFullYear() == date.getFullYear();
-      });
-    }
+      if(month>-1 && month<13) {
+        return data.filter( event => {
+          const date = new Date(event.date);
+          const currentDate = new Date();
+          return date.getMonth() == month && currentDate.getFullYear() == date.getFullYear();
+        });
+      }
 
-    return data;
-  });
+      return data;
+    })
+    .catch(()=>{
+      return {};
+    });
 }
 
 

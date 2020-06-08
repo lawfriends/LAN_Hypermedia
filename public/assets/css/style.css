@@ -313,3 +313,11 @@ ol.breadcrumb li a:hover {
         left: 58%;
     } */
 }
+@media screen and (max-width: 550px) {
+    .volunteerButton{
+        margin-left: calc(50% - 100px);;
+    }
+    .donateButton{
+        margin-left: calc(50% - 100px);;
+    }
+}

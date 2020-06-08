@@ -24,18 +24,44 @@ exports.getEvents = function() {
 }
 
 exports.save = function(event) {
-    console.log(event);
-    return sqlDB('event')
-        .insert({
-            date: event.date,
-            title: event.title,
-            location: event.location,
-            description: event.description,
-            photos: event.photos,
-            contact_id: event.coordinator.id
-            },['id','date','title','location','description','photos', 'contact_id']);
-      
-      
+  return new Promise((resolve, reject) => {
+    sqlDB('event')
+      .insert({
+          date: event.date,
+          title: event.title,
+          location: event.location,
+          description: event.description,
+          photos: event.photos,
+          contact_id: event.coordinator.id
+          },
+          ['id','date','title','location','description','photos', 'contact_id']
+          )
+          .then((eventSaved)=>{
+            if(event.courses.length > 0) {
+              var coursePresentations = event.courses.map(course => { 
+                return { 
+                  course_id: course.id,
+                  event_id: eventSaved[0].id 
+                }
+              }); 
+
+              sqlDB.insert(coursePresentations,['course_id', 'event_id']).into('course_presentation')
+                .then((result2) => {
+                  resolve(eventSaved);
+                })
+                .catch((error) => {
+                  console.log(error);
+                  reject();
+                });
+            } else {
+              resolve(eventSaved);
+            }
+          })
+          .catch((error)=> {
+            console.log(error)
+            reject();
+          });     
+    });
 }
 
 exports.getEventById = function(id) {
