@@ -1,0 +1,82 @@
+h1{
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+#eventsRow{
+    margin-left: 50px;
+}
+#eventsRow .col-xl-4{
+    margin-bottom: 20px;
+}
+.card{
+    background-color: #CEE8DF;
+    width: 395px;
+}
+#eventCard .card-body{
+    text-align: center;
+    background-color: #FFEEBD;
+}
+#eventDate{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    color: #4D4D4D;
+    font-size: 3em;
+}
+#eventInfo{
+    text-align: left;
+}
+#eventInfo p:first-child{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: #A80042;
+    font-size: 1.625em;
+    margin-bottom: 5px;
+}
+#eventInfo p:nth-child(2){
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: #3C3C3C;
+    font-size: 1.375em;
+}
+#eventInfo p:nth-child(3){
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: #3C3C3C;
+    font-size: 1.375em;
+}
+.onlineButton{
+    margin: 50px 0px 150px 50px;
+}
+@media only screen and (max-width: 1300px){
+    .card{
+        width: 342px;
+    }
+    #eventDate{
+        font-size: 2.625em;
+    }
+    #eventInfo p:first-child{
+        font-size: 1.375em;
+    }
+    #eventInfo p:nth-child(2){
+        font-size: 1.2em;
+    }
+    #eventInfo p:nth-child(3){
+        font-size: 1.2em;
+    }
+}
+@media only screen and (max-width: 800px){
+    .button{
+        position: static;
+    }
+}
+@media only screen and (max-width: 400px){
+    #eventsRow{
+        margin-left: 20px;
+    }
+    h1{
+        margin-left: 20px;
+    }
+    .onlineButton{
+        margin-left: calc(50% - 76.25px);
+    }
+}
