@@ -98,7 +98,8 @@ exports.getEventById = function(id) {
           event["coordinator"] = coordinator;
         }
 
-        // let courses = extractCourses(result);
+        let courses = extractCourses(result);
+        event["courses"] = courses;
 
         resolve(event);
       })
@@ -108,4 +109,21 @@ exports.getEventById = function(id) {
     
   });
   
+}
+
+function extractCourses(queryResult) {
+  let courses = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].course_id && selectedIds.indexOf(queryResult[i].course_id) == -1) {
+
+      courses.push({
+        id: queryResult[i].course_id,
+        level: queryResult[i].level,
+        cerf_level: queryResult[i].cerf_level
+      });
+      selectedIds.push(queryResult[i].course_id);
+    }
+  }
+  return courses;
 }
