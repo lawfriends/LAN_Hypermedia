@@ -1,4 +1,4 @@
-.eventIntro{
+#eventIntro{
     width: 100%;
     margin: 0 0 50px 0;
 }
@@ -25,6 +25,7 @@
     margin-right: 50px;
     padding: 0;
     width: auto;
+    margin-left: 0;
 }
 #coordinatorPhoto{
     max-width: 74px;
@@ -64,6 +65,29 @@
 }
 #coordinatorLink:active{
     background-color: #8DC9B1;
+}
+#eventMap{
+    background-color: #A80042;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+#eventMap p{
+    margin: 0;
+    padding-top: 5px;
+}
+#eventMap i{
+    padding-top: 5px;
+}
+#eventContact{
+    margin: 0;
+}
+#eventContact .col:first-child{
+    margin-left: 50px;
+    padding: 0;
 }
 @media only screen and (max-width: 1200px){
     .coursesIntro{
