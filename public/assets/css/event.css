@@ -54,6 +54,7 @@
     padding: 0;
     width: auto;
     margin-left: 0;
+    height: auto;
 }
 #coordinatorPhoto{
     max-width: 74px;
@@ -69,7 +70,7 @@
     color: #4D4D4D;
     margin: 0;
 }
-#coordinatorInfo .col-auto{
+#coordinatorInfo .col-sm-auto{
     padding-right: 35px;
 }
 #coordinatorLink{
@@ -103,6 +104,9 @@
     text-transform: uppercase;
     border-radius: 10px;
 }
+#eventMap:hover{
+    background-color: #d20644;
+}
 #eventMap p{
     margin: 0;
     padding-top: 5px;
@@ -113,12 +117,75 @@
 #eventContact{
     margin: 0;
 }
-#eventContact .col:first-child{
+#eventContact .col-xl:first-child{
     margin-left: 50px;
     padding: 0;
+}
+#eventContact .col-xl:nth-child(2){
+    padding: 0;
+}
+#buttonRow{
+    margin-bottom: 70px;
+    width: 100%;
+    margin: 50px 0 10px 0;
+}
+#buttonRow .col-sm{
+    padding-left: 50px;
+}
+#buttonRow .col-sm-auto{
+    padding-right: 50px;
+}
+#eventsMonthButton{
+    margin-left: calc(50% - 107.5px);
+    margin-bottom: 100px;
 }
 @media only screen and (max-width: 1200px){
     .coursesIntro{
         width: 100%;
+    }
+    #eventContact{
+        margin-right: 50px;
+    }
+    #eventContact .col-xl:first-child{
+        margin-bottom: 40px;
+    }
+    #eventContact .col-xl:nth-child(2){
+        margin-left: 50px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #eventPar{
+        margin-left: 20px;
+    }
+    #eventContact{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #eventContact .col-xl:first-child{
+        margin-left: 0;
+    }
+    #eventContact .col-xl:nth-child(2){
+        margin-left: 0;
+    }
+    #coordinatorInfo{
+        margin-right: 0;
+    }
+    #coordinatorInfo .col-sm-auto{
+        padding: 0;
+    }
+    #coordinatorLink{
+        margin-left: calc(50% - 70px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12{
+        padding: 0;
+    }
+    #buttonRow .col-12:first-child a{
+        margin-left: calc(50% - 94.5px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12:nth-child(2) a{
+        margin-left: calc(50% - 77.25px);
+        margin-bottom: 20px;
     }
 }
