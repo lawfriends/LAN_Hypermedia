@@ -31,6 +31,9 @@
     border-radius: 10px;
     margin-bottom: 50px;
 }
+#eventCourseLink:hover{
+    text-decoration: none;
+}
 .CERFlevel{
     margin: 0;
     display: inline-block;

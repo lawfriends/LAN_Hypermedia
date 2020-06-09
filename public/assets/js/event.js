@@ -19,6 +19,7 @@ function getEvent() {
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
         document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
+        document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
