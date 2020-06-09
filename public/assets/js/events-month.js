@@ -50,7 +50,7 @@ function getEventsByMonth() {
             cardRow.appendChild(dateCol)
             cardRow.appendChild(infoCol);
             var detailsButton = document.createElement("a");
-            detailsButton.href = "#";
+            detailsButton.href = "./event.html?id=".concat(events[i].id);
             detailsButton.classList.add("btn", "button");
             detailsButton.innerHTML = "View details";
             cardBody.appendChild(cardRow);
