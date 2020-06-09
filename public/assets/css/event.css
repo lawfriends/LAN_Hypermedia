@@ -19,6 +19,32 @@
     margin-left: 50px;
     margin-right: 25px;
 }
+#recommendedP{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875em;
+    color: #4D4D4D;
+}
+#eventCourse{
+    background-color: #E6E6E6;
+    width: fit-content;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.CERFlevel{
+    margin: 0;
+    display: inline-block;
+}
+#courseLevelPar{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    color: #4D4D4D;
+    margin: 0;
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 10px;
+}
 @media only screen and (max-width: 1200px){
     .coursesIntro{
         width: 100%;

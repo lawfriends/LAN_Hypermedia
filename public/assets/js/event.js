@@ -11,8 +11,9 @@ function getEvent() {
         console.log(event);
         document.querySelector(".breadcrumb .active").innerHTML = event.title;
         document.querySelector("#eventPar h1").innerHTML = event.title;
-        // document.querySelector(".CERFlevelPar").innerHTML = event.cerf_level;
         document.querySelector("#eventPar p.normal").innerHTML = event.description;
+        document.querySelector(".CERFlevelPar").innerHTML = event.courses[0].cerf_level;
+        document.querySelector("#courseLevelPar").innerHTML = event.courses[0].level.concat(" course");
         const eventDateTime = new Date(event.date);
         let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};

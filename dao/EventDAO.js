@@ -68,14 +68,62 @@ exports.getEventById = function(id) {
 
   return new Promise(function(resolve, reject) {
 
-    sqlDB('event').where('id',id).limit(1).then((result)=> {
-      if(result.length == 1) {
-        resolve(result[0]);
-      } else {
-        resolve(result);
-      }
-    });
+    sqlDB('event')
+      .select(['event.id', 'event.title', 'event.date', 'event.location', 'event.description', 'event.photos',
+                {contact_id: 'p.id'}, 'p.name', 'p.photo',
+                {course_id: 'c.id'}, 'c.level', 'c.cerf_level'])
+      .leftJoin('person AS p', 'p.id', 'event.contact_id')
+      .leftJoin('course_presentation as cp', 'cp.event_id', 'event.id')
+      .leftJoin('course as c', 'c.id', 'cp.course_id')
+      .where('event.id',id)
+      .limit(1)
+      .then((result)=> {
+
+        if(!result) reject();
+
+        let event = {
+          id: (result[0].id || id),
+          title: result[0].title,
+          date: result[0].date,
+          photos: result[0].photos,
+          description: result[0].description,
+          location: result[0].location,
+        };
+        if(result[0].contact_id) {
+          let coordinator = {
+            id: result[0].contact_id,
+            name: result[0].name,
+            photo: result[0].photo
+          }
+          event["coordinator"] = coordinator;
+        }
+
+        let courses = extractCourses(result);
+        event["courses"] = courses;
+
+        resolve(event);
+      })
+      .catch((error)=>{
+        reject();
+      });
     
   });
   
+}
+
+function extractCourses(queryResult) {
+  let courses = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].course_id && selectedIds.indexOf(queryResult[i].course_id) == -1) {
+
+      courses.push({
+        id: queryResult[i].course_id,
+        level: queryResult[i].level,
+        cerf_level: queryResult[i].cerf_level
+      });
+      selectedIds.push(queryResult[i].course_id);
+    }
+  }
+  return courses;
 }

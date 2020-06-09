@@ -24,6 +24,7 @@ function setupDataLayer() {
         personDBSetup(sqlDB),
         commentDBSetup(sqlDB),
         eventDBSetup(sqlDB),
+        coursePresentationDBSetup(sqlDB),
         courseVolunteerDBSetup(sqlDB)
     ]);
     //if you have other services, yoou should invoke all inside a promise and return it : Promise.all (...)
