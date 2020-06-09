@@ -83,8 +83,23 @@ function getEvent() {
         }*/
     })
 }
+
+function getCoordinator() {
+    fetch("/v1/events/".concat(eventId)).then(function(response) {
+        return response.json();
+    }).then(function(event) {
+        fetch("/v1/person?id=".concat(event.contact_id)).then(function(response){
+            return response.json();
+        }).then(function(coordinator){
+            document.querySelector("#coordinatorPhoto").src = coordinator.photo;
+            document.querySelector("#coordinatorName").innerHTML = coordinator.name;
+            document.querySelector("#coordinatorLink").href = "#";
+        })
+    })
+}
         
 
 window.onload = function() {
     this.getEvent();
+    this.getCoordinator();
 }
