@@ -2,11 +2,11 @@
 
 <html>
     <head>
-        <title>All Courses</title>
+        <title>Event</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/events-month.css">
+        <link rel="stylesheet" href="../assets/css/event.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Open+Sans&family=Nunito&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c0ad3f730c.js" crossorigin="anonymous"></script>
     </head>
@@ -31,67 +31,21 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./allevents.html">All events</a></li>
-              <li class="breadcrumb-item active" aria-current="page"></li>
+              <li class="breadcrumb-item"><a href="./events-month.html?month=3">Events in April</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Food laboratory</li>
             </ol>
         </nav>
-        <h1></h1>
-        <div class="row no-gutters" id="eventsRow">
-            <!-- <div class="col-xl-4 col-md-6 col-sm-12">
-                <div class="card" id="eventCard">
-                    <img src="../assets/img/allevents/events-by-month/01-april-med.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3" id="eventDate">
-                                <p>11</p>
-                            </div>
-                            <div class="col" id="eventInfo">
-                                <p>Food laboratory</p>
-                                <p>15:00 - 19:00</p>
-                                <p>Museo della Scienza</p>
-                            </div>
-                        </div>
-                        <a href="#" class="btn button">View details</a>
-                    </div>
-                </div>
+        <div class="row flex-column-reverse flex-xl-row eventIntro">
+            <div class="col-xl" id="eventPar">
+                <h1></h1>
+                <p class="normal"></p>
+                <h6></h6>
             </div>
-            <div class="col-xl-4 col-md-6 col-sm-12">
-                <div class="card" id="eventCard">
-                    <img src="../assets/img/allevents/events-by-month/01-april-med.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3" id="eventDate">
-                                <p>11</p>
-                            </div>
-                            <div class="col" id="eventInfo">
-                                <p>Food laboratory</p>
-                                <p>15:00 - 19:00</p>
-                                <p>Museo della Scienza</p>
-                            </div>
-                        </div>
-                        <a href="#" class="btn button">View details</a>
-                    </div>
-                </div>
+            <div class="col-xl" id="eventImage">
+                <img>
             </div>
-            <div class="col-xl-4 col-md-6 col-sm-12">
-                <div class="card" id="eventCard">
-                    <img src="../assets/img/allevents/events-by-month/01-april-med.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3" id="eventDate">
-                                <p>11</p>
-                            </div>
-                            <div class="col" id="eventInfo">
-                                <p>Food laboratory</p>
-                                <p>15:00 - 19:00</p>
-                                <p>Museo della Scienza</p>
-                            </div>
-                        </div>
-                        <a href="#" class="btn button">View details</a>
-                    </div>
-                </div>
-            </div> -->
         </div>
-        <a href="./allevents.html" class="btn onlineButton" role="button"><i class="fas fa-long-arrow-alt-left"></i> All events</a>
+
         <div class="container-fluid footer">
             <div class="row">
               <div class="col-lg-3">
@@ -115,6 +69,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-        <script src="../assets/js/events-month.js"></script>
+        <script src="../assets/js/event.js"></script>
     </body>
 </html>
