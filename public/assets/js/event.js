@@ -21,8 +21,9 @@ function getEvent() {
         document.querySelector("#eventImage img").src = event.photos;
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
         document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
-            document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
-            document.querySelector("#coordinatorLink").href = "#";
+        document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
+        document.querySelector("#coordinatorLink").href = "#";
+        document.querySelector("#eventLocation").innerHTML = event.location;
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
