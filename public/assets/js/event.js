@@ -20,6 +20,9 @@ function getEvent() {
         document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
+        document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
+            document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
+            document.querySelector("#coordinatorLink").href = "#";
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -85,8 +88,23 @@ function getEvent() {
         }*/
     })
 }
+
+function getCoordinator() {
+    fetch("/v1/events/".concat(eventId)).then(function(response) {
+        return response.json();
+    }).then(function(event) {
+        fetch("/v1/person?id=".concat(event.contact_id)).then(function(response){
+            return response.json();
+        }).then(function(coordinator){
+            document.querySelector("#coordinatorPhoto").src = coordinator.photo;
+            document.querySelector("#coordinatorName").innerHTML = coordinator.name;
+            document.querySelector("#coordinatorLink").href = "#";
+        })
+    })
+}
         
 
 window.onload = function() {
     this.getEvent();
+    //this.getCoordinator();
 }

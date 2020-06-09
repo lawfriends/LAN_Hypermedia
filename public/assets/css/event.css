@@ -47,6 +47,51 @@
     display: inline-block;
     padding-right: 15px;
     padding-left: 10px;
+#coordinatorInfo{
+    background-color: #CEE8DF;
+    height: 110px;
+    margin-right: 50px;
+    padding: 0;
+    width: auto;
+}
+#coordinatorPhoto{
+    max-width: 74px;
+    max-height: 74px;
+    margin: 18px 20px;
+    display: inline-block;
+}
+#coordinatorName{
+    display: inline-block;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #4D4D4D;
+    margin: 0;
+}
+#coordinatorInfo .col-auto{
+    padding-right: 35px;
+}
+#coordinatorLink{
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #004D4A;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #004D4A;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+}
+#coordinatorLink:hover{
+    background-color: #E1FBF2;
+}
+#coordinatorLink:active{
+    background-color: #8DC9B1;
 }
 @media only screen and (max-width: 1200px){
     .coursesIntro{
