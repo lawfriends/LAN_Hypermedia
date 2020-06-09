@@ -18,6 +18,9 @@ function getEvent() {
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
         document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
+        document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
+            document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
+            document.querySelector("#coordinatorLink").href = "#";
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -101,5 +104,5 @@ function getCoordinator() {
 
 window.onload = function() {
     this.getEvent();
-    this.getCoordinator();
+    //this.getCoordinator();
 }
