@@ -8,6 +8,8 @@ function getPerson() {
         return response.json();
     }).then(function(person) {
         console.log(person);
+        document.querySelector("title").innerHTML = person.name;
+        document.querySelector(".breadcrumb .active").innerHTML = person.name;
         //document.querySelector("#teacherPhoto img").src = person.photo;
         document.querySelector("#teacherInfo h1").innerHTML = person.name;
         document.querySelector("#job").innerHTML = person.job;
@@ -18,7 +20,15 @@ function getPerson() {
         document.querySelector(".card-body a").href = "./course.html?id=".concat(person.courses[0].id);
         document.querySelector(".card-body a").innerHTML = person.courses[0].level.concat(" course");
         document.querySelector(".card-text").innerHTML = (person.courses[0].description).split('.')[0];
-        if(person.events == undefined){
+    })
+}
+
+function getPersonEvents() {
+    fetch("/v1/person/".concat(personId).concat("/events")).then(function(response) {
+        return response.json();
+    }).then(function(events) {
+        console.log(events);
+        if(events.length == 0){
             var button = document.createElement("button");
             button.classList.add("btn");
             button.setAttribute("id", "noEvent");
@@ -29,7 +39,7 @@ function getPerson() {
         else{
             var button = document.createElement("a");
             button.classList.add("btn", "button");
-            button.href = "./event.html?id=".concat(person.events.id);
+            button.href = "#";
             button.setAttribute("role", "button");
             button.innerHTML = "Events by this volunteer";
             document.querySelector("#teacherEvent").appendChild(button);
@@ -101,5 +111,6 @@ function getPersonComments() {
 
 window.onload = function() {
     this.getPerson();
+    this.getPersonEvents();
     this.getPersonComments();
 }
