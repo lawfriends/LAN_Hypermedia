@@ -26,37 +26,7 @@ exports.peopleGET = function(limit,offset) {
  * returns Person
  **/
 exports.personIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "courses" : [ 1, 1 ],
-  "role" : "teacher",
-  "quote" : "quote",
-  "comments" : [ {
-    "date" : "12th of March 2019",
-    "studentName" : "Nils Jung",
-    "id" : 5,
-    "text" : "This teacher was very nice"
-  }, {
-    "date" : "12th of March 2019",
-    "studentName" : "Nils Jung",
-    "id" : 5,
-    "text" : "This teacher was very nice"
-  } ],
-  "city" : "city",
-  "name" : "Marco Rossi",
-  "photo" : "photo",
-  "description" : "description",
-  "id" : 6,
-  "job" : "job",
-  "events" : [ 5, 5 ]
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  return personDAO.getPersonById(id);
 }
 
 exports.personPOST = function(person) {
