@@ -35,20 +35,29 @@
     margin-bottom: 50px;
     padding: 40px 0 50px 30px;
 }
-.role{
+#teacherRow{
+    margin: 0 0 0 50px;
+}
+#teacherRow .column{
+    background-color: #CEE8DF;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    padding: 40px 0 50px 30px;
+}
+.coordinatorRole{
     font-family: 'Nunito sans', sans-serif;
     font-weight: bold;
     font-size: 0.9375em;
     color: #004D4A;
     text-transform: uppercase;
 }
-.name{
+.coordinatorName{
     font-family: 'Nunito sans', sans-serif;
     font-weight: 600;
     font-size: 1.875em;
     color: #004D4A;
 }
-.description{
+.coordinatorDescription{
     font-family: 'Nunito sans', sans-serif;
     font-weight: 400;
     font-size: 0.875em;
@@ -79,9 +88,27 @@
     background-color: #8DC9B1;
     color: #004D4A;
 }
+.teacherName{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #004D4A;
+}
+.teacherDescription{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875em;
+    color: #004D4A;
+}
 @media only screen and (max-width: 1200px) {
     #coordinatorRow{
         margin-right: 50px;
+    }
+    #teacherRow{
+        margin-right: 50px;
+    }
+    #teacherRow .row .col img{
+        margin-top: 20px;
     }
 }
 @media only screen and (max-width: 400px) {
@@ -105,6 +132,13 @@
     }
     #coordinatorRow .row .col img{
         margin-top: 20px;
+    }
+    #teacherRow{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #teacherRow .row .col{
+        padding: 0;
     }
     .description{
         padding-right: 10px;

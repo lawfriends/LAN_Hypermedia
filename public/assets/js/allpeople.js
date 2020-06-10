@@ -12,13 +12,13 @@ function getAllPeople() {
                 var infoCol = document.createElement("div");
                 infoCol.classList.add("col");
                 var role = document.createElement("p");
-                role.classList.add("role");
+                role.classList.add("coordinatorRole");
                 role.innerHTML = people[i].role;
                 var name = document.createElement("p");
-                name.classList.add("name");
+                name.classList.add("coordinatorName");
                 name.innerHTML = people[i].name;
                 var description = document.createElement("p");
-                description.classList.add("description");
+                description.classList.add("coordinatorDescription");
                 description.innerHTML = people[i].description;
                 var coordinatorButton = document.createElement("a");
                 coordinatorButton.href = "#";
@@ -37,6 +37,37 @@ function getAllPeople() {
                 infoRow.appendChild(imageCol);
                 coordinatorCol.appendChild(infoRow);
                 coordinatorRow.appendChild(coordinatorCol);
+            }
+            else if(people[i].role == "teacher"){
+                var teacherRow = document.querySelector("#teacherRow");
+                var teacherCol = document.createElement("div");
+                teacherCol.classList.add("col-xl-3", "col-md-5", "col-12", "column");
+                var infoRow = document.createElement("div");
+                infoRow.classList.add("row");
+                var infoCol = document.createElement("div");
+                infoCol.classList.add("col");
+                var name = document.createElement("p");
+                name.classList.add("teacherName");
+                name.innerHTML = people[i].name;
+                var description = document.createElement("p");
+                description.classList.add("teacherDescription");
+                description.innerHTML = "Volunteer from 2012";
+                var teacherButton = document.createElement("a");
+                teacherButton.href = "#";
+                teacherButton.classList.add("personLink");
+                teacherButton.innerHTML = "See profile";
+                infoCol.appendChild(name);
+                infoCol.appendChild(description);
+                infoCol.appendChild(teacherButton);
+                var imageCol = document.createElement("div");
+                imageCol.classList.add("col");
+                var teacherPhoto = document.createElement("img");
+                teacherPhoto.src = people[i].photo;
+                imageCol.appendChild(teacherPhoto);
+                infoRow.appendChild(infoCol);
+                infoRow.appendChild(imageCol);
+                teacherCol.appendChild(infoRow);
+                teacherRow.appendChild(teacherCol);
             }
         }        
     })
