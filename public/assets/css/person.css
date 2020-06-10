@@ -81,12 +81,27 @@
     margin-top: 60px;
     margin-bottom: 20px;
 }
+#buttonRow{
+    margin-bottom: 70px;
+    width: 100%;
+    margin: 50px 0 10px 0;
+}
+#buttonRow .col-sm{
+    padding-left: 50px;
+}
+#buttonRow .col-sm-auto{
+    padding-right: 50px;
+}
+#allPeople{
+    margin-left: calc(50% - 68px);
+    margin-bottom: 100px;
+}
 @media only screen and (max-width: 1200px){
     .carouselComment .bquote{
         font-size: 1.7em;
     }
 }
-@media screen and (max-width:767px){
+@media only screen and (max-width:767px){
     .carouselComment{
         height: 750px;
     }
@@ -94,5 +109,18 @@
         text-align: center;
         font-size: 2.5em;
         padding: 0;
+    }
+}
+@media only screen and (max-width: 400px){
+    #buttonRow .col-12{
+        padding: 0;
+    }
+    #buttonRow .col-12:first-child a{
+        margin-left: calc(50% - 94.5px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12:nth-child(2) a{
+        margin-left: calc(50% - 77.25px);
+        margin-bottom: 20px;
     }
 }
