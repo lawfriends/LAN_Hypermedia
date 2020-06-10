@@ -23,7 +23,71 @@
     margin-top: 30px;
     position: static;
 }
+.grayTitle{
+    margin-left: 50px;
+}
+#coordinatorRow{
+    margin: 0 0 0 50px;
+}
+#coordinatorRow .column{
+    background-color: #CEE8DF;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    padding: 40px 0 50px 30px;
+}
+.role{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+.name{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.875em;
+    color: #004D4A;
+}
+.description{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #4D4D4D;
+}
+.personLink{
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #004D4A;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #004D4A;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+}
+.personLink:hover{
+    background-color: #E1FBF2;
+    text-decoration: none;
+    color: #004D4A;
+}
+.personLink:active{
+    background-color: #8DC9B1;
+    color: #004D4A;
+}
+@media only screen and (max-width: 1200px) {
+    #coordinatorRow{
+        margin-right: 50px;
+    }
+}
 @media only screen and (max-width: 400px) {
+    .grayTitle{
+        margin-left: 20px;
+    }
     .peopleIntro{
         margin-left: 0;
     }
@@ -34,5 +98,15 @@
         padding: 0 !important;
         text-align: center !important;
         margin-bottom: 40px;
+    }
+    #coordinatorRow{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #coordinatorRow .row .col img{
+        margin-top: 20px;
+    }
+    .description{
+        padding-right: 10px;
     }
 }
