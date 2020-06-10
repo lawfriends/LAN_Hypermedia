@@ -39,3 +39,14 @@ module.exports.eventsPOST = function eventsPOST (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.eventsByPersonIdGET = function eventsByPersonIdGET(req, res, next) {
+  var id = req.swagger.params['id'].value;
+  EventService.eventsByPersonIdGET(id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+}

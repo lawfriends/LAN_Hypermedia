@@ -127,3 +127,7 @@ function extractCourses(queryResult) {
   }
   return courses;
 }
+
+exports.getEventsByPersonId = function(person_id) {
+  return sqlDB('event').where('contact_id',person_id);
+}
