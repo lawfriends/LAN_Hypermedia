@@ -8,7 +8,7 @@ function getAllPeople() {
                 var coordinatorCol = document.createElement("div");
                 coordinatorCol.classList.add("col-xl-5", "col-12", "column");
                 var infoRow = document.createElement("div");
-                infoRow.classList.add("row");
+                infoRow.classList.add("row", "flex-column-reverse", "flex-sm-row");
                 var infoCol = document.createElement("div");
                 infoCol.classList.add("col");
                 var role = document.createElement("p");
