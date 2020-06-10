@@ -1,0 +1,70 @@
+#teacherProfile{
+    width: 100%;
+    margin: 0 0 0 50px;
+}
+#teacherPhoto{
+    max-width: fit-content;
+    padding: 0;
+}
+#teacherInfo{
+    margin-left: 30px;
+}
+#teacherInfo h1{
+    color: #4D4D4D;
+}
+#teacherEvent{
+    margin-left: 50px;
+}
+.card-title{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #004D4A;
+}
+.card-title:hover{
+    color: #004D4A;
+}
+#job{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #A80042;
+    margin: 0;
+}
+.description{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #4D4D4D;
+}
+#quote{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.75em;
+    font-style: italic;
+    color: #A80042;
+    margin-top: 40px;
+}
+#grayTitle{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #4D4D4D;
+    text-transform: uppercase;
+}
+#noEvent{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #4D4D4D;
+    text-transform: uppercase;
+    background-color: #e6e6e6;
+    height: 50px;
+    width: inherit;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.button{
+    width: inherit;
+    margin-top: 30px;
+}
