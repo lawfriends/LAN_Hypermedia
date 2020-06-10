@@ -62,7 +62,7 @@ exports.save = function(person) {
             quote: person.quote,
             },['id', 'name', 'role', 'photo', 'description', 'job', 'city', 'quote' ])
               .then((personSaved)=>{
-                if(person.courses.length > 0) {
+                if(person.courses && person.courses.length > 0) {
                   var courseVolunteers = person.courses.map(course => { 
                     return { 
                       course_id: course.id,
@@ -88,6 +88,10 @@ exports.save = function(person) {
             });
 }
 
-exports.getPeople = function() {
-    return sqlDB('person');
+exports.getPeople = function(limit,offset) {
+  if(!Number.isInteger(limit) || !Number.isInteger(offset)) {
+    limit = null;
+    offset = null;
+  }
+  return sqlDB('person').limit(limit).offset(offset);
 }
