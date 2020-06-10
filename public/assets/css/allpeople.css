@@ -1,0 +1,38 @@
+.peopleIntro{
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+#peopleImage{
+    padding-right: 0;
+    padding-left: 0;
+}
+#peopleImage img{
+    width: 100%;
+}
+#peoplePar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-left: 0;
+}
+.title{
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.button{
+    margin-top: 30px;
+    position: static;
+}
+@media only screen and (max-width: 400px) {
+    .peopleIntro{
+        margin-left: 0;
+    }
+    #peoplePar{
+        margin-left: 20px;
+    }
+    #buttonRow div{
+        padding: 0 !important;
+        text-align: center !important;
+        margin-bottom: 40px;
+    }
+}
