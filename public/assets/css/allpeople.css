@@ -103,6 +103,10 @@
     font-size: 0.875em;
     color: #004D4A;
 }
+.onlineButton{
+    margin-left: calc(50% - 105.5px);
+    margin-bottom: 50px;
+}
 @media only screen and (max-width: 1200px) {
     #coordinatorRow{
         margin-right: 50px;

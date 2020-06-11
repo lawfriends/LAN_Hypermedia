@@ -1,7 +1,11 @@
+var limit = 10;
+var offset = 0;
+
 function getAllPeople() {
-    fetch("/v1/people").then(function(response) {
+    fetch("/v1/people?limit=".concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(people) {
+        offset+=10;
         for(var i=0; i<people.length; i++){
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
@@ -71,8 +75,13 @@ function getAllPeople() {
             }
         }        
     })
-}   
+}
+
+function loadMoreButton(){
+    document.querySelector("#loadButton").addEventListener("click", getAllPeople); 
+}
 
 window.onload = function() {
     this.getAllPeople();
+    this.loadMoreButton();
 }
