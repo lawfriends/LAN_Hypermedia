@@ -10,8 +10,8 @@ function getCourseResources() {
     fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(resources) {
-        console.log("click");
         offset+=4;
+        document.querySelector(".onlineButton").href = "./course.html?id=".concat(courseId);
         var resourcesContainer = document.querySelector("#resourcesContainer");
         for(var i=0; i<resources.length; i++){
             var resourceRow = document.createElement("div");
