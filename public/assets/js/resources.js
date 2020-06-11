@@ -48,11 +48,11 @@ function getCourseResources() {
             resourcesContainer.appendChild(resourceRow);
         }
         if(i<limit){
-            console.log("nascondi");
+            console.log("nascondo");
             document.querySelector("#loadButton").style.display = "none";
         }
         else{
-            console.log("non nasconid");
+            console.log(resources);
         }
     })
 }
