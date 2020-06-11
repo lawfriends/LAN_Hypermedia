@@ -13,7 +13,7 @@
 var personDAO = require('../dao/PersonDAO');
 
 exports.peopleGET = function(limit,offset) {
-  return personDAO.getPeople();
+  return personDAO.getPeople(limit,offset);
 }
 
 
