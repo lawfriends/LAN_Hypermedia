@@ -95,3 +95,8 @@ exports.getPeople = function(limit,offset) {
   }
   return sqlDB('person').limit(limit).offset(offset);
 }
+
+exports.getPersonById = function(id) {
+    let result = sqlDB('person').where('id', id);
+    return result.length ? result[0] : result;
+}
