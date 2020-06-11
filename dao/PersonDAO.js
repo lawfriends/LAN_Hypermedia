@@ -100,9 +100,11 @@ exports.getPersonById = function(id) {
   return new Promise(function(resolve, reject) {
     sqlDB('person')
       .select(['person.id', 'person.name', 'person.role', 'person.photo', 'person.description', 'person.job', 'person.city', 'person.quote',
-      {course_id: 'c.id'}, 'c.image', 'c.level', {course_description: 'c.description'}])
+      {course_id: 'c.id'}, 'c.image', 'c.level', {course_description: 'c.description'},
+      {comment_id: 'cm.id'}, 'cm.text', {comment_date: 'cm.date'}, 'cm.student_name', {comment_photo: 'cm.photo'}])
       .leftJoin('course_volunteer as cv', 'cv.person_id', 'person.id')
       .leftJoin('course as c', 'c.id', 'cv.course_id')
+      .leftJoin('comment as cm', 'cm.person_id', 'person.id')
       .where('person.id', id)
       .then((result) => {
         if(!result) reject();
@@ -120,11 +122,16 @@ exports.getPersonById = function(id) {
         };
 
         let courses = extractCourses(result);
+        let comments = extractComments(result);
+
         person["courses"] = courses;
+        person["comments"] = comments;
 
         resolve(person);
       })
-
+    .catch((error) => {
+      reject();
+    });
 
   });
 }
@@ -144,4 +151,22 @@ function extractCourses(queryResult) {
     }
   }
   return courses;
+}
+
+function extractComments(queryResult) {
+  let comments = [];
+  let selectedIds = [];
+  for(let i = 0, len = queryResult.length; i < len; i++ ) {
+    if(queryResult[i].comment_id && selectedIds.indexOf(queryResult[i].comment_id) == -1) {
+      comments.push({
+        id: queryResult[i].comment_id,
+        text: queryResult[i].text,
+        date: queryResult[i].comment_date,
+        student_name: queryResult[i].student_name,
+        photo: queryResult[i].comment_photo
+      });
+      selectedIds.push(queryResult[i].comment_id);
+    }
+  }
+  return comments;
 }

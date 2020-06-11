@@ -44,7 +44,7 @@ function getAssociationComments() {
                 var controls = document.querySelector(".carousel-indicators");
                 var controller = document.createElement("li");
                 controller.dataset.target = "#carouselIndicatorsTestimonials";
-                controller.setAttribute('data-slide-to', i.toString());
+                controller.setAttribute('data-slide-to', (a-1).toString());
                 if(a==1){
                     controller.classList.add("active");
                 }

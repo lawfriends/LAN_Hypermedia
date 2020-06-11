@@ -328,6 +328,41 @@ paths:
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Person"
+  /person/{id}/events:
+    get:
+      tags:
+      - "Event"
+      - "Person"
+      summary: "List of events that a specific person is contact for"
+      operationId: "eventsByPersonIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "volunteer ID"
+        required: true
+        type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "limit num of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events that have the same contact person"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
   /comments:
     get:
       tags:

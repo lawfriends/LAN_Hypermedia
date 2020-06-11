@@ -61,3 +61,6 @@ exports.eventsPOST = function(event) {
   });
 }
 
+exports.eventsByPersonIdGET = function(person_id) {
+  return eventDAO.getEventsByPersonId(person_id);
+}
