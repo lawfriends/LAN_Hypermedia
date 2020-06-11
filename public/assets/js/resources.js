@@ -3,10 +3,15 @@ console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const courseId = urlParams.get('id')
 console.log(courseId);
+var limit = 4;
+var offset = 0;
+
 function getCourseResources() {
-    fetch("/v1/courses/".concat(courseId).concat("/resources")).then(function(response) {
+    fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(resources) {
+        console.log("click");
+        offset+=4;
         var resourcesContainer = document.querySelector("#resourcesContainer");
         for(var i=0; i<resources.length; i++){
             var resourceRow = document.createElement("div");
@@ -42,18 +47,33 @@ function getCourseResources() {
             resourceRow.appendChild(thirdCol);
             resourcesContainer.appendChild(resourceRow);
         }
-        if(resources.length>3){
-            var loadButton = document.createElement("a");
-            loadButton.href = "#";
-            loadButton.classList.add("btn");
-            loadButton.setAttribute("id", "loadButton");
-            loadButton.setAttribute("role", "button");
-            loadButton.innerHTML = "Load more ";
-            var loadIcon = document.createElement("i");
-            loadIcon.classList.add("fas", "fa-long-arrow-alt-down");
-            loadButton.appendChild(loadIcon);
-            resourcesContainer.appendChild(loadButton);
+        if(i<limit){
+            console.log("nascondi");
+            document.querySelector("#loadButton").style.display = "none";
         }
+        else{
+            console.log("non nasconid");
+        }
+    })
+}
+
+function loadMoreButton(){
+    fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
+        return response.json();
+    }).then(function(resources) {
+        if(resources.length>3){
+                var loadButton = document.createElement("a");
+                //loadButton.href = "#";
+                loadButton.addEventListener("click", getCourseResources);
+                loadButton.classList.add("btn");
+                loadButton.setAttribute("id", "loadButton");
+                loadButton.setAttribute("role", "button");
+                loadButton.innerHTML = "Load more ";
+                var loadIcon = document.createElement("i");
+                loadIcon.classList.add("fas", "fa-long-arrow-alt-down");
+                loadButton.appendChild(loadIcon);
+                resourcesContainer.after(loadButton);
+            }
     })
 }
 
@@ -67,5 +87,6 @@ function getCourseLevel() {
 
 window.onload = function() {
     this.getCourseResources();
+    this.loadMoreButton();
     this.getCourseLevel();
 }
