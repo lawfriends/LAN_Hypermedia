@@ -99,6 +99,26 @@ input[type=submit]:hover{
 input[type=submit]:active{
     background-color: #910039;
 }
+#eventMap{
+    background-color: #A80042;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+#eventMap:hover{
+    background-color: #d20644;
+}
+#eventMap p{
+    margin: 0;
+    padding-top: 5px;
+}
+#eventMap i{
+    padding-top: 5px;
+}
 @media only screen and (max-width: 1080px){
     #contactImage img{
         width: 100%;
