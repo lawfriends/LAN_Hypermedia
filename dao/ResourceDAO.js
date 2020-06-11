@@ -17,8 +17,12 @@ exports.resourceDBSetup = function (connection) {
   });
 };
 
-exports.getResourcesByCourseId = function(id) {
-    return sqlDB('resource').where('course_id',id);
+exports.getResourcesByCourseId = function(id, limit, offset) {
+    if(!Number.isInteger(limit) || !Number.isInteger(offset) ) {
+      limit = null;
+      offset = null;
+    }
+    return sqlDB('resource').where('course_id',id).limit(limit).offset(offset);
 }
 
 exports.saveResourceOfCourse = function(resource, courseId) {
