@@ -1,0 +1,43 @@
+.donateIntro{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 200px;
+}
+#donateImage{
+    padding-right: 0;
+}
+#donateImage img{
+    width: 100%;
+}
+#donatePar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.greenText{
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 1.0625em;
+    font-weight: bold;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+.donateMethod{
+    margin-bottom: 1rem;
+}
+.donateMethod p{
+    margin-bottom: 0;    
+}
+@media only screen and (max-width: 1080px){
+    #donateImage img{
+        width: 100%;
+    }
+    #donateImage{
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #donatePar{
+        margin-left: 20px;
+    }
+}
