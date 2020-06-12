@@ -19,7 +19,7 @@ exports.coursesGET = function() {
  * id Long course id
  * returns Course
  **/
-exports.coursesIdGET = function(id,limit,offset) {
+exports.coursesIdGET = function(id) {
   return courseDAO.getCourseById(id);
 }
 

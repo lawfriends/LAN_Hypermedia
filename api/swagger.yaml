@@ -94,6 +94,7 @@ paths:
       tags:
       - "Course"
       summary: "courses inventory"
+      description: "This is a basic list of courses, as it is saved in the database. It does not return the nested information that a course may have, such as the events, or the teachers. If you need detailed information of one particular course, please see call to /courses/{id}"
       operationId: "coursesGET"
       produces:
       - "application/json"
@@ -111,6 +112,7 @@ paths:
       tags:
       - "Course"
       summary: "Add a new course"
+      description: "If you need to add a new course in the database, use the course object without specifying an id or a relation with another entity, such as events or people. The id is automatically created by the database, and you will receive it in the response. It does not return any nested information that it may have. If you need detailed information of one particular course, please see the call to /courses/{id}"
       operationId: "coursePOST"
       consumes:
       - "application/json"
@@ -133,6 +135,7 @@ paths:
       tags:
       - "Course"
       summary: "A specific course"
+      description: "This request returns the course corresponding to the id parameter, containing the nested information that a course may have, such as the events recommended for the course, or the list of volunteers involved in it."
       operationId: "coursesIdGET"
       produces:
       - "application/json"
@@ -155,6 +158,7 @@ paths:
       tags:
       - "Course"
       summary: "A collection of resources for a specific course"
+      description: "This is a list of resources that are recommended for a specific course."
       operationId: "courseResourcesGET"
       produces:
       - "application/json"
@@ -186,6 +190,7 @@ paths:
       tags:
       - "Course"
       summary: "Add a new resource for the course"
+      description: "If you need to add a new resource for a course in the database, use the resource object without specifying an id. The id is automatically created by the database, and you will receive it in the response."
       operationId: "courseResourcePOST"
       consumes:
       - "application/json"
@@ -386,7 +391,7 @@ definitions:
       contact_id: 1
       coordinator: 
         id: 1
-        name: "Alexandra Pozzi"
+        name: "Chiara Pozzi"
         photo: "/assets/img/volunteers/01-chiara-pozzi.png"
       courses: 
       - id: 1
@@ -489,7 +494,7 @@ definitions:
       events:
         type: "array"
         items:
-          $ref: "#/definitions/Person"
+          $ref: "#/definitions/Event"
       # resources:
       #   type: "array"
       #   items:
@@ -497,71 +502,25 @@ definitions:
     title: "Course"
     description: "a course"
     example:
-      level: "introductory"
-      teachers:
-      - courses:
-        - 1
-        - 1
-        role: "teacher"
-        quote: "quote"
-        comments:
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        city: "city"
-        name: "Marco Rossi"
-        photo: "photo"
-        description: "description"
-        id: 6
-        job: "job"
-        events:
-        - 5
-        - 5
-      - courses:
-        - 1
-        - 1
-        role: "teacher"
-        quote: "quote"
-        comments:
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        - date: "12th of March 2019"
-          studentName: "Nils Jung"
-          id: 5
-          text: "This teacher was very nice"
-        city: "city"
-        name: "Marco Rossi"
-        photo: "photo"
-        description: "description"
-        id: 6
-        job: "job"
-        events:
-        - 5
-        - 5
-      CERF: "A2"
-      resources:
-      - CERF: "A2"
-        id: 1
-        title: "Italian Book"
-        url: "url"
-      - CERF: "A2"
-        id: 1
-        title: "Italian Book"
-        url: "url"
-      location: "location"
-      id: 0
-      time: "16:00"
-      day: "Monday"
-      events:
-      - 6
-      - 6
+      id: 1
+      level: "Intermediate"
+      day: "Wednesday"
+      time: "17:00"
+      description: "This is the intermediate course of the Italian Language lessons"
+      location: "Via Edmondo de Amicis, 17, 20123 Milano MI"
+      image: "iushfshoufhdohsof"
+      cerf_level: "B1"
+      volunteers: 
+      - id: 1
+        name: "Chiara Pozzi"
+        photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      events: 
+      - id: 1
+        title: "Museum night"
+        date: "2019-10-19T08:23:54.000Z"
+        location: "Corso Magenta, 15, 20123 Milano MI"
+        description: "Improve your italian knowledge and culture"
+        photos: "/assets/img/allevents/november-small.png"
   Resource:
     type: "object"
     properties:
@@ -578,10 +537,11 @@ definitions:
     title: "Resource"
     description: "a course resource"
     example:
-      CERF: "A2"
-      id: 1
-      title: "Italian Book"
-      url: "url"
+      id: 21
+      course_id: 1
+      title: "Nuovo Espresso 1"
+      url: "http://shorturl.at/lmwAF"
+      cerf_level: "A1"
   Comment:
     type: "object"
     properties:

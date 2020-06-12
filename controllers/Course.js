@@ -15,9 +15,7 @@ module.exports.coursesGET = function coursesGET (req, res, next) {
 
 module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
-  CourseService.coursesIdGET(id,limit,offset)
+  CourseService.coursesIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
