@@ -40,6 +40,8 @@ input[type=submit]{
     height: 50px;
     border-radius: 10px;
     line-height: 38px;
+    padding: 1px 20px;
+    border: none;
 }
 input[type=submit]:hover{
     background-color: #d20644;
