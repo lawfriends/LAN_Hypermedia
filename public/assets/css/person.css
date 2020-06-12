@@ -12,7 +12,7 @@
 #teacherInfo h1{
     color: #4D4D4D;
 }
-#teacherEvent{
+#teacherCourse{
     margin-left: 50px;
 }
 .card-title{
@@ -45,6 +45,24 @@
     color: #A80042;
     margin-top: 40px;
 }
+#teacherCourse a:hover{
+    text-decoration: none;
+}
+#teacherCourse a:hover .card-title{
+    text-decoration: none;
+}
+#teacherCourse a:hover .card-body{
+    background-color: #E1FBF2;
+}
+#teacherCourse a:active .card-body{
+    background-color: #CEE8DF;
+}
+#teacherCourse .card-body{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #4D4D4D;
+}
 #grayTitle{
     font-family: 'Nunito sans', sans-serif;
     font-weight: bold;
@@ -65,6 +83,7 @@
     border-radius: 10px;
 }
 .button{
+    position: static;
     width: inherit;
     margin-top: 30px;
 }
@@ -93,7 +112,10 @@
     padding-right: 50px;
 }
 #allPeople{
-    margin-left: calc(50% - 68px);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     margin-bottom: 100px;
 }
 @media only screen and (max-width: 1200px){
@@ -103,7 +125,7 @@
     #teacherPhoto img{
         width: 170px;
     }
-    #teacherEvent{
+    #teacherCourse{
         margin-left: 0;
     }
 }
@@ -118,7 +140,7 @@
     }
 }
 @media only screen and (max-width: 700px){
-    #teacherEvent{
+    #teacherCourse{
         width: 335px;
     }
     #teacherEvent .button{
