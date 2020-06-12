@@ -216,7 +216,7 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "limit num of items per page"
+        description: "limit number of items per page"
         required: false
         type: "integer"
       - name: "offset"
