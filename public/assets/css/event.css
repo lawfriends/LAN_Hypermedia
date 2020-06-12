@@ -140,7 +140,10 @@
     padding-right: 50px;
 }
 #eventsMonthButton{
-    margin-left: calc(50% - 107.5px);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     margin-bottom: 100px;
 }
 @media only screen and (max-width: 1200px){
@@ -185,11 +188,17 @@
         padding: 0;
     }
     #buttonRow .col-12:first-child a{
-        margin-left: calc(50% - 94.5px);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
         margin-bottom: 20px;
     }
     #buttonRow .col-12:nth-child(2) a{
-        margin-left: calc(50% - 77.25px);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
         margin-bottom: 20px;
     }
 }

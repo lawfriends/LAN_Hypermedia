@@ -8,7 +8,7 @@ function getEvent() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
     }).then(function(event) {
-        console.log(event);
+        document.querySelector("title").innerHTML = event.title;
         document.querySelector(".breadcrumb .active").innerHTML = event.title;
         document.querySelector("#eventPar h1").innerHTML = event.title;
         document.querySelector("#eventPar p.normal").innerHTML = event.description;
@@ -24,6 +24,11 @@ function getEvent() {
         document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
         document.querySelector("#coordinatorLink").href = "#";
         document.querySelector("#eventLocation").innerHTML = event.location;
+        let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
+        let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
+        document.querySelector("#eventsMonthButton").href = "./events-month.html?month=".concat(monthNumeric);
+        document.querySelector("#breadcrumbEventsMonth a").innerHTML = "Events in ".concat(monthTextual);
+        document.querySelector("#breadcrumbEventsMonth a").href = "./events-month.html?month=".concat(monthNumeric);
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -94,18 +99,29 @@ function getCoordinator() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
     }).then(function(event) {
-        fetch("/v1/person?id=".concat(event.contact_id)).then(function(response){
+        fetch("/v1/person/".concat(event.coordinator.id)).then(function(response){
             return response.json();
         }).then(function(coordinator){
             document.querySelector("#coordinatorPhoto").src = coordinator.photo;
             document.querySelector("#coordinatorName").innerHTML = coordinator.name;
-            document.querySelector("#coordinatorLink").href = "#";
+            document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(coordinator.id);
         })
     })
+}
+
+function populateButtons(){
+    var nextId = parseInt(eventId, 10) + 1;
+    var previousId = parseInt(eventId, 10) - 1;
+    if(eventId==1){
+        document.querySelector("#previuosEvent").style.display = "none";
+    }
+    document.querySelector("#previuosEvent").href = "./event.html?id=".concat(previousId);
+    document.querySelector("#nextEvent").href = "./event.html?id=".concat(nextId);
 }
         
 
 window.onload = function() {
     this.getEvent();
-    //this.getCoordinator();
+    this.getCoordinator();
+    this.populateButtons();
 }
