@@ -114,17 +114,6 @@ paths:
       operationId: "coursesGET"
       produces:
       - "application/json"
-      parameters:
-      - name: "limit"
-        in: "query"
-        description: "limit num of items per page"
-        required: false
-        type: "integer"
-      - name: "offset"
-        in: "query"
-        description: "Pagination offset, with default zero"
-        required: false
-        type: "integer"
       responses:
         "200":
           description: "A collection of course"
@@ -169,16 +158,6 @@ paths:
         in: "path"
         description: "course id"
         required: true
-        type: "integer"
-      - name: "limit"
-        in: "query"
-        description: "limit num of items per page"
-        required: false
-        type: "integer"
-      - name: "offset"
-        in: "query"
-        description: "Pagination offset, with default zero"
-        required: false
         type: "integer"
       responses:
         "200":

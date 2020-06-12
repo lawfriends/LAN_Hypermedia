@@ -4,9 +4,7 @@ var utils = require('../utils/writer.js');
 var CourseService = require('../service/CourseService');
 
 module.exports.coursesGET = function coursesGET (req, res, next) {
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
-  CourseService.coursesGET(limit,offset)
+  CourseService.coursesGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
