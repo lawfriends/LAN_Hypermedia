@@ -36,7 +36,11 @@ exports.coursePOST = function(course) {
 
       courseDAO.save(course)
         .then((course) => {
-          resolve(course);
+          if(course.length) {
+            resolve(course[0])
+          } else {
+            resolve(course);
+          }
         }).catch(()=>{
           resolve();
         });
@@ -55,8 +59,8 @@ exports.coursePOST = function(course) {
  **/
 
 
-exports.courseResourcesGET = function(id) {
-  return resourceDAO.getResourcesByCourseId(id,limit, offset);
+exports.courseResourcesGET = function(id, limit, offset) {
+  return resourceDAO.getResourcesByCourseId(id,limit,offset);
 }
 
 
@@ -73,7 +77,11 @@ exports.courseResourcePOST = function(resource, courseId) {
 
       resourceDAO.saveResourceOfCourse(resource, courseId)
         .then((resource) => {
-          resolve(resource);
+          if(resource.length) {
+            resolve(resource[0])
+          } else {
+            resolve(resource);
+          }
         }).catch(()=>{
           resolve();
         });
