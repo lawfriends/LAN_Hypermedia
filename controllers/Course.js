@@ -24,7 +24,7 @@ module.exports.coursesIdGET = function coursesIdGET (req, res, next) {
       utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, response, 404);
     });
 };
 
@@ -39,7 +39,7 @@ module.exports.coursePOST = function coursePOST (req, res, next) {
     });
 };
 
-module.exports.courseResourcesGET = function courseResourcesGET() {
+module.exports.courseResourcesGET = function courseResourcesGET(req, res, next) {
   var id = req.swagger.params['id'].value;
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;

@@ -22,7 +22,7 @@
     margin: 20px 5vw;
     background-color: #CEE8DF;
     border-radius: 10px;
-    height: 55px;
+    height: auto;
 }
 .resourceRow p{
     line-height: 47px;
@@ -52,6 +52,9 @@
 }
 .resourceRow .col-auto{
     padding-right: 25px;
+}
+.CERFlevel{
+    margin-bottom: 0;
 }
 #loadButton{
     font-family: 'Nunito Sans', sans-serif;
@@ -114,5 +117,9 @@
     }
     .onlineButton{
         margin-left: calc(50% - 100px);
+    }
+    #resourcePar{
+        margin-left: 20px;
+        margin-right: 0;
     }
 }

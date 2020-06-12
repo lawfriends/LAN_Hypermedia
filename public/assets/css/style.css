@@ -263,7 +263,6 @@ ol.breadcrumb li a:hover {
 .breadcrumb-item+.breadcrumb-item::before{
     color: #A80042;
 }
-
 .CERFlevel{
     background-color: #FFABA3;
     color: white;
@@ -271,14 +270,13 @@ ol.breadcrumb li a:hover {
     height: 47px;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 1.2em;
-    border-radius: 0.75em;
+    border-radius: 10px;
     text-align: center;
     margin-bottom: 40px;
 }
 .CERFlevelPar{
     line-height: 47px;
 }
-
 @media only screen and (max-width: 1200px) {
     .navbar{
         flex-direction: column !important;

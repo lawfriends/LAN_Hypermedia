@@ -1,6 +1,6 @@
 'use strict';
 
-
+const eventDAO = require('../dao/EventDAO');
 /**
  * events inventory
  *
@@ -8,74 +8,24 @@
  * offset Integer Pagination offset, with default zero (optional)
  * returns List
  **/
-exports.eventsGET = function(limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "courses" : [ 2, 2 ],
-  "coordinator" : {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  },
-  "description" : "description",
-  "id" : 0,
-  "title" : "Museum visit",
-  "photos" : "photos"
-}, {
-  "courses" : [ 2, 2 ],
-  "coordinator" : {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  },
-  "description" : "description",
-  "id" : 0,
-  "title" : "Museum visit",
-  "photos" : "photos"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+exports.eventsGET = function(month,limit,offset) {
+
+  return eventDAO.getEvents()
+    .then((data) => {
+
+      if(month>-1 && month<13) {
+        return data.filter( event => {
+          const date = new Date(event.date);
+          const currentDate = new Date();
+          return date.getMonth() == month && currentDate.getFullYear() == date.getFullYear();
+        });
+      }
+
+      return data;
+    })
+    .catch(()=>{
+      return {};
+    });
 }
 
 
@@ -88,44 +38,7 @@ exports.eventsGET = function(limit,offset) {
  * returns Event
  **/
 exports.eventsIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "courses" : [ 2, 2 ],
-  "coordinator" : {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  },
-  "description" : "description",
-  "id" : 0,
-  "title" : "Museum visit",
-  "photos" : "photos"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  return eventDAO.getEventById(id);
 }
 
 
@@ -136,43 +49,18 @@ exports.eventsIdGET = function(id,limit,offset) {
  * returns Event
  **/
 exports.eventsPOST = function(event) {
+
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "courses" : [ 2, 2 ],
-  "coordinator" : {
-    "courses" : [ 1, 1 ],
-    "role" : "teacher",
-    "quote" : "quote",
-    "comments" : [ {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    }, {
-      "date" : "12th of March 2019",
-      "studentName" : "Nils Jung",
-      "id" : 5,
-      "text" : "This teacher was very nice"
-    } ],
-    "city" : "city",
-    "name" : "Marco Rossi",
-    "photo" : "photo",
-    "description" : "description",
-    "id" : 6,
-    "job" : "job",
-    "events" : [ 5, 5 ]
-  },
-  "description" : "description",
-  "id" : 0,
-  "title" : "Museum visit",
-  "photos" : "photos"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+    if (Object.keys(event).length > 0) {
+      eventDAO.save(event).then((event) => {
+        resolve(event);
+      });
     } else {
       resolve();
     }
   });
 }
 
+exports.eventsByPersonIdGET = function(person_id) {
+  return eventDAO.getEventsByPersonId(person_id);
+}

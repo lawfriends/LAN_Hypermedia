@@ -53,12 +53,7 @@ exports.coursePOST = function(course) {
 }
 
 exports.courseResourcesGET = function(id,limit,offset) {
-  return resourceDAO.getResourcesByCourseId(id).then((data) => {
-    return data.map( element => {
-      //composed resourse; element.price = {value: element.value, currency: element.currency}
-        return element;
-    })
-  })
+  return resourceDAO.getResourcesByCourseId(id,limit, offset);
 }
 
 exports.courseResourcePOST = function(resource, courseId) {

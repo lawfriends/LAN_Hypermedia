@@ -1,20 +1,30 @@
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const courseId = urlParams.get('id')
-console.log(courseId);
-console.log("/v1/courses/".concat(courseId));
-function getCourse() {
-    fetch("/v1/courses/".concat(courseId)).then(function(response) {
+const eventId = urlParams.get('id')
+console.log(eventId);
+console.log("/v1/events/".concat(eventId));
+function getEvent() {
+    fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
-    }).then(function(course) {
-        console.log(course);
-        document.querySelector(".breadcrumb .active").innerHTML = course.level;
-        document.querySelector("#coursePar h1").innerHTML = course.level.concat(" course");
-        document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
-        document.querySelector("#coursePar p.normal").innerHTML = course.description;
-        document.querySelector("#courseImage img").src = course.image;
-        var teachersRow = document.querySelector(".teachers .row");
+    }).then(function(event) {
+        console.log(event);
+        document.querySelector(".breadcrumb .active").innerHTML = event.title;
+        document.querySelector("#eventPar h1").innerHTML = event.title;
+        document.querySelector("#eventPar p.normal").innerHTML = event.description;
+        document.querySelector(".CERFlevelPar").innerHTML = event.courses[0].cerf_level;
+        document.querySelector("#courseLevelPar").innerHTML = event.courses[0].level.concat(" course");
+        const eventDateTime = new Date(event.date);
+        let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
+        let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
+        document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
+        document.querySelector("#eventImage img").src = event.photos;
+        document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
+        document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
+        document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
+        document.querySelector("#coordinatorLink").href = "#";
+        document.querySelector("#eventLocation").innerHTML = event.location;
+        /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
             column = document.createElement("div");
@@ -75,32 +85,27 @@ function getCourse() {
             cardBody.appendChild(eventButton);
             card.appendChild(eventImage);
             card.appendChild(cardBody);
-            eventCol.appendChild(card);
-
-            /* const eventDate = new Date(course.events[0].date);
-            document.querySelector("#eventDate p:first-child").innerHTML = eventDate.toLocaleString('default', { month: 'long' }).slice(0,3);
-            document.querySelector("#eventDate p:nth-child(2)").innerHTML = eventDate.toLocaleString('default', { day: 'numeric' });
-            document.querySelector("#eventInfo p:first-child").innerHTML = course.events[j].title;
-            document.querySelector("#eventInfo p:nth-child(2)").innerHTML = course.events[j].location; */       
-        }
+            eventCol.appendChild(card);   
+        }*/
     })
 }
-/* function getCourseEvent() {
-    fetch("/v1/courses/".concat(courseId)).then(function(response) {
+
+function getCoordinator() {
+    fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
-    }).then(function(course) {
-        for(var i=0; i<2; i++){
-            fetch("v1/events/".concat(course.event[i].id)).then(function(response) {
-                return response.json();
-            }).then(function(event) {
-                var eventImage = document.querySelector("#eventCard img");
-                eventImage.src = event.photos;
-            })
-        }
+    }).then(function(event) {
+        fetch("/v1/person?id=".concat(event.contact_id)).then(function(response){
+            return response.json();
+        }).then(function(coordinator){
+            document.querySelector("#coordinatorPhoto").src = coordinator.photo;
+            document.querySelector("#coordinatorName").innerHTML = coordinator.name;
+            document.querySelector("#coordinatorLink").href = "#";
+        })
     })
-} */
+}
         
 
 window.onload = function() {
-    this.getCourse();
+    this.getEvent();
+    //this.getCoordinator();
 }

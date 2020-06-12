@@ -2,7 +2,7 @@ function getAssociationComments() {
     var carousel = document.querySelector(".associationTestimonials");
     fetch("/v1/comments").then(function(response) {
         return response.json();
-    }).then(function(comments) {
+    }).then(function(comments) {        
         a=0;
         for(var i=0; i<comments.length; i++) {
             if(comments[i].person_id==null && a<2) {
@@ -26,7 +26,7 @@ function getAssociationComments() {
                 var studentComment = document.createElement("p");
                 studentComment.classList.add("bquote");
                 let {student_name, text, date, photo} = comments[i];
-                studentPhoto.src = `${photo}`;
+                studentPhoto.src = ".".concat(`${photo}`);
                 studentName.innerHTML = `${student_name}`;
                 var commentYear = `${date}`.slice(0,4);
                 commentDate.innerHTML = "Student ".concat(commentYear);
@@ -41,9 +41,9 @@ function getAssociationComments() {
                 secondCol.appendChild(studentComment);
 
                 // add controls
-                var controls = document.querySelector("#carouselIndicatorsTestimonials");
+                var controls = document.querySelector(".carousel-indicators");
                 var controller = document.createElement("li");
-                controller.dataset.target = "#carouselTestimonials";
+                controller.dataset.target = "#carouselIndicatorsTestimonials";
                 controller.setAttribute('data-slide-to', (a-1).toString());
                 if(a==1){
                     controller.classList.add("active");
