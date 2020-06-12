@@ -1,4 +1,3 @@
-/*Added CSS for statistics page*/
 #map{
     margin-top: 50px;
 }
@@ -29,21 +28,29 @@
 .onlineButton{
     margin: 50px 0px 150px 50px;
 }
-/*
-@media (max-width:991.98px){
-    .cumulativeImg{
-        height: 191px;
-        width : 229px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin: 0em 1em;
-    }
-}*/
 @media only screen and (max-width: 700px){
-    .onlineButton{
-        margin-left: calc(50% - 84px);
-    }
     .column{
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #gender .column:first-child img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #gender .column:nth-child(2) img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .onlineButton{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content
     }
 }
