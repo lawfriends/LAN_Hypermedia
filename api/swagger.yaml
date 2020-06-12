@@ -23,6 +23,7 @@ paths:
       tags:
       - "Event"
       summary: "events inventory"
+      description: "This is a basic list of events, as it is saved in the database. It does not return the nested information that an event may have, such as the coordinator, or the list of courses. If you need detailed information of one particular event, please see call to /events/{id}"
       operationId: "eventsGET"
       produces:
       - "application/json"
@@ -46,6 +47,7 @@ paths:
       tags:
       - "Event"
       summary: "Add a new event"
+      description: "If you need to add a new event in the database, use the event object without specifying an id. The id is automatically created by the database, and you will receive it in the response. It does not return the nested information that an event may have, such as the coordinator, or the list of courses. If you need detailed information of one particular event, please see call to /events/{id}"
       operationId: "eventsPOST"
       consumes:
       - "application/json"
@@ -58,7 +60,7 @@ paths:
         schema:
           $ref: "#/definitions/Event"
       responses:
-        "201":
+        "200":
           description: "Created"
           schema:
             $ref: "#/definitions/Event"
@@ -68,6 +70,7 @@ paths:
       tags:
       - "Event"
       summary: "A specific event"
+      description: "This request returns the event corresponding to the id parameter, containing the nested information that an event may have, such as the coordinator, or the list of courses."
       operationId: "eventsIdGET"
       produces:
       - "application/json"
@@ -120,7 +123,7 @@ paths:
         schema:
           $ref: "#/definitions/Course"
       responses:
-        "201":
+        "200":
           description: "Created"
           schema:
             $ref: "#/definitions/Course"
@@ -200,7 +203,7 @@ paths:
         required: true
         type: "integer"
       responses:
-        "201":
+        "200":
           description: "Created"
           schema:
             $ref: "#/definitions/Resource"
@@ -250,7 +253,7 @@ paths:
         schema:
           $ref: "#/definitions/Person"
       responses:
-        "201":
+        "200":
           description: "Created"
           schema:
             $ref: "#/definitions/Person"
@@ -356,7 +359,7 @@ paths:
         schema:
           $ref: "#/definitions/Comment"
       responses:
-        "201":
+        "200":
           description: "Created"
           schema:
             $ref: "#/definitions/Comment"
@@ -382,6 +385,22 @@ definitions:
           $ref: "#/definitions/Course"
     title: "Event"
     description: "an event"
+    example: 
+      id: 1
+      title: "Museum night"
+      date: "2019-10-19T08:23:54.000Z"
+      location: "Corso Magenta, 15, 20123 Milano MI"
+      description: "Improve your italian knowledge and culture"
+      photos: "/assets/img/allevents/november-small.png"
+      contact_id: 1
+      coordinator: 
+        id: 1
+        name: "Alexandra Pozzi"
+        photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      courses: 
+      - id: 1
+        level: "Intermediate"
+        cerf_level: "B1"
   Person:
     type: "object"
     properties:
