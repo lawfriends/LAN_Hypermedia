@@ -32,16 +32,6 @@ paths:
         description: "filter events by month"
         required: false
         type: "integer"
-      - name: "limit"
-        in: "query"
-        description: "limit num of items per page"
-        required: false
-        type: "integer"
-      - name: "offset"
-        in: "query"
-        description: "Pagination offset, with default zero"
-        required: false
-        type: "integer"
       responses:
         "200":
           description: "A collection of events"
@@ -88,16 +78,6 @@ paths:
         required: true
         type: "integer"
         format: "int64"
-      - name: "limit"
-        in: "query"
-        description: "limit num of items per page"
-        required: false
-        type: "integer"
-      - name: "offset"
-        in: "query"
-        description: "Pagination offset, with default zero"
-        required: false
-        type: "integer"
       responses:
         "200":
           description: "An event with the specified id"
@@ -183,7 +163,7 @@ paths:
         type: "integer"
       - name: "limit"
         in: "query"
-        description: "limit num of items per page"
+        description: "limit number of items per page"
         required: false
         type: "integer"
       - name: "offset"
