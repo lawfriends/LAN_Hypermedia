@@ -6,6 +6,7 @@
 }
 .first{
     margin-left: 50px;
+    margin-right: 0;
 }
 .dates{
     max-width: 380px;
