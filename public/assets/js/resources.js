@@ -48,11 +48,7 @@ function getCourseResources() {
             resourcesContainer.appendChild(resourceRow);
         }
         if(i<limit){
-            console.log("nascondi");
             document.querySelector("#loadButton").style.display = "none";
-        }
-        else{
-            console.log("non nasconid");
         }
     })
 }
@@ -62,8 +58,7 @@ function loadMoreButton(){
         return response.json();
     }).then(function(resources) {
         if(resources.length>3){
-                var loadButton = document.createElement("a");
-                //loadButton.href = "#";
+                var loadButton = document.createElement("a");;
                 loadButton.addEventListener("click", getCourseResources);
                 loadButton.classList.add("btn");
                 loadButton.setAttribute("id", "loadButton");
@@ -81,6 +76,9 @@ function getCourseLevel() {
     fetch("/v1/courses/".concat(courseId)).then(function(response) {
         return response.json();
     }).then(function(course) {
+        document.querySelector("title").innerHTML = course.level.concat(" course's resources");
+        document.querySelector("#courseBreadcrumb a").href = "./course.html?id=".concat(courseId);
+        document.querySelector("#courseBreadcrumb a").innerHTML = course.level.concat(" course");
         document.querySelector("#resourcePar h6").innerHTML = (course.level).concat(" course");
     })
 }
