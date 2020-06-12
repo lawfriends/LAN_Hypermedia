@@ -5,8 +5,8 @@ function getAllPeople() {
         for(var i=0; i<people.length; i++){
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
-                var coordinatorCol = document.createElement("div");
-                coordinatorCol.classList.add("col-xl-5", "col-12", "column");
+                var personCol = document.createElement("div");
+                personCol.classList.add("col-xl-5", "col-12", "column");
                 var infoRow = document.createElement("div");
                 infoRow.classList.add("row", "flex-column-reverse", "flex-sm-row");
                 var infoCol = document.createElement("div");
@@ -35,13 +35,13 @@ function getAllPeople() {
                 imageCol.appendChild(coordinatorPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
-                coordinatorCol.appendChild(infoRow);
-                coordinatorRow.appendChild(coordinatorCol);
+                personCol.appendChild(infoRow);
+                coordinatorRow.appendChild(personCol);
             }
             else if(people[i].role == "teacher"){
                 var teacherRow = document.querySelector("#teacherRow");
-                var teacherCol = document.createElement("div");
-                teacherCol.classList.add("col-xl-3", "col-md-5", "col-12", "column");
+                var personCol = document.createElement("div");
+                personCol.classList.add("col-xl-3", "col-md-5", "col-12", "column");
                 var infoRow = document.createElement("div");
                 infoRow.classList.add("row");
                 var infoCol = document.createElement("div");
@@ -65,8 +65,11 @@ function getAllPeople() {
                 imageCol.appendChild(teacherPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
-                teacherCol.appendChild(infoRow);
-                teacherRow.appendChild(teacherCol);
+                personCol.appendChild(infoRow);
+                teacherRow.appendChild(personCol);
+            }
+            if(i>9){
+                personCol.style.display = "none";
             }
         }        
     })
