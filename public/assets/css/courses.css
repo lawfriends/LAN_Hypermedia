@@ -24,7 +24,13 @@
     text-decoration: none;
 }
 .courses .row a:hover .card-title{
-    text-decoration: underline;
+    text-decoration: none;
+}
+.courses .row a:hover .card-body{
+    background-color: #E1FBF2;
+}
+.courses .row a:active .card-body{
+    background-color: #CEE8DF;
 }
 .card{
     margin: 25px auto 80px auto;

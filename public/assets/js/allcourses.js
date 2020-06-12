@@ -3,7 +3,6 @@ function getAllCourses() {
     fetch("/v1/courses").then(function(response) {
         return response.json();
     }).then(function(courses) {
-        console.log(courses);
         for(var i=0; i<courses.length; i++) {
             var courseCol = document.createElement("div");
             courseCol.classList.add("col-xl", "col-md-6", "col-sm-12");

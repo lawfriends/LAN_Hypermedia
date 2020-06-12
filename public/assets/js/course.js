@@ -9,7 +9,8 @@ function getCourse() {
         return response.json();
     }).then(function(course) {
         console.log(course);
-        document.querySelector(".breadcrumb .active").innerHTML = course.level;
+        document.querySelector("title").innerHTML = course.level.concat(" course");
+        document.querySelector(".breadcrumb .active").innerHTML = course.level.concat(" course");
         document.querySelector("#coursePar h1").innerHTML = course.level.concat(" course");
         document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
         document.querySelector("#coursePar p.normal").innerHTML = course.description;
@@ -18,20 +19,29 @@ function getCourse() {
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
             column = document.createElement("div");
-            column.classList.add("col-xl", "col-md-4", "col-sm12", "teacher", "text-center");
+            column.classList.add("col-xl", "col-md-4", "col-sm12", "text-center");
             var teacherImg = document.createElement("img");
             teacherImg.src = volunteers[i].photo;
             var teacherName = document.createElement("p");
             teacherName.classList.add("overline");
             teacherName.innerHTML = volunteers[i].name;
-            column.appendChild(teacherImg);
-            column.appendChild(teacherName);
+            var teacherLink = document.createElement("a");
+            teacherLink.classList.add("teacherLink");
+            teacherLink.href = "./person.html?id=".concat(volunteers[i].id);
+            var teacherDiv = document.createElement("div");
+            teacherDiv.classList.add("teacher");
+            teacherDiv.appendChild(teacherImg);
+            teacherDiv.appendChild(teacherName);
+            teacherLink.appendChild(teacherDiv);
+            column.appendChild(teacherLink);
             teachersRow.appendChild(column);
         }
         document.querySelector(".courseSchedule#first .card-header").innerHTML = course.day;
         document.querySelector(".courseSchedule#first .overline").innerHTML = course.time;
         document.querySelector(".courseSchedule#second .card-header").innerHTML = course.day;
         document.querySelector(".courseSchedule#second .overline").innerHTML = course.time;
+
+        document.querySelector("#resourcesButton").href = "./resources.html?id=".concat(courseId);
 
         for(var j=0; j<2; j++){
             var eventCol = document.querySelector("#eventCol");
@@ -61,7 +71,7 @@ function getCourse() {
             var location = document.createElement("p");
             location.innerHTML = course.events[j].location;
             var eventButton = document.createElement("a");
-            eventButton.href = "#";
+            eventButton.href = "./event?id=".concat(course.events[j].id);
             eventButton.classList.add("btn", "button");
             eventButton.innerHTML = "View details";
 
