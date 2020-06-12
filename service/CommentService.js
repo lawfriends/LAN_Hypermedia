@@ -33,10 +33,17 @@ exports.commentPOST = function(comment) {
   return new Promise(function(resolve, reject) {
     if (Object.keys(comment).length > 0) {
 
-      commentDAO.save(comment).then((comment) => {
-        resolve(comment);
-      });
-      
+      commentDAO.save(comment)
+        .then((comment) => {
+          if(comment.length) {
+            resolve(comment[0])
+          } else {
+            resolve(comment);
+          }
+        }).catch(()=>{
+          resolve();
+        });
+
     } else {
       resolve();
     }

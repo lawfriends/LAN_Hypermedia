@@ -15,7 +15,7 @@ module.exports.commentsGET = function commentsGET (req, res, next) {
 
 module.exports.commentsIdGET = function commentsIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
-  CommentService.commentsIdGET(id,limit,offset)
+  CommentService.commentsIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

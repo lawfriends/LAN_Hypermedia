@@ -17,7 +17,7 @@ module.exports.peopleGET = function peopleGET (req, res, next) {
 
 module.exports.personIdGET = function personIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
-  PersonService.personIdGET(id,limit,offset)
+  PersonService.personIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

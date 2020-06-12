@@ -18,11 +18,9 @@ exports.peopleGET = function(limit,offset) {
  * Get a specific volunteer
  *
  * id Long person ID
- * limit Integer limit num of items per page (optional)
- * offset Integer Pagination offset, with default zero (optional)
  * returns Person
  **/
-exports.personIdGET = function(id,limit,offset) {
+exports.personIdGET = function(id) {
   return personDAO.getPersonById(id);
 }
 
