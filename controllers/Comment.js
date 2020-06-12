@@ -4,9 +4,7 @@ var utils = require('../utils/writer.js');
 var CommentService = require('../service/CommentService');
 
 module.exports.commentsGET = function commentsGET (req, res, next) {
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
-  CommentService.commentsGET(limit,offset)
+  CommentService.commentsGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -17,8 +15,6 @@ module.exports.commentsGET = function commentsGET (req, res, next) {
 
 module.exports.commentsIdGET = function commentsIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
   CommentService.commentsIdGET(id,limit,offset)
     .then(function (response) {
       utils.writeJson(res, response);
