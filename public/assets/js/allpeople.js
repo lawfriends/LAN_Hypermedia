@@ -21,7 +21,7 @@ function getAllPeople() {
                 description.classList.add("coordinatorDescription");
                 description.innerHTML = people[i].description;
                 var coordinatorButton = document.createElement("a");
-                coordinatorButton.href = "#";
+                coordinatorButton.href = "./person.html?id=".concat(people[i].id);
                 coordinatorButton.classList.add("personLink");
                 coordinatorButton.innerHTML = "See profile";
                 infoCol.appendChild(role);
@@ -53,11 +53,10 @@ function getAllPeople() {
                 //description.classList.add("teacherDescription");
                 //description.innerHTML = "Volunteer from 2012";
                 var teacherButton = document.createElement("a");
-                teacherButton.href = "#";
+                teacherButton.href = "./person.html?id=".concat(people[i].id);
                 teacherButton.classList.add("personLink");
                 teacherButton.innerHTML = "See profile";
                 infoCol.appendChild(name);
-                //infoCol.appendChild(description);
                 infoCol.appendChild(teacherButton);
                 var imageCol = document.createElement("div");
                 imageCol.classList.add("col");
