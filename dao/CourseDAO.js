@@ -18,10 +18,10 @@ exports.courseDBSetup = function (connection) {
       })
     } else {
       return sqlDB.schema.table('course', function (table) {
-        // table.dropColumn('day');
-        // table.dropColumn('time');
-        // table.string('daysOfWeek');
-        // table.string('times');
+        table.dropColumn('day');
+        table.dropColumn('time');
+        table.string('daysOfWeek');
+        table.string('times');
       });
     }
   });
