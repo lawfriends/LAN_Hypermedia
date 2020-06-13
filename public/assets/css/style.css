@@ -55,6 +55,10 @@ h6 {
     color: #004d4a !important;
     border-color: #004d4a;
 }
+.navItem.active{
+    color: #004d4a !important;
+    border-color: #004d4a;
+}
 .navDonate{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 800;
@@ -72,6 +76,10 @@ h6 {
     border-color: #a80042;
 }
 .navDonate:active{
+    color: #a80042 !important;
+    border-color: #a80042;
+}
+.navDonate.active{
     color: #a80042 !important;
     border-color: #a80042;
 }
