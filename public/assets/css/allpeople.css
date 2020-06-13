@@ -103,6 +103,34 @@
     font-size: 0.875em;
     color: #004D4A;
 }
+#showMoreButton{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.88em;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #4d4d4d;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-bottom: 80px;
+}
+#showMoreButton:hover{
+    background-color: #e6e6e6;
+    color: #4d4d4d;
+}
+#showMoreButton:active{
+    background-color: #d3d3d3;
+    color: #4d4d4d;
+}
 @media only screen and (max-width: 1200px) {
     #coordinatorRow{
         margin-right: 50px;

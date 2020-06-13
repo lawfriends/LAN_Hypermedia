@@ -58,7 +58,7 @@ function loadMoreButton(){
         return response.json();
     }).then(function(resources) {
         if(resources.length>3){
-                var loadButton = document.createElement("a");;
+                var loadButton = document.createElement("a");
                 loadButton.addEventListener("click", getCourseResources);
                 loadButton.classList.add("btn");
                 loadButton.setAttribute("id", "loadButton");

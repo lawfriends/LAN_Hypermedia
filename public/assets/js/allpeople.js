@@ -1,3 +1,12 @@
+function showMoreButton() {
+    console.log(document.querySelectorAll(".hiddenPerson"));
+    var hiddenPeople = document.querySelectorAll(".hiddenPerson");
+    for (var i=0; i<hiddenPeople.length; i++){
+        hiddenPeople[i].style.display = "block";
+    }
+    document.querySelector("#showMoreButton").style.display = "none";
+}
+
 function getAllPeople() {
     fetch("/v1/people").then(function(response) {
         return response.json();
@@ -68,12 +77,14 @@ function getAllPeople() {
                 personCol.appendChild(infoRow);
                 teacherRow.appendChild(personCol);
             }
-            if(i>9){
+            if(i>9 && people[i].role == "teacher"){
                 personCol.style.display = "none";
+                personCol.classList.add("hiddenPerson");
             }
-        }        
+        }
+        document.querySelector("#showMoreButton").addEventListener("click", showMoreButton);  
     })
-}   
+}
 
 window.onload = function() {
     this.getAllPeople();

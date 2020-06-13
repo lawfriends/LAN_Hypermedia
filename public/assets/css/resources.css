@@ -77,9 +77,11 @@
     margin-bottom: 80px;
 }
 #loadButton:hover{
+    background-color: #e6e6e6;
     color: #4d4d4d;
 }
 #loadButton:active{
+    background-color: #d3d3d3;
     color: #4d4d4d;
 }
 .onlineButton{
