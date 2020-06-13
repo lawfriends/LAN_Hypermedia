@@ -146,6 +146,9 @@
     width: fit-content;
     margin-bottom: 100px;
 }
+#eventLocation{
+    padding-right: 50px;
+}
 @media only screen and (max-width: 1200px){
     .coursesIntro{
         width: 100%;

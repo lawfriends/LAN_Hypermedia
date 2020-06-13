@@ -144,9 +144,6 @@
         min-width: 323px;
         margin-right: 22px;
     }
-    #teacherRow .row .col img{
-        margin-top: 20px;
-    }
 }
 @media only screen and (max-width: 900px){
     #coordinatorRow .row .col img{

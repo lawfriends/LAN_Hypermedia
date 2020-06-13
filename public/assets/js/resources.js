@@ -27,7 +27,7 @@ function getCourseResources() {
             downloadLink.href = resources[i].url;
             var downloadTitle = document.createElement("p");
             downloadTitle.classList.add("d-none", "d-md-inline-block");
-            downloadTitle.innerHTML = "Download";
+            downloadTitle.innerHTML = "Link";
             var downloadIcon = document.createElement("i");
             downloadIcon.classList.add("far", "fa-arrow-alt-circle-down");
             downloadLink.appendChild(downloadTitle);
