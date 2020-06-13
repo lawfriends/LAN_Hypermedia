@@ -458,24 +458,16 @@ definitions:
         - "Introductory"
         - "Basic"
         - "Intermediate"
-      day:
+      daysOfWeek:
         type: "string"
-        enum:
-        - "Monday"
-        - "Tuesday"
-        - "Wednesday"
-        - "Thursday"
-        - "Friday"
-        - "Saturday"
-        - "Sunday"
-      time:
+        description: "Has to respect the format 'Monday;Tuesday;Sunday' - a string with the day of the week separated by ';'"
+      times:
         type: "string"
-        example: "16:00"
+        description: "Has to respect the format '16:00;17:00;18:00' - a string with the day of the week separated by ';'"
       location:
         type: "string"
       cerf_level:
         type: "string"
-        example: "A2"
       volunteers:
         type: "array"
         items:
@@ -489,8 +481,8 @@ definitions:
     example:
       id: 1
       level: "Intermediate"
-      day: "Wednesday"
-      time: "17:00"
+      daysOfWeek: "Wednesday;Thursday"
+      times: "17:00;18:00"
       description: "This is the intermediate course of the Italian Language lessons"
       location: "Via Edmondo de Amicis, 17, 20123 Milano MI"
       image: "/assets/img/allcourses/03-intermediate.png"
@@ -519,7 +511,8 @@ definitions:
         example: "Italian Book"
       url:
         type: "string"
-      course_id: 1
+      course_id: 
+        type: "integer"
     title: "Resource"
     description: "a course resource"
     example:
