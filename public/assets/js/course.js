@@ -36,10 +36,12 @@ function getCourse() {
             column.appendChild(teacherLink);
             teachersRow.appendChild(column);
         }
-        document.querySelector(".courseSchedule#first .card-header").innerHTML = course.day;
-        document.querySelector(".courseSchedule#first .overline").innerHTML = course.time;
-        document.querySelector(".courseSchedule#second .card-header").innerHTML = course.day;
-        document.querySelector(".courseSchedule#second .overline").innerHTML = course.time;
+        var scheduleDays = course.daysOfWeek.split(";");
+        var scheduleTimes = course.times.split(";");
+        document.querySelector(".courseSchedule#first .card-header").innerHTML = scheduleDays[0];
+        document.querySelector(".courseSchedule#first .overline").innerHTML = scheduleTimes[0];
+        document.querySelector(".courseSchedule#second .card-header").innerHTML = scheduleDays[1];
+        document.querySelector(".courseSchedule#second .overline").innerHTML = scheduleTimes[1];
 
         document.querySelector("#resourcesButton").href = "./resources.html?id=".concat(courseId);
 
