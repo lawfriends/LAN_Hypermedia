@@ -15,13 +15,6 @@ exports.courseDBSetup = function (connection) {
         table.string('location');
         table.string('image');
         table.enum('cerf_level', ['A1','A2','B1','B2','C1','C2'])
-      })
-    } else {
-      return sqlDB.schema.table('course', function (table) {
-        table.dropColumn('day');
-        table.dropColumn('time');
-        table.string('daysOfWeek');
-        table.string('times');
       });
     }
   });
