@@ -1,18 +1,16 @@
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const eventsMonth = urlParams.get('month')
-console.log(eventsMonth);
-console.log("/v1/events?month=".concat(eventsMonth));
-function getEventsByMonth() {
+const personId = urlParams.get('id');
+console.log(personId);
+console.log("/v1/person".concat(personId));
+function getEventsByVolunteer() {
     var eventsRow = document.querySelector("#eventsRow");
-    fetch("/v1/events?month=".concat(eventsMonth)).then(function(response) {
+    fetch("/v1/person/".concat(personId).concat("/events")).then(function(response) {
         return response.json();
     }).then(function(events) {
         console.log(events);
-        const eventDateTime = new Date(events[0].date);
-        document.querySelector(".breadcrumb .active").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
-        document.querySelector("h1").innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).concat(" ").concat(eventDateTime.toLocaleString('default', { year: 'numeric' }));
+        //document.querySelector("h1").innerHTML = "Events by ".concat(events[0].coordinator.name);
         for(var i=0; i<events.length; i++) {
             var eventCol = document.createElement("div");
             eventCol.classList.add("col-xl-4", "col-md-6", "col-sm-12");
@@ -32,8 +30,11 @@ function getEventsByMonth() {
             dateCol.setAttribute("id", "eventDate");
             const eventDateTime = new Date(events[i].date);
             var timeArray = eventDateTime.toLocaleTimeString('it').split(':');
+            var month = document.createElement("p");
+            month.innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).slice(0,3);
             var day = document.createElement("p");
             day.innerHTML = eventDateTime.toLocaleString('default', { day: 'numeric' });
+            dateCol.appendChild(month);
             dateCol.appendChild(day);
             var infoCol = document.createElement("div");
             infoCol.classList.add("col");
@@ -62,6 +63,20 @@ function getEventsByMonth() {
         }
     })
 }
+
+function getVolunteer() {
+    fetch("/v1/person/".concat(personId)).then(function(response) {
+        return response.json();
+    }).then(function(person) {
+            document.querySelector("title").innerHTML = "Events by ".concat(person.name);
+            document.querySelector(".breadcrumb li:nth-child(2) a").href = "./person.html?id=".concat(personId);
+            document.querySelector(".breadcrumb li:nth-child(2) a").innerHTML = person.name;
+            document.querySelector("h1").innerHTML = "Events by ".concat(person.name);
+            document.querySelector("#volunteerButton").href = "./person.html?id=".concat(personId);
+    })
+}
+
 window.onload = function() {
-    this.getEventsByMonth();
+    this.getEventsByVolunteer();
+    this.getVolunteer();
 }

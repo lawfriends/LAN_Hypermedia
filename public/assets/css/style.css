@@ -270,7 +270,7 @@ ol.breadcrumb li a:hover {
     height: 47px;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 1.2em;
-    border-radius: 0.75em;
+    border-radius: 10px;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -294,28 +294,22 @@ ol.breadcrumb li a:hover {
     #main {
     font-size: 1.4em;
     }
-    /* .homepageDonate p{
-        position: absolute;
-        top: 100%;
-        margin-top: 20px;
-        width: 65%;
-    }
-    .volunteerButton{
-        position: absolute;
-        top: 200%;
-        left: 15%;
-    }
-    .donateButton{
-        position: absolute;
-        top: 200%;
-        left: 58%;
-    } */
 }
 @media screen and (max-width: 550px) {
-    .volunteerButton{
-        margin-left: calc(50% - 100px);;
+    ol.breadcrumb {
+        margin-left: 20px;
     }
-    .donateButton{
-        margin-left: calc(50% - 100px);;
+    .footer .col-lg{
+        margin-left: 20px;
+    }
+    .footer .col-lg-3{
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 400px){
+    #founderImg{
+        height: 274px;
+        width: 274px;
+        padding: 2em;
     }
 }

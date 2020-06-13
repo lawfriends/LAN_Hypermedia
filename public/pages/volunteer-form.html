@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>How to enroll</title>
+        <title>Become a volunteer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/enroll.css">
+        <link rel="stylesheet" href="../assets/css/volunteer-form.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Open+Sans&family=Nunito&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c0ad3f730c.js" crossorigin="anonymous"></script>
     </head>
@@ -21,52 +21,34 @@
             <a class="nav-item nav-link navItem" href="./allcourses.html">Courses</a>
             <a class="nav-item nav-link navItem" href="#">How to enroll</a>
             <a class="nav-item nav-link navItem" href="#">Volunteers</a>
-            <a class="nav-item nav-link navItem" href="./allevents.html">Events</a>
+            <a class="nav-item nav-link navItem" href="#">Events</a>
             <a class="nav-item nav-link navItem" href="#">Contact</a>
             <a class="nav-item nav-link navDonate" href="#">Donate</a>
           </div>
         </div>
       </nav>
-      <div class="row first">
-          <div class="col-xl col-12">
-            <h1>How to enroll</h1>
-            <p class="normal">The enrolment in language courses opens 2 times a year, once in September, and another time in January. If you want to join one of the courses, you have to follow these steps:</p>
-            <p class="elencation">1. Check when to enroll</p>
-            <p class="normal">You can find the enrolment periods upper on this page.</p>
-            <p class="elencation">2. Fill in the form or call</p>
-            <p class="normal">You can directly fill in the form with your contact data, and we will get back to you with an appointment for attending the language test.</p>
-            <p class="elencation">3. Confirm appointment</p>
-            <p class="normal">You will receive an email with a confirmed appointment, and you should reply to it with your acceptance or request to change the appointment date and hour. We try to be as flexible as possible, but we still have to respect a limited time frame.</p>
-            <p class="elencation">4. Take the language test</p>
-            <p class="normal">Join us at our office 10 minutes before your appointment. Our colleagues will welcome you in and will explain what is the test procedure.</p>
-            <p class="elencation">5. Receive confirmation</p>
-            <p class="normal">After assessing your Italian language level, you will be sent a confirmation email that will inform you about the beginning of the lessons, date and time when they are held. You should confirm through a reply to this email that you wish to be part of the course, thus finalizing your enrollment.</p>
-        </div>
-        <div class="col-xl-4 col-12 dates">
-            <div class="row">
-                <p id="enrollDatesTitle">Enrolment for the academic year 2020-2021</p>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">September</div>
-                        <div class="card-body">
-                          <p class="card-text overline">06-19</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">January</div>
-                        <div class="card-body">
-                          <p class="card-text overline">04-17</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./allpeople.html">Volunteers</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Become a volunteer</li>
+        </ol>
+    </nav>
+    <div id="volForm">
+        <h1>Become a volunteer</h1>
+        <p class="normal">Let us know that you want to be part of the team!<br>We will contact you as soon as possible and we can set up a meeting to discuss further.</p>
+        <form>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="surname">Surname</label><br>
+            <input type="text" id="surname" name="surname"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="message">Short motivation for applying</label><br>
+            <textarea rows="5" type="text" id="message" name="message"></textarea><br>
+            <input type="submit" value="Submit your application">
+        </form>
     </div>
-    <a href="./enroll-form.html" class="btn" id="enrollButton" role="button">Enroll</a>
+    <a href="./allpeople.html" class="btn onlineButton" role="button"> <i class="fas fa-long-arrow-alt-left"></i> Go to volunteers</a>
     <div class="container-fluid footer">
     <div class="row">
         <div class="col-lg-3">

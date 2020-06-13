@@ -1,0 +1,147 @@
+.contactIntro{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 200px;
+}
+#contactImage{
+    padding-right: 0;
+}
+#contactImage img{
+    width: 100%;
+}
+#contactPar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding: 0;
+}
+.greenText{
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 1.0625em;
+    font-weight: bold;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+#address{
+    margin-bottom: 0;
+}
+form{
+    border: 2px solid #004d4a;
+    padding: 10px;
+    border-radius: 10px;
+}
+label{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #004D4A;
+}
+input{
+    margin-bottom: 30px;
+    padding-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #4d4d4d;
+    caret-color: #4d4d4d;
+}
+input[type=text]{
+    border: 1px solid;
+    border-color: #8DC9B1;
+    border-radius: 10px;
+    width: 475px;
+}
+input:focus{
+    outline: none;
+}
+input[type=email]{
+    border: 1px solid;
+    border-color: #8DC9B1;
+    border-radius: 10px;
+    width: 475px;
+}
+textarea[id=message]{
+    resize: none;
+    height: 200px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #4d4d4d;
+    caret-color: #4d4d4d;
+    border: 1px solid;
+    border-color: #8DC9B1;
+    border-radius: 10px;
+    width: 475px;
+}
+textarea:focus{
+    outline: none;
+}
+input[type=submit]{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #A80042;
+    width: auto;
+    height: 50px;
+    border-radius: 10px;
+    line-height: 38px;
+    border: none;
+    padding: 1px 20px;
+}
+input[type=submit]:hover{
+    background-color: #d20644;
+    color: #ffffff;
+}
+input[type=submit]:active{
+    background-color: #910039;
+}
+#eventMap{
+    background-color: #A80042;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+#eventMap:hover{
+    background-color: #d20644;
+}
+#eventMap p{
+    margin: 0;
+    padding-top: 5px;
+}
+#eventMap i{
+    padding-top: 5px;
+}
+@media only screen and (max-width: 1080px){
+    #contactImage img{
+        width: 100%;
+    }
+    #contactImage{
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 500px){
+    input[type=text]{
+        width: 300px;
+    }
+    textarea[id=message]{
+        width: 300px;
+    }
+    input[type=email]{
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #contactPar{
+        margin-left: 20px;
+    }
+}

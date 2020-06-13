@@ -38,11 +38,7 @@ exports.eventsGET = function(month,limit,offset) {
  * returns Event
  **/
 exports.eventsIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    return eventDAO.getEventById(id).then((event) => {
-      resolve(event);
-    });
-  });
+  return eventDAO.getEventById(id);
 }
 
 
@@ -65,3 +61,6 @@ exports.eventsPOST = function(event) {
   });
 }
 
+exports.eventsByPersonIdGET = function(person_id) {
+  return eventDAO.getEventsByPersonId(person_id);
+}

@@ -78,6 +78,7 @@
 @media only screen and (max-width: 500px){
     .first{
         margin-left: 20px;
+        margin-right: 0;
     }
     .card{
         width: 140px;

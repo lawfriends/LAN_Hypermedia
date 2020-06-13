@@ -1,4 +1,4 @@
-.eventIntro{
+#eventIntro{
     width: 100%;
     margin: 0 0 50px 0;
 }
@@ -19,8 +19,177 @@
     margin-left: 50px;
     margin-right: 25px;
 }
+#recommendedP{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875em;
+    color: #4D4D4D;
+}
+#eventCourse{
+    background-color: #E6E6E6;
+    width: fit-content;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+#eventCourseLink:hover{
+    text-decoration: none;
+}
+.CERFlevel{
+    margin: 0;
+    display: inline-block;
+}
+#courseLevelPar{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    color: #4D4D4D;
+    margin: 0;
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+#coordinatorInfo{
+    background-color: #CEE8DF;
+    height: 110px;
+    margin-right: 50px;
+    padding: 0;
+    width: auto;
+    margin-left: 0;
+    height: auto;
+}
+#coordinatorPhoto{
+    max-width: 74px;
+    max-height: 74px;
+    margin: 18px 20px;
+    display: inline-block;
+}
+#coordinatorName{
+    display: inline-block;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #4D4D4D;
+    margin: 0;
+}
+#coordinatorInfo .col-sm-auto{
+    padding-right: 35px;
+}
+#coordinatorLink{
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #004D4A;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #004D4A;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+}
+#coordinatorLink:hover{
+    background-color: #E1FBF2;
+    text-decoration: none;
+    color: #004D4A;
+}
+#coordinatorLink:active{
+    background-color: #8DC9B1;
+    color: #004D4A;
+}
+#eventMap{
+    background-color: #A80042;
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+#eventMap:hover{
+    background-color: #d20644;
+}
+#eventMap p{
+    margin: 0;
+    padding-top: 5px;
+}
+#eventMap i{
+    padding-top: 5px;
+}
+#eventContact{
+    margin: 0;
+}
+#eventContact .col-xl:first-child{
+    margin-left: 50px;
+    padding: 0;
+}
+#eventContact .col-xl:nth-child(2){
+    padding: 0;
+}
+#buttonRow{
+    margin-bottom: 70px;
+    width: 100%;
+    margin: 50px 0 10px 0;
+}
+#buttonRow .col-sm{
+    padding-left: 50px;
+}
+#buttonRow .col-sm-auto{
+    padding-right: 50px;
+}
+#eventsMonthButton{
+    margin-left: calc(50% - 107.5px);
+    margin-bottom: 100px;
+}
 @media only screen and (max-width: 1200px){
     .coursesIntro{
         width: 100%;
+    }
+    #eventContact{
+        margin-right: 50px;
+    }
+    #eventContact .col-xl:first-child{
+        margin-bottom: 40px;
+    }
+    #eventContact .col-xl:nth-child(2){
+        margin-left: 50px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #eventPar{
+        margin-left: 20px;
+    }
+    #eventContact{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #eventContact .col-xl:first-child{
+        margin-left: 0;
+    }
+    #eventContact .col-xl:nth-child(2){
+        margin-left: 0;
+    }
+    #coordinatorInfo{
+        margin-right: 0;
+    }
+    #coordinatorInfo .col-sm-auto{
+        padding: 0;
+    }
+    #coordinatorLink{
+        margin-left: calc(50% - 70px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12{
+        padding: 0;
+    }
+    #buttonRow .col-12:first-child a{
+        margin-left: calc(50% - 94.5px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12:nth-child(2) a{
+        margin-left: calc(50% - 77.25px);
+        margin-bottom: 20px;
     }
 }
