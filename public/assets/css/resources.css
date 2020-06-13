@@ -43,6 +43,8 @@
 }
 .resourceRow .col a{
     color: #004D4A;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .resourceRow .col a p{
     margin-right: 5px;
@@ -99,6 +101,12 @@
     .resourceRow .col a i{
         line-height: 55px;
         font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 700px){
+    .resourceRow .col a{
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 @media only screen and (max-width: 500px){

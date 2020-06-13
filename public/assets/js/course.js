@@ -71,9 +71,9 @@ function getCourse() {
             var title = document.createElement("p");
             title.innerHTML = course.events[j].title;
             var location = document.createElement("p");
-            location.innerHTML = course.events[j].location;
+            location.innerHTML = course.events[j].location.split(";")[0];
             var eventButton = document.createElement("a");
-            eventButton.href = "./event?id=".concat(course.events[j].id);
+            eventButton.href = "./event.html?id=".concat(course.events[j].id);
             eventButton.classList.add("btn", "button");
             eventButton.innerHTML = "View details";
 

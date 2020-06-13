@@ -135,6 +135,9 @@
     #coordinatorRow{
         margin-right: 50px;
     }
+    #coordinatorRow .row .col img{
+        padding-left: 150px;
+    }
     #teacherRow .column{
         margin-right: 0;
         padding: 20px 0 20px 10px;
@@ -145,9 +148,20 @@
         margin-top: 20px;
     }
 }
+@media only screen and (max-width: 900px){
+    #coordinatorRow .row .col img{
+        padding-left: 80px;
+    }
+}
 @media only screen and (max-width: 700px){
     #teacherRow{
         margin-right: 50px;
+    }
+    #coordinatorRow .row .col img{
+        padding-left: 0;
+    }
+    #teacherRow .row .col:first-child{
+        padding-left: 30px;
     }
 }
 @media only screen and (max-width: 400px) {
@@ -182,6 +196,9 @@
     }
     #teacherRow .row .col{
         padding: 0;
+    }
+    #teacherRow .row .col:first-child{
+        padding-left: 0;
     }
     .description{
         padding-right: 10px;

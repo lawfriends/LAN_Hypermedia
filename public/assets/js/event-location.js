@@ -8,14 +8,19 @@ function getEvent() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
     }).then(function(event) {
-        document.querySelector("title").innerHTML = event.title;
-        document.querySelector(".breadcrumb .active").innerHTML = event.title;
-        document.querySelector("#eventPar h1").innerHTML = event.title;
-        document.querySelector("#eventPar p.normal").innerHTML = event.description;
+        console.log(event);
+        document.querySelector("title").innerHTML = event.title.concat(" location");
+        document.querySelector("#breadcrumbEventName a").innerHTML = event.title;
+        document.querySelector("#breadcrumbEventName a").href = "./event.html?id=".concat(eventId);
+        document.querySelector("h1").innerHTML = event.title;
+        document.querySelector("#directions").innerHTML = event.location.split(";")[1];
+        document.querySelector("iframe").src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzDgkYS73J7qoN2ibj1E7x_J2gd5UGGZQ&q=".concat(event.location.split(";")[1].replace(/\s+/g, '+').replace(/,/g, ''));
+        document.querySelector("#locationButton").href = "./event.html?id=".concat(eventId);
+        /*document.querySelector("#eventPar p.normal").innerHTML = event.description;
         document.querySelector(".CERFlevelPar").innerHTML = event.courses[0].cerf_level;
-        document.querySelector("#courseLevelPar").innerHTML = event.courses[0].level.concat(" course");
+        document.querySelector("#courseLevelPar").innerHTML = event.courses[0].level.concat(" course");*/
         const eventDateTime = new Date(event.date);
-        let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
+        /*let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
         document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
@@ -23,13 +28,12 @@ function getEvent() {
         document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
         document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
         document.querySelector("#coordinatorLink").href = "#";
-        document.querySelector("#eventLocation").innerHTML = event.location.split(";")[1];
+        document.querySelector("#eventLocation").innerHTML = event.location;*/
         let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
         let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
-        document.querySelector("#eventsMonthButton").href = "./events-month.html?month=".concat(monthNumeric);
+        //document.querySelector("#eventsMonthButton").href = "./events-month.html?month=".concat(monthNumeric);
         document.querySelector("#breadcrumbEventsMonth a").innerHTML = "Events in ".concat(monthTextual);
         document.querySelector("#breadcrumbEventsMonth a").href = "./events-month.html?month=".concat(monthNumeric);
-        document.querySelector("#eventContact a").href = "./event-location.html?id=".concat(eventId);
         /* var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -96,36 +100,17 @@ function getEvent() {
     })
 }
 
-function getCoordinator() {
-    fetch("/v1/events/".concat(eventId)).then(function(response) {
-        return response.json();
-    }).then(function(event) {
-        fetch("/v1/person/".concat(event.coordinator.id)).then(function(response){
-            return response.json();
-        }).then(function(coordinator){
-            document.querySelector("#coordinatorPhoto").src = coordinator.photo;
-            document.querySelector("#coordinatorName").innerHTML = coordinator.name;
-            document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(coordinator.id);
-        })
-    })
-}
-
-function populateButtons(){
-    var nextId = parseInt(eventId, 10) + 1;
-    var previousId = parseInt(eventId, 10) - 1;
-    if(eventId==1){
-        document.querySelector("#previuosEvent").style.display = "none";
-    }
-    else if(eventId==14){
-        document.querySelector("#nextEvent").style.display = "none";
-    }
-    document.querySelector("#previuosEvent").href = "./event.html?id=".concat(previousId);
-    document.querySelector("#nextEvent").href = "./event.html?id=".concat(nextId);
+function initMap() {
+    // The location of Uluru
+    var uluru = {lat: -25.344, lng: 131.036};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
 }
         
 
 window.onload = function() {
     this.getEvent();
-    this.getCoordinator();
-    this.populateButtons();
 }

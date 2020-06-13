@@ -46,7 +46,7 @@ function getEventsByVolunteer() {
             time.innerHTML = timeArray[0].concat(":").concat(timeArray[1]);
             infoCol.appendChild(time);
             var location = document.createElement("p");
-            location.innerHTML = events[i].location;
+            location.innerHTML = events[i].location.split(";")[0];
             infoCol.appendChild(location);
             cardRow.appendChild(dateCol)
             cardRow.appendChild(infoCol);
