@@ -11,6 +11,7 @@ function getEventsByMonth() {
     }).then(function(events) {
         console.log(events);
         const eventDateTime = new Date(events[0].date);
+        document.querySelector("title").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
         document.querySelector(".breadcrumb .active").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
         document.querySelector("h1").innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).concat(" ").concat(eventDateTime.toLocaleString('default', { year: 'numeric' }));
         for(var i=0; i<events.length; i++) {
@@ -45,7 +46,7 @@ function getEventsByMonth() {
             time.innerHTML = timeArray[0].concat(":").concat(timeArray[1]);
             infoCol.appendChild(time);
             var location = document.createElement("p");
-            location.innerHTML = events[i].location;
+            location.innerHTML = events[i].location.split(";")[0];
             infoCol.appendChild(location);
             cardRow.appendChild(dateCol)
             cardRow.appendChild(infoCol);

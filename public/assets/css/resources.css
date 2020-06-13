@@ -43,6 +43,8 @@
 }
 .resourceRow .col a{
     color: #004D4A;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .resourceRow .col a p{
     margin-right: 5px;
@@ -66,24 +68,28 @@
     background-color: #FFFFFF;
     border: 1px solid;
     border-color: #4d4d4d;
-    width: 200px;
     height: 50px;
     line-height: 50px;
     border-radius: 10px;
-    padding: 0px 25px;
-    margin-left: calc(50% - 100px);
-    margin-right: calc(50% - 100px);
+    padding: 0px 25px;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     margin-bottom: 80px;
 }
 #loadButton:hover{
+    background-color: #e6e6e6;
     color: #4d4d4d;
 }
 #loadButton:active{
+    background-color: #d3d3d3;
     color: #4d4d4d;
 }
 .onlineButton{
     margin-left: 5vw;
     margin-bottom: 100px;
+    width: fit-content;
 }
 @media only screen and (max-width: 1000px){
     .grayTitle{
@@ -95,6 +101,12 @@
     .resourceRow .col a i{
         line-height: 55px;
         font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 700px){
+    .resourceRow .col a{
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 @media only screen and (max-width: 500px){
@@ -116,7 +128,9 @@
         padding: 0;
     }
     .onlineButton{
-        margin-left: calc(50% - 100px);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     #resourcePar{
         margin-left: 20px;

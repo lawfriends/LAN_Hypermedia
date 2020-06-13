@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Event</title>
+        <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/css/style.css">
@@ -18,26 +18,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active navItem" href="./association.html">Association <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active navItem" href="./association.html">Association</a>
                 <a class="nav-item nav-link navItem" href="./allcourses.html">Courses</a>
                 <a class="nav-item nav-link navItem" href="./enroll.html">How to enroll</a>
-                <a class="nav-item nav-link navItem" href="#">Volunteers</a>
+                <a class="nav-item nav-link navItem" href="./allpeople.html">Volunteers</a>
                 <a class="nav-item nav-link navItem" href="./allevents.html">Events</a>
-                <a class="nav-item nav-link navItem" href="#">Contact</a>
-                <a class="nav-item nav-link navDonate" href="#">Donate</a>
+                <a class="nav-item nav-link navItem" href="./contact.html">Contact</a>
+                <a class="nav-item nav-link navDonate" href="./donate.html">Donate</a>
                 </div>
             </div>
         </nav>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./allevents.html">All events</a></li>
-              <li class="breadcrumb-item"><a href="./events-month.html?month=3">Events in April</a></li>
+              <li class="breadcrumb-item" id="breadcrumbEventsMonth"><a href=""></a></li>
               <li class="breadcrumb-item active" aria-current="page">Food laboratory</li>
             </ol>
         </nav>
         <div class="row flex-column-reverse flex-xl-row" id="eventIntro">
             <div class="col-xl" id="eventPar">
-                <h1></h1>
+                <h1 class="innerpages"></h1>
                 <p class="normal"></p>
                 <p id="recommendedP">This event is recommended for the students following the:</p>
                 <div id="eventCourse">
@@ -55,7 +55,7 @@
         <div class="row" id="eventContact">
             <div class="col-xl col-12">
                 <p class="normal" id="eventLocation"></p>
-                <a href="https://www.yesmilano.it/">
+                <a href="">
                     <div class="btn" id="eventMap">
                         <i class="fas fa-2x fa-map-marker-alt"></i>
                         <p>View map</p>
@@ -72,27 +72,27 @@
                         <p id="coordinatorName"></p>
                     </div>
                     <div class="col-sm-auto col-12">
-                        <a class="btn" id="coordinatorLink">See profile</a>
+                        <a href="" class="btn" id="coordinatorLink">See profile</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-between" id="buttonRow">
             <div class="col-sm col-12">
-              <a href="#" class="btn onlineButton" role="button"><i class="fas fa-long-arrow-alt-left"></i> Previous event</a>
+              <a href="" class="btn onlineButton" role="button" id="previuosEvent"><i class="fas fa-long-arrow-alt-left"></i> Previous event</a>
             </div>
             <div class="col-sm-auto col-12">
-                <a href="#" class="btn onlineButton align-self-end" role="button">Next event <i class="fas fa-long-arrow-alt-right"></i></a>
+                <a href="" class="btn onlineButton align-self-end" role="button" id="nextEvent">Next event <i class="fas fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
-        <a href="#" class="btn onlineButton" role="button" id="eventsMonthButton">All events by month</a>
+        <a href="" class="btn onlineButton" role="button" id="eventsMonthButton">All events by month</a>
         <div class="container-fluid footer">
             <div class="row">
               <div class="col-lg-3">
                 <p class="footertitle">You may be interested in</p>
-                <p class="footerbody"><a href="#">Contact</a></p>
-                <p class="footerbody"><a href="#">Enroll</a></p>
-                <p class="footerbody"><a href="#">Become a volunteer</a></p>
+                <p class="footerbody"><a href="./contact.html">Contact</a></p>
+                <p class="footerbody"><a href="./enroll.html">Enroll</a></p>
+                <p class="footerbody"><a href="./volunteer-form.html">Become a volunteer</a></p>
               </div>
               <div class="col-lg">
                 <p class="footertitle">Contact</p>

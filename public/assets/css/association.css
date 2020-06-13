@@ -3,7 +3,7 @@
     margin: auto;
 }
 #founderRow{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #associationPar1 p a{
     color: #A80042;
@@ -13,10 +13,6 @@
 }
 #associationImg img{
     width: 100%;
-}
-h1.innerpages{
-    padding-top: 0.5em;
-    padding-bottom: 1em;
 }
 #founderImg{
     height: 320px;
@@ -46,12 +42,28 @@ p.normal.first{
     margin-bottom: 20px;
 }
 .onlineButton{
-    margin: 50px 50px 150px 0px;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: 50px;
+    display: block;
+    width: fit-content;
 }
 #associationPar1{
     padding-left: 50px;
     padding-right: 60px;
     margin-bottom: 50px;
+}
+#associationPar1 p{
+    padding-left: 0;
+}
+#associationPar2{
+    padding-left: 0;
+    padding-right: 60px;
+    margin-bottom: 50px;
+}
+#associationPar2 p{
+    padding-left: 0;
 }
 @media only screen and (max-width: 1200px){
     .carouselComment .bquote{
@@ -59,9 +71,6 @@ p.normal.first{
     }
 }
 @media screen and (max-width:767px){
-    h1.innerpages{
-        padding-left: 0.4em;
-    }
     p{
         padding-left: 0.8em;
     }
@@ -87,5 +96,18 @@ p.normal.first{
         padding: 0 !important;
         text-align: center !important;
         margin-bottom: 40px;
+    }
+    #associationPar1{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 50px;
+    }
+    #associationPar2{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 50px;
+    }
+    .onlineButton{
+        margin-right: auto;
     }
 }

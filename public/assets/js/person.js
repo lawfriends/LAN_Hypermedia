@@ -16,10 +16,10 @@ function getPerson() {
         document.querySelector("#description1").innerHTML = "From ".concat(person.city);
         document.querySelector("#description2").innerHTML = person.description;
         document.querySelector("#quote").innerHTML = person.quote;
-        document.querySelector(".card img").src = person.courses[0].image;
-        document.querySelector(".card-body a").href = "./course.html?id=".concat(person.courses[0].id);
-        document.querySelector(".card-body a").innerHTML = person.courses[0].level.concat(" course");
-        document.querySelector(".card-text").innerHTML = (person.courses[0].description).split('.')[0];
+        document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
+        document.querySelector("#course").href = "./course.html?id=".concat(person.courses[0].id);
+        document.querySelector("#teacherCourse .card-title").innerHTML = person.courses[0].level.concat(" course");
+        document.querySelector("#teacherCourse .card-text").innerHTML = (person.courses[0].description).split('.')[0];
     })
 }
 
@@ -34,15 +34,15 @@ function getPersonEvents() {
             button.setAttribute("id", "noEvent");
             button.setAttribute("type", "button");
             button.innerHTML = "No events by this volunteer";
-            document.querySelector("#teacherEvent").appendChild(button);
+            document.querySelector("#teacherCourse").appendChild(button);
         }
         else{
             var button = document.createElement("a");
             button.classList.add("btn", "button");
-            button.href = "#";
+            button.href = "./events-volunteer.html?id=".concat(personId);
             button.setAttribute("role", "button");
             button.innerHTML = "Events by this volunteer";
-            document.querySelector("#teacherEvent").appendChild(button);
+            document.querySelector("#teacherCourse").appendChild(button);
         }
     })
 }
@@ -108,9 +108,22 @@ function getPersonComments() {
     })
 }
 
+function populateButtons(){
+    var nextId = parseInt(personId, 10) + 1;
+    var previousId = parseInt(personId, 10) - 1;
+    if(personId==1){
+        document.querySelector("#previousButton").style.display = "none";
+    }
+    else if(personId==20){
+        document.querySelector("#nextButton").style.display = "none";
+    }
+    document.querySelector("#previousButton").href = "./person.html?id=".concat(previousId);
+    document.querySelector("#nextButton").href = "./person.html?id=".concat(nextId);
+}
 
 window.onload = function() {
     this.getPerson();
     this.getPersonEvents();
     this.getPersonComments();
+    this.populateButtons();
 }
