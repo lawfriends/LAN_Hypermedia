@@ -3,14 +3,14 @@ console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const courseId = urlParams.get('id')
 console.log(courseId);
-var limit = 4;
+var limit = 5;
 var offset = 0;
 
 function getCourseResources() {
     fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(resources) {
-        offset+=4;
+        offset+=5;
         document.querySelector(".onlineButton").href = "./course.html?id=".concat(courseId);
         var resourcesContainer = document.querySelector("#resourcesContainer");
         for(var i=0; i<resources.length; i++){
@@ -57,7 +57,7 @@ function loadMoreButton(){
     fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(resources) {
-        if(resources.length>3){
+        if(resources.length>4){
                 var loadButton = document.createElement("a");
                 loadButton.addEventListener("click", getCourseResources);
                 loadButton.classList.add("btn");
