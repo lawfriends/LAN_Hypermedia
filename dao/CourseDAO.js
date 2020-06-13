@@ -50,8 +50,8 @@ exports.save = function(course) {
           level: course.level,
           description: course.description,
           location: course.location,
-          time: course.time,
-          day: course.day,
+          times: course.times,
+          daysOfWeek: course.daysOfWeek,
           image: course.image,
           cerf_level: course.cerf_level
           }, ['id', 'level', 'description'])
@@ -89,7 +89,7 @@ exports.getCourses = function() {
 exports.getCourseById = function(id) {
     return new Promise((resolve, reject) => {
       sqlDB('course')
-        .select(['cv.course_id', 'course.level', 'course.day', 'course.time', 'course.description','course.location', 'course.image', 'course.cerf_level', 
+        .select(['cv.course_id', 'course.level', 'course.daysOfWeek', 'course.times', 'course.description','course.location', 'course.image', 'course.cerf_level', 
                   'cv.person_id', 'p.name','p.photo',
                   'cp.event_id', 'e.title', 'e.date', {eventLocation: 'e.location'}, 'e.photos'])
         .leftJoin('course_volunteer AS cv', 'cv.course_id', 'course.id')
@@ -102,8 +102,8 @@ exports.getCourseById = function(id) {
           let course = {
             id: (result[0].course_id || id),
             level: result[0].level,
-            day: result[0].day,
-            time: result[0].time,
+            daysOfWeek: result[0].daysOfWeek,
+            times: result[0].times,
             description: result[0].description,
             location: result[0].location,
             image: result[0].image,
