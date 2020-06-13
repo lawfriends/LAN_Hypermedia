@@ -29,7 +29,6 @@ function setupDataLayer() {
         coursePresentationDBSetup(sqlDB),
         courseVolunteerDBSetup(sqlDB)
     ]);
-    //if you have other services, yoou should invoke all inside a promise and return it : Promise.all (...)
 }
 
 module.exports = {

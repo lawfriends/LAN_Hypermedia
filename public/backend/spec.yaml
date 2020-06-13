@@ -1,0 +1,547 @@
+---
+swagger: "2.0"
+info:
+  description: "This is the website of Insieme - Italian Teaching association"
+  version: "1.0.0"
+  title: "Insieme"
+  contact:
+    email: "contact@insieme.it"
+host: "localhost:8080"
+basePath: "/v1"
+tags:
+- name: "Course"
+  description: "Courses that the association is offering"
+- name: "Event"
+  description: "Events organized by the association"
+- name: "Person"
+  description: "People, volunteers"
+- name: "Comments"
+  description: "Comments about volunteers or about the association"
+paths:
+  /events:
+    get:
+      tags:
+      - "Event"
+      summary: "events inventory"
+      description: "This is a basic list of events, as it is saved in the database. It does not return the nested information that an event may have, such as the coordinator, or the list of courses. If you need detailed information of one particular event, please see call to /events/{id}"
+      operationId: "eventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "month"
+        in: "query"
+        description: "filter events by month"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+    post:
+      tags:
+      - "Event"
+      summary: "Add a new event"
+      description: "If you need to add a new event in the database, use the event object without specifying an id. The id is automatically created by the database, and you will receive it in the response. \n You should specify to which course the event is recommended, by adding a course object that contains the id of the course in the Event object. \n  You should specify which is the contact person (coordinator), by adding a Person object that contains the id of the contact person in the Event object. \n The request does not return the nested information that an event may have, such as the coordinator, or the list of courses. If you need detailed information of one particular event, please see call to /events/{id}"
+      operationId: "eventsPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "event"
+        required: true
+        schema:
+          $ref: "#/definitions/Event"
+      responses:
+        "200":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Event"
+      x-swagger-router-controller: "Event"
+  /events/{id}:
+    get:
+      tags:
+      - "Event"
+      summary: "A specific event"
+      description: "This request returns the event corresponding to the id parameter, containing the nested information that an event may have, such as the coordinator, or the list of courses."
+      operationId: "eventsIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "event id"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "An event with the specified id"
+          schema:
+            $ref: "#/definitions/Event"
+        "404":
+          description: "There are no courses found with this id"
+      x-swagger-router-controller: "Event"
+  /courses:
+    get:
+      tags:
+      - "Course"
+      summary: "courses inventory"
+      description: "This is a basic list of courses, as it is saved in the database. It does not return the nested information that a course may have, such as the events, or the teachers. If you need detailed information of one particular course, please see call to /courses/{id}"
+      operationId: "coursesGET"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "A collection of course"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Course"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+    post:
+      tags:
+      - "Course"
+      summary: "Add a new course"
+      description: "If you need to add a new course in the database, use the course object without specifying an id or a relation with another entity, such as events or people. The id is automatically created by the database, and you will receive it in the response. It does not return any nested information that it may have. If you need detailed information of one particular course, please see the call to /courses/{id}"
+      operationId: "coursePOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "course"
+        required: true
+        schema:
+          $ref: "#/definitions/Course"
+      responses:
+        "200":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Course"
+      x-swagger-router-controller: "Course"
+  /courses/{id}:
+    get:
+      tags:
+      - "Course"
+      summary: "A specific course"
+      description: "This request returns the course corresponding to the id parameter, containing the nested information that a course may have, such as the events recommended for the course, or the list of volunteers involved in it."
+      operationId: "coursesIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "A course with the specified id"
+          schema:
+            $ref: "#/definitions/Course"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+  /courses/{id}/resources:
+    get:
+      tags:
+      - "Course"
+      summary: "A collection of resources for a specific course"
+      description: "This is a list of resources that are recommended for a specific course."
+      operationId: "courseResourcesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "limit number of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of resources for a specific course"
+          schema:
+            $ref: "#/definitions/Resource"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Course"
+    post:
+      tags:
+      - "Course"
+      summary: "Add a new resource for the course"
+      description: "If you need to add a new resource for a course in the database, use the resource object without specifying an id. The id is automatically created by the database, and you will receive it in the response."
+      operationId: "courseResourcePOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "resource"
+        required: true
+        schema:
+          $ref: "#/definitions/Resource"
+      - name: "id"
+        in: "path"
+        description: "course id"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Resource"
+      x-swagger-router-controller: "Course"
+  /people:
+    get:
+      tags:
+      - "Person"
+      summary: "people, volunteers inventory"
+      description: "This is a basic list of people, as it is saved in the database. It does not return the nested information that a person may have, such as the courses, or the events. If you need detailed information of one particular course, please see call to /courses/{id}"
+      operationId: "peopleGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "limit number of items per page"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, with default zero"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of people"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Person"
+    post:
+      tags:
+      - "Person"
+      summary: "Add a new person"
+      description: "If you need to add a new person in the database, use the person object without specifying an id. The id is automatically created by the database, and you will receive it in the response.\n You should specify to which course the volunteer is involved in, by adding a course object that contains the id of the course in the Person object. \n The request does not return any nested information that the person may have. If you need detailed information of one particular person, please see the call to /person/{id}"
+      operationId: "personPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "person"
+        required: true
+        schema:
+          $ref: "#/definitions/Person"
+      responses:
+        "200":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Person"
+      x-swagger-router-controller: "Person"
+  /person/{id}:
+    get:
+      tags:
+      - "Person"
+      summary: "A specific volunteer"
+      description: "This request returns the person corresponding to the id parameter, containing the nested information that a person may have, such as the courses he/she is involved in, or student comments about him/her."
+      operationId: "personIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "volunteer ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "A volunteer with the specified id"
+          schema:
+            $ref: "#/definitions/Person"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Person"
+  /person/{id}/events:
+    get:
+      tags:
+      - "Event"
+      - "Person"
+      summary: "List of events that a specific person is contact for (is coordinating the event)."
+      description: "You will get a list of events coordinated by the person with the specified id. It does not return the nested information that an event may have, such as the coordinator, or the list of courses. If you need detailed information of one particular event, please see call to /events/{id}"
+      operationId: "eventsByPersonIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "volunteer ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events that have the same contact person (coordinator)"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+  /comments:
+    get:
+      tags:
+      - "Comments"
+      summary: "Comments inventory"
+      description: "This is a list of comments (reviews) about the association or about volunteers of the association. If the comment doesn't have a personID, it means that it's a comment about the association."
+      operationId: "commentsGET"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "A collection of Comments"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Comment"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Comment"
+    post:
+      tags:
+      - "Comments"
+      summary: "Add a new Comment"
+      operationId: "commentPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "comment"
+        required: true
+        schema:
+          $ref: "#/definitions/Comment"
+      responses:
+        "200":
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Comment"
+      x-swagger-router-controller: "Comment"
+definitions:
+  Event:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      title:
+        type: "string"
+        example: "Museum visit"
+      description:
+        type: "string"
+      photos:
+        type: "string"
+      coordinator:
+        $ref: "#/definitions/Person"
+      courses: 
+        type: array
+        items:
+          $ref: "#/definitions/Course"
+    title: "Event"
+    description: "an event"
+    example: 
+      id: 1
+      title: "Museum night"
+      date: "2019-10-19T08:23:54.000Z"
+      location: "Corso Magenta, 15, 20123 Milano MI"
+      description: "Improve your italian knowledge and culture"
+      photos: "/assets/img/allevents/november-small.png"
+      contact_id: 1
+      coordinator: 
+        id: 1
+        name: "Chiara Pozzi"
+        photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      courses: 
+      - id: 1
+        level: "Intermediate"
+        cerf_level: "B1"
+  Person:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      role:
+        type: "string"
+        enum:
+        - "teacher"
+        - "coordinator"
+      photo:
+        type: "string"
+      description:
+        type: "string"
+      job:
+        type: "string"
+      city:
+        type: "string"
+      quote:
+        type: "string"
+      courses:
+        type: "array"
+        items:
+          $ref: "#/definitions/Course"
+      events:
+        type: "array"
+        items:
+          type: "integer"
+      comments:
+        type: "array"
+        items:
+          $ref: "#/definitions/Comment"
+    title: "Person"
+    description: "a volunteer"
+    example:
+      id: 1
+      name: "Chiara Pozzi"
+      photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      role: "teacher"
+      description: "Chiara is a dedicated professional photographer with a passion for languages."
+      job: "Fashion Photographer"
+      city: "Milano"
+      quote: "This is priceless"
+      courses: 
+      - id: 2
+        level: "Basic"
+        image: "/assets/img/allcourses/02-basic.png"
+        description: "This is the basic course of the Italian Language lessons"
+      comments:
+      - id: 9
+        text: "This is a very nice teacher"
+        date: "2019-10-19T08:23:54.000Z"
+        student_name: "Mohammed Ali"
+        photo: "/assets/img/association/03mohammed-ali.png"
+  Course:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      level:
+        type: "string"
+        enum:
+        - "Introductory"
+        - "Basic"
+        - "Intermediate"
+      daysOfWeek:
+        type: "string"
+        description: "Has to respect the format 'Monday;Tuesday;Sunday' - a string with the day of the week separated by ';'"
+      times:
+        type: "string"
+        description: "Has to respect the format '16:00;17:00;18:00' - a string with the day of the week separated by ';'"
+      location:
+        type: "string"
+      cerf_level:
+        type: "string"
+      volunteers:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event"
+    title: "Course"
+    description: "a course"
+    example:
+      id: 1
+      level: "Intermediate"
+      daysOfWeek: "Wednesday;Thursday"
+      times: "17:00;18:00"
+      description: "This is the intermediate course of the Italian Language lessons"
+      location: "Via Edmondo de Amicis, 17, 20123 Milano MI"
+      image: "/assets/img/allcourses/03-intermediate.png"
+      cerf_level: "B1"
+      volunteers: 
+      - id: 1
+        name: "Chiara Pozzi"
+        photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      events: 
+      - id: 1
+        title: "Museum night"
+        date: "2019-10-19T08:23:54.000Z"
+        location: "Corso Magenta, 15, 20123 Milano MI"
+        description: "Improve your italian knowledge and culture"
+        photos: "/assets/img/allevents/november-small.png"
+  Resource:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      cerf_level:
+        type: "string"
+        example: "A2"
+      title:
+        type: "string"
+        example: "Italian Book"
+      url:
+        type: "string"
+      course_id: 
+        type: "integer"
+    title: "Resource"
+    description: "a course resource"
+    example:
+      id: 21
+      course_id: 1
+      title: "Nuovo Espresso 1"
+      url: "http://shorturl.at/lmwAF"
+      cerf_level: "A1"
+  Comment:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      text:
+        type: "string"
+      student_name:
+        type: "string"
+      date:
+        type: "string"
+      person:
+        type: "integer"
+      photo:
+        type: "string"
+    title: "Comment"
+    description: "a comment about a teacher"
+    example:
+      id: 9
+      text: "This is a very nice teacher"
+      date: "2019-10-19T08:23:54.000Z"
+      student_name: "Mohammed Ali"
+      photo: "/assets/img/association/03mohammed-ali.png"
+      person_id: 1
