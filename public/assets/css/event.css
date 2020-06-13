@@ -159,6 +159,9 @@
     #eventContact .col-xl:nth-child(2){
         margin-left: 50px;
     }
+    #coordinatorInfo .col:first-child{
+        max-width: 150px;
+    }
 }
 @media only screen and (max-width: 400px){
     #eventPar{
@@ -200,5 +203,8 @@
         margin-right: auto;
         width: fit-content;
         margin-bottom: 20px;
+    }
+    #coordinatorInfo .col:first-child{
+        max-width: 120px;
     }
 }

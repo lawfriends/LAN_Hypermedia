@@ -284,6 +284,9 @@ ol.breadcrumb li a:hover {
     .navbar{
         flex-direction: column !important;
     }
+    h1.innerpages{
+        margin-top: 0.4em;
+    }
 }
 @media only screen and (max-width: 767px) {
     .navbar{
