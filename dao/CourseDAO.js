@@ -9,13 +9,20 @@ exports.courseDBSetup = function (connection) {
       return sqlDB.schema.withSchema('public').createTable('course', (table) => {
         table.increments(); // the course id - PK
         table.enum('level', ['Introductory','Basic','Intermediate']);
-        table.enum('day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
-        table.string('time');
+        table.string('daysOfWeek');
+        table.string('times');
         table.text('description');
         table.string('location');
         table.string('image');
         table.enum('cerf_level', ['A1','A2','B1','B2','C1','C2'])
       })
+    } else {
+      return sqlDB.schema.table('course', function (table) {
+        table.dropColumn('day');
+        table.dropColumn('time');
+        table.string('daysOfWeek');
+        table.string('times');
+      });
     }
   });
 };
