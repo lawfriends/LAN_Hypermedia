@@ -484,10 +484,6 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Event"
-      # resources:
-      #   type: "array"
-      #   items:
-      #     $ref: "#/definitions/Resource"
     title: "Course"
     description: "a course"
     example:
@@ -515,7 +511,7 @@ definitions:
     properties:
       id:
         type: "integer"
-      CERF:
+      cerf_level:
         type: "string"
         example: "A2"
       title:
@@ -523,6 +519,7 @@ definitions:
         example: "Italian Book"
       url:
         type: "string"
+      course_id: 1
     title: "Resource"
     description: "a course resource"
     example:
