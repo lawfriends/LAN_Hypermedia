@@ -10,7 +10,7 @@ function getPerson() {
         console.log(person);
         document.querySelector("title").innerHTML = person.name;
         document.querySelector(".breadcrumb .active").innerHTML = person.name;
-        //document.querySelector("#teacherPhoto img").src = person.photo;
+        document.querySelector("#teacherPhoto img").src = person.photo.split(";")[1];
         document.querySelector("#teacherInfo h1").innerHTML = person.name;
         document.querySelector("#job").innerHTML = person.job;
         document.querySelector("#description1").innerHTML = "From ".concat(person.city);
