@@ -137,10 +137,18 @@
         margin-left: 50px;
     }
     .volunteerButton{
-        margin-left: calc(50% - 100px);
+        /* margin-left: calc(50% - 100px); */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .donateButton{
-        margin-left: calc(50% - 100px);
+        /* margin-left: calc(50% - 100px); */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .carouselComment .bquote{
         font-size: 1.7em;
@@ -162,26 +170,33 @@
         margin-bottom: 50px;
     }
     .homepagePar1{
-        padding-left: 60px;
+        padding-left: 20px;
     }
     .homepagePar1 .button{
         position: absolute;
         bottom: 27px;
         /* top: 250px; */
         top: 90%;
-        left: calc(50% - 100px);
+        /*left: calc(50% - 100px);*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .homepageTitle{
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .homepageTitle h1{
         line-height: 1.2em;
     }
+    #eventsPar{
+        padding: 40px 0px 0px 20px;
+    }
     .homepagePar2{
         padding-top: 30px;
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .homepagePar2 .button{
         position: absolute;

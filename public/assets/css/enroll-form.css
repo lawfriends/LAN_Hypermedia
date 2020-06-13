@@ -101,11 +101,14 @@ input[type=submit]:active{
 .onlineButton{
     margin: 50px 0px 150px 50px;
 }
-@media only screen and (max-width: 1201px){
+@media only screen and (max-width: 1200px){
     .dates{
         margin-left: 0;
         margin-top: 50px;
         margin-bottom: 100px;
+    }
+    h1.innerpages{
+        margin-top: 0;
     }
 }
 @media only screen and (max-width: 500px){

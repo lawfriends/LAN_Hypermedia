@@ -13,6 +13,9 @@ h1 {
     line-height: 1.5;
     color: #A80042;
 }
+h1.innerpages{
+    padding-bottom: 1em;
+}
 h6 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 600;
@@ -280,6 +283,9 @@ ol.breadcrumb li a:hover {
 @media only screen and (max-width: 1200px) {
     .navbar{
         flex-direction: column !important;
+    }
+    h1.innerpages{
+        margin-top: 0.4em;
     }
 }
 @media only screen and (max-width: 767px) {

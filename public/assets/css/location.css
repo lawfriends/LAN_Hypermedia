@@ -12,6 +12,11 @@ iframe{
     margin-left: 50px;
     margin-bottom: 100px;
 }
+@media only screen and (max-width: 1200px){
+    h1.innerpages{
+        margin-top: 0;
+    }
+}
 @media only screen and (max-width: 768px){
     iframe{
         width: 668px;

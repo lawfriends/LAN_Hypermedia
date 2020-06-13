@@ -12,12 +12,35 @@
     width: auto;
     margin-left: 50px;
     margin-right: 25px;
+    padding: 0;
 }
 .courses{
     margin-top: 50px;
 }
+.courses .row .col-xl{
+    max-width: 25rem;
+}
+.courses .row a:hover{
+    text-decoration: none;
+}
+.courses .row a:hover .card-title{
+    text-decoration: none;
+}
+.courses .row a:hover .card-body{
+    background-color: #E1FBF2;
+}
+.courses .row a:active .card-body{
+    background-color: #CEE8DF;
+}
 .card{
     margin: 25px auto 80px auto;
+    width: fit-content;
+}
+.card-text{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.0625em;
+    color: #3C3C3C;
 }
 .card-title{
     font-family: 'Nunito Sans', sans-serif;
@@ -36,9 +59,8 @@
         padding: 0;
     }
 }
-/* @media only screen and (max-width: 400px){
-    .coursesIntro{
-        width: 375px;
-        margin: 0;
+@media only screen and (max-width: 400px){
+    #coursesPar{
+        margin-left: 20px;
     }    
-} */
+}
