@@ -39,7 +39,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "/backend/swaggerui#/definitions/Event"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Event"
@@ -58,12 +58,12 @@ paths:
         name: "event"
         required: true
         schema:
-          $ref: "#/definitions/Event"
+          $ref: "/backend/swaggerui#/definitions/Event"
       responses:
         "200":
           description: "Created"
           schema:
-            $ref: "#/definitions/Event"
+            $ref: "/backend/swaggerui#/definitions/Event"
       x-swagger-router-controller: "Event"
   /events/{id}:
     get:
@@ -85,7 +85,7 @@ paths:
         "200":
           description: "An event with the specified id"
           schema:
-            $ref: "#/definitions/Event"
+            $ref: "/backend/swaggerui#/definitions/Event"
         "404":
           description: "There are no courses found with this id"
       x-swagger-router-controller: "Event"
@@ -104,7 +104,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Course"
+              $ref: "/backend/swaggerui#/definitions/Course"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Course"
@@ -123,12 +123,12 @@ paths:
         name: "course"
         required: true
         schema:
-          $ref: "#/definitions/Course"
+          $ref: "/backend/swaggerui#/definitions/Course"
       responses:
         "200":
           description: "Created"
           schema:
-            $ref: "#/definitions/Course"
+            $ref: "/backend/swaggerui#/definitions/Course"
       x-swagger-router-controller: "Course"
   /courses/{id}:
     get:
@@ -149,7 +149,7 @@ paths:
         "200":
           description: "A course with the specified id"
           schema:
-            $ref: "#/definitions/Course"
+            $ref: "/backend/swaggerui#/definitions/Course"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Course"
@@ -182,7 +182,7 @@ paths:
         "200":
           description: "A collection of resources for a specific course"
           schema:
-            $ref: "#/definitions/Resource"
+            $ref: "/backend/swaggerui#/definitions/Resource"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Course"
@@ -201,7 +201,7 @@ paths:
         name: "resource"
         required: true
         schema:
-          $ref: "#/definitions/Resource"
+          $ref: "/backend/swaggerui#/definitions/Resource"
       - name: "id"
         in: "path"
         description: "course id"
@@ -211,7 +211,7 @@ paths:
         "200":
           description: "Created"
           schema:
-            $ref: "#/definitions/Resource"
+            $ref: "/backend/swaggerui#/definitions/Resource"
       x-swagger-router-controller: "Course"
   /people:
     get:
@@ -239,7 +239,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Person"
+              $ref: "/backend/swaggerui#/definitions/Person"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Person"
@@ -258,12 +258,12 @@ paths:
         name: "person"
         required: true
         schema:
-          $ref: "#/definitions/Person"
+          $ref: "/backend/swaggerui#/definitions/Person"
       responses:
         "200":
           description: "Created"
           schema:
-            $ref: "#/definitions/Person"
+            $ref: "/backend/swaggerui#/definitions/Person"
       x-swagger-router-controller: "Person"
   /person/{id}:
     get:
@@ -284,7 +284,7 @@ paths:
         "200":
           description: "A volunteer with the specified id"
           schema:
-            $ref: "#/definitions/Person"
+            $ref: "/backend/swaggerui#/definitions/Person"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Person"
@@ -310,7 +310,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "/backend/swaggerui#/definitions/Event"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Event"
@@ -329,7 +329,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Comment"
+              $ref: "/backend/swaggerui#/definitions/Comment"
         "404":
           description: "Unexpected error"
       x-swagger-router-controller: "Comment"
@@ -347,12 +347,12 @@ paths:
         name: "comment"
         required: true
         schema:
-          $ref: "#/definitions/Comment"
+          $ref: "/backend/swaggerui#/definitions/Comment"
       responses:
         "200":
           description: "Created"
           schema:
-            $ref: "#/definitions/Comment"
+            $ref: "/backend/swaggerui#/definitions/Comment"
       x-swagger-router-controller: "Comment"
 definitions:
   Event:
@@ -368,11 +368,11 @@ definitions:
       photos:
         type: "string"
       coordinator:
-        $ref: "#/definitions/Person"
+        $ref: "/backend/swaggerui#/definitions/Person"
       courses: 
         type: array
         items:
-          $ref: "#/definitions/Course"
+          $ref: "/backend/swaggerui#/definitions/Course"
     title: "Event"
     description: "an event"
     example: 
@@ -416,7 +416,7 @@ definitions:
       courses:
         type: "array"
         items:
-          $ref: "#/definitions/Course"
+          $ref: "/backend/swaggerui#/definitions/Course"
       events:
         type: "array"
         items:
@@ -424,7 +424,7 @@ definitions:
       comments:
         type: "array"
         items:
-          $ref: "#/definitions/Comment"
+          $ref: "/backend/swaggerui#/definitions/Comment"
     title: "Person"
     description: "a volunteer"
     example:
@@ -471,11 +471,11 @@ definitions:
       volunteers:
         type: "array"
         items:
-          $ref: "#/definitions/Person"
+          $ref: "/backend/swaggerui#/definitions/Person"
       events:
         type: "array"
         items:
-          $ref: "#/definitions/Event"
+          $ref: "/backend/swaggerui#/definitions/Event"
     title: "Course"
     description: "a course"
     example:
