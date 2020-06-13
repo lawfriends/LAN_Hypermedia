@@ -1,0 +1,173 @@
+#teacherProfile{
+    width: auto;
+    margin: 0 0 0 50px;
+}
+#teacherPhoto{
+    max-width: fit-content;
+    padding: 0;
+}
+#teacherInfo{
+    margin-left: 30px;
+}
+#teacherInfo h1{
+    color: #4D4D4D;
+}
+#teacherCourse{
+    margin-left: 50px;
+}
+.card-title{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #004D4A;
+}
+.card-title:hover{
+    color: #004D4A;
+}
+#job{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #A80042;
+    margin: 0;
+}
+.description{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #4D4D4D;
+}
+#quote{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.75em;
+    font-style: italic;
+    color: #A80042;
+    margin-top: 40px;
+}
+#teacherCourse a:hover{
+    text-decoration: none;
+}
+#teacherCourse a:hover .card-title{
+    text-decoration: none;
+}
+#teacherCourse a:hover .card-body{
+    background-color: #E1FBF2;
+}
+#teacherCourse a:active .card-body{
+    background-color: #CEE8DF;
+}
+#teacherCourse .card-body{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.0625em;
+    color: #4D4D4D;
+}
+#grayTitle{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #4D4D4D;
+    text-transform: uppercase;
+}
+#noEvent{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #4D4D4D;
+    text-transform: uppercase;
+    background-color: #e6e6e6;
+    height: 50px;
+    width: inherit;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.button{
+    position: static;
+    width: inherit;
+    margin-top: 30px;
+}
+.carouselComment{
+    background-color: #cee8df;
+    height: 375px;
+    margin-top: 100px;
+    text-align: center;
+}
+.carouselComment .bquote{
+    text-align: center;
+}
+.carouselComment img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+#buttonRow{
+    margin-bottom: 70px;
+    width: 100%;
+    margin: 50px 0 10px 0;
+}
+#buttonRow .col-sm{
+    padding-left: 50px;
+}
+#buttonRow .col-sm-auto{
+    padding-right: 50px;
+}
+#allPeople{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-bottom: 100px;
+}
+@media only screen and (max-width: 1200px){
+    .carouselComment .bquote{
+        font-size: 1.7em;
+    }
+    #teacherPhoto img{
+        width: 170px;
+    }
+    #teacherCourse{
+        margin-top: 40px;
+        margin-left: 0;
+    }
+}
+@media only screen and (max-width:767px){
+    .carouselComment{
+        height: 750px;
+    }
+    .carouselComment .bquote{
+        text-align: center;
+        font-size: 2.5em;
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 700px){
+    #teacherCourse{
+        width: 335px;
+    }
+    #teacherEvent .button{
+        position: static;
+    }
+    #teacherInfo{
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+@media only screen and (max-width: 400px){
+    #buttonRow .col-12{
+        padding: 0;
+    }
+    #buttonRow .col-12:first-child a{
+        margin-left: calc(50% - 113.75px);
+        margin-bottom: 20px;
+    }
+    #buttonRow .col-12:nth-child(2) a{
+        margin-left: calc(50% - 96.25px);
+        margin-bottom: 20px;
+    }
+    #teacherProfile{
+        margin-left: 20px;
+    }
+    #teacherPhoto{
+        margin-left: 82.5px;
+    }
+}

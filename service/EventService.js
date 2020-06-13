@@ -4,16 +4,15 @@ const eventDAO = require('../dao/EventDAO');
 /**
  * events inventory
  *
- * limit Integer limit num of items per page (optional)
- * offset Integer Pagination offset, with default zero (optional)
+ * month Integer filter events by month (optional)
  * returns List
  **/
-exports.eventsGET = function(month,limit,offset) {
+exports.eventsGET = function(month) {
 
   return eventDAO.getEvents()
     .then((data) => {
 
-      if(month>-1 && month<13) {
+      if(month>-1 && month<12) {
         return data.filter( event => {
           const date = new Date(event.date);
           const currentDate = new Date();
@@ -24,7 +23,7 @@ exports.eventsGET = function(month,limit,offset) {
       return data;
     })
     .catch(()=>{
-      return {};
+      return [];
     });
 }
 
@@ -33,16 +32,10 @@ exports.eventsGET = function(month,limit,offset) {
  * A specific event
  *
  * id Long event id
- * limit Integer limit num of items per page (optional)
- * offset Integer Pagination offset, with default zero (optional)
  * returns Event
  **/
-exports.eventsIdGET = function(id,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    return eventDAO.getEventById(id).then((event) => {
-      resolve(event);
-    });
-  });
+exports.eventsIdGET = function(id) {
+  return eventDAO.getEventById(id);
 }
 
 
@@ -56,12 +49,31 @@ exports.eventsPOST = function(event) {
 
   return new Promise(function(resolve, reject) {
     if (Object.keys(event).length > 0) {
-      eventDAO.save(event).then((event) => {
-        resolve(event);
-      });
+      
+      eventDAO.save(event)
+        .then((event) => {
+          if(event.length) {
+            resolve(event[0])
+          } else {
+            resolve(event);
+          }
+        })
+        .catch(() => {
+          resolve();
+        })
     } else {
       resolve();
     }
   });
 }
 
+
+/**
+ * Get a list of all events for which a specific person is a contact
+ *
+ * person_id Long 
+ * returns List
+ **/
+exports.eventsByPersonIdGET = function(person_id) {
+  return eventDAO.getEventsByPersonId(person_id);
+}

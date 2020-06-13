@@ -1,0 +1,206 @@
+.peopleIntro{
+    width: 100%;
+    margin: 0 0 50px 0;
+}
+#peopleImage{
+    padding-right: 0;
+    padding-left: 0;
+}
+#peopleImage img{
+    width: 100%;
+}
+#peoplePar{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-left: 0;
+}
+.title{
+    margin-left: 50px;
+    margin-right: 25px;
+}
+.button{
+    margin-top: 30px;
+    position: static;
+}
+.grayTitle{
+    margin-left: 50px;
+}
+#coordinatorRow{
+    margin: 0 0 0 50px;
+}
+#coordinatorRow .column{
+    background-color: #CEE8DF;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    padding: 40px 0 50px 30px;
+}
+#teacherRow{
+    margin: 0 0 100px 50px;
+}
+#teacherRow .column{
+    background-color: #CEE8DF;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    padding: 20px 0 20px 20px;
+    min-width: 333px;
+}
+.coordinatorRole{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.9375em;
+    color: #004D4A;
+    text-transform: uppercase;
+}
+.coordinatorName{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.875em;
+    color: #004D4A;
+}
+.coordinatorDescription{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #4D4D4D;
+}
+.personLink{
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #004D4A;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #004D4A;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;
+}
+.personLink:hover{
+    background-color: #E1FBF2;
+    text-decoration: none;
+    color: #004D4A;
+}
+.personLink:active{
+    background-color: #8DC9B1;
+    color: #004D4A;
+}
+.teacherName{
+    font-family: 'Nunito sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #004D4A;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.teacherDescription{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875em;
+    color: #004D4A;
+}
+#showMoreButton{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.88em;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #4d4d4d;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 25px;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-bottom: 80px;
+}
+#showMoreButton:hover{
+    background-color: #e6e6e6;
+    color: #4d4d4d;
+}
+#showMoreButton:active{
+    background-color: #d3d3d3;
+    color: #4d4d4d;
+}
+@media only screen and (max-width: 1200px) {
+    #coordinatorRow{
+        margin-right: 50px;
+    }
+    #coordinatorRow .row .col img{
+        padding-left: 150px;
+    }
+    #teacherRow .column{
+        margin-right: 0;
+        padding: 20px 0 20px 10px;
+        min-width: 323px;
+        margin-right: 22px;
+    }
+}
+@media only screen and (max-width: 900px){
+    #coordinatorRow .row .col img{
+        padding-left: 80px;
+    }
+}
+@media only screen and (max-width: 700px){
+    #teacherRow{
+        margin-right: 50px;
+    }
+    #coordinatorRow .row .col img{
+        padding-left: 0;
+    }
+    #teacherRow .row .col:first-child{
+        padding-left: 30px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .grayTitle{
+        margin-left: 20px;
+    }
+    .peopleIntro{
+        margin-left: 0;
+    }
+    #peoplePar{
+        margin-left: 20px;
+    }
+    #buttonRow div{
+        padding: 0 !important;
+        text-align: center !important;
+        margin-bottom: 40px;
+    }
+    #coordinatorRow{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #coordinatorRow .row .col img{
+        margin-bottom: 20px;
+        padding-left: 38px;
+    }
+    #teacherRow{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+     #teacherRow .column{
+        padding: 20px 0 20px 30px;
+    }
+    #teacherRow .row .col{
+        padding: 0;
+    }
+    #teacherRow .row .col:first-child{
+        padding-left: 0;
+    }
+    .description{
+        padding-right: 10px;
+    }
+    #coordinatorRow .personLink{
+        margin-left: 67px;
+    }
+}

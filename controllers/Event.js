@@ -4,10 +4,8 @@ var utils = require('../utils/writer.js');
 var EventService = require('../service/EventService');
 
 module.exports.eventsGET = function eventsGET (req, res, next) {
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
   var month =  req.swagger.params['month'].value;
-  EventService.eventsGET(month,limit,offset)
+  EventService.eventsGET(month)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -18,9 +16,7 @@ module.exports.eventsGET = function eventsGET (req, res, next) {
 
 module.exports.eventsIdGET = function eventsIdGET (req, res, next) {
   var id = req.swagger.params['id'].value;
-  var limit = req.swagger.params['limit'].value;
-  var offset = req.swagger.params['offset'].value;
-  EventService.eventsIdGET(id,limit,offset)
+  EventService.eventsIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -39,3 +35,14 @@ module.exports.eventsPOST = function eventsPOST (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.eventsByPersonIdGET = function eventsByPersonIdGET(req, res, next) {
+  var id = req.swagger.params['id'].value;
+  EventService.eventsByPersonIdGET(id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+}

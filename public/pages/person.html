@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>All volunteers</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/person.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Open+Sans&family=Nunito&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c0ad3f730c.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="../index.html"><img src="../assets/img/association/Grupo 228.svg"> InSieme</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active navItem" href="./association.html">Association</a>
+                <a class="nav-item nav-link navItem" href="./allcourses.html">Courses</a>
+                <a class="nav-item nav-link navItem" href="./enroll.html">How to enroll</a>
+                <a class="nav-item nav-link navItem" href="./allpeople.html">Volunteers</a>
+                <a class="nav-item nav-link navItem" href="./allevents.html">Events</a>
+                <a class="nav-item nav-link navItem" href="./contact.html">Contact</a>
+                <a class="nav-item nav-link navDonate" href="./donate.html">Donate</a>
+                </div>
+            </div>
+        </nav>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./allpeople.html">Volunteers</a></li>
+              <li class="breadcrumb-item active" aria-current="page"></li>
+            </ol>
+        </nav>
+        <div class="row no-gutters" id="teacherProfile">
+            <div class="col-4 col-xs-12" id="teacherPhoto">
+                <img src="../assets/img/volunteers/profile/01-chiara-pozzi-big.jpg">
+            </div>
+            <div class="col-xl-5 col-md-8 col-xs-12" id="teacherInfo">
+                <h1></h1>
+                <p id="job"></p>
+                <p class="description" id="description1"></p>
+                <p class="description" id="description2"></p>
+                <p id="quote"></p>
+            </div>
+            <div class="col-xl-3 col-md-6 col-xs-12" id="teacherCourse">
+                <p id="grayTitle">Currently teaching</p>
+                    <a href="" id="course">
+                        <div class="card">
+                            <img class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title"></p>
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+        <div id="carouselIndicatorsTestimonials" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators"></ol>
+            <div class="carousel-inner personTestimonials"></div> 
+        </div>
+        <div class="row justify-content-between" id="buttonRow">
+            <div class="col-sm col-12">
+              <a href="#" class="btn onlineButton" role="button" id="previousButton"><i class="fas fa-long-arrow-alt-left"></i> Previous volunteer</a>
+            </div>
+            <div class="col-sm-auto col-12">
+                <a href="#" class="btn onlineButton align-self-end" role="button" id="nextButton">Next volunteer <i class="fas fa-long-arrow-alt-right"></i></a>
+            </div>
+        </div>
+        <a href="./allpeople.html" class="btn onlineButton" role="button" id="allPeople">All people</a>
+        <div class="container-fluid footer">
+            <div class="row">
+              <div class="col-lg-3">
+                <p class="footertitle">You may be interested in</p>
+                <p class="footerbody"><a href="./contact.html">Contact</a></p>
+                <p class="footerbody"><a href="./enroll.html">Enroll</a></p>
+                <p class="footerbody"><a href="./volunteer-form.html">Become a volunteer</a></p>
+              </div>
+              <div class="col-lg">
+                <p class="footertitle">Contact</p>
+                <p class="footerbody"><i class="far fa-envelope"></i> insiemesanfedele@gmail.com</p>
+                <p class="footerbody"><i class="fas fa-phone-alt"></i> 0286352.1</p>
+                <p class="footerbody"><i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/InSiemeSanFedele/"> Follow us on Facebook</a></p>
+              </div>
+              <div class="col-lg">
+                <p class="footertitle">Location</p>
+                <p class="footerbody"><i class="fas fa-home"></i> Fondazione Culturale San Fedele, Piazza San Fedele, 4 - Milano</p>
+              </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+        <script src="../assets/js/person.js"></script>
+    </body>
+</html>

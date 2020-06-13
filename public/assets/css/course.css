@@ -35,7 +35,7 @@
 } */
 .teachers{
     background-color: #FFEEBD;
-    height: 230px;
+    height: 250px;
 }
 .teachers .row{
     margin-left: auto;
@@ -45,6 +45,7 @@
 }
 .teacher{
     margin: 25px auto 80px auto;
+    padding-top: 20px;
 }
 .teacher img{
     margin-bottom: 25px;
@@ -59,6 +60,7 @@
 #schedule{
     margin-bottom: 130px;
     width: 100%;
+    margin-left: 0;
 }
 #scheduleCol{
     padding-top: 50px;
@@ -91,6 +93,8 @@
 }
 .eventCard{
     width: 18rem;
+    border: none;
+    border-radius: 0px;
 }
 .eventCard .card-body{
     background-color: #FFEEBD;
@@ -106,6 +110,13 @@
 #buttonRow .col-sm-auto{
     padding-right: 50px;
 }
+.card-body .row{
+    margin-bottom: 10px;
+}
+#eventDate{
+    border-right: 3px solid;
+    border-color: rgba(112, 112, 112, .3);
+}
 #eventDate p:first-child{
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
@@ -119,9 +130,13 @@
     font-weight: 500;
     color: #3C3C3C;
     font-size: 1.8125em;
+    margin: 0;
 }
 #eventInfo{
     text-align: left;
+}
+#eventInfo p{
+    margin: 0;
 }
 #eventInfo p:first-child{
     font-family: 'Nunito Sans', sans-serif;
@@ -135,6 +150,15 @@
     font-weight: 500;
     color: #3C3C3C;
     font-size: 0.9375em;
+}
+.teacherLink:hover .teacher{
+    background-color: #fffaec;
+}
+.teacherLink:hover{
+    text-decoration: none;
+}
+.teacherLink:active .teacher{
+    background-color: #ffe59c;
 }
 .no-gutters .col-3{
     margin-right: 80px;
@@ -163,5 +187,19 @@
         padding: 0 !important;
         text-align: center !important;
         margin-bottom: 40px;
+    }
+    #scheduleCol{
+        padding-left: 20px;
+    }
+    #eventCol{
+        padding-left: 20px;
+    }
+    #coursePar{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .title{
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
