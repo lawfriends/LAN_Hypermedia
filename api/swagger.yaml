@@ -6,7 +6,7 @@ info:
   title: "Insieme"
   contact:
     email: "contact@insieme.it"
-host: "https://insieme-hya.herokuapp.com"
+host: "insieme-hya.herokuapp.com"
 basePath: "/v1"
 tags:
 - name: "Course"
