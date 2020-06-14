@@ -21,7 +21,7 @@ function getCourse() {
             column = document.createElement("div");
             column.classList.add("col-xl", "col-md-4", "col-sm12", "text-center");
             var teacherImg = document.createElement("img");
-            teacherImg.src = volunteers[i].photo;
+            teacherImg.src = volunteers[i].photo.split(";")[0];
             var teacherName = document.createElement("p");
             teacherName.classList.add("overline");
             teacherName.innerHTML = volunteers[i].name;

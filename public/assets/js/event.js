@@ -20,9 +20,9 @@ function getEvent() {
         document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
-        document.querySelector("#coordinatorPhoto").src = event.coordinator.photo;
+        document.querySelector("#coordinatorPhoto").src = event.coordinator.photo.split(";")[0];
         document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
-        document.querySelector("#coordinatorLink").href = "#";
+        document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(event.coordinator.id);
         document.querySelector("#eventLocation").innerHTML = event.location.split(";")[1];
         let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
         let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
@@ -103,7 +103,7 @@ function getCoordinator() {
         fetch("/v1/person/".concat(event.coordinator.id)).then(function(response){
             return response.json();
         }).then(function(coordinator){
-            document.querySelector("#coordinatorPhoto").src = coordinator.photo;
+            document.querySelector("#coordinatorPhoto").src = coordinator.photo.split(";")[0];
             document.querySelector("#coordinatorName").innerHTML = coordinator.name;
             document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(coordinator.id);
         })
@@ -126,6 +126,6 @@ function populateButtons(){
 
 window.onload = function() {
     this.getEvent();
-    this.getCoordinator();
+    //this.getCoordinator();
     this.populateButtons();
 }

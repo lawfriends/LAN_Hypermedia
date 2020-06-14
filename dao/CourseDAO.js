@@ -54,7 +54,7 @@ exports.save = function(course) {
           daysOfWeek: course.daysOfWeek,
           image: course.image,
           cerf_level: course.cerf_level
-          }, ['id', 'level', 'description'])
+          }, ['id', 'level', 'description','location','times','daysOfWeek','image','cerf_level'])
             .then((courseSaved)=>{
               if(course.volunteers && course.volunteers.length > 0) {
                 var courseVolunteers = course.volunteers.map(volunteer => { 

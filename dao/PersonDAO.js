@@ -38,17 +38,6 @@ exports.courseVolunteerDBSetup = function (connection) {
 
 
 exports.save = function(person) {
-  /*example
-  {
-    "name" : "Alexandra Rossi",
-    "role": "teacher",
-    "photo": "http://shorturl.at/lmwAF",
-    "description": "This is one of the teachers",
-    "job": "Fashion Photographer",
-    "city": "Milano",
-    "quote": "This is priceless"
-  }
-  */
     return new Promise((resolve, reject) => {
       sqlDB('person')
         .returning()
