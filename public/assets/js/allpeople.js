@@ -12,6 +12,8 @@ function getAllPeople() {
         return response.json();
     }).then(function(people) {
         for(var i=0; i<people.length; i++){
+            people[i].incrementId = i;
+            console.log(people);
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
                 var personCol = document.createElement("div");
@@ -28,9 +30,9 @@ function getAllPeople() {
                 name.innerHTML = people[i].name;
                 var description = document.createElement("p");
                 description.classList.add("coordinatorDescription");
-                description.innerHTML = people[i].description;
+                description.innerHTML = people[i].description.split(".")[0];
                 var coordinatorButton = document.createElement("a");
-                coordinatorButton.href = "./person.html?id=".concat(people[i].id);
+                coordinatorButton.href = "./person.html?id=".concat(people[i].id).concat("&incrementId=").concat(people[i].incrementId);
                 coordinatorButton.classList.add("personLink");
                 coordinatorButton.innerHTML = "See profile";
                 infoCol.appendChild(role);
@@ -62,7 +64,7 @@ function getAllPeople() {
                 //description.classList.add("teacherDescription");
                 //description.innerHTML = "Volunteer from 2012";
                 var teacherButton = document.createElement("a");
-                teacherButton.href = "./person.html?id=".concat(people[i].id);
+                teacherButton.href = "./person.html?id=".concat(people[i].id).concat("&incrementId=").concat(people[i].incrementId);
                 teacherButton.classList.add("personLink");
                 teacherButton.innerHTML = "See profile";
                 infoCol.appendChild(name);
