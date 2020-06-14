@@ -28,7 +28,7 @@ function getAllPeople() {
                 name.innerHTML = people[i].name;
                 var description = document.createElement("p");
                 description.classList.add("coordinatorDescription");
-                description.innerHTML = people[i].description;
+                description.innerHTML = people[i].description.split(".")[0];
                 var coordinatorButton = document.createElement("a");
                 coordinatorButton.href = "./person.html?id=".concat(people[i].id);
                 coordinatorButton.classList.add("personLink");

@@ -16,10 +16,15 @@ function getPerson() {
         document.querySelector("#description1").innerHTML = "From ".concat(person.city);
         document.querySelector("#description2").innerHTML = person.description;
         document.querySelector("#quote").innerHTML = person.quote;
-        document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
-        document.querySelector("#course").href = "./course.html?id=".concat(person.courses[0].id);
-        document.querySelector("#teacherCourse .card-title").innerHTML = person.courses[0].level.concat(" course");
-        document.querySelector("#teacherCourse .card-text").innerHTML = (person.courses[0].description).split('.')[0];
+        if(person.courses.length == 0){
+            document.querySelector("#teacherCourse").style.display = "none";
+        }
+        else{
+            document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
+            document.querySelector("#course").href = "./course.html?id=".concat(person.courses[0].id);
+            document.querySelector("#teacherCourse .card-title").innerHTML = person.courses[0].level.concat(" course");
+            document.querySelector("#teacherCourse .card-text").innerHTML = (person.courses[0].description).split('.')[0];
+        }
     })
 }
 

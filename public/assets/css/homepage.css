@@ -175,13 +175,8 @@
     .homepagePar1 .button{
         position: absolute;
         bottom: 27px;
-        /* top: 250px; */
         top: 90%;
-        /*left: calc(50% - 100px);*/
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
+        left: 20px;
     }
     .homepageTitle{
         padding-left: 20px;
@@ -201,9 +196,8 @@
     .homepagePar2 .button{
         position: absolute;
         bottom: 27px;
-        /*top: 145px;*/
         top: 80%;
-        left: calc(50% - 100px);
+        left: 20px;
     }
     .carouselComment{
         height: 650px;
@@ -233,9 +227,35 @@
 }
 @media only screen and (max-width: 550px) {
     .volunteerButton{
-        margin-left: calc(50% - 100px);;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .donateButton{
-        margin-left: calc(50% - 100px);;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    .homepagePar1 .button{
+        position: static;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    .homepagePar2 .button{
+        position: static;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    .homepageDonate .mquote{
+        margin-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1.4em;
     }
 }
