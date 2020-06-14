@@ -71,7 +71,9 @@ exports.getEventById = function(id) {
     sqlDB('event')
       .select(['event.id', 'event.title', 'event.date', 'event.location', 'event.description', 'event.photos',
                 {contact_id: 'p.id'}, 'p.name', 'p.photo',
-                {course_id: 'c.id'}, 'c.level', 'c.cerf_level'])
+                {course_id: 'c.id'}, 'c.level', 'c.cerf_level',
+                sqlDB.raw('(SELECT id as previous_id FROM person WHERE id < ? ORDER BY id DESC LIMIT 1)',[id]),
+                sqlDB.raw('(SELECT id as next_id FROM person WHERE id > ? ORDER BY id ASC LIMIT 1)',[id])])
       .leftJoin('person AS p', 'p.id', 'event.contact_id')
       .leftJoin('course_presentation as cp', 'cp.event_id', 'event.id')
       .leftJoin('course as c', 'c.id', 'cp.course_id')
@@ -88,6 +90,8 @@ exports.getEventById = function(id) {
           photos: result[0].photos,
           description: result[0].description,
           location: result[0].location,
+          previousID: result[0].previous_id,
+          nextID: result[0].next_id
         };
         if(result[0].contact_id) {
           let coordinator = {
