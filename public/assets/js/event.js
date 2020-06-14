@@ -22,7 +22,7 @@ function getEvent() {
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
         document.querySelector("#coordinatorPhoto").src = event.coordinator.photo.split(";")[0];
         document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
-        document.querySelector("#coordinatorLink").href = "#";
+        document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(event.coordinator.id);
         document.querySelector("#eventLocation").innerHTML = event.location.split(";")[1];
         let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
         let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
