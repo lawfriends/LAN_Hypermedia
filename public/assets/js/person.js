@@ -50,7 +50,7 @@ function getPerson() {
                     var studentComment = document.createElement("p");
                     studentComment.classList.add("bquote");
                     let {student_name, text, date, photo} = person.comments[i];
-                    studentPhoto.src = ".".concat(`${photo}`);
+                    studentPhoto.src = (`${photo}`);
                     studentName.innerHTML = `${student_name}`;
                     var commentYear = `${date}`.slice(0,4);
                     commentDate.innerHTML = "Student ".concat(commentYear);
@@ -74,6 +74,18 @@ function getPerson() {
                     }
                     controls.appendChild(controller);
                 }
+        if(person.previousID == null){
+            document.querySelector("#previousButton").style.display = "none";
+            document.querySelector("#nextButton").href = "./person.html?id=".concat(person.nextID);
+        }
+        if(person.nextID == null){
+            document.querySelector("#nextButton").style.display = "none";
+            document.querySelector("#previousButton").href = "./person.html?id=".concat(person.previousID);
+        }
+        else{
+            document.querySelector("#nextButton").href = "./person.html?id=".concat(person.nextID);
+            document.querySelector("#previousButton").href = "./person.html?id=".concat(person.previousID);
+        }
     })
 }
 
@@ -100,7 +112,7 @@ function getPersonEvents() {
     })
 }
 
-function setVariables(){
+/*function setVariables(){
     if(incrementId == 0){
         limit = 2;
         offset = 0;
@@ -138,9 +150,9 @@ function nullIncrement(){
         }
         populateButtons(people.slice(leftLimit, rightLimit+1));
     })
-}
+}*/
 
-function populateButtons(person){
+/*function populateButtons(person){
     if(index==0){
         document.querySelector("#previousButton").style.display = "none";
         document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
@@ -153,24 +165,24 @@ function populateButtons(person){
         document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
         document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
     }
-}
+}*/
 
-function getAdjacentPeople(){
+/*function getAdjacentPeople(){
     fetch("/v1/people".concat("?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
         return response.json();
     }).then(function(people) {
         populateButtons(people);
     })
-}
+}*/
 
 window.onload = function() {
-    if(incrementId == null){
+    /*if(incrementId == null){
         this.nullIncrement();
     }
     else{
         this.setVariables(incrementId);
         this.getAdjacentPeople();
-    }
+    }*/
     this.getPerson();
     this.getPersonEvents();
 }
