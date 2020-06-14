@@ -1,14 +1,11 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const courseId = urlParams.get('id')
-console.log(courseId);
-console.log("/v1/courses/".concat(courseId));
+const courseId = urlParams.get('id');
+
 function getCourse() {
     fetch("/v1/courses/".concat(courseId)).then(function(response) {
         return response.json();
     }).then(function(course) {
-        console.log(course);
         document.querySelector("title").innerHTML = course.level.concat(" course");
         document.querySelector(".breadcrumb .active").innerHTML = course.level.concat(" course");
         document.querySelector("#coursePar h1").innerHTML = course.level.concat(" course");
@@ -87,31 +84,10 @@ function getCourse() {
             cardBody.appendChild(eventButton);
             card.appendChild(eventImage);
             card.appendChild(cardBody);
-            eventCol.appendChild(card);
-
-            /* const eventDate = new Date(course.events[0].date);
-            document.querySelector("#eventDate p:first-child").innerHTML = eventDate.toLocaleString('default', { month: 'long' }).slice(0,3);
-            document.querySelector("#eventDate p:nth-child(2)").innerHTML = eventDate.toLocaleString('default', { day: 'numeric' });
-            document.querySelector("#eventInfo p:first-child").innerHTML = course.events[j].title;
-            document.querySelector("#eventInfo p:nth-child(2)").innerHTML = course.events[j].location; */       
+            eventCol.appendChild(card);     
         }
     })
-}
-/* function getCourseEvent() {
-    fetch("/v1/courses/".concat(courseId)).then(function(response) {
-        return response.json();
-    }).then(function(course) {
-        for(var i=0; i<2; i++){
-            fetch("v1/events/".concat(course.event[i].id)).then(function(response) {
-                return response.json();
-            }).then(function(event) {
-                var eventImage = document.querySelector("#eventCard img");
-                eventImage.src = event.photos;
-            })
-        }
-    })
-} */
-        
+}        
 
 window.onload = function() {
     this.getCourse();

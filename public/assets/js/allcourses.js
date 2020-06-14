@@ -10,7 +10,6 @@ function getAllCourses() {
             courseLink.href = "./course.html?id=".concat(courses[i].id);
             var courseCard = document.createElement("div");
             courseCard.classList.add("card");
-            //courseCard.style.width = "18rem";
             var coursePhoto = document.createElement("img");
             coursePhoto.classList.add("card-img-top");
             coursePhoto.src = courses[i].image;

@@ -1,9 +1,7 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const eventId = urlParams.get('id')
-console.log(eventId);
-console.log("/v1/events/".concat(eventId));
+const eventId = urlParams.get('id');
+
 function getEvent() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();

@@ -3,6 +3,7 @@ function showMoreButton() {
     var hiddenPeople = document.querySelectorAll(".hiddenPerson");
     for (var i=0; i<hiddenPeople.length; i++){
         hiddenPeople[i].style.display = "block";
+        hiddenPeople[i].classList.toggle("hiddenPerson");
     }
     document.querySelector("#showMoreButton").style.display = "none";
 }
@@ -58,9 +59,6 @@ function getAllPeople() {
                 var name = document.createElement("p");
                 name.classList.add("teacherName");
                 name.innerHTML = people[i].name;
-                //var description = document.createElement("p");
-                //description.classList.add("teacherDescription");
-                //description.innerHTML = "Volunteer from 2012";
                 var teacherButton = document.createElement("a");
                 teacherButton.href = "./person.html?id=".concat(people[i].id);
                 teacherButton.classList.add("personLink");
