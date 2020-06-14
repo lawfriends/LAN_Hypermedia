@@ -8,9 +8,9 @@ function getEvent() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
     }).then(function(event) {
-        document.querySelector("title").innerHTML = event.title;
-        document.querySelector(".breadcrumb .active").innerHTML = event.title;
-        document.querySelector("#eventPar h1").innerHTML = event.title;
+        document.querySelector("title").innerHTML = event.title.split(";")[0];
+        document.querySelector(".breadcrumb .active").innerHTML = event.title.split(";")[0];
+        document.querySelector("#eventPar h1").innerHTML = event.title.split(";")[1];
         document.querySelector("#eventPar p.normal").innerHTML = event.description;
         document.querySelector(".CERFlevelPar").innerHTML = event.courses[0].cerf_level;
         document.querySelector("#courseLevelPar").innerHTML = event.courses[0].level.concat(" course");
