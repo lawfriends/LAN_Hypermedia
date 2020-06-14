@@ -30,73 +30,22 @@ function getEvent() {
         document.querySelector("#breadcrumbEventsMonth a").innerHTML = "Events in ".concat(monthTextual);
         document.querySelector("#breadcrumbEventsMonth a").href = "./events-month.html?month=".concat(monthNumeric);
         document.querySelector("#eventContact a").href = "./event-location.html?id=".concat(eventId);
-        /* var teachersRow = document.querySelector(".teachers .row");
-        let {volunteers} = course;
-        for(var i=0; i<volunteers.length; i++){
-            column = document.createElement("div");
-            column.classList.add("col-xl", "col-md-4", "col-sm12", "teacher", "text-center");
-            var teacherImg = document.createElement("img");
-            teacherImg.src = volunteers[i].photo;
-            var teacherName = document.createElement("p");
-            teacherName.classList.add("overline");
-            teacherName.innerHTML = volunteers[i].name;
-            column.appendChild(teacherImg);
-            column.appendChild(teacherName);
-            teachersRow.appendChild(column);
+        if(event.previousID == null){
+            document.querySelector("#previuosEvent").style.display = "none";
+            document.querySelector("#nextEvent").href = "./event.html?id=".concat(event.nextID);
         }
-        document.querySelector(".courseSchedule#first .card-header").innerHTML = course.day;
-        document.querySelector(".courseSchedule#first .overline").innerHTML = course.time;
-        document.querySelector(".courseSchedule#second .card-header").innerHTML = course.day;
-        document.querySelector(".courseSchedule#second .overline").innerHTML = course.time;
-
-        for(var j=0; j<2; j++){
-            var eventCol = document.querySelector("#eventCol");
-            var card = document.createElement("div");
-            card.classList.add("card", "eventCard");
-            var eventImage = document.createElement("img");
-            eventImage.src = course.events[j].photos;
-            eventImage.classList.add("card-img-top");
-            eventImage.alt = "...";
-            var cardBody = document.createElement("div");
-            cardBody.classList.add("card-body");
-            var cardRow = document.createElement("div");
-            cardRow.classList.add("row");
-            const eventDateTime = new Date(course.events[j].date);
-            var eventDate = document.createElement("div");
-            eventDate.classList.add("col-3");
-            eventDate.setAttribute("id", "eventDate");
-            var month = document.createElement("p");
-            month.innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).slice(0,3);
-            var day = document.createElement("p");
-            day.innerHTML = eventDateTime.toLocaleString('default', { day: 'numeric' });
-            var eventInfo = document.createElement("div");
-            eventInfo.classList.add("col");
-            eventInfo.setAttribute("id", "eventInfo");
-            var title = document.createElement("p");
-            title.innerHTML = course.events[j].title;
-            var location = document.createElement("p");
-            location.innerHTML = course.events[j].location;
-            var eventButton = document.createElement("a");
-            eventButton.href = "#";
-            eventButton.classList.add("btn", "button");
-            eventButton.innerHTML = "View details";
-
-            eventDate.appendChild(month);
-            eventDate.appendChild(day);
-            eventInfo.appendChild(title);
-            eventInfo.appendChild(location);
-            cardRow.appendChild(eventDate);
-            cardRow.appendChild(eventInfo);
-            cardBody.appendChild(cardRow);
-            cardBody.appendChild(eventButton);
-            card.appendChild(eventImage);
-            card.appendChild(cardBody);
-            eventCol.appendChild(card);   
-        }*/
+        else if(event.nextID == null){
+            document.querySelector("#nextEvent").style.display = "none";
+            document.querySelector("#previuosEvent").href = "./event.html?id=".concat(event.previousID);
+        }
+        else{
+            document.querySelector("#previuosEvent").href = "./event.html?id=".concat(event.previousID);
+            document.querySelector("#nextEvent").href = "./event.html?id=".concat(event.nextID);
+        }
     })
 }
 
-function getCoordinator() {
+/*function getCoordinator() {
     fetch("/v1/events/".concat(eventId)).then(function(response) {
         return response.json();
     }).then(function(event) {
@@ -108,9 +57,9 @@ function getCoordinator() {
             document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(coordinator.id);
         })
     })
-}
+}*/
 
-function populateButtons(){
+/*function populateButtons(){
     var nextId = parseInt(eventId, 10) + 1;
     var previousId = parseInt(eventId, 10) - 1;
     if(eventId==1){
@@ -121,11 +70,11 @@ function populateButtons(){
     }
     document.querySelector("#previuosEvent").href = "./event.html?id=".concat(previousId);
     document.querySelector("#nextEvent").href = "./event.html?id=".concat(nextId);
-}
+}*/
         
 
 window.onload = function() {
     this.getEvent();
     //this.getCoordinator();
-    this.populateButtons();
+    //this.populateButtons();
 }
