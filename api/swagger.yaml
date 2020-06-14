@@ -363,6 +363,9 @@ definitions:
       title:
         type: "string"
         example: "Museum visit"
+      date:
+        type: "string"
+        format: "date-time"
       description:
         type: "string"
       photos:
@@ -532,6 +535,7 @@ definitions:
         type: "string"
       date:
         type: "string"
+        format: "date-time"
       person:
         type: "integer"
       photo:
