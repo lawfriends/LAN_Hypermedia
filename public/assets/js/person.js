@@ -19,7 +19,7 @@ function getPerson() {
         document.querySelector("#description2").innerHTML = person.description;
         document.querySelector("#quote").innerHTML = person.quote;
         if(person.courses.length == 0){
-            document.querySelector("#teacherCourse").style.display = "none";
+            document.querySelector("#courseCard").style.display = "none";
         }
         else{
             document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
