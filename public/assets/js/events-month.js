@@ -1,15 +1,12 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const eventsMonth = urlParams.get('month')
-console.log(eventsMonth);
-console.log("/v1/events?month=".concat(eventsMonth));
+const eventsMonth = urlParams.get('month');
+
 function getEventsByMonth() {
     var eventsRow = document.querySelector("#eventsRow");
     fetch("/v1/events?month=".concat(eventsMonth)).then(function(response) {
         return response.json();
     }).then(function(events) {
-        console.log(events);
         const eventDateTime = new Date(events[0].date);
         document.querySelector("title").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
         document.querySelector(".breadcrumb .active").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));

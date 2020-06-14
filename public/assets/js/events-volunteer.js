@@ -1,16 +1,12 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const personId = urlParams.get('id');
-console.log(personId);
-console.log("/v1/person".concat(personId));
+
 function getEventsByVolunteer() {
     var eventsRow = document.querySelector("#eventsRow");
     fetch("/v1/person/".concat(personId).concat("/events")).then(function(response) {
         return response.json();
     }).then(function(events) {
-        console.log(events);
-        //document.querySelector("h1").innerHTML = "Events by ".concat(events[0].coordinator.name);
         for(var i=0; i<events.length; i++) {
             var eventCol = document.createElement("div");
             eventCol.classList.add("col-xl-4", "col-md-6", "col-sm-12");

@@ -1,8 +1,6 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const courseId = urlParams.get('id')
-console.log(courseId);
+const courseId = urlParams.get('id');
 var limit = 5;
 var offset = 0;
 

@@ -1,10 +1,6 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const personId = urlParams.get('id');
-var incrementId = urlParams.get('incrementId');
-var limit;
-var offset;
-var index;
 
 function getPerson() {
     fetch("/v1/person/".concat(personId)).then(function(response) {
