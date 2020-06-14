@@ -41,7 +41,7 @@ tr{
     height:40px;
     vertical-align: center;
 }
-tr:nth-child(odd).body {
+tbody tr:nth-child(odd) {
     background-color: #E6E6E6;
   }
 h3 {
