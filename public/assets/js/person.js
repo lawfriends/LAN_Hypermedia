@@ -78,7 +78,7 @@ function getPerson() {
             document.querySelector("#previousButton").style.display = "none";
             document.querySelector("#nextButton").href = "./person.html?id=".concat(person.nextID);
         }
-        if(person.nextID == null){
+        else if(person.nextID == null){
             document.querySelector("#nextButton").style.display = "none";
             document.querySelector("#previousButton").href = "./person.html?id=".concat(person.previousID);
         }
