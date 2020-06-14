@@ -40,7 +40,7 @@ function getEventsByMonth() {
             infoCol.classList.add("col");
             infoCol.setAttribute("id", "eventInfo");
             var title = document.createElement("p");
-            title.innerHTML = events[i].title;
+            title.innerHTML = events[i].title.split(";")[0];
             infoCol.appendChild(title);
             var time = document.createElement("p");
             time.innerHTML = timeArray[0].concat(":").concat(timeArray[1]);

@@ -69,7 +69,7 @@ function getCourse() {
             eventInfo.classList.add("col");
             eventInfo.setAttribute("id", "eventInfo");
             var title = document.createElement("p");
-            title.innerHTML = course.events[j].title;
+            title.innerHTML = course.events[j].title.split(";")[0];
             var location = document.createElement("p");
             location.innerHTML = course.events[j].location.split(";")[0];
             var eventButton = document.createElement("a");
