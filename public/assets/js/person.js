@@ -2,23 +2,78 @@ const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const personId = urlParams.get('id');
-const incrementId = urlParams.get('incrementId');
-if(incrementId == 0){
-    var limit = 2;
-    var offset = 0;
-    var index = 0;
+var incrementId = urlParams.get('incrementId');
+var limit;
+var offset;
+var index;
+
+function setVariables(){
+    console.log("doing setVariables");
+    if(incrementId == 0){
+        limit = 2;
+        offset = 0;
+        index = 0;
+    }
+    else if(incrementId == 19){
+        limit = 2;
+        offset = 18;
+        index = 1;
+    }
+    else{
+        limit = 3;
+        offset = incrementId-1;
+        index = 1;
+    }
 }
-else if(incrementId == 19){
-    var limit = 2;
-    var offset = 18;
-    var index = 1;
+
+function prova(){
+    if(incrementId == null){
+    console.log("doing the if");
+    var count=0;
+    fetch("/v1/people").then(function(response) {
+        return response.json();
+    }).then(function(people) {
+        while(people[count].id != personId){
+            count++;
+        }
+        incrementId = count;
+        setVariables(incrementId);
+        populateButtons(people);
+    })
 }
-else{
-    var limit = 3;
-    var offset = incrementId-1;
-    var index = 1;
 }
+
+function populateButtons(person){
+    console.log("doing populateButtons");
+    console.log(person);
+    console.log(index);
+    if(index==0){
+        document.querySelector("#previousButton").style.display = "none";
+        document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
+    }
+    else if(index==19){
+        document.querySelector("#nextButton").style.display = "none";
+        document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
+    }
+    else{
+        document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
+        document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
+    }
+}
+
+function getAdjacentPeople(){
+    console.log("doing getAdj");
+    console.log("?limit=".concat(limit).concat("&offset=").concat(offset));
+    fetch("/v1/people".concat("?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
+        return response.json();
+    }).then(function(people) {
+        console.log(people);
+        populateButtons(people);
+    })
+}
+
 function getPerson() {
+    console.log("doing getPerson");
     fetch("/v1/person/".concat(personId)).then(function(response) {
         return response.json();
     }).then(function(person) {
@@ -44,6 +99,7 @@ function getPerson() {
 }
 
 function getPersonEvents() {
+    console.log("doing getPersonEvents");
     fetch("/v1/person/".concat(personId).concat("/events")).then(function(response) {
         return response.json();
     }).then(function(events) {
@@ -68,6 +124,7 @@ function getPersonEvents() {
 }
 
 function getPersonComments() {
+    console.log("doing getPersoncomments");
     var carousel = document.querySelector(".personTestimonials");
     fetch("/v1/comments").then(function(response) {
         return response.json();
@@ -128,39 +185,11 @@ function getPersonComments() {
     })
 }
 
-function populateButtons(){
-    fetch("/v1/people".concat("?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
-        return response.json();
-    }).then(function(person) {
-        /*var nextId = parseInt(personId, 10) + 1;
-        var previousId = parseInt(personId, 10) - 1;
-        if(personId==1){
-            document.querySelector("#previousButton").style.display = "none";
-        }
-        else if(personId==20){
-            document.querySelector("#nextButton").style.display = "none";
-        }
-        document.querySelector("#previousButton").href = "./person.html?id=".concat(previousId);
-        document.querySelector("#nextButton").href = "./person.html?id=".concat(nextId);*/
-
-        if(index==0){
-            document.querySelector("#previousButton").style.display = "none";
-            document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
-        }
-        else if(index==18){
-            document.querySelector("#nextButton").style.display = "none";
-            document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
-        }
-        else{
-            document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
-            document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
-        }
-    })
-}
-
 window.onload = function() {
+    //this.setVariables()
+    this.prova();
     this.getPerson();
     this.getPersonEvents();
     this.getPersonComments();
-    this.populateButtons();
+    this.getAdjacentPeople();
 }
