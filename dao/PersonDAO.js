@@ -87,10 +87,13 @@ exports.getPeople = function(limit,offset) {
 
 exports.getPersonById = function(id) {
   return new Promise(function(resolve, reject) {
-    sqlDB('person')
+    sqlDB
       .select(['person.id', 'person.name', 'person.role', 'person.photo', 'person.description', 'person.job', 'person.city', 'person.quote',
       {course_id: 'c.id'}, 'c.image', 'c.level', {course_description: 'c.description'},
-      {comment_id: 'cm.id'}, 'cm.text', {comment_date: 'cm.date'}, 'cm.student_name', {comment_photo: 'cm.photo'}])
+      {comment_id: 'cm.id'}, 'cm.text', {comment_date: 'cm.date'}, 'cm.student_name', {comment_photo: 'cm.photo'},
+      sqlDB.raw('(SELECT id as previous_id FROM person WHERE id < ? ORDER BY id DESC LIMIT 1)',[id]),
+      sqlDB.raw('(SELECT id as next_id FROM person WHERE id > ? ORDER BY id ASC LIMIT 1)',[id])])
+      .from('person')
       .leftJoin('course_volunteer as cv', 'cv.person_id', 'person.id')
       .leftJoin('course as c', 'c.id', 'cv.course_id')
       .leftJoin('comment as cm', 'cm.person_id', 'person.id')
@@ -98,7 +101,6 @@ exports.getPersonById = function(id) {
       .then((result) => {
         if(!result) reject();
         if(!result.length) resolve([]);
-
         let person = {
           id: (result[0].id || id),
           name: result[0].name,
@@ -108,6 +110,8 @@ exports.getPersonById = function(id) {
           job: result[0].job,
           city: result[0].city,
           quote: result[0].quote,
+          previousID: result[0].previous_id,
+          nextID: result[0].next_id
         };
 
         let courses = extractCourses(result);
