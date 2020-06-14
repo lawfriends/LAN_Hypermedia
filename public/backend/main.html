@@ -31,11 +31,11 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>administrator</td>
-                    <td>Aida Denisa</td>
-                    <td>Opîrlesc</td>
-                    <td>939233</td>
-                    <td><a href="mailto:aida.denisa@gmail.com">aida.denisa@gmail.com</a></td>
+                    <td>member</td>
+                    <td>Bar</td>
+                    <td>BarL</td>
+                    <td>78982</td>
+                    <td><a href="mailto:bar@example.com">bar@example.com</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -75,7 +75,7 @@
         <h3 id="web-architecture">Web Architecture</h3>
         <p>The Insieme web application is a presentation website for the Insieme Association, which is helping foreigners study
             the Italian Language and integrate easier into the Italian society.</p>
-        <p><img src="http://localhost:8080/assets/img/doc/WebArchitecture-02.svg" alt="Web Architecture of Insieme"
+        <p><img src="/backend/assets/img/WebArchitecture-02.svg" alt="Web Architecture of Insieme"
                 title="Web Architecture Diagram"><br>
             In order to separate the business logic from the rendering and styling of the elements, the functionality is
             separated in 2 sections:</p>
@@ -85,7 +85,9 @@
         </ol>
         <p>Because most of the data presented on the website is prone to changes or addition of new information, the Application
             Layer is communicating with the third component of the system:<br>
-            3. <strong>The Data Layer</strong></p>
+        <ol start="3">
+        <li><strong>The Data Layer</strong></li>
+        </ol>
         <p>This split allows changes to be independently tackled in the required component without the need of chaging the
             interface, just the implementation. In this way, components that communicate with the updated component do not need
             to be aware of any internal change.<br>
