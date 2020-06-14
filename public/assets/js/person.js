@@ -1,8 +1,23 @@
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const personId = urlParams.get('id')
-console.log(personId);
+const personId = urlParams.get('id');
+const incrementId = urlParams.get('incrementId');
+if(incrementId == 0){
+    var limit = 2;
+    var offset = 0;
+    var index = 0;
+}
+else if(incrementId == 19){
+    var limit = 2;
+    var offset = 18;
+    var index = 1;
+}
+else{
+    var limit = 3;
+    var offset = incrementId-1;
+    var index = 1;
+}
 function getPerson() {
     fetch("/v1/person/".concat(personId)).then(function(response) {
         return response.json();
@@ -114,16 +129,33 @@ function getPersonComments() {
 }
 
 function populateButtons(){
-    var nextId = parseInt(personId, 10) + 1;
-    var previousId = parseInt(personId, 10) - 1;
-    if(personId==1){
-        document.querySelector("#previousButton").style.display = "none";
-    }
-    else if(personId==20){
-        document.querySelector("#nextButton").style.display = "none";
-    }
-    document.querySelector("#previousButton").href = "./person.html?id=".concat(previousId);
-    document.querySelector("#nextButton").href = "./person.html?id=".concat(nextId);
+    fetch("/v1/people".concat("?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
+        return response.json();
+    }).then(function(person) {
+        /*var nextId = parseInt(personId, 10) + 1;
+        var previousId = parseInt(personId, 10) - 1;
+        if(personId==1){
+            document.querySelector("#previousButton").style.display = "none";
+        }
+        else if(personId==20){
+            document.querySelector("#nextButton").style.display = "none";
+        }
+        document.querySelector("#previousButton").href = "./person.html?id=".concat(previousId);
+        document.querySelector("#nextButton").href = "./person.html?id=".concat(nextId);*/
+
+        if(index==0){
+            document.querySelector("#previousButton").style.display = "none";
+            document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
+        }
+        else if(index==18){
+            document.querySelector("#nextButton").style.display = "none";
+            document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
+        }
+        else{
+            document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
+            document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
+        }
+    })
 }
 
 window.onload = function() {
