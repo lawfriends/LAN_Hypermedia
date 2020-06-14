@@ -466,7 +466,7 @@ definitions:
         description: "Has to respect the format 'Monday;Tuesday;Sunday' - a string with the day of the week separated by ';'"
       times:
         type: "string"
-        description: "Has to respect the format '16:00;17:00;18:00' - a string with the day of the week separated by ';'"
+        description: "Has to respect the format '16:00;17:00;18:00' - a string with the hours separated by ';'"
       location:
         type: "string"
       cerf_level:
@@ -536,7 +536,7 @@ definitions:
       date:
         type: "string"
         format: "date-time"
-      person:
+      person_id:
         type: "integer"
       photo:
         type: "string"
