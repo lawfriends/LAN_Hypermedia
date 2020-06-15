@@ -1,6 +1,3 @@
-/*to import the fonts in the HTML
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Open+Sans&display=swap" rel="stylesheet">
-*/
 body {
     background-color:#ffffff;
     color:#4d4d4d;
@@ -310,7 +307,7 @@ ol.breadcrumb li a:hover {
     font-size: 1.4em;
     }
 }
-@media screen and (max-width: 550px) {
+@media only screen and (max-width: 550px) {
     ol.breadcrumb {
         margin-left: 20px;
     }
@@ -321,7 +318,7 @@ ol.breadcrumb li a:hover {
         margin-left: 20px;
     }
 }
-@media screen and (max-width: 400px){
+@media only screen and (max-width: 400px){
     #founderImg{
         height: 274px;
         width: 274px;
