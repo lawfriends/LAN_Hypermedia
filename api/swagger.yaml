@@ -337,6 +337,7 @@ paths:
       tags:
       - "Comments"
       summary: "Add a new Comment"
+      description: "If you need to add a new comment (review) in the database, use the comment object without specifying an id. The id is automatically created by the database, and you will receive it in the response.\n If you want to add a comment about a volunteer, you should provide the id of that person in the person_id property. \n If you want to create a new review about the association, then you need to leave person_id property null."
       operationId: "commentPOST"
       consumes:
       - "application/json"
@@ -360,16 +361,21 @@ definitions:
     properties:
       id:
         type: "integer"
+        example: 1
       title:
         type: "string"
-        example: "Museum visit"
+        example: "Guided Visit;Guided Visit to Museo Bagatti Valsecchi"
+        description: "It should have 2 values separated by ';'. First value is the short name, and the second value is the long name"
       date:
         type: "string"
         format: "date-time"
+        example: "2021-10-19T08:23:54.000Z"
       description:
         type: "string"
+        example: "Improve your italian knowledge and culture"
       photos:
         type: "string"
+        example: "/assets/img/allevents/november-small.png"
       coordinator:
         $ref: "#/definitions/Person"
       courses: 
@@ -380,8 +386,8 @@ definitions:
     description: "an event"
     example: 
       id: 1
-      title: "Museum night"
-      date: "2019-10-19T08:23:54.000Z"
+      title: "Guided Visit;Guided Visit to Museo"
+      date: "2021-10-19T08:23:54.000Z"
       location: "Corso Magenta, 15, 20123 Milano MI"
       description: "Improve your italian knowledge and culture"
       photos: "/assets/img/allevents/november-small.png"
@@ -399,23 +405,32 @@ definitions:
     properties:
       id:
         type: "integer"
+        example: 1
       name:
         type: "string"
+        example: "Chiara Pozzi"
       role:
         type: "string"
         enum:
         - "teacher"
         - "coordinator"
+        example: "teacher"
       photo:
         type: "string"
+        description: "It should have 2 values separated by ';'. First value is the small photo, and the second value is the large photo"
+        example: "/assets/img/volunteers/01-chiara-pozzi.png;/assets/img/volunteers/profile/01-chiara-pozzi-big.jpg"
       description:
         type: "string"
+        example: "Chiara is a dedicated professional photographer with a passion for languages."
       job:
         type: "string"
+        example: "Fashion Photographer"
       city:
         type: "string"
+        example: "Milano"
       quote:
         type: "string"
+        example: "This is priceless"
       courses:
         type: "array"
         items:
@@ -429,7 +444,7 @@ definitions:
     example:
       id: 1
       name: "Chiara Pozzi"
-      photo: "/assets/img/volunteers/01-chiara-pozzi.png"
+      photo: "/assets/img/volunteers/01-chiara-pozzi.png;/assets/img/volunteers/profile/01-chiara-pozzi-big.jpg"
       role: "teacher"
       description: "Chiara is a dedicated professional photographer with a passion for languages."
       job: "Fashion Photographer"
@@ -451,22 +466,28 @@ definitions:
     properties:
       id:
         type: "integer"
+        example: 1
       level:
         type: "string"
         enum:
         - "Introductory"
         - "Basic"
         - "Intermediate"
+        example: "Introductory"
       daysOfWeek:
         type: "string"
         description: "Has to respect the format 'Monday;Tuesday;Sunday' - a string with the day of the week separated by ';'"
+        example: "Wednesday;Thursday"
       times:
         type: "string"
         description: "Has to respect the format '16:00;17:00;18:00' - a string with the hours separated by ';'"
+        example: "17:00;18:00"
       location:
         type: "string"
+        example: "Via Edmondo de Amicis, 17, 20123 Milano MI"
       cerf_level:
         type: "string"
+        example: "B1"
       volunteers:
         type: "array"
         items:
@@ -502,46 +523,56 @@ definitions:
     properties:
       id:
         type: "integer"
+        example: 1
       cerf_level:
         type: "string"
-        example: "A2"
+        example: "A1"
       title:
         type: "string"
-        example: "Italian Book"
+        example: "Starting Unit N.1"
       url:
         type: "string"
+        example: "/assets/img/allcourses/introductory/intro-resources/n1-starting-unit.pdf"
       course_id: 
         type: "integer"
+        example: 1
     title: "Resource"
     description: "a course resource"
     example:
-      id: 21
+      id: 1
       course_id: 1
-      title: "Nuovo Espresso 1"
-      url: "http://shorturl.at/lmwAF"
+      title: "Starting Unit N.1"
+      url: "/assets/img/allcourses/introductory/intro-resources/n1-starting-unit.pdf"
       cerf_level: "A1"
   Comment:
     type: "object"
     properties:
       id:
         type: "integer"
+        example: 1
       text:
         type: "string"
+        example: "'Classes are in small groups of different nationalities where we learn to share'"
       student_name:
         type: "string"
+        example: "Daniela Sainz"
       date:
         type: "string"
         format: "date-time"
+        example: "2019-10-19T08:23:54.000Z"
       person_id:
         type: "integer"
+        description: "if you add a comment about the association, then you have to leave this property null"
+        example: 1
       photo:
         type: "string"
+        example: "/assets/img/students/daniela.png"
     title: "Comment"
     description: "a comment about a teacher"
     example:
-      id: 9
-      text: "This is a very nice teacher"
+      id: 1
+      text: "'Classes are in small groups of different nationalities where we learn to share'"
       date: "2019-10-19T08:23:54.000Z"
-      student_name: "Mohammed Ali"
-      photo: "/assets/img/association/03mohammed-ali.png"
+      student_name: "Daniela Sainz"
+      photo: "/assets/img/students/daniela.png"
       person_id: 1
