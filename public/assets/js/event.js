@@ -45,36 +45,6 @@ function getEvent() {
     })
 }
 
-/*function getCoordinator() {
-    fetch("/v1/events/".concat(eventId)).then(function(response) {
-        return response.json();
-    }).then(function(event) {
-        fetch("/v1/person/".concat(event.coordinator.id)).then(function(response){
-            return response.json();
-        }).then(function(coordinator){
-            document.querySelector("#coordinatorPhoto").src = coordinator.photo.split(";")[0];
-            document.querySelector("#coordinatorName").innerHTML = coordinator.name;
-            document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(coordinator.id);
-        })
-    })
-}*/
-
-/*function populateButtons(){
-    var nextId = parseInt(eventId, 10) + 1;
-    var previousId = parseInt(eventId, 10) - 1;
-    if(eventId==1){
-        document.querySelector("#previuosEvent").style.display = "none";
-    }
-    else if(eventId==14){
-        document.querySelector("#nextEvent").style.display = "none";
-    }
-    document.querySelector("#previuosEvent").href = "./event.html?id=".concat(previousId);
-    document.querySelector("#nextEvent").href = "./event.html?id=".concat(nextId);
-}*/
-        
-
 window.onload = function() {
     this.getEvent();
-    //this.getCoordinator();
-    //this.populateButtons();
 }

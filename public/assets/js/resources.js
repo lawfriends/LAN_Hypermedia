@@ -23,6 +23,7 @@ function getCourseResources() {
             secondCol.classList.add("col");
             var downloadLink = document.createElement("a");
             downloadLink.href = resources[i].url;
+            downloadLink.setAttribute("target", "_blank");
             var downloadTitle = document.createElement("p");
             downloadTitle.classList.add("d-none", "d-md-inline-block");
             downloadTitle.innerHTML = "Link";
@@ -52,7 +53,7 @@ function getCourseResources() {
 }
 
 function loadMoreButton(){
-    fetch("/v1/courses/".concat(courseId).concat("/resources?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
+    fetch("/v1/courses/".concat(courseId).concat("/resources")).then(function(response) {
         return response.json();
     }).then(function(resources) {
         if(resources.length>4){
