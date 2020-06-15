@@ -45,7 +45,9 @@ function getCourse() {
         document.querySelector("#resourcesButton").href = "./resources.html?id=".concat(courseId);
 
         for(var j=0; j<2; j++){
-            var eventCol = document.querySelector("#eventCol");
+            var eventRow = document.querySelector("#eventCol .row");
+            var cardCol = document.createElement("div");
+            cardCol.classList.add("col-md-6", "col-12")
             var card = document.createElement("div");
             card.classList.add("card", "eventCard");
             var eventImage = document.createElement("img");
@@ -86,7 +88,8 @@ function getCourse() {
             cardBody.appendChild(eventButton);
             card.appendChild(eventImage);
             card.appendChild(cardBody);
-            eventCol.appendChild(card);     
+            cardCol.appendChild(card);
+            eventRow.appendChild(cardCol);     
         }
     })
 }        
