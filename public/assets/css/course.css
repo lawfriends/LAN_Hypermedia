@@ -19,20 +19,6 @@
     margin-left: 50px;
     margin-right: 25px;
 }
-/* .CERFlevel{
-    background-color: #FFABA3;
-    color: white;
-    width: 61px;
-    height: 47px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.2em;
-    border-radius: 0.75em;
-    text-align: center;
-    margin-bottom: 40px;
-}
-.CERFlevelPar{
-    line-height: 47px;
-} */
 .teachers{
     background-color: #FFEEBD;
     height: 250px;
@@ -58,7 +44,7 @@
     background-color: #CEE8DF;
 }
 #schedule{
-    margin-bottom: 130px;
+    margin-bottom: 80px;
     width: 100%;
     margin-left: 0;
 }
@@ -171,7 +157,7 @@
         margin: 20px auto 0px auto
     }
     .courseSchedule{
-        width: 150px;
+        width: 160px;
     }
     .coursesIntro{
         width: 100%;

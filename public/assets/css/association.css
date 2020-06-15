@@ -36,6 +36,7 @@ p.normal.first{
 }
 .carouselComment .bquote{
     text-align: center;
+    padding-right: 50px;
 }
 .carouselComment img{
     margin-top: 60px;
@@ -70,7 +71,7 @@ p.normal.first{
         font-size: 1.7em;
     }
 }
-@media screen and (max-width:767px){
+@media only screen and (max-width:767px){
     p{
         padding-left: 0.8em;
     }
@@ -86,7 +87,7 @@ p.normal.first{
         margin-top: 0px;
     }
 }
-@media screen and (max-width: 400px){
+@media only screen and (max-width: 400px){
     #founderImg{
         height: 274px;
         width: 274px;

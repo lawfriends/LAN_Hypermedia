@@ -11,6 +11,7 @@
 .carousel1{
     width: 100%;
     height: 340px;
+    background-color: #004D4A;
     background-image: url("../img/homepage/studying6.png");
     background-size: cover;
     background-position-x: center;
@@ -26,6 +27,7 @@
 .carousel2{
     width: 100%;
     height: 340px;
+    background-color: #004D4A;
     background-image: url("../img/homepage/studying7.png");
     background-size: cover;
     background-position-x: center;
@@ -94,6 +96,7 @@
 }
 .carouselComment .bquote{
     text-align: center;
+    padding-right: 50px;
 }
 .carouselComment img{
     margin-top: 60px;
@@ -108,21 +111,15 @@
     background-position: 80% 50%;
 }
 .homepageDonate .mquote{
-    /*left: 35%;*/
-    /* height: 40%; */
     margin-top: 100px;
     margin-right: 50px;
 }
 .volunteerButton{
     position: static;
-    /*bottom: 3%;
-    left: 52%;*/
     margin-top: 50px;
 }
 .donateButton{
     position: static;
-    /*bottom: 3%;
-    left: 75%;*/
     margin-top: 50px;
 }
 .emptyCol{
@@ -130,21 +127,17 @@
 }
 @media only screen and (max-width: 1200px) {
     .homepageDonate .mquote{
-        /*left: 35%;*/
-        /* height: 40%; */
         margin-top: 100px;
         margin-right: 50px;
         margin-left: 50px;
     }
     .volunteerButton{
-        /* margin-left: calc(50% - 100px); */
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: fit-content;
     }
     .donateButton{
-        /* margin-left: calc(50% - 100px); */
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -205,6 +198,7 @@
     .carouselComment .bquote{
         text-align: center;
         font-size: 2.5em;
+        padding: 0;
     }
     .homepageDonate{
         height: 260px;

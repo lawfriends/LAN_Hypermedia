@@ -88,7 +88,6 @@ textarea:focus{
         width: 300px;
     }
     .onlineButton{
-        /* margin-left: calc(50% - 135.5px); */
         display: block;
         margin-right: auto;
         margin-left: auto;

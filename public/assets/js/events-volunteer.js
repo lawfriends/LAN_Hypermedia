@@ -1,16 +1,12 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const personId = urlParams.get('id');
-console.log(personId);
-console.log("/v1/person".concat(personId));
+
 function getEventsByVolunteer() {
     var eventsRow = document.querySelector("#eventsRow");
     fetch("/v1/person/".concat(personId).concat("/events")).then(function(response) {
         return response.json();
     }).then(function(events) {
-        console.log(events);
-        //document.querySelector("h1").innerHTML = "Events by ".concat(events[0].coordinator.name);
         for(var i=0; i<events.length; i++) {
             var eventCol = document.createElement("div");
             eventCol.classList.add("col-xl-4", "col-md-6", "col-sm-12");
@@ -19,7 +15,7 @@ function getEventsByVolunteer() {
             eventCard.setAttribute("id", "eventCard");
             var eventImage = document.createElement("img");
             eventImage.classList.add("card-img-top");
-            eventImage.setAttribute("alt", events[i].title);
+            eventImage.setAttribute("alt", events[i].title.split(";")[0].concat(" image"));
             eventImage.src = events[i].photos;
             var cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
@@ -40,7 +36,7 @@ function getEventsByVolunteer() {
             infoCol.classList.add("col");
             infoCol.setAttribute("id", "eventInfo");
             var title = document.createElement("p");
-            title.innerHTML = events[i].title;
+            title.innerHTML = events[i].title.split(";")[0];
             infoCol.appendChild(title);
             var time = document.createElement("p");
             time.innerHTML = timeArray[0].concat(":").concat(timeArray[1]);

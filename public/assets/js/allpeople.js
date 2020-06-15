@@ -3,6 +3,7 @@ function showMoreButton() {
     var hiddenPeople = document.querySelectorAll(".hiddenPerson");
     for (var i=0; i<hiddenPeople.length; i++){
         hiddenPeople[i].style.display = "block";
+        hiddenPeople[i].classList.toggle("hiddenPerson");
     }
     document.querySelector("#showMoreButton").style.display = "none";
 }
@@ -12,8 +13,6 @@ function getAllPeople() {
         return response.json();
     }).then(function(people) {
         for(var i=0; i<people.length; i++){
-            people[i].incrementId = i;
-            console.log(people);
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
                 var personCol = document.createElement("div");
@@ -32,7 +31,7 @@ function getAllPeople() {
                 description.classList.add("coordinatorDescription");
                 description.innerHTML = people[i].description.split(".")[0];
                 var coordinatorButton = document.createElement("a");
-                coordinatorButton.href = "./person.html?id=".concat(people[i].id).concat("&incrementId=").concat(people[i].incrementId);
+                coordinatorButton.href = "./person.html?id=".concat(people[i].id);
                 coordinatorButton.classList.add("personLink");
                 coordinatorButton.innerHTML = "See profile";
                 infoCol.appendChild(role);
@@ -43,6 +42,7 @@ function getAllPeople() {
                 imageCol.classList.add("col");
                 var coordinatorPhoto = document.createElement("img");
                 coordinatorPhoto.src = people[i].photo.split(";")[0];
+                coordinatorPhoto.setAttribute("alt", people[i].name.concat(" image"));
                 imageCol.appendChild(coordinatorPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
@@ -60,11 +60,8 @@ function getAllPeople() {
                 var name = document.createElement("p");
                 name.classList.add("teacherName");
                 name.innerHTML = people[i].name;
-                //var description = document.createElement("p");
-                //description.classList.add("teacherDescription");
-                //description.innerHTML = "Volunteer from 2012";
                 var teacherButton = document.createElement("a");
-                teacherButton.href = "./person.html?id=".concat(people[i].id).concat("&incrementId=").concat(people[i].incrementId);
+                teacherButton.href = "./person.html?id=".concat(people[i].id);
                 teacherButton.classList.add("personLink");
                 teacherButton.innerHTML = "See profile";
                 infoCol.appendChild(name);
@@ -73,6 +70,7 @@ function getAllPeople() {
                 imageCol.classList.add("col");
                 var teacherPhoto = document.createElement("img");
                 teacherPhoto.src = people[i].photo.split(";")[0];
+                teacherPhoto.setAttribute("alt", people[i].name.concat(" image"));
                 imageCol.appendChild(teacherPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);

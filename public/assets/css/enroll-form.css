@@ -134,7 +134,6 @@ input[type=submit]:active{
         padding: 15px 13.75px;
     }
     .onlineButton{
-        /* margin-left: calc(50% - 135.5px); */
         display: block;
         margin-right: auto;
         margin-left: auto;

@@ -1,20 +1,18 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const courseId = urlParams.get('id')
-console.log(courseId);
-console.log("/v1/courses/".concat(courseId));
+const courseId = urlParams.get('id');
+
 function getCourse() {
     fetch("/v1/courses/".concat(courseId)).then(function(response) {
         return response.json();
     }).then(function(course) {
-        console.log(course);
         document.querySelector("title").innerHTML = course.level.concat(" course");
         document.querySelector(".breadcrumb .active").innerHTML = course.level.concat(" course");
         document.querySelector("#coursePar h1").innerHTML = course.level.concat(" course");
         document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
         document.querySelector("#coursePar p.normal").innerHTML = course.description;
         document.querySelector("#courseImage img").src = course.image;
+        document.querySelector("#courseImage img").setAttribute("alt", course.level.concat(" course image"));
         var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -22,6 +20,7 @@ function getCourse() {
             column.classList.add("col-xl", "col-md-4", "col-sm12", "text-center");
             var teacherImg = document.createElement("img");
             teacherImg.src = volunteers[i].photo.split(";")[0];
+            teacherImg.setAttribute("alt", volunteers[i].name.concat(" image"));
             var teacherName = document.createElement("p");
             teacherName.classList.add("overline");
             teacherName.innerHTML = volunteers[i].name;
@@ -46,13 +45,15 @@ function getCourse() {
         document.querySelector("#resourcesButton").href = "./resources.html?id=".concat(courseId);
 
         for(var j=0; j<2; j++){
-            var eventCol = document.querySelector("#eventCol");
+            var eventRow = document.querySelector("#eventCol .row");
+            var cardCol = document.createElement("div");
+            cardCol.classList.add("col-md-6", "col-12")
             var card = document.createElement("div");
             card.classList.add("card", "eventCard");
             var eventImage = document.createElement("img");
             eventImage.src = course.events[j].photos;
             eventImage.classList.add("card-img-top");
-            eventImage.alt = "...";
+            eventImage.alt = course.events[j].title.concat(" image");
             var cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
             var cardRow = document.createElement("div");
@@ -69,7 +70,7 @@ function getCourse() {
             eventInfo.classList.add("col");
             eventInfo.setAttribute("id", "eventInfo");
             var title = document.createElement("p");
-            title.innerHTML = course.events[j].title;
+            title.innerHTML = course.events[j].title.split(";")[0];
             var location = document.createElement("p");
             location.innerHTML = course.events[j].location.split(";")[0];
             var eventButton = document.createElement("a");
@@ -87,31 +88,11 @@ function getCourse() {
             cardBody.appendChild(eventButton);
             card.appendChild(eventImage);
             card.appendChild(cardBody);
-            eventCol.appendChild(card);
-
-            /* const eventDate = new Date(course.events[0].date);
-            document.querySelector("#eventDate p:first-child").innerHTML = eventDate.toLocaleString('default', { month: 'long' }).slice(0,3);
-            document.querySelector("#eventDate p:nth-child(2)").innerHTML = eventDate.toLocaleString('default', { day: 'numeric' });
-            document.querySelector("#eventInfo p:first-child").innerHTML = course.events[j].title;
-            document.querySelector("#eventInfo p:nth-child(2)").innerHTML = course.events[j].location; */       
+            cardCol.appendChild(card);
+            eventRow.appendChild(cardCol);     
         }
     })
-}
-/* function getCourseEvent() {
-    fetch("/v1/courses/".concat(courseId)).then(function(response) {
-        return response.json();
-    }).then(function(course) {
-        for(var i=0; i<2; i++){
-            fetch("v1/events/".concat(course.event[i].id)).then(function(response) {
-                return response.json();
-            }).then(function(event) {
-                var eventImage = document.querySelector("#eventCard img");
-                eventImage.src = event.photos;
-            })
-        }
-    })
-} */
-        
+}        
 
 window.onload = function() {
     this.getCourse();

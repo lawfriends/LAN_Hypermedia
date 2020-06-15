@@ -26,7 +26,8 @@ function getAssociationComments() {
                 var studentComment = document.createElement("p");
                 studentComment.classList.add("bquote");
                 let {student_name, text, date, photo} = comments[i];
-                studentPhoto.src = ".".concat(`${photo}`);
+                studentPhoto.src = `${photo}`;
+                studentPhoto.setAttribute("alt", student_name.concat(" image"));
                 studentName.innerHTML = `${student_name}`;
                 var commentYear = `${date}`.slice(0,4);
                 commentDate.innerHTML = "Student ".concat(commentYear);

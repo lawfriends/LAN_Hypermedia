@@ -15,8 +15,7 @@ exports.eventsGET = function(month) {
       if(month>-1 && month<12) {
         return data.filter( event => {
           const date = new Date(event.date);
-          const currentDate = new Date();
-          return date.getMonth() == month && currentDate.getFullYear() == date.getFullYear();
+          return date.getMonth() == month;
         });
       }
 
