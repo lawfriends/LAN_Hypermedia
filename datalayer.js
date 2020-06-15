@@ -14,8 +14,7 @@ let sqlDB = sqlDBFactory({
         port: "5432",
         user: "qlakztbbxpjbch",
         password: "0182db017aeee465cc43bcf56b248a7ea5ec9d8e0bb4b52f2e27a45e32d31e74",
-        database: "d5c92e58euk8f3",
-        ssl: true   
+        database: "d5c92e58euk8f3"
     }
 });
 
