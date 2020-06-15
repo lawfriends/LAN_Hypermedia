@@ -44,16 +44,18 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Allow whitelisted domain to pass CORS policy
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://wave.webaim.org'];
-    var origin = req.headers.origin;
+    console.log(req.headers.referer)
+    var origin = req.headers.referer;
     if(allowedOrigins.indexOf(origin) > -1){
-          res.setHeader('Access-Control-Allow-Origin', origin);
+      res.setHeader('Access-Control-Allow-Origin', origin);
     }
     //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
-    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     return next();
   });
+  
 
   setupDataLayer().then( () => {
 
