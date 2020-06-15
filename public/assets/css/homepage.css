@@ -111,21 +111,15 @@
     background-position: 80% 50%;
 }
 .homepageDonate .mquote{
-    /*left: 35%;*/
-    /* height: 40%; */
     margin-top: 100px;
     margin-right: 50px;
 }
 .volunteerButton{
     position: static;
-    /*bottom: 3%;
-    left: 52%;*/
     margin-top: 50px;
 }
 .donateButton{
     position: static;
-    /*bottom: 3%;
-    left: 75%;*/
     margin-top: 50px;
 }
 .emptyCol{
@@ -133,21 +127,17 @@
 }
 @media only screen and (max-width: 1200px) {
     .homepageDonate .mquote{
-        /*left: 35%;*/
-        /* height: 40%; */
         margin-top: 100px;
         margin-right: 50px;
         margin-left: 50px;
     }
     .volunteerButton{
-        /* margin-left: calc(50% - 100px); */
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: fit-content;
     }
     .donateButton{
-        /* margin-left: calc(50% - 100px); */
         display: block;
         margin-left: auto;
         margin-right: auto;
