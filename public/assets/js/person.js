@@ -111,77 +111,7 @@ function getPersonEvents() {
     })
 }
 
-/*function setVariables(){
-    if(incrementId == 0){
-        limit = 2;
-        offset = 0;
-        index = 0;
-    }
-    else if(incrementId == 19){
-        limit = 2;
-        offset = 18;
-        index = 1;
-    }
-    else{
-        limit = 3;
-        offset = incrementId-1;
-        index = 1;
-    }
-}
-
-function nullIncrement(){
-    var count=0;
-    fetch("/v1/people").then(function(response) {
-        return response.json();
-    }).then(function(people) {
-        while(people[count].id != personId){
-            count++;
-        }
-        incrementId = count;
-        setVariables();
-        var leftLimit = count-1;
-        if(leftLimit<0){
-            leftLimit = 0;
-        }
-        var rightLimit = count+1;
-        if(rightLimit>19){
-            rightLimit=19;
-        }
-        populateButtons(people.slice(leftLimit, rightLimit+1));
-    })
-}*/
-
-/*function populateButtons(person){
-    if(index==0){
-        document.querySelector("#previousButton").style.display = "none";
-        document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
-    }
-    else if(index==19){
-        document.querySelector("#nextButton").style.display = "none";
-        document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
-    }
-    else{
-        document.querySelector("#nextButton").href = "./person.html?id=".concat(person[index+1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)+1);
-        document.querySelector("#previousButton").href = "./person.html?id=".concat(person[index-1].id).concat("&incrementId=").concat(parseInt(incrementId, 10)-1);
-    }
-}*/
-
-/*function getAdjacentPeople(){
-    fetch("/v1/people".concat("?limit=").concat(limit).concat("&offset=").concat(offset)).then(function(response) {
-        return response.json();
-    }).then(function(people) {
-        populateButtons(people);
-    })
-}*/
-
 window.onload = function() {
-    /*if(incrementId == null){
-        this.nullIncrement();
-    }
-    else{
-        this.setVariables(incrementId);
-        this.getAdjacentPeople();
-    }*/
     this.getPerson();
     this.getPersonEvents();
 }
