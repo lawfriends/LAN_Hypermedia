@@ -420,10 +420,6 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Course"
-      events:
-        type: "array"
-        items:
-          type: "integer"
       comments:
         type: "array"
         items:
