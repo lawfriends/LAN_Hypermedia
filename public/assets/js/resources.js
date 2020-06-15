@@ -23,6 +23,7 @@ function getCourseResources() {
             secondCol.classList.add("col");
             var downloadLink = document.createElement("a");
             downloadLink.href = resources[i].url;
+            downloadLink.setAttribute("target", "_blank");
             var downloadTitle = document.createElement("p");
             downloadTitle.classList.add("d-none", "d-md-inline-block");
             downloadTitle.innerHTML = "Link";

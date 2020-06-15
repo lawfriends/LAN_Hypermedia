@@ -276,11 +276,12 @@ ol.breadcrumb li a:hover {
 }
 .CERFlevel{
     background-color: #FFABA3;
-    color: white;
+    color: #A80042;
     width: 61px;
     height: 47px;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 1.2em;
+    font-weight: bold;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 40px;

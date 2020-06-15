@@ -20,7 +20,7 @@ function getPerson() {
         }
         else{
             document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
-            document.querySelector("#teacherCourse .card img").setAttribute("alt", person.courses.level.concat(" course image"));
+            document.querySelector("#teacherCourse .card img").setAttribute("alt", person.courses[0].level.concat(" course image"));
             document.querySelector("#course").href = "./course.html?id=".concat(person.courses[0].id);
             document.querySelector("#teacherCourse .card-title").innerHTML = person.courses[0].level.concat(" course");
             document.querySelector("#teacherCourse .card-text").innerHTML = (person.courses[0].description).split('.')[0];
