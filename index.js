@@ -41,6 +41,20 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Serve the static files from public folder 
   app.use(serveStatic(__dirname + "/public"));
 
+  // Allow whitelisted domain to pass CORS policy
+  app.use(function(req, res, next) {
+    var allowedOrigins = ['https://wave.webaim.org'];
+    var origin = req.headers.origin;
+    if(allowedOrigins.indexOf(origin) > -1){
+          res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', true);
+    return next();
+  });
+
   setupDataLayer().then( () => {
 
   // Start the server
