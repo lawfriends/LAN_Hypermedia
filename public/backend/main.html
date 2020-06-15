@@ -268,9 +268,24 @@
                     <li><strong>location</strong>: string - the address where the course is held</li>
                     <li><strong>cerf_level</strong>: string - the CERF level of the course</li>
                     <li><strong>volunteers</strong>: array of Person - an array of objects of type Person that represent the volunteers
-                        (people) that are involved in the course</li>
+                        (people) that are involved in the course; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
                     <li><strong>events</strong>: array of Event - an array of objects of type Event that represent the events that are
-                        recommended for this course</li>
+                        recommended for this course; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>title</li>
+                            <li>date</li>
+                            <li>location</li>
+                            <li>description</li>
+                            <li>photos</li>
+                        </ul>
+                    </li>
                 </ul>
                 <h5 id="event">Event</h5>
                 <p>The Event resource represents information about an event that the association is organizing. It has the following
@@ -281,9 +296,21 @@
                     <li><strong>date</strong>: string (format: date-time) - date in which the event happens</li>
                     <li><strong>description</strong>: string - description of the event</li>
                     <li><strong>photos</strong>: string - urls to the photos that the event is representing; separated by “;”</li>
-                    <li><strong>coordinator</strong>: Person - an object that represent the person which is a contact for an event</li>
+                    <li><strong>coordinator</strong>: Person - an object that represent the person which is a contact for an event; the object will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
                     <li><strong>courses</strong>: array of Course - an array of objects of type Course that represent the courses for
-                        which this event is recommended</li>
+                        which this event is recommended; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>level</li>
+                            <li>cerf_level</li>
+                        </ul>
+                    </li>
                 </ul>
                 <h5 id="person">Person</h5>
                 <p>The Person resource represents information about a volunteer that is involved in the association. It has the
@@ -298,11 +325,24 @@
                     <li><strong>city</strong>: string - city where the person is from</li>
                     <li><strong>quote</strong>: string - a quote of the person</li>
                     <li><strong>courses</strong>: array of Course - an array of objects of type Course that represent the courses in
-                        which this person is involved</li>
-                    <li><strong>events</strong>: array of Event - an array of objects of type Event that represent the events for which
-                        this person is a contact (a coordinator)</li>
+                        which this person is involved; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>level</li>
+                            <li>image</li>
+                            <li>description</li>
+                        </ul>
+                    </li>
                     <li><strong>comments</strong>: array of Comment - an array of objects of type Comment that represent the student
-                        comments (reviews) about this person</li>
+                        comments (reviews) about this person; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>text</li>
+                            <li>date</li>
+                            <li>student_name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
                 </ul>
                 <h5 id="resource">Resource</h5>
                 <p>The Resource resource represents information about a study material that is recommended for a specific course. It has
@@ -330,10 +370,13 @@
                 </ul>
             </div>
             <hr>
-            <h3 id="data-model-lorenzo">Data model [LORENZO]</h3>
+            <h3 id="data-model-lorenzo">Data model</h3>
             <div class="content-second-level">
-            <p>Describe with an ER diagram the model used in the data layer of your web<br>
-                application. How these map to the OpenAPI data model?</p>
+            <img src="/backend/assets/img/DesignSchemas-01.svg" alt="ER Diagram" title="ER Diagram">
+            <p>In the OpenAPI specifications, there are 5 data models for the main entities of our database: Person model, Course model, Event model, Resource model and Comment model.</p>
+            <p>The Resource model and the Comment model have the same attributes as in the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
+            <p>In the same way, a request to get an Event will carry the Person coordinating that Event, and the Course that is associated to the Event; and finally, a Course will also give information about each Person teaching it and the Events that are recommended to students following that Course.</p>
+                
             </div>
         </div>
         <div id="implementation" class="chapter">
