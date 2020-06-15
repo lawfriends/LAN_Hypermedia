@@ -94,6 +94,7 @@
 }
 .carouselComment .bquote{
     text-align: center;
+    padding-right: 50px;
 }
 .carouselComment img{
     margin-top: 60px;
@@ -205,6 +206,7 @@
     .carouselComment .bquote{
         text-align: center;
         font-size: 2.5em;
+        padding: 0;
     }
     .homepageDonate{
         height: 260px;

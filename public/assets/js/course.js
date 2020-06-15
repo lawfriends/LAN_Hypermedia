@@ -12,6 +12,7 @@ function getCourse() {
         document.querySelector(".CERFlevelPar").innerHTML = course.cerf_level;
         document.querySelector("#coursePar p.normal").innerHTML = course.description;
         document.querySelector("#courseImage img").src = course.image;
+        document.querySelector("#courseImage img").setAttribute("alt", course.level.concat(" course image"));
         var teachersRow = document.querySelector(".teachers .row");
         let {volunteers} = course;
         for(var i=0; i<volunteers.length; i++){
@@ -19,6 +20,7 @@ function getCourse() {
             column.classList.add("col-xl", "col-md-4", "col-sm12", "text-center");
             var teacherImg = document.createElement("img");
             teacherImg.src = volunteers[i].photo.split(";")[0];
+            teacherImg.setAttribute("alt", volunteers[i].name.concat(" image"));
             var teacherName = document.createElement("p");
             teacherName.classList.add("overline");
             teacherName.innerHTML = volunteers[i].name;
@@ -49,7 +51,7 @@ function getCourse() {
             var eventImage = document.createElement("img");
             eventImage.src = course.events[j].photos;
             eventImage.classList.add("card-img-top");
-            eventImage.alt = "...";
+            eventImage.alt = course.events[j].title.concat(" image");
             var cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
             var cardRow = document.createElement("div");
