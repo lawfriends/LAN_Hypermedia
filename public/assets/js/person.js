@@ -9,6 +9,7 @@ function getPerson() {
         document.querySelector("title").innerHTML = person.name;
         document.querySelector(".breadcrumb .active").innerHTML = person.name;
         document.querySelector("#teacherPhoto img").src = person.photo.split(";")[1];
+        document.querySelector("#teacherPhoto img").setAttribute("alt", person.name.concat(" image"));
         document.querySelector("#teacherInfo h1").innerHTML = person.name;
         document.querySelector("#job").innerHTML = person.job;
         document.querySelector("#description1").innerHTML = "From ".concat(person.city);
@@ -19,6 +20,7 @@ function getPerson() {
         }
         else{
             document.querySelector("#teacherCourse .card img").src = person.courses[0].image;
+            document.querySelector("#teacherCourse .card img").setAttribute("alt", person.courses.level.concat(" course image"));
             document.querySelector("#course").href = "./course.html?id=".concat(person.courses[0].id);
             document.querySelector("#teacherCourse .card-title").innerHTML = person.courses[0].level.concat(" course");
             document.querySelector("#teacherCourse .card-text").innerHTML = (person.courses[0].description).split('.')[0];
@@ -47,6 +49,7 @@ function getPerson() {
                     studentComment.classList.add("bquote");
                     let {student_name, text, date, photo} = person.comments[i];
                     studentPhoto.src = (`${photo}`);
+                    studentPhoto.setAttribute("alt", student_name.concat(" image"));
                     studentName.innerHTML = `${student_name}`;
                     var commentYear = `${date}`.slice(0,4);
                     commentDate.innerHTML = "Student ".concat(commentYear);

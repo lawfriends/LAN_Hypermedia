@@ -19,7 +19,7 @@ function getEventsByMonth() {
             eventCard.setAttribute("id", "eventCard");
             var eventImage = document.createElement("img");
             eventImage.classList.add("card-img-top");
-            eventImage.setAttribute("alt", events[i].title);
+            eventImage.setAttribute("alt", events[i].title.split(";")[0].concat(" image"));
             eventImage.src = events[i].photos;
             var cardBody = document.createElement("div");
             cardBody.classList.add("card-body");

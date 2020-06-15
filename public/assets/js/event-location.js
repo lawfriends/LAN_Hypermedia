@@ -7,9 +7,9 @@ function getEvent() {
         return response.json();
     }).then(function(event) {
         document.querySelector("title").innerHTML = event.title.concat(" location");
-        document.querySelector("#breadcrumbEventName a").innerHTML = event.title;
+        document.querySelector("#breadcrumbEventName a").innerHTML = event.title.split(";")[0];
         document.querySelector("#breadcrumbEventName a").href = "./event.html?id=".concat(eventId);
-        document.querySelector("h1").innerHTML = event.title;
+        document.querySelector("h1").innerHTML = event.title.split(";")[1];
         document.querySelector("#directions").innerHTML = event.location.split(";")[1];
         document.querySelector("iframe").src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzDgkYS73J7qoN2ibj1E7x_J2gd5UGGZQ&q=".concat(event.location.split(";")[1].replace(/\s+/g, '+').replace(/,/g, ''));
         document.querySelector("#locationButton").href = "./event.html?id=".concat(eventId);

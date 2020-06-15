@@ -42,6 +42,7 @@ function getAllPeople() {
                 imageCol.classList.add("col");
                 var coordinatorPhoto = document.createElement("img");
                 coordinatorPhoto.src = people[i].photo.split(";")[0];
+                coordinatorPhoto.setAttribute("alt", people[i].name.concat(" image"));
                 imageCol.appendChild(coordinatorPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
@@ -69,6 +70,7 @@ function getAllPeople() {
                 imageCol.classList.add("col");
                 var teacherPhoto = document.createElement("img");
                 teacherPhoto.src = people[i].photo.split(";")[0];
+                teacherPhoto.setAttribute("alt", people[i].name.concat(" image"));
                 imageCol.appendChild(teacherPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
