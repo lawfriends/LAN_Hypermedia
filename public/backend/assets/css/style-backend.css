@@ -185,7 +185,7 @@ hr {
 
 .backend-color {
     background-color: #498F73;
-    color: #cee8df
+    color: #cee8df;
 }
 
 .spec-color {
@@ -208,10 +208,19 @@ hr {
     color: #FFABA3;
 }
 
+.content-color {
+    background-color: #FFE38C;
+    color: #004D4A;
+}
+
 .chip {
     padding: 4px;
     border-radius: 4px;
+    background-color: #ffffff;
+    font-weight: 800;
+    color: #498F73;
 }
+
 .progress {
     height: 22px;
     font-weight: 600;
@@ -220,4 +229,38 @@ hr {
 
 ul.work-time-split {
     line-height: 2.2em;
+}
+.request {
+    display: block;
+    margin: 10px 0px;
+}
+.request div {
+    display: inline-block;
+    padding: 4px 10px;
+}
+.request.get {
+    border:1px solid #498F73;
+}
+
+.request.get .method {
+    color: #ffffff;
+    background: #498F73;
+
+}
+
+.request.post {
+    border:1px solid #61affe;
+}
+
+.request.post .method {
+    color: #ffffff;
+    background: #61affe;
+
+}
+
+blockquote {
+    margin-left:20px;
+    font-style: italic;
+    padding:10px;
+    border: 1px solid #cee8df;
 }
