@@ -1,167 +1,640 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
-
+<head>
+    <title>Backend Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../backend/assets/css/style-backend.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Open+Sans&family=Nunito&display=swap" rel="stylesheet">
+</head>
 <body>
+    <div id="header">
+        <div class="row col-12">
+            <img src="/backend/assets/img/white-logo.svg" alt="Insieme" title="Insieme">
+            <div class="col">
+                <h1 id="documentation-of-the-backend-part"  class="col-lg-10 col-12">Documentation of the Backend part</h1>
+                <p>Deliverable D1</p>
+            </div>
+           
+        </div>
+    </div>
+    <div id="navbar">
+        <a href="#general-group-information">General Group Information</a>
+        <a href="#links-to-other-deliverables">Links to Deliverables</a>
+        <a href="#specification">Specifications</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#other-information">Other Information</a>
+    </div>
+    <div id="content" class="col-lg-10 col-12">
+        <div id="general-group-information" class="chapter">
+            <h2>General group information</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Member n.</th>
+                            <th>Role</th>
+                            <th>First name</th>
+                            <th>Last Name</th>
+                            <th>Matricola</th>
+                            <th>Email address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>administrator</td>
+                            <td>Aida Denisa</td>
+                            <td>Opîrlesc</td>
+                            <td>10735889</td>
+                            <td><a href="mailto:aida.denisa@gmail.com">aida.denisa@gmail.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>member</td>
+                            <td>Nathalie Giselle</td>
+                            <td>Ospina Cruz</td>
+                            <td>10662638 </td>
+                            <td><a href="mailto:nathalie.ospina@gmail.com">nathalie.ospina@gmail.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>member</td>
+                            <td>Lorenzo</td>
+                            <td>Amici</td>
+                            <td>10687419</td>
+                            <td><a href="mailto:lawfriends12@gmail.com"> lawfriends12@gmail.com</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <h1 class="code-line" data-line-start=0 data-line-end=1>
-        <a id="Documentation_of_the_Backend_part_0"></a>
-        Documentation of the Backend part
-    </h1>
-    <blockquote>
-        <p class="has-line-data" data-line-start="1" data-line-end="2">Deliverable D1</p>
-    </blockquote>
-    <h2 class="code-line" data-line-start=2 data-line-end=3>
-        <a id="General_group_information_2"></a>
-        General group information
-    </h2>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Member n.</th>
-                <th>Role</th>
-                <th>First name</th>
-                <th>Last Name</th>
-                <th>Matricola</th>
-                <th>Email address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>administrator</td>
-                <td>Foo</td>
-                <td>FooL</td>
-                <td>123456</td>
-                <td><a href="mailto:foo@example.com">foo@example.com</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>member</td>
-                <td>Bar</td>
-                <td>BarL</td>
-                <td>78982</td>
-                <td><a href="mailto:bar@example.com">bar@example.com</a></td>
-            </tr>
-            <tr>
-                <td>…</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    <h2 class="code-line" data-line-start=8 data-line-end=9>
-        <a id="Links_to_other_deliverables_8"></a>
-        Links to other deliverables
-    </h2>
-    <ul>
-        <li class="has-line-data" data-line-start="9" data-line-end="10">Deliverable D0: the web application is accessible at <a href="https://example.com">this address</a>.</li>
-        <li class="has-line-data" data-line-start="10" data-line-end="11">Deliverable D2: the YAML or JSON file containing the specification of the app API can be found at 
-            <a href="https://example.com/backend/spec.yaml">this address</a>.</li>
-        <li class="has-line-data" data-line-start="11" data-line-end="12">Deliverable D3: the SwaggerUI page of the same
-            API is available at <a href="https://example.com/backend/swaggerui">this address</a>.</li>
-        <li class="has-line-data" data-line-start="12" data-line-end="13">Deliverable D4: the source code of D0 is
-            available as a zip file at <a href="https://example.com/backend/app.zip">this address</a>.</li>
-        <li class="has-line-data" data-line-start="13" data-line-end="14">Deliverable D5: the address of the online
-            source control repository is available <a href="https://examplegit.com">this address</a>. We hereby declare
-            that this is a private repository and, upon request, we will give access to the instructors.</li>
-    </ul>
-    <h2 class="code-line" data-line-start=14 data-line-end=15><a id="Specification_14"></a>Specification</h2>
-    <h3 class="code-line" data-line-start=15 data-line-end=16><a id="Web_Architecture_15"></a>Web Architecture</h3>
-    <p class="has-line-data" data-line-start="16" data-line-end="20">Describe here, with a diagram, the components of
-        your web application<br>
-        and how they interact. Highlight which parts belong to the application<br>
-        layer, data layer or presentation layer. How did you ensure that HTML is<br>
-        not rendered server side?</p>
-    <h3 class="code-line" data-line-start=20 data-line-end=21><a id="API_20"></a>API</h3>
-    <h4 class="code-line" data-line-start=21 data-line-end=22><a id="REST_compliance_21"></a>REST compliance</h4>
-    <p class="has-line-data" data-line-start="22" data-line-end="25">Describe here to what extent did you follow REST
-        principles and what are<br>
-        the reasons for which you might have decided to diverge. Note, you must<br>
-        not describe the whole API here, just the design decisions.</p>
-    <h4 class="code-line" data-line-start=25 data-line-end=26><a id="OpenAPI_Resource_models_25"></a>OpenAPI Resource
-        models</h4>
-    <p class="has-line-data" data-line-start="26" data-line-end="28">Describe here synthetically, which models you have
-        introduced for<br>
-        resources.</p>
-    <h3 class="code-line" data-line-start=28 data-line-end=29><a id="Data_model_28"></a>Data model</h3>
-    <p class="has-line-data" data-line-start="29" data-line-end="31">Describe with an ER diagram the model used in the
-        data layer of your web<br>
-        application. How these map to the OpenAPI data model?</p>
-    <h2 class="code-line" data-line-start=31 data-line-end=32><a id="Implementation_31"></a>Implementation</h2>
-    <h3 class="code-line" data-line-start=32 data-line-end=33><a id="Tools_used_32"></a>Tools used</h3>
-    <p class="has-line-data" data-line-start="33" data-line-end="34">Describe here which tools, languages and frameworks
-        did you use for the</p>
-    <p class="has-line-data" data-line-start="35" data-line-end="36">backend of the application.</p>
-    <h3 class="code-line" data-line-start=36 data-line-end=37><a id="Discussion_36"></a>Discussion</h3>
-    <p class="has-line-data" data-line-start="37" data-line-end="38">Describe here:</p>
-    <ul>
-        <li class="has-line-data" data-line-start="38" data-line-end="41">How did you make sure your web application
-            adheres to the provided<br>
-            OpenAPI specification? Which method did you use to test all APIs<br>
-            endpoints against the expected response?</li>
-        <li class="has-line-data" data-line-start="41" data-line-end="44">Why do you think your web application adheres
-            to common practices to<br>
-            partition a REST-based web application (static assets vs.<br>
-            application data)</li>
-        <li class="has-line-data" data-line-start="44" data-line-end="47">Describe synthetically why and how did you
-            manage session state,<br>
-            what are the state change triggering actions (e.g., POST to login<br>
-            etc…).</li>
-        <li class="has-line-data" data-line-start="47" data-line-end="49">Which technology did you use (relational or a
-            no-SQL database) for<br>
-            managing the data model?</li>
-    </ul>
-    <h2 class="code-line" data-line-start=49 data-line-end=50><a id="Other_information_49"></a>Other information</h2>
-    <h3 class="code-line" data-line-start=50 data-line-end=51><a id="Task_assignment_50"></a>Task assignment</h3>
-    <p class="has-line-data" data-line-start="51" data-line-end="53">Describe here how development tasks have been
-        subdivided among members<br>
-        of the group, e.g.:</p>
-    <blockquote>
-        <ul>
-            <li class="has-line-data" data-line-start="53" data-line-end="54">Foo worked on front end (80%) and OpenAPI
-                Spec (20% of the time)</li>
-            <li class="has-line-data" data-line-start="54" data-line-end="55">Bar worked on …</li>
-        </ul>
-    </blockquote>
-    <h3 class="code-line" data-line-start=55 data-line-end=56><a id="Analysis_of_existing_API_55"></a>Analysis of
-        existing API</h3>
-    <p class="has-line-data" data-line-start="56" data-line-end="62">Describe here the research of (full or part of)
-        existing APIs that are similar<br>
-        in objectives and scope to the one implemented, that have possibly guided<br>
-        implementation choices (these should not be necessarily OpenAPI<br>
-        implementations). Toy APIs (such as the Swagger’s Pet Store) or the example<br>
-        shown during lectures are not a valid response.<br>
-        Use TWO or more items of the form:</p>
-    <blockquote>
-        <p class="has-line-data" data-line-start="62" data-line-end="68">We took (full/partial) inspiration from API
-            &lt;XYZ&gt;(link) for the part of the<br>
-            API that manages &lt;ABC&gt; because of &lt;REASON&gt;.<br>
-            Or<br>
-            For the part of the API that manages &lt;ABC&gt; we considered/studied &lt;XYZ&gt;(link)<br>
-            because of &lt;REASON&gt; but wasn’t completely fitting to our purpose because of<br>
-            &lt;REASON&gt;.</p>
-    </blockquote>
-    <h3 class="code-line" data-line-start=68 data-line-end=69><a id="Learning_outcome_68"></a>Learning outcome</h3>
-    <p class="has-line-data" data-line-start="69" data-line-end="70">What was the most important thing all the members
-        have learned while</p>
-    <p class="has-line-data" data-line-start="71" data-line-end="74">developing this part of the project, what questions
-        remained unanswered,<br>
-        how you will use what you’ve learned in your everyday life?<br>
-        Examples:</p>
-    <ul>
-        <li class="has-line-data" data-line-start="74" data-line-end="77">Foo learned to write SQL queries and
-            Javascript but wanted to know<br>
-            more about caching, he’s probably going to create his own startup<br>
-            with what she has learned</li>
-        <li class="has-line-data" data-line-start="77" data-line-end="79">Bar learned how to deploy on a cloud platform,
-            he would have liked<br>
-            to know more about promises for asynchronous code…</li>
-    </ul>
+        </div>
+        <div id="links-to-other-deliverables" class="chapter">
+            <h2>Links to other deliverables</h2>
+            <ul>
+                <li><em>Deliverable D0</em>: the web application is accessible at <a
+                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>.</li>
+                <li><em>Deliverable D2</em>: the YAML file containing the specification of the app API can be found at <a
+                        href="https://insieme-hya.herokuapp.com/backend/spec.yaml">https://insieme-hya.herokuapp.com/backend/spec.yaml</a>.
+                </li>
+                <li><em>Deliverable D3</em>: the SwaggerUI page of the same API is available at <a
+                        href="https://insieme-hya.herokuapp.com/backend/swaggerui">https://insieme-hya.herokuapp.com/backend/swaggerui</a>.
+                </li>
+                <li><strong>[TODO] Deliverable D4: the source code of D0 is available as a zip file at <a
+                            href="https://example.com/backend/app.zip">this address</a></strong>.</li>
+                <li><em>Deliverable D5</em>: the address of the online source control repository is available <a
+                        href="https://github.com/lawfriends/LAN_Hypermedia">https://github.com/lawfriends/LAN_Hypermedia</a>. We
+                    hereby declare that this is a private repository and, upon request, we will give access to the instructors.</li>
+            </ul>
+        </div>
+        <div id="specification" class="chapter">
+            <h2>Specification</h2>
+            <h3 id="web-architecture">Web Architecture</h3>
+            <p>The Insieme web application is a presentation website for the Insieme Association, which is helping foreigners study
+                the Italian Language and integrate easier into the Italian society.</p>
+            <p><img src="/backend/assets/img/WebArchitecture-02.svg" alt="Web Architecture of Insieme"
+                    title="Web Architecture Diagram"><br>
+                In order to separate the business logic from the rendering and styling of the elements, the functionality is
+                separated in 2 sections:</p>
+            <ol>
+                <li><strong>The Presentation Layer</strong></li>
+                <li><strong>The Application Layer</strong></li>
+            </ol>
+            <p>Because most of the data presented on the website is prone to changes or addition of new information, the Application
+                Layer is communicating with the third component of the system:<br>
+            <ol start="3">
+            <li><strong>The Data Layer</strong></li>
+            </ol>
+            <p>This split allows changes to be independently tackled in the required component without the need of chaging the
+                interface, just the implementation. In this way, components that communicate with the updated component do not need
+                to be aware of any internal change.<br>
+                This separation follows the <strong>3 Tier Architecture</strong>, one of the most popular used in web development.
+            </p>
+            <p>The application is respecting SOLID object oriented programming principles, so each component has a clear role, and
+                it is easy to develop components individually. They interract with eachother through method calls and ocasionally
+                promisses.</p>
+            <h4 id="presentation-layer">1. Presentation Layer</h4>
+            <div class="content-second-level">
+                <p>The Presentation Layer refers to the interface of the website that the users see and interract with. It consists of
+                    different components that communicate and interract with eachother. This part of the application is also reffered to
+                    as <strong>front-end</strong>.</p>
+                <h5 id="web-browser">Web Browser</h5>
+                <p>Data is rendered and displayed for the user in a <strong>web browser</strong>. The web browser is receiving from the
+                    user different instructions, such as loading the website at the address “<a
+                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>”. The browser will make a GET
+                    HTTP(S) call to the server that hosts the website at the specified address, and receives a set of static data,
+                    usually HTML, CSS and Javascript. The browser interprets them and displays the result. Usually, the main file served
+                    when first accessing a website is <strong>index.html</strong></p>
+                <h5 id="index.html">INDEX.HTML</h5>
+                <p>It is the main file that is rendered by the browser when the user accesses the website on the root address <a
+                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>. It contains the homepage and
+                    it acts like a gateway towards the other pages of the website, having call to action buttons towards other pages of
+                    the website.</p>
+                <h5 id="pages">Pages</h5>
+                <p>The pages are HTML files that contain the template over which the web pages are build. They are including CSS files
+                    and JavaScript files from the assets folder, which help render the final page. Each page has a HTML template defined
+                    in the Pages folder, such as allcourses.html, event.html.</p>
+                <h5 id="assets">Assets</h5>
+                <p>The assets are static documents that are included in HTML template in order to manage the style and the functionality
+                    of the page, like loading data and adding it in the DOM, or styling HTML elements. DOM (Document Object Model) is an
+                    object build by the browser when the web page is loaded.<br>
+                    The JavaScript files are taking care of building the functionality of the website and they make requests to the
+                    website’s REST API in order to get data from the database, and render it in the DOM.</p>
+                </div>
+            <h4 id="application-layer">2. Application Layer</h4>
+            <div class="content-second-level">
+                <p>The Application Layer refers to the business logic part of the website, where dynamic (changing) data is handled. It
+                    has different components and sub-layers that help with separation of concerns and independent development of
+                    componets. Users do not interract with this section directly, so this it is considered as being part of the
+                    <strong>back-end</strong> of the web application.<br>
+                    The role of this part of the website is to handle dynamic data, meaning data that is not stored in the code of the
+                    application, but in a database. The Application Layer provides the needed data to the front-end, which renders it
+                    with the help of the assets. In this way, all the functionality related to rendering and displaying data is managed
+                    by the front-end, whereas all the data handling is managed by the application layer.</p>
+                <h5 id="index.js">INDEX.JS</h5>
+                <p>This is the main file that is used to start and run the server that hosts the web application. In it there are
+                    settings for making Swagger REST API work, as well as configurations for the server (such as port, or static files
+                    path).</p>
+                <h5 id="rest-api-swagger">REST API: SWAGGER</h5>
+                <p>The first component of the application layer is the REST Interface. A REST interface is a collections of
+                    <strong>resources</strong> that can be accessed (called) over HTTP protocol, so that different types of clients can
+                    communicate with the application layer. For example, we defined a rule on GET over the URL “<a
+                        href="https://insieme-hya.herokuapp.com/v1/courses">https://insieme-hya.herokuapp.com/v1/courses</a>”, so that
+                    the JavaScript files attached to the page <strong>allcourses.html</strong> can make a GET request to this URL, and
+                    expect a list of courses.<br>
+                    We used the Swagger library for defining those resources, but also for building a documentation (that can be
+                    accessed at: <a
+                        href="https://insieme-hya.herokuapp.com/backend/swaggerui">https://insieme-hya.herokuapp.com/backend/swaggerui</a>).
+                    There one can find the collection of all supported REST API resources, with the possibility to test them.</p>
+                <h5 id="controller-layer">CONTROLLER LAYER</h5>
+                <p>The Controller Layer contains the components that are catching the requests that come from the front-end and
+                    distributes the appropriate commands to the service components. When the answer from the services comes back, the
+                    controller component is responding over HTTP to the front-end.<br>
+                    The application has a controller for every type of independent entity that we have in the database:</p>
+                <ol>
+                    <li>Course</li>
+                    <li>Event</li>
+                    <li>Person</li>
+                    <li>Comment</li>
+                </ol>
+                <h5 id="service-layer">SERVICE LAYER</h5>
+                <p>The Service Layer contains the components that receive tasks (calls) from the controllers and they are the ones which
+                    implement all the logic needed for the dynamic features of the application. They manage and manipulate data that
+                    comes from the database before sending it back to the controller, as well as manipulating data that comes from the
+                    controller before saving it in the database.<br>
+                    The services communicate directly with the corresponding controller components, from where they receive calls, and
+                    with the DAO (Data Access Object) componens that are the ones which have access to the database. They call the DAO
+                    components when they need to save or get data.<br>
+                    The application has a service for every type of independent entity that we have in the database:</p>
+                <ol>
+                    <li>CourseService</li>
+                    <li>EventService</li>
+                    <li>PersonService</li>
+                    <li>CommentService</li>
+                </ol>
+                <h5 id="data-access-layer">DATA ACCESS LAYER</h5>
+                <p>The Data Access Layer consist of components of type DAO (Data Access Object), which have direct access to the
+                    database. Only this layer is able to communicate with the database, so if some things change in the database,
+                    changes can be done in the corresponding DAO class without changing the rest of the application.<br>
+                    The DAO components receive calls from the service components, which request data or send over data to be saved in
+                    the database. The DAO components make sure the database has specific tables(otherwise it requests the tables to be
+                    built), that incoming data is mapped to the coresponding columns in the database, and that the frontend receives
+                    only the needed data.<br>
+                    The application has a service for every type of entity that we have in the database:</p>
+                <ol>
+                    <li>CourseDAO</li>
+                    <li>EventDAO</li>
+                    <li>PersonDAO</li>
+                    <li>CommentDAO</li>
+                    <li>ResourceDAO - “Resource” is not an independent component, being strictly dependent on Course, but we decided to
+                        create a DAO component that handles the basic operations, instead of adding them all to CourseDAO.</li>
+                </ol>
+            </div>
+            <h4 id="data-layer">3. Data Layer</h4>
+            <div class="content-second-level">
+
+                <p>The Data Layer refers to the storage of data in a database, assuring the dynamic features of the website.<br>
+                    In the database, each independent entity that has data to be stored has its own table:</p>
+                <ol>
+                    <li>course</li>
+                    <li>event</li>
+                    <li>person</li>
+                    <li>comment</li>
+                    <li>resource</li>
+                </ol>
+                <p>Besides the entities, there are 2 tables that are used for mapping 2 many to many relationships:<br>
+                    6. course_presentation - which maps the relationship between courses and events<br>
+                    7. course_volunteers - which maps the relationship between courses and volunteers (people)</p>
+                <p>Those tables are created by the DAO components, and basic SQL operations are performed only by the Data Layer.</p>
+            </div>
+            <hr>
+            <h3 id="api">API</h3>
+            <h4 id="rest-compliance">REST compliance</h4>
+            <div class="content-second-level">
+                <p>Building this application that uses a REST API to mediate the communication between back-end and front-end, we wanted
+                    to respect as much as possible the REST Principles, not only because they are good practices, but also because they
+                    are widely known and any developer that may take over the work on Insieme website will be able to easily understand
+                    the functionality that the application layer provides.</p>
+                <ol>
+                    <li><strong>Cliend-Server</strong> - The app has a strong separation between the functionality executed on the
+                        client server, which is mainly rendering data and information, and the functionality executed on the server side
+                        which is data handling and manipulation.</li>
+                    <li><strong>Stateless</strong> - There was no need for stateful or session dependent data to be kept on the server,
+                        therefore the app is treating any request as independent and complete</li>
+                    <li><strong>Uniform interfaces</strong> - The API documentation is describing the resources what the app is using,
+                        as well as their models. Moreover, the requests follow a similar structure, so once you understand how to get
+                        data for one of them, you can follow the same pattern for the others. For example: /person/{personID} ,
+                        /events/{eventID} , /course/{courseID} are all retrieving the requested resource with the specified ID.</li>
+                    <li><strong>Layered system</strong> - The application has components that are split in layers by their role, and
+                        they can communicate only with the layers that are addiacent to them. This assures the separation of concerns
+                        and a better individual development of components.</li>
+                </ol>
+                <p>Besides these principles, we also needed to decide how to map the requests that need data from 2 or more entities,
+                    especially for entities that have a relation in the database.<br>
+                    For this, we decided to use the following struncture for the url:<br>
+                    <strong>"/main-entity-name/{main-entity-id}/related-entity-name"</strong><br>
+                    where <em>main-entity-name</em> and <em>related-entity-name</em> have a relationship in the database (usually one to
+                    many or many to many), and this resource will provide all the entries of type “related-entity-name” that are in a
+                    relation with the entry of type “main-entity-name” that has the id equal to <em>main-entity-id/</em>. For example,
+                    making a GET request on “/person/1/events” will retrieve all events that are in a relation to the person with id =
+                    1.</p>
+            </div>
+            <h4 id="openapi-resource-models">OpenAPI Resource models</h4>
+            <div class="content-second-level">
+                <p>In order to ensure a good communication between back-end and front-end, we introduced models for the resources, that
+                    they have to respect.</p>
+                <h5 id="course">Course</h5>
+                <p>The Course resource represents information the <strong>services</strong> that the association is offering, which are
+                    Italian Language courses. It has the following properties:</p>
+                <ul>
+                    <li><strong>id</strong>: integer - the unique identifier of a course</li>
+                    <li><strong>level</strong>: enum [‘Introductory’,‘Basic’,‘Intermediate’] - the level of the course</li>
+                    <li><strong>daysOfWeek</strong>: string - the days of the week in which the course is held; it has to respect the
+                        format ‘Monday;Tuesday;Sunday’ - a string with the day of the week separated by ‘;’</li>
+                    <li><strong>times</strong>: string - the times of the day in which the courses are held; it has to respect the
+                        format ‘16:00;17:00;18:00’ - a string with the hours separated by ‘;’</li>
+                    <li><strong>location</strong>: string - the address where the course is held</li>
+                    <li><strong>cerf_level</strong>: string - the CERF level of the course</li>
+                    <li><strong>volunteers</strong>: array of Person - an array of objects of type Person that represent the volunteers
+                        (people) that are involved in the course; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
+                    <li><strong>events</strong>: array of Event - an array of objects of type Event that represent the events that are
+                        recommended for this course; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>title</li>
+                            <li>date</li>
+                            <li>location</li>
+                            <li>description</li>
+                            <li>photos</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h5 id="event">Event</h5>
+                <p>The Event resource represents information about an event that the association is organizing. It has the following
+                    properties</p>
+                <ul>
+                    <li><strong>id</strong>: integer - the unique identifier of an event</li>
+                    <li><strong>title</strong>: string - the title of the event</li>
+                    <li><strong>date</strong>: string (format: date-time) - date in which the event happens</li>
+                    <li><strong>description</strong>: string - description of the event</li>
+                    <li><strong>photos</strong>: string - urls to the photos that the event is representing; separated by “;”</li>
+                    <li><strong>coordinator</strong>: Person - an object that represent the person which is a contact for an event; the object will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
+                    <li><strong>courses</strong>: array of Course - an array of objects of type Course that represent the courses for
+                        which this event is recommended; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>level</li>
+                            <li>cerf_level</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h5 id="person">Person</h5>
+                <p>The Person resource represents information about a volunteer that is involved in the association. It has the
+                    following properties</p>
+                <ul>
+                    <li><strong>id</strong>: integer - the unique identifier of a person</li>
+                    <li><strong>name</strong>: string - the name of the person</li>
+                    <li><strong>role</strong>: enum [‘teacher’,‘coordinator’] - the role of the person</li>
+                    <li><strong>description</strong>: string - description of the person</li>
+                    <li><strong>photo</strong>: string - urls to the photos of the person; separated by “;”</li>
+                    <li><strong>job</strong>: string - job of the person</li>
+                    <li><strong>city</strong>: string - city where the person is from</li>
+                    <li><strong>quote</strong>: string - a quote of the person</li>
+                    <li><strong>courses</strong>: array of Course - an array of objects of type Course that represent the courses in
+                        which this person is involved; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>level</li>
+                            <li>image</li>
+                            <li>description</li>
+                        </ul>
+                    </li>
+                    <li><strong>comments</strong>: array of Comment - an array of objects of type Comment that represent the student
+                        comments (reviews) about this person; the items will have the following properties:
+                        <ul>
+                            <li>id</li>
+                            <li>text</li>
+                            <li>date</li>
+                            <li>student_name</li>
+                            <li>photo</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h5 id="resource">Resource</h5>
+                <p>The Resource resource represents information about a study material that is recommended for a specific course. It has
+                    the following properties:</p>
+                <ul>
+                    <li><strong>id</strong>: integer - the unique identifier of a resource</li>
+                    <li><strong>title</strong>: string - the title of the resource</li>
+                    <li><strong>cerf_level</strong>: string - the CERF level of the resource, for example: A1,A2</li>
+                    <li><strong>url</strong>: string - url to the resource</li>
+                    <li><strong>course_id</strong>: integer - the unique identifier of the course for which this resource is recommended
+                    </li>
+                </ul>
+                <h5 id="comment">Comment</h5>
+                <p>The Comment resource represents a review or a testimonial given by students that have participated into the
+                    association’s courses and events. They can be reviews of the association, or comments about a specific volunteer
+                    (teacher). It has the following properties:</p>
+                <ul>
+                    <li><strong>id</strong>: integer - the unique identifier of a comment</li>
+                    <li><strong>text</strong>: string - the text containing the opinion (comment)</li>
+                    <li><strong>student_name</strong>: string - the name of the student which made the comment</li>
+                    <li><strong>photo</strong>: string - url to the photo of the student</li>
+                    <li><strong>date</strong>: string (format: date-time) - date in which the comment was made</li>
+                    <li><strong>person_id</strong>: integer - the unique identifier of the person about who this comment is; if it is
+                        null, then the comment is not about a person, but about the association on the whole.</li>
+                </ul>
+            </div>
+            <hr>
+            <h3 id="data-model-lorenzo">Data model</h3>
+            <div class="content-second-level">
+            <img src="/backend/assets/img/DesignSchemas-01.svg" alt="ER Diagram" title="ER Diagram">
+            <p>In the OpenAPI specifications, there are 5 data models for the main entities of our database: Person model, Course model, Event model, Resource model and Comment model.</p>
+            <p>The Resource model and the Comment model have the same attributes as in the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
+            <p>In the same way, a request to get an Event will carry the Person coordinating that Event, and the Course that is associated to the Event; and finally, a Course will also give information about each Person teaching it and the Events that are recommended to students following that Course.</p>
+                
+            </div>
+        </div>
+        <div id="implementation" class="chapter">
+            <h2>Implementation</h2>
+            <h3 id="tools-used">Tools used</h3>
+            <h4 id="javascript">JavaScript</h4>
+            <div class="content-second-level">
+                <p>JavaScript is the main programming language used for web development, that is able to bring functionality upon
+                    otherwise static HTML files. The language is known and interpreted by all browsers, and a lot of frameworks and
+                    libraries based on it are created each year.</p>
+            </div>
+            <h4 id="node.js">Node.JS</h4>
+            <div class="content-second-level">
+                <p>Node.JS is a runtime environment which can run JavaScript outside of a browser. It is widely used for back-end
+                    development in the web industry and it facilitates the creation of servers that are able to handle HTTP requests and
+                    communicate to other services or databases.</p>
+            </div>
+            <h4 id="swagger-with-openapi-specifications">Swagger with OpenAPI Specifications</h4>
+            <div class="content-second-level">
+                <p>Swagger is a framework that is used for easily creating documentation and managing REST APIs. It is based on OpenAPI
+                    Specifications, that are rules for configuring REST APIs in a JSON or YAML document. Swagger frameworn offers data
+                    validation, routing the request to appropriate controls, an interface for the documentation in which requests can be
+                    tested out, and many more.</p>
+            </div>
+            <h4 id="knex.js">KNEX.JS</h4>
+            <div class="content-second-level">
+                <p>Knex.js is a query-builder library for JavaScript in which you use different methods in order to connect and perform
+                    operations over databases. The Insieme web app uses this library for creating tables, saving and retrieving data
+                    from the database.</p>
+            </div>
+            <h4 id="postgresql">PostgreSQL</h4>
+            <div class="content-second-level">
+                <p>PostgreSQL is the most advanced open source relational database, which is better suited for complex application that
+                    MySQL, another popular choice for web applications.</p>
+            </div>
+            <h4 id="heroku">Heroku</h4>
+            <div class="content-second-level">
+                <p>Heroku is a Platform as a Service (PaaS), that allows developers to easily deploy and test their application in the
+                    cloud, without prior knowledge of server management and configuration. It comes with a CLI (Command-Line Interface)
+                    that makes it very easy to deploy the latest version of a website online. If the website needs a database, Heroku
+                    offers the possibility to add a PostgreSLQ database as an addon, that you can connect to the web app.</p>
+            </div>
+            <hr>
+            <h3 id="discussion">Discussion</h3>
+            <div class="discussion">
+                <div class="question"> How did you make sure your web application adheres to the provided OpenAPI specification? </div>
+                <div class="answer"> In order to respect OpenAPI specifications, we built the application starting from them.
+                This approach let us define the resources that the application offers, as well as the models, and we followed the
+                recommended basic configuration that they should have. We ensured we have comprehensive examples for the models, and
+                when we reached a good starting point, we generated the Node.JS application using Swagger Generate Server tool. In
+                this way, we started developing from a point that was in sync with the OpenAPI specifications.<br>
+                The changes or additions to the specification were done in the same time with the functionality, so that we
+                continously updated the document when things changed.<br>
+                Another important tool is the Swagger Validator which makes sure that the request values respect the data types and
+                formats defined in the specifications file.<br>
+                </div>
+            </div>
+            <div class="discussion">
+                <div class="question"> Which method did you use to test all APIs endpoints against the expected response? </div>
+                <div class="answer"> We used the Swagger UI interface to test every endpoint and we solved the ocasional bugs
+                when we noticed them. Alternatively, we used also Postman for making API request with testing purposes.<br>
+                </div>
+            </div>
+            <div class="discussion">
+                <div class="question"> Why do you think your web application adheres to common practices to partition a
+                REST-based web application (static assets vs. application data)?
+                </div>
+                <div class="answer"> We used the Swagger UI interface to test every endpoint and we solved the ocasional bugs
+                The Insieme web app has a clear separation of static assets, such as HTML, CSS and
+                JavaScript files that build the user interface (front-end), from the business logic JavaScript files that only
+                handle operations with data. The front-end, static files are stored in the folder “public”, which is configured in
+                the application server to serve its files as static. All the other files constitute the server functionality and
+                they are only handling data operations through the Swagger routing and the controllers, which decide the mapping of
+                the requests to actions.
+                </div>
+            </div>
+            <div class="discussion">
+                <div class="question"> Which technology did you use (relational or a no-SQL database) for managing the data model?
+                </div>
+                <div class="answer"> We used a relational Database because of the relatively big number of relations that were
+                needed. Every entity is part of at least 1 relationship, with 2 relationships being many-to-many. In a NoSQL
+                database, those would have been complex to map and mantain.<br>
+                By using a relational database, we eliminated the need of keeping duplicate data.
+                </div>
+            </div>
+        </div>
+        <div id="other-information" class="chapter">
+            <h2>Other information</h2>
+            <h3 id="task-assignment">Task assignment</h3>
+
+                <p>The development team is formed by 3 students, <em>Aida Denisa Opîrlesc</em>, <em>Nathalie Giselle Ospina Cruz</em> and <em>Lorenzo Amici</em>. They all came from different backgrounds and had complementary interests, so they decided to split the responsibilities according to that: Aida developed the back-end, Lorenzo managed the front-end, and Nathalie was in charge of the design.</p>
+                <h4>Aida Denisa Opîrlesc</h4>
+                <div class="content-second-level">
+
+                    <div class="progress">
+                        <div class="progress-bar backend-color" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                        <div class="progress-bar spec-color" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+                        <div class="progress-bar documentation-color" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
+                        <div class="progress-bar design-color" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>  
+                        <div class="progress-bar frontend-color" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">5%</div>  
+                    </div>
+                    <p>Aida has been in charge mainly of the backend part. She wrote the OpenAPI specification and developed the REST API, she implemented the functionality for
+                    getting data and saving data to the database, and managed the deployment of the app on Heroku. She also helped when needed on design and on front-end.</p>
+                    <p>Her work time was approximately split in this way:</p>
+                    <ul class="work-time-split">
+                        <li><em>60%</em> of her work time was invested in <span class="chip backend-color">back-end implementation</span></li>
+                        <li><em>15%</em> of her work time was for writing and updating the  <span class="chip spec-color">OpenAPI specifications</span></li>
+                        <li><em>10%</em> of her work time was spent on writing the  <span class="chip documentation-color">documentation</span> and creating the  <span class="chip documentation-color">deliverables</span></li>
+                        <li><em>10%</em> of her work time was spent on helping on  <span class="chip design-color">design</span></li>
+                        <li><em>5%</em> of her work time was invested in helping on  <span class="chip frontend-color">front-end</span></li>
+                    </ul>
+                </div>
+
+                <h4>Nathalie Giselle Ospina Cruz</h4>
+                <div class="content-second-level">
+
+                    <div class="progress">
+                        <div class="progress-bar design-color" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                        <div class="progress-bar content-color" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                        <div class="progress-bar frontend-color" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+                        <div class="progress-bar backend-color" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">5%</div>  
+                    </div>
+                    <p>Nathalie has been in charge mainly of the design, content creation and contact with the association. 
+                        After the design delivery, she optimized the design for the breaking points for all pages, wrote 
+                        stylesheets for appearance of elements and typography while supporting the frontend. She created some 
+                        static pages and also helped in the backend by populating the database.  
+                    </p>
+                    <p>Her work time was approximately split in this way:</p>
+                    <ul class="work-time-split">
+                        <li><em>50%</em> of her time was dedicated to <span class="chip design-color">UI design</span>, adapting <span class="chip design-color">layout for responsivity</span></li>
+                        <li><em>30%</em> of her time was spent in writing, exporting or gathering <span class="chip content-color">content and assets</span></li>
+                        <li><em>15%</em> of her time was invested in defining  <span class="chip frontend-color">main css styles</span> and working on  <span class="chip frontend-color">HTML</span></li>
+                        <li><em>5%</em> of her time was supporting the backend with <span class="chip backend-color">populating the database</span>, help in styling documentation and updating design <span class="chip backend-color">documentation</span></li>
+                    </ul>
+                </div>
+
+
+                <h4>Lorenzo Amici</h4>
+                <div class="content-second-level">
+
+                    <div class="progress">
+                        <div class="progress-bar frontend-color" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        <div class="progress-bar content-color" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
+                        <div class="progress-bar design-color" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
+                    </div>
+                    <p>Lorenzo has been in charge mainly of the front-end part. He developed most part of the 
+                        front-end code (HTML pages, styling with CSS, front-end JavaScript code) while also helping 
+                        on design when needed. He also tested that all the functionalities of the application were working 
+                        correctly, and tested the website for accessibility features.
+                    </p>
+                    <p>His work time was approximately split in this way:</p>
+                    <ul class="work-time-split">
+                        <li><em>80%</em>  of his work time was spent in <span class="chip">front-end coding</span></li>
+                        <li><em>10%</em>  of his work time was spent <span class="chip">testing the application</span> and checking its <span class="chip">accessibility features</span></li>
+                        <li><em>10%</em> of his work time was spent in helping on  <span class="chip">design</span> </li>
+                    </ul>
+                </div>
+
+
+            <hr>
+            <h3 id="analysis-of-existing-api">Analysis of existing API</h3>
+
+            <h4 id="formbuilder-api">123FormBuilder API</h4>
+
+            <p>Link: <a href="https://developer.123formbuilder.com/api-v2/">https://developer.123formbuilder.com/api-v2/</a><br>
+                123FormBuilder is a platform that allows users to create forms and manage their submissions. They have an API
+                documentation that developers use to integrate forms within other applications.<br>
+                We have taken inspiration from 123FB API for implementing queries that were dependent on a relationship.<br>
+                For example: <div class="request get"><div class="method">GET</div><div class="url">/forms/{form_id}/submissions</div></div> 
+                retrieves all the submission that have been registered on a form with
+                id = form_id.<br>
+                We used the same approach for getting or saving a new resource for a specific course:<br>
+                <div class="request get"><div class="method">GET</div><div class="url">/courses/{courseID}/resources</div></div> 
+                <div class="request post"><div class="method">POST</div><div class="url">/courses/{courseID}/resources</div></div> 
+            </p>
+            
+            <h4 id="eventbrite-api">Eventbrite API</h4>
+            <p>Link: <a href="https://www.eventbrite.com/platform/api">https://www.eventbrite.com/platform/api</a><br>
+                Eventbrite is a platform for creating and promoting events. We read their API documentation and checked out how they
+                implemented the listing of events. In order to get the events, you have to choose between listing them:</p>
+            <ul>
+                <li>by venue: 
+                    <div class="request get"><div class="method">GET</div><div class="url">/venues/{venueID}/events/</div></div> 
+                </li>
+                <li>by organizer:
+                    <div class="request get"><div class="method">GET</div><div class="url">/organizations/{organizationID}/events/</div></div> 
+                </li>
+                <li>by series:
+                    <div class="request get"><div class="method">GET</div><div class="url">/series/{seriesID}/events/</div></div> 
+                </li>        
+            </ul>
+            <p>We used the same resource format on the relationship between people and events, allowing us to retrieve all the
+                events for which a person is a contact:</p>
+            <div class="request get"><div class="method">GET</div><div class="url">/person/{id}/events</div></div> 
+
+            <h4 id="meetup.com-api"><a href="http://Meetup.com">Meetup.com</a> API</h4>
+            <p>Link: <a href="https://www.meetup.com/meetup_api/docs/">https://www.meetup.com/meetup_api/docs/</a><br>
+                Meetup.com is a platform that facilitates community gatherings. You can create a
+                community and have recurring events that are happening for its members.<br>
+                When you create a new event, you can set this parameter:<br>
+                <blockquote>
+                    <strong>event_hosts</strong> - String containing up to 5 comma-separated valid member ids for members who will be hosts of the event. 
+                </blockquote>
+                
+                We used the same tactic where we needed to have a list of primitive values, such as in:</p>
+            <ul>
+                <li><strong>daysOfWeek</strong> in Course model: ‘Monday;Tuesday;Sunday’</li>
+                <li><strong>times</strong> in Course model: ‘16:00;17:00;18:00’</li>
+                <li><strong>photos</strong> in Event and Person models: ‘url1;url2’</li>
+            </ul>
+            <hr>
+            <h3 id="learning-outcome">Learning outcome</h3>
+
+            <h4>Aida Denisa Opîrlesc</h4>
+            <p>Aida is very passionate about technology and digital product development, and has experience in both web and mobile development. She is more familiar to front-end technology, so she decided to take over the back-end of this web application, in order to learn how to build a Node.JS application.</p>
+            <p>It has been challenging to work with unfamiliar technology, such as Node.JS, Knex.JS and Swagger. She learned what are OpenAPI specifications and how to implement a REST API starting from them. She also learned how to manage the database connection and tables starting fron Knex.JS</p>
+            <p>Another challenge was debugging in production on the Heroku platform and finding solutions to unexpected back-end and front-end issues.</p>
+            <p>She enjoyed working with Nathalie and Lorenzo, and feels that she learned a lot working with them. She will use this knowledge in her professional web developer career, and on side projects that she is working on.</p>
+
+
+            <h4>Nathalie Giselle Ospina Cruz</h4>
+            <p>Nathalie learned there is an impact of design decisions in the backend and in the frontend development. She gained a new understanding of the structure of the web application layers which will be useful in her role as a designer to communicate better with developing teams and translate the user needs into functionalities. </p>
+            <p>She also increased her knowledge about usability, responsiveness and accessibility. She is now capable of collaborating in a development project through GitHub, populating a database with Swagger, styling with CSS3 to translate the layout design in the web layout, and using Bootstrap to some extent. </p>
+            <p>While learning these aspects from zero, she also increased her knowledge of design; tools such as Adobe XD, study of design principles and user stories for features’ design. She would like to know more about different frameworks that are used in the market, such as Angular, React or Vue. </p>
+            <p>The new knowledge acquired is meaningful for her as a product-service designer considering the high demand of UX/UI designers. She is currently engaged in an internship with a digital team where end-to-end knowledge as well as the capability of collaboration between designers and engineers is very valuable.</p>
+
+
+            <h4>Lorenzo Amici</h4>
+
+            <p>Lorenzo, coming from the Geoinformatics Engineering master and from an environmental background, had just a little previous experience with HTML and CSS; now he has really strengthened his abilities in these languages and truly understood what it means to code and build a real web application, and the structure that supports it. He now also has much more confidence with coding in JavaScript and using CSS to style the pages, since our group wanted to follow the previous design choices very precisely. </p>
+            <p>Moreover he discovered tools such as Bootstrap that helped him a lot in the work, and gained much more experience with GitHub and the management of a group project in general. A key feature he got is a deeper consciousness on how all the elements of a website interact and communicate with each other.</p>
+            <p>He is now very passionate about applying problem solving to front-end development and wants to keep learning to do it better. </p>
+
+        </div>
+    </div>
+    <div id="footer">
+       <p>Group LAN</p>
+        <p>Lorenzo Amici</p>
+        <p>Aida Denisa Opîrlesc</p>
+        <p>Nathalie Giselle Ospina Cruz</p>
+        <p id="courseref">HYPERMEDIA APPLICATIONS 2020 - POLITECNICO DI MILANO</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+        
 </body>
 
 </html>
