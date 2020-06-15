@@ -10,11 +10,11 @@ let sqlDB = sqlDBFactory({
     client: "pg",
     debug: true,
     connection: {
-        host: "localhost",
+        host: "ec2-54-75-246-118.eu-west-1.compute.amazonaws.com",
         port: "5432",
-        user: "insiemeuser",
-        password: "i1n2s3i4e5m6e7",
-        database: "insieme"   
+        user: "qlakztbbxpjbch",
+        password: "0182db017aeee465cc43bcf56b248a7ea5ec9d8e0bb4b52f2e27a45e32d31e74",
+        database: "d5c92e58euk8f3"   
     }
 });
 

@@ -15,6 +15,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "connect": "^3.2.0",
+    "cors": "^2.8.5",
     "js-yaml": "^3.3.0",
     "knex": "0.21.1",
     "pg": "8.0.3",
