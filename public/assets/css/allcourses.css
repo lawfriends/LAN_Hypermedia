@@ -11,7 +11,7 @@
 #coursesPar{
     width: auto;
     margin-left: 50px;
-    margin-right: 25px;
+    margin-right: 50px;
     padding: 0;
 }
 .courses{
@@ -62,5 +62,12 @@
 @media only screen and (max-width: 400px){
     #coursesPar{
         margin-left: 20px;
-    }    
+        margin-right: 20px;
+    }
+    .card{
+        margin-bottom: 40px;
+    } 
+    .footer{
+        margin-top: 40px;
+    }
 }

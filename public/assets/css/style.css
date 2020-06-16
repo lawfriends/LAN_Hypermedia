@@ -311,6 +311,9 @@ ol.breadcrumb li a:hover {
     ol.breadcrumb {
         margin-left: 20px;
     }
+    .footer{
+        padding-left: 0;
+    }
     .footer .col-lg{
         margin-left: 20px;
     }

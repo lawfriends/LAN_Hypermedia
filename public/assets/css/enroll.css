@@ -81,11 +81,14 @@
     h1.innerpages{
         margin-top: 0;
     }
+    .first{
+        margin-right: 50px;
+    }
 }
 @media only screen and (max-width: 500px){
     .first{
         margin-left: 20px;
-        margin-right: 0;
+        margin-right: 20px;
     }
     .card{
         width: 140px;

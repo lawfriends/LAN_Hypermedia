@@ -12,8 +12,8 @@
 #resourcePar{
     width: auto;
     margin-left: 50px;
-    margin-right: 25px;
-    padding-left: 0;
+    margin-right: 50px;
+    padding: 0;
 }
 .grayTitle{
     margin-left: 5vw;
@@ -134,6 +134,6 @@
     }
     #resourcePar{
         margin-left: 20px;
-        margin-right: 0;
+        margin-right: 20px;
     }
 }
