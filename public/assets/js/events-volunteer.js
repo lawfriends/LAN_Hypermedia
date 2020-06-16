@@ -27,9 +27,9 @@ function getEventsByVolunteer() {
             const eventDateTime = new Date(events[i].date);
             var timeArray = eventDateTime.toLocaleTimeString('it').split(':');
             var month = document.createElement("p");
-            month.innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).slice(0,3);
+            month.innerHTML = eventDateTime.toLocaleString('en-GB', { month: 'long' }).slice(0,3);
             var day = document.createElement("p");
-            day.innerHTML = eventDateTime.toLocaleString('default', { day: 'numeric' });
+            day.innerHTML = eventDateTime.toLocaleString('it-IT', { day: 'numeric' });
             dateCol.appendChild(month);
             dateCol.appendChild(day);
             var infoCol = document.createElement("div");

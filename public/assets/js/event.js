@@ -15,7 +15,7 @@ function getEvent() {
         const eventDateTime = new Date(event.date);
         let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
-        document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('default', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('default', timeOptions)));
+        document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('en-GB', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('it-IT', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
         document.querySelector("#eventImage img").setAttribute("alt", event.title.split(";")[0].concat(" image"));
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
@@ -24,8 +24,8 @@ function getEvent() {
         document.querySelector("#coordinatorName").innerHTML = event.coordinator.name;
         document.querySelector("#coordinatorLink").href = "./person.html?id=".concat(event.coordinator.id);
         document.querySelector("#eventLocation").innerHTML = event.location.split(";")[1];
-        let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
-        let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
+        let monthNumeric = parseInt(eventDateTime.toLocaleDateString('it-IT', { month: 'numeric'}))-1;
+        let monthTextual = eventDateTime.toLocaleDateString('en-GB', { month: 'long'});
         document.querySelector("#eventsMonthButton").href = "./events-month.html?month=".concat(monthNumeric);
         document.querySelector("#breadcrumbEventsMonth a").innerHTML = "Events in ".concat(monthTextual);
         document.querySelector("#breadcrumbEventsMonth a").href = "./events-month.html?month=".concat(monthNumeric);

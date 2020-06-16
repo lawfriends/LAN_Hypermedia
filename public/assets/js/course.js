@@ -63,9 +63,9 @@ function getCourse() {
             eventDate.classList.add("col-3");
             eventDate.setAttribute("id", "eventDate");
             var month = document.createElement("p");
-            month.innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).slice(0,3);
+            month.innerHTML = eventDateTime.toLocaleString('en-GB', { month: 'long' }).slice(0,3);
             var day = document.createElement("p");
-            day.innerHTML = eventDateTime.toLocaleString('default', { day: 'numeric' });
+            day.innerHTML = eventDateTime.toLocaleString('it-IT', { day: 'numeric' });
             var eventInfo = document.createElement("div");
             eventInfo.classList.add("col");
             eventInfo.setAttribute("id", "eventInfo");

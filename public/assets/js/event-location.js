@@ -14,8 +14,8 @@ function getEvent() {
         document.querySelector("iframe").src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzDgkYS73J7qoN2ibj1E7x_J2gd5UGGZQ&q=".concat(event.location.split(";")[1].replace(/\s+/g, '+').replace(/,/g, ''));
         document.querySelector("#locationButton").href = "./event.html?id=".concat(eventId);
         const eventDateTime = new Date(event.date);
-        let monthNumeric = parseInt(eventDateTime.toLocaleDateString('default', { month: 'numeric'}))-1;
-        let monthTextual = eventDateTime.toLocaleDateString('default', { month: 'long'});
+        let monthNumeric = parseInt(eventDateTime.toLocaleDateString('it-IT', { month: 'numeric'}))-1;
+        let monthTextual = eventDateTime.toLocaleDateString('en-GB', { month: 'long'});
         document.querySelector("#breadcrumbEventsMonth a").innerHTML = "Events in ".concat(monthTextual);
         document.querySelector("#breadcrumbEventsMonth a").href = "./events-month.html?month=".concat(monthNumeric);
     })

@@ -36,8 +36,7 @@ exports.coursePresentationDBSetup = function (connection) {
 };
 
 exports.save = function(course) {
-  return new Promise((resolve, reject) => {
-    sqlDB('course')
+    return sqlDB('course')
       .returning()
       .insert({
           level: course.level,
@@ -47,32 +46,7 @@ exports.save = function(course) {
           daysOfWeek: course.daysOfWeek,
           image: course.image,
           cerf_level: course.cerf_level
-          }, ['id', 'level', 'description','location','times','daysOfWeek','image','cerf_level'])
-            .then((courseSaved)=>{
-              if(course.volunteers && course.volunteers.length > 0) {
-                var courseVolunteers = course.volunteers.map(volunteer => { 
-                  return { 
-                    course_id: courseSaved[0].id,
-                    person_id: volunteer.id 
-                  }
-                }); 
-                sqlDB.insert(courseVolunteers,['course_id', 'person_id']).into('course_volunteer')
-                  .then((result2) => {
-                    resolve(courseSaved);
-                  })
-                  .catch((error) => {
-                    console.log(error);
-                    reject();
-                  });
-              } else {
-                resolve(courseSaved);
-              }
-            })
-            .catch((error)=> {
-              console.log(error)
-              reject();
-            });     
-          });
+          }, ['id', 'level', 'description','location','times','daysOfWeek','image','cerf_level']);
 }
 
 exports.getCourses = function() {

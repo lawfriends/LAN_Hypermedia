@@ -8,9 +8,9 @@ function getEventsByMonth() {
         return response.json();
     }).then(function(events) {
         const eventDateTime = new Date(events[0].date);
-        document.querySelector("title").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
-        document.querySelector(".breadcrumb .active").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('default', { month: 'long' }));
-        document.querySelector("h1").innerHTML = eventDateTime.toLocaleString('default', { month: 'long' }).concat(" ").concat(eventDateTime.toLocaleString('default', { year: 'numeric' }));
+        document.querySelector("title").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('en-GB', { month: 'long' }));
+        document.querySelector(".breadcrumb .active").innerHTML = "Events in ".concat(eventDateTime.toLocaleString('en-GB', { month: 'long' }));
+        document.querySelector("h1").innerHTML = eventDateTime.toLocaleString('en-GB', { month: 'long' }).concat(" ").concat(eventDateTime.toLocaleString('it-IT', { year: 'numeric' }));
         for(var i=0; i<events.length; i++) {
             var eventCol = document.createElement("div");
             eventCol.classList.add("col-xl-4", "col-md-6", "col-sm-12");
@@ -31,7 +31,7 @@ function getEventsByMonth() {
             const eventDateTime = new Date(events[i].date);
             var timeArray = eventDateTime.toLocaleTimeString('it').split(':');
             var day = document.createElement("p");
-            day.innerHTML = eventDateTime.toLocaleString('default', { day: 'numeric' });
+            day.innerHTML = eventDateTime.toLocaleString('it-IT', { day: 'numeric' });
             dateCol.appendChild(day);
             var infoCol = document.createElement("div");
             infoCol.classList.add("col");
