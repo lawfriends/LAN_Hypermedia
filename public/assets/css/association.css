@@ -1,4 +1,4 @@
-.row{
+.bodyRow{
     width: 100%;
     margin: auto;
 }
@@ -72,9 +72,6 @@ p.normal.first{
     }
 }
 @media only screen and (max-width:767px){
-    p{
-        padding-left: 0.8em;
-    }
     .carouselComment{
         height: 750px;
     }
@@ -85,6 +82,9 @@ p.normal.first{
     }
     #founderRow{
         margin-top: 0px;
+    }
+    #associationPar2{
+        padding-left: 50px;
     }
 }
 @media only screen and (max-width: 400px){

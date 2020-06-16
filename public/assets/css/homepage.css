@@ -131,6 +131,9 @@
         margin-right: 50px;
         margin-left: 50px;
     }
+    .homepageDonate{
+        background-position: 10%;
+    }
     .volunteerButton{
         display: block;
         margin-left: auto;
@@ -202,15 +205,18 @@
     }
     .homepageDonate{
         height: 260px;
-        background-position: center;
     }
     .volunteerButton{
-        position: static;
-        margin-left: calc(50% - 100px);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .donateButton{
-        position: static;
-        margin-left: calc(50% - 100px);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
     }
     .emptyCol{
         height: 260px;

@@ -113,12 +113,14 @@
                 This separation follows the <strong>3 Tier Architecture</strong>, one of the most popular used in web development.
             </p>
             <p>The application is respecting SOLID object oriented programming principles, so each component has a clear role, and
-                it is easy to develop components individually. They interract with eachother through method calls and ocasionally
+                it is easy to develop components individually. They interact with each other through method calls and ocasionally
                 promisses.</p>
             <h4 id="presentation-layer">1. Presentation Layer</h4>
             <div class="content-second-level">
+                <img src="/backend/assets/img/WebArchitecture-03.svg" alt="Presentation Layer"
+                    title="Presentation Layer">
                 <p>The Presentation Layer refers to the interface of the website that the users see and interact with. It consists of
-                    different components that communicate and interract with eachother. This part of the application is also referred to
+                    different components that communicate and interact with each other. This part of the application is also referred to
                     as <strong>front-end</strong>.</p>
                 <h5 id="web-browser">Web Browser</h5>
                 <p>Data is rendered and displayed for the user in a <strong>web browser</strong>. The web browser is receiving from the
@@ -145,6 +147,8 @@
                 </div>
             <h4 id="application-layer">2. Application Layer</h4>
             <div class="content-second-level">
+                <img src="/backend/assets/img/WebArchitecture-04.svg" alt="Application Layer"
+                    title="Application Layer" class="col-md-12 col-sm-12">
                 <p>The Application Layer refers to the business logic part of the website, where dynamic (changing) data is handled. It
                     has different components and sub-layers that help with separation of concerns and independent development of
                     componets. Users do not interact with this section directly, so this it is considered as being part of the
@@ -199,7 +203,7 @@
                     changes can be done in the corresponding DAO class without changing the rest of the application.<br>
                     The DAO components receive calls from the service components, which request data or send over data to be saved in
                     the database. The DAO components make sure the database has specific tables(otherwise it requests the tables to be
-                    built), that incoming data is mapped to the coresponding columns in the database, and that the frontend receives
+                    built), that incoming data is mapped to the corresponding columns in the database, and that the frontend receives
                     only the needed data.<br>
                     The application has a service for every type of entity that we have in the database:</p>
                 <ol>
@@ -213,7 +217,8 @@
             </div>
             <h4 id="data-layer">3. Data Layer</h4>
             <div class="content-second-level">
-
+                <img src="/backend/assets/img/WebArchitecture-05.svg" alt="Data Layer"
+                    title="Data Layer">
                 <p>The Data Layer refers to the storage of data in a database, assuring the dynamic features of the website.<br>
                     In the database, each independent entity that has data to be stored has its own table:</p>
                 <ol>
@@ -223,31 +228,34 @@
                     <li>comment</li>
                     <li>resource</li>
                 </ol>
-                <p>Besides the entities, there are 2 tables that are used for mapping 2 many to many relationships:<br>
-                    6. course_presentation - which maps the relationship between courses and events<br>
-                    7. course_volunteers - which maps the relationship between courses and volunteers (people)</p>
+                <p>Besides the entities, there are 2 tables that are used for mapping 2 many to many relationships:
+                    <ol start="6">
+                        <li>course_presentation - which maps the relationship between courses and events</li>
+                        <li>course_volunteers - which maps the relationship between courses and volunteers (people)</li>
+                    </ol>
+                </p>
                 <p>Those tables are created by the DAO components, and basic SQL operations are performed only by the Data Layer.</p>
             </div>
             <hr>
             <h3 id="api">API</h3>
             <h4 id="rest-compliance">REST compliance</h4>
             <div class="content-second-level">
-                <p>Building this application that uses a REST API to mediate the communication between back-end and front-end, we wanted
+                <p>By building this application that uses a REST API to mediate the communication between back-end and front-end, we wanted
                     to respect as much as possible the REST Principles, not only because they are good practices, but also because they
-                    are widely known and any developer that may take over the work on Insieme website will be able to easily understand
+                    are widely known and any developer that may take over the work on InSieme website will be able to easily understand
                     the functionality that the application layer provides.</p>
                 <ol>
                     <li><strong>Client-Server</strong> - The app has a strong separation between the functionality executed on the
                         client, which is mainly rendering data and information, and the functionality executed on the server side
                         which is data handling and manipulation.</li>
                     <li><strong>Stateless</strong> - There was no need for stateful or session dependent data to be kept on the server,
-                        therefore the app is treating any request as independent and complete</li>
-                    <li><strong>Uniform interfaces</strong> - The API documentation is describing the resources what the app is using,
+                        therefore the app is treating any request as independent and complete.</li>
+                    <li><strong>Uniform interfaces</strong> - The API documentation is describing the resources that the app is using,
                         as well as their models. Moreover, the requests follow a similar structure, so once you understand how to get
                         data for one of them, you can follow the same pattern for the others. For example: /person/{personID} ,
                         /events/{eventID} , /course/{courseID} are all retrieving the requested resource with the specified ID.</li>
                     <li><strong>Layered system</strong> - The application has components that are split in layers by their role, and
-                        they can communicate only with the layers that are addiacent to them. This assures the separation of concerns
+                        they can communicate only with the layers that are adjacent to them. This ensures the separation of concerns
                         and a better individual development of components.</li>
                 </ol>
                 <p>Besides these principles, we also needed to decide how to map the requests that need data from 2 or more entities,
@@ -265,7 +273,7 @@
                 <p>In order to ensure a good communication between back-end and front-end, we introduced models for the resources, that
                     they have to respect.</p>
                 <h5 id="course">Course</h5>
-                <p>The Course resource represents information the <strong>services</strong> that the association is offering, which are
+                <p>The Course resource represents information about the <strong>services</strong> that the association is offering, which are
                     Italian Language courses. It has the following properties:</p>
                 <ul>
                     <li><strong>id</strong>: integer - the unique identifier of a course</li>
@@ -366,7 +374,7 @@
                 </ul>
                 <h5 id="comment">Comment</h5>
                 <p>The Comment resource represents a review or a testimonial given by students that have participated into the
-                    association’s courses and events. They can be reviews of the association, or comments about a specific volunteer
+                    association’s courses. They can be reviews of the association, or comments about a specific volunteer
                     (teacher). It has the following properties:</p>
                 <ul>
                     <li><strong>id</strong>: integer - the unique identifier of a comment</li>
@@ -383,7 +391,7 @@
             <div class="content-second-level">
             <img src="/backend/assets/img/DesignSchemas-01.svg" alt="ER Diagram" title="ER Diagram">
             <p>In the OpenAPI specifications, there are 5 data models for the main entities of our database: Person model, Course model, Event model, Resource model and Comment model.</p>
-            <p>The Resource model and the Comment model have the same attributes as in the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
+            <p>The Resource model and the Comment model have the same attributes as the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
             <p>In the same way, a request to get an Event will carry the Person coordinating that Event, and the Course that is associated to the Event; and finally, a Course will also give information about each Person teaching it and the Events that are recommended to students following that Course.</p>
                 
             </div>
@@ -406,14 +414,14 @@
             <h4 id="swagger-with-openapi-specifications">Swagger with OpenAPI Specifications</h4>
             <div class="content-second-level">
                 <p>Swagger is a framework that is used for easily creating documentation and managing REST APIs. It is based on OpenAPI
-                    Specifications, that are rules for configuring REST APIs in a JSON or YAML document. Swagger frameworn offers data
+                    Specifications, that are rules for configuring REST APIs in a JSON or YAML document. Swagger framework offers data
                     validation, routing the request to appropriate controls, an interface for the documentation in which requests can be
                     tested out, and many more.</p>
             </div>
             <h4 id="knex.js">KNEX.JS</h4>
             <div class="content-second-level">
                 <p>Knex.js is a query-builder library for JavaScript in which you use different methods in order to connect and perform
-                    operations over databases. The Insieme web app uses this library for creating tables, saving and retrieving data
+                    operations over databases. The InSieme web app uses this library for creating tables, saving and retrieving data
                     from the database.</p>
             </div>
             <h4 id="postgresql">PostgreSQL</h4>
@@ -453,8 +461,7 @@
                 <div class="question"> Why do you think your web application adheres to common practices to partition a
                 REST-based web application (static assets vs. application data)?
                 </div>
-                <div class="answer"> We used the Swagger UI interface to test every endpoint and we solved the ocasional bugs
-                The Insieme web app has a clear separation of static assets, such as HTML, CSS and
+                <div class="answer"> The InSieme web app has a clear separation of static assets, such as HTML, CSS and
                 JavaScript files that build the user interface (front-end), from the business logic JavaScript files that only
                 handle operations with data. The front-end, static files are stored in the folder “public”, which is configured in
                 the application server to serve its files as static. All the other files constitute the server functionality and

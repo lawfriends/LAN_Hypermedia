@@ -12,8 +12,9 @@
 #eventPar{
     width: auto;
     margin-left: 50px;
-    margin-right: 25px;
+    margin-right: 50px;
     padding-left: 0;
+    padding-right: 0;
 }
 .title{
     margin-left: 50px;
@@ -48,6 +49,9 @@
     padding-right: 15px;
     padding-left: 10px;
 }
+.overline{
+    margin-left: 20px;
+}
 #coordinatorInfo{
     background-color: #CEE8DF;
     height: 110px;
@@ -56,6 +60,7 @@
     width: auto;
     margin-left: 0;
     height: auto;
+    margin-left: 20px;
 }
 #coordinatorPhoto{
     max-width: 74px;
@@ -162,13 +167,20 @@
     #eventContact .col-xl:nth-child(2){
         margin-left: 50px;
     }
+    #coordinatorInfo{
+        margin-left: 0;
+    }
     #coordinatorInfo .col:first-child{
         max-width: 150px;
+    }
+    .overline{
+        margin-left: 0;
     }
 }
 @media only screen and (max-width: 400px){
     #eventPar{
         margin-left: 20px;
+        margin-right: 20px;
     }
     #eventContact{
         margin-left: 20px;

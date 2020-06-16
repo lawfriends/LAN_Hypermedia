@@ -281,3 +281,14 @@ blockquote {
     padding:10px;
     border: 1px solid #cee8df;
 }
+
+.content-second-level img {
+    float: right;
+    max-width: 300px;
+    margin: 0;
+    max-height: 400px;
+}
+
+#application-layer + .content-second-level img {
+    max-width:500px;
+}
