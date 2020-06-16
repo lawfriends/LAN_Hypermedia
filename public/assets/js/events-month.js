@@ -29,7 +29,7 @@ function getEventsByMonth() {
             dateCol.classList.add("col-3");
             dateCol.setAttribute("id", "eventDate");
             const eventDateTime = new Date(events[i].date);
-            var timeArray = eventDateTime.toLocaleTimeString('it').split(':');
+            var timeArray = eventDateTime.toLocaleTimeString('GMT').split(':');
             var day = document.createElement("p");
             day.innerHTML = eventDateTime.toLocaleString('it-IT', { day: 'numeric' });
             dateCol.appendChild(day);
