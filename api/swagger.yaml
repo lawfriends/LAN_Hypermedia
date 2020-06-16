@@ -369,7 +369,7 @@ definitions:
       date:
         type: "string"
         format: "date-time"
-        example: "2021-10-19T08:23:54.000Z"
+        example: "2021-10-19T08:23:54+02:00"
       description:
         type: "string"
         example: "Improve your italian knowledge and culture"
@@ -387,7 +387,7 @@ definitions:
     example: 
       id: 1
       title: "Guided Visit;Guided Visit to Museo"
-      date: "2021-10-19T08:23:54.000Z"
+      date: "2021-10-19T08:23:54+01:00"
       location: "Corso Magenta, 15, 20123 Milano MI"
       description: "Improve your italian knowledge and culture"
       photos: "/assets/img/allevents/november-small.png"
@@ -458,7 +458,7 @@ definitions:
       comments:
       - id: 9
         text: "This is a very nice teacher"
-        date: "2019-10-19T08:23:54.000Z"
+        date: "2019-10-19T08:23:54+02:00"
         student_name: "Mohammed Ali"
         photo: "/assets/img/association/03mohammed-ali.png"
   Course:
@@ -514,7 +514,7 @@ definitions:
       events: 
       - id: 1
         title: "Museum night"
-        date: "2019-10-19T08:23:54.000Z"
+        date: "2019-10-19T08:23:54+01:00"
         location: "Corso Magenta, 15, 20123 Milano MI"
         description: "Improve your italian knowledge and culture"
         photos: "/assets/img/allevents/november-small.png"
@@ -559,7 +559,7 @@ definitions:
       date:
         type: "string"
         format: "date-time"
-        example: "2019-10-19T08:23:54.000Z"
+        example: "2019-10-19T08:23:54+02:00"
       person_id:
         type: "integer"
         description: "if you add a comment about the association, then you have to leave this property null"
@@ -572,7 +572,7 @@ definitions:
     example:
       id: 1
       text: "'Classes are in small groups of different nationalities where we learn to share'"
-      date: "2019-10-19T08:23:54.000Z"
+      date: "2019-10-19T08:23:54+02:00"
       student_name: "Daniela Sainz"
       photo: "/assets/img/students/daniela.png"
       person_id: 2
