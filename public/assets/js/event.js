@@ -15,7 +15,7 @@ function getEvent() {
         const eventDateTime = new Date(event.date);
         let dateOptions = { day: 'numeric', month: 'long', year: 'numeric'};
         let timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false};
-        document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('en-GB', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('it-IT', timeOptions)));
+        document.querySelector("#eventPar h6").innerHTML = eventDateTime.toLocaleDateString('en-GB', dateOptions).concat(", ".concat(eventDateTime.toLocaleTimeString('GMT', timeOptions)));
         document.querySelector("#eventImage img").src = event.photos;
         document.querySelector("#eventImage img").setAttribute("alt", event.title.split(";")[0].concat(" image"));
         document.querySelector("#eventCourseLink").href = "./course.html?id=".concat(event.courses[0].id);
