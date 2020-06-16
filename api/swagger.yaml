@@ -375,7 +375,7 @@ definitions:
         example: "Improve your italian knowledge and culture"
       photos:
         type: "string"
-        example: "/assets/img/allevents/november-small.png"
+        example: "/assets/img/allevents/event/01-november-bigger.jpg"
       coordinator:
         $ref: "#/definitions/Person"
       courses: 
@@ -387,10 +387,10 @@ definitions:
     example: 
       id: 1
       title: "Guided Visit;Guided Visit to Museo"
-      date: "2021-10-19T08:23:54+01:00"
+      date: "2021-10-19T08:23:54+02:00"
       location: "Corso Magenta, 15, 20123 Milano MI"
       description: "Improve your italian knowledge and culture"
-      photos: "/assets/img/allevents/november-small.png"
+      photos: "/assets/img/allevents/event/01-november-bigger.jpg"
       contact_id: 1
       coordinator: 
         id: 1
@@ -514,7 +514,7 @@ definitions:
       events: 
       - id: 1
         title: "Museum night"
-        date: "2019-10-19T08:23:54+01:00"
+        date: "2019-10-19T08:23:54+02:00"
         location: "Corso Magenta, 15, 20123 Milano MI"
         description: "Improve your italian knowledge and culture"
         photos: "/assets/img/allevents/november-small.png"
