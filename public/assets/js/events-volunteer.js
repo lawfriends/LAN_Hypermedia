@@ -25,7 +25,8 @@ function getEventsByVolunteer() {
             dateCol.classList.add("col-3");
             dateCol.setAttribute("id", "eventDate");
             const eventDateTime = new Date(events[i].date);
-            var timeArray = eventDateTime.toLocaleTimeString('GMT').split(':');
+            let timeOptions = { hour12: false };
+            var timeArray = eventDateTime.toLocaleTimeString('GMT', timeOptions).split(':');
             var month = document.createElement("p");
             month.innerHTML = eventDateTime.toLocaleString('en-GB', { month: 'long' }).slice(0,3);
             var day = document.createElement("p");
