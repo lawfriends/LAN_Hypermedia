@@ -74,18 +74,18 @@
         <div id="links-to-other-deliverables" class="chapter">
             <h2>Links to other deliverables</h2>
             <ul>
-                <li><em>Deliverable D0</em>: the web application is accessible at <a
-                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>.</li>
-                <li><em>Deliverable D2</em>: the YAML file containing the specification of the app API can be found at <a
-                        href="https://insieme-hya.herokuapp.com/backend/spec.yaml">https://insieme-hya.herokuapp.com/backend/spec.yaml</a>.
+                <li><em>Deliverable D0</em>: the web application is accessible at 
+                    <a href="https://insieme-hya.herokuapp.com/" target="_blank">https://insieme-hya.herokuapp.com/</a>.</li>
+                <li><em>Deliverable D2</em>: the YAML file containing the specification of the app API can be found at 
+                    <a href="https://insieme-hya.herokuapp.com/backend/spec.yaml" target="_blank">https://insieme-hya.herokuapp.com/backend/spec.yaml</a>.
                 </li>
-                <li><em>Deliverable D3</em>: the SwaggerUI page of the same API is available at <a
-                        href="https://insieme-hya.herokuapp.com/backend/swaggerui">https://insieme-hya.herokuapp.com/backend/swaggerui</a>.
+                <li><em>Deliverable D3</em>: the SwaggerUI page of the same API is available at 
+                    <a href="https://insieme-hya.herokuapp.com/backend/swaggerui" target="_blank">https://insieme-hya.herokuapp.com/backend/swaggerui</a>.
                 </li>
-                <li><strong>[TODO] Deliverable D4: the source code of D0 is available as a zip file at <a
-                            href="https://example.com/backend/app.zip">this address</a></strong>.</li>
-                <li><em>Deliverable D5</em>: the address of the online source control repository is available <a
-                        href="https://github.com/lawfriends/LAN_Hypermedia">https://github.com/lawfriends/LAN_Hypermedia</a>. We
+                <li><em>Deliverable D4</em>: the source code of D0 is available as a zip file at 
+                    <a href="https://insieme-hya.herokuapp.com/backend/app.zip" target="_blank">https://insieme-hya.herokuapp.com/backend/app.zip</a>.</li>
+                <li><em>Deliverable D5</em>: the address of the online source control repository is available 
+                    <a href="https://github.com/lawfriends/LAN_Hypermedia" target="_blank">https://github.com/lawfriends/LAN_Hypermedia</a>. We
                     hereby declare that this is a private repository and, upon request, we will give access to the instructors.</li>
             </ul>
         </div>
@@ -117,19 +117,19 @@
                 promisses.</p>
             <h4 id="presentation-layer">1. Presentation Layer</h4>
             <div class="content-second-level">
-                <p>The Presentation Layer refers to the interface of the website that the users see and interract with. It consists of
-                    different components that communicate and interract with eachother. This part of the application is also reffered to
+                <p>The Presentation Layer refers to the interface of the website that the users see and interact with. It consists of
+                    different components that communicate and interract with eachother. This part of the application is also referred to
                     as <strong>front-end</strong>.</p>
                 <h5 id="web-browser">Web Browser</h5>
                 <p>Data is rendered and displayed for the user in a <strong>web browser</strong>. The web browser is receiving from the
                     user different instructions, such as loading the website at the address “<a
-                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>”. The browser will make a GET
+                        href="https://insieme-hya.herokuapp.com/" target="_blank">https://insieme-hya.herokuapp.com/</a>”. The browser will make a GET
                     HTTP(S) call to the server that hosts the website at the specified address, and receives a set of static data,
                     usually HTML, CSS and Javascript. The browser interprets them and displays the result. Usually, the main file served
                     when first accessing a website is <strong>index.html</strong></p>
                 <h5 id="index.html">INDEX.HTML</h5>
                 <p>It is the main file that is rendered by the browser when the user accesses the website on the root address <a
-                        href="https://insieme-hya.herokuapp.com/">https://insieme-hya.herokuapp.com/</a>. It contains the homepage and
+                        href="https://insieme-hya.herokuapp.com/" target="_blank">https://insieme-hya.herokuapp.com/</a>. It contains the homepage and
                     it acts like a gateway towards the other pages of the website, having call to action buttons towards other pages of
                     the website.</p>
                 <h5 id="pages">Pages</h5>
@@ -147,7 +147,7 @@
             <div class="content-second-level">
                 <p>The Application Layer refers to the business logic part of the website, where dynamic (changing) data is handled. It
                     has different components and sub-layers that help with separation of concerns and independent development of
-                    componets. Users do not interract with this section directly, so this it is considered as being part of the
+                    componets. Users do not interact with this section directly, so this it is considered as being part of the
                     <strong>back-end</strong> of the web application.<br>
                     The role of this part of the website is to handle dynamic data, meaning data that is not stored in the code of the
                     application, but in a database. The Application Layer provides the needed data to the front-end, which renders it
@@ -160,13 +160,12 @@
                 <h5 id="rest-api-swagger">REST API: SWAGGER</h5>
                 <p>The first component of the application layer is the REST Interface. A REST interface is a collections of
                     <strong>resources</strong> that can be accessed (called) over HTTP protocol, so that different types of clients can
-                    communicate with the application layer. For example, we defined a rule on GET over the URL “<a
-                        href="https://insieme-hya.herokuapp.com/v1/courses">https://insieme-hya.herokuapp.com/v1/courses</a>”, so that
+                    communicate with the application layer. For example, we defined a rule on GET over the URL <strong>“https://insieme-hya.herokuapp.com/v1/courses”</strong>, so that
                     the JavaScript files attached to the page <strong>allcourses.html</strong> can make a GET request to this URL, and
                     expect a list of courses.<br>
                     We used the Swagger library for defining those resources, but also for building a documentation (that can be
-                    accessed at: <a
-                        href="https://insieme-hya.herokuapp.com/backend/swaggerui">https://insieme-hya.herokuapp.com/backend/swaggerui</a>).
+                    accessed at: <a 
+                        href="https://insieme-hya.herokuapp.com/backend/swaggerui" target="_blank">https://insieme-hya.herokuapp.com/backend/swaggerui</a>).
                     There one can find the collection of all supported REST API resources, with the possibility to test them.</p>
                 <h5 id="controller-layer">CONTROLLER LAYER</h5>
                 <p>The Controller Layer contains the components that are catching the requests that come from the front-end and
@@ -238,8 +237,8 @@
                     are widely known and any developer that may take over the work on Insieme website will be able to easily understand
                     the functionality that the application layer provides.</p>
                 <ol>
-                    <li><strong>Cliend-Server</strong> - The app has a strong separation between the functionality executed on the
-                        client server, which is mainly rendering data and information, and the functionality executed on the server side
+                    <li><strong>Client-Server</strong> - The app has a strong separation between the functionality executed on the
+                        client, which is mainly rendering data and information, and the functionality executed on the server side
                         which is data handling and manipulation.</li>
                     <li><strong>Stateless</strong> - There was no need for stateful or session dependent data to be kept on the server,
                         therefore the app is treating any request as independent and complete</li>
@@ -551,7 +550,7 @@
 
             <h4 id="formbuilder-api">123FormBuilder API</h4>
 
-            <p>Link: <a href="https://developer.123formbuilder.com/api-v2/">https://developer.123formbuilder.com/api-v2/</a><br>
+            <p>Link: <a href="https://developer.123formbuilder.com/api-v2/" target="_blank">https://developer.123formbuilder.com/api-v2/</a><br>
                 123FormBuilder is a platform that allows users to create forms and manage their submissions. They have an API
                 documentation that developers use to integrate forms within other applications.<br>
                 We have taken inspiration from 123FB API for implementing queries that were dependent on a relationship.<br>
@@ -564,7 +563,7 @@
             </p>
             
             <h4 id="eventbrite-api">Eventbrite API</h4>
-            <p>Link: <a href="https://www.eventbrite.com/platform/api">https://www.eventbrite.com/platform/api</a><br>
+            <p>Link: <a href="https://www.eventbrite.com/platform/api" target="_blank">https://www.eventbrite.com/platform/api</a><br>
                 Eventbrite is a platform for creating and promoting events. We read their API documentation and checked out how they
                 implemented the listing of events. In order to get the events, you have to choose between listing them:</p>
             <ul>
@@ -582,8 +581,8 @@
                 events for which a person is a contact:</p>
             <div class="request get"><div class="method">GET</div><div class="url">/person/{id}/events</div></div> 
 
-            <h4 id="meetup.com-api"><a href="http://Meetup.com">Meetup.com</a> API</h4>
-            <p>Link: <a href="https://www.meetup.com/meetup_api/docs/">https://www.meetup.com/meetup_api/docs/</a><br>
+            <h4 id="meetup.com-api">Meetup.com API</h4>
+            <p>Link: <a href="https://www.meetup.com/meetup_api/docs/" target="_blank">https://www.meetup.com/meetup_api/docs/</a><br>
                 Meetup.com is a platform that facilitates community gatherings. You can create a
                 community and have recurring events that are happening for its members.<br>
                 When you create a new event, you can set this parameter:<br>
