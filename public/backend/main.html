@@ -261,7 +261,7 @@
                 <p>Besides these principles, we also needed to decide how to map the requests that need data from 2 or more entities,
                     especially for entities that have a relation in the database.<br>
                     For this, we decided to use the following struncture for the url:<br>
-                    <strong>"/main-entity-name/{main-entity-id}/related-entity-name"</strong><br>
+                    <div class="request neutral"><div class="method">METHOD</div><div class="url">/main-entity-name/{main-entity-id}/related-entity-name</div></div> 
                     where <em>main-entity-name</em> and <em>related-entity-name</em> have a relationship in the database (usually one to
                     many or many to many), and this resource will provide all the entries of type “related-entity-name” that are in a
                     relation with the entry of type “main-entity-name” that has the id equal to <em>main-entity-id/</em>. For example,

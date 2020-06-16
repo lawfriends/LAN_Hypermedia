@@ -275,6 +275,16 @@ ul.work-time-split {
 
 }
 
+.request.neutral {
+    border:1px solid #4c4c4c;
+}
+
+.request.neutral .method {
+    color: #ffffff;
+    background: #4c4c4c;
+}
+
+
 blockquote {
     margin-left:20px;
     font-style: italic;
