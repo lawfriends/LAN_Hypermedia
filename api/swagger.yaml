@@ -1,11 +1,11 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is the website of Insieme - Italian Teaching association"
+  description: "This is the OpenAPI documentation of the website about Insieme - Italian Teaching association"
   version: "1.0.0"
   title: "Insieme"
   contact:
-    email: "contact@insieme.it"
+    email: "insiemesanfedele@gmail.com"
 host: "localhost:8080"
 basePath: "/v1"
 tags:
