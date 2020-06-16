@@ -13,6 +13,7 @@ function getAllPeople() {
         return response.json();
     }).then(function(people) {
         for(var i=0; i<people.length; i++){
+            var teachers = 0;
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
                 var personCol = document.createElement("div");
@@ -76,10 +77,10 @@ function getAllPeople() {
                 infoRow.appendChild(imageCol);
                 personCol.appendChild(infoRow);
                 teacherRow.appendChild(personCol);
-            }
-            if(i>9 && people[i].role == "teacher"){
-                personCol.style.display = "none";
-                personCol.classList.add("hiddenPerson");
+                if(teachers>8){
+                    personCol.style.display = "none";
+                    personCol.classList.add("hiddenPerson");
+                }
             }
         }
         document.querySelector("#showMoreButton").addEventListener("click", showMoreButton);  
