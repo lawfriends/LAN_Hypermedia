@@ -8,13 +8,13 @@ let { resourceDBSetup } = require('./dao/ResourceDAO')
 const sqlDBFactory = require("knex");
 let sqlDB = sqlDBFactory({
     client: "pg",
-    debug: true,
+    debug: false,
     connection: {
-        host: "localhost",
+        host: "ec2-54-247-94-127.eu-west-1.compute.amazonaws.com",
         port: "5432",
-        user: "insiemeuser",
-        password: "i1n2s3i4e5m6e7",
-        database: "insieme"   
+        user: "wcoaejbbkvqofw",
+        password: "1ce110cdf5e9806c4c49d75b8283737759651b463e08d2c0015b217432da766f",
+        database: "dctlc3khsj99f1"
     }
 });
 

@@ -113,12 +113,14 @@
                 This separation follows the <strong>3 Tier Architecture</strong>, one of the most popular used in web development.
             </p>
             <p>The application is respecting SOLID object oriented programming principles, so each component has a clear role, and
-                it is easy to develop components individually. They interract with eachother through method calls and ocasionally
+                it is easy to develop components individually. They interact with each other through method calls and ocasionally
                 promisses.</p>
             <h4 id="presentation-layer">1. Presentation Layer</h4>
             <div class="content-second-level">
+                <img src="/backend/assets/img/WebArchitecture-03.svg" alt="Presentation Layer"
+                    title="Presentation Layer">
                 <p>The Presentation Layer refers to the interface of the website that the users see and interact with. It consists of
-                    different components that communicate and interract with eachother. This part of the application is also referred to
+                    different components that communicate and interact with each other. This part of the application is also referred to
                     as <strong>front-end</strong>.</p>
                 <h5 id="web-browser">Web Browser</h5>
                 <p>Data is rendered and displayed for the user in a <strong>web browser</strong>. The web browser is receiving from the
@@ -145,6 +147,8 @@
                 </div>
             <h4 id="application-layer">2. Application Layer</h4>
             <div class="content-second-level">
+                <img src="/backend/assets/img/WebArchitecture-04.svg" alt="Application Layer"
+                    title="Application Layer" class="col-md-12 col-sm-12">
                 <p>The Application Layer refers to the business logic part of the website, where dynamic (changing) data is handled. It
                     has different components and sub-layers that help with separation of concerns and independent development of
                     componets. Users do not interact with this section directly, so this it is considered as being part of the
@@ -199,7 +203,7 @@
                     changes can be done in the corresponding DAO class without changing the rest of the application.<br>
                     The DAO components receive calls from the service components, which request data or send over data to be saved in
                     the database. The DAO components make sure the database has specific tables(otherwise it requests the tables to be
-                    built), that incoming data is mapped to the coresponding columns in the database, and that the frontend receives
+                    built), that incoming data is mapped to the corresponding columns in the database, and that the frontend receives
                     only the needed data.<br>
                     The application has a service for every type of entity that we have in the database:</p>
                 <ol>
@@ -213,7 +217,8 @@
             </div>
             <h4 id="data-layer">3. Data Layer</h4>
             <div class="content-second-level">
-
+                <img src="/backend/assets/img/WebArchitecture-05.svg" alt="Data Layer"
+                    title="Data Layer">
                 <p>The Data Layer refers to the storage of data in a database, assuring the dynamic features of the website.<br>
                     In the database, each independent entity that has data to be stored has its own table:</p>
                 <ol>
@@ -223,37 +228,40 @@
                     <li>comment</li>
                     <li>resource</li>
                 </ol>
-                <p>Besides the entities, there are 2 tables that are used for mapping 2 many to many relationships:<br>
-                    6. course_presentation - which maps the relationship between courses and events<br>
-                    7. course_volunteers - which maps the relationship between courses and volunteers (people)</p>
+                <p>Besides the entities, there are 2 tables that are used for mapping 2 many to many relationships:
+                    <ol start="6">
+                        <li>course_presentation - which maps the relationship between courses and events</li>
+                        <li>course_volunteers - which maps the relationship between courses and volunteers (people)</li>
+                    </ol>
+                </p>
                 <p>Those tables are created by the DAO components, and basic SQL operations are performed only by the Data Layer.</p>
             </div>
             <hr>
             <h3 id="api">API</h3>
             <h4 id="rest-compliance">REST compliance</h4>
             <div class="content-second-level">
-                <p>Building this application that uses a REST API to mediate the communication between back-end and front-end, we wanted
+                <p>By building this application that uses a REST API to mediate the communication between back-end and front-end, we wanted
                     to respect as much as possible the REST Principles, not only because they are good practices, but also because they
-                    are widely known and any developer that may take over the work on Insieme website will be able to easily understand
+                    are widely known and any developer that may take over the work on InSieme website will be able to easily understand
                     the functionality that the application layer provides.</p>
                 <ol>
                     <li><strong>Client-Server</strong> - The app has a strong separation between the functionality executed on the
                         client, which is mainly rendering data and information, and the functionality executed on the server side
                         which is data handling and manipulation.</li>
                     <li><strong>Stateless</strong> - There was no need for stateful or session dependent data to be kept on the server,
-                        therefore the app is treating any request as independent and complete</li>
-                    <li><strong>Uniform interfaces</strong> - The API documentation is describing the resources what the app is using,
+                        therefore the app is treating any request as independent and complete.</li>
+                    <li><strong>Uniform interfaces</strong> - The API documentation is describing the resources that the app is using,
                         as well as their models. Moreover, the requests follow a similar structure, so once you understand how to get
                         data for one of them, you can follow the same pattern for the others. For example: /person/{personID} ,
                         /events/{eventID} , /course/{courseID} are all retrieving the requested resource with the specified ID.</li>
                     <li><strong>Layered system</strong> - The application has components that are split in layers by their role, and
-                        they can communicate only with the layers that are addiacent to them. This assures the separation of concerns
+                        they can communicate only with the layers that are adjacent to them. This ensures the separation of concerns
                         and a better individual development of components.</li>
                 </ol>
                 <p>Besides these principles, we also needed to decide how to map the requests that need data from 2 or more entities,
                     especially for entities that have a relation in the database.<br>
                     For this, we decided to use the following struncture for the url:<br>
-                    <strong>"/main-entity-name/{main-entity-id}/related-entity-name"</strong><br>
+                    <div class="request neutral"><div class="method">METHOD</div><div class="url">/main-entity-name/{main-entity-id}/related-entity-name</div></div> 
                     where <em>main-entity-name</em> and <em>related-entity-name</em> have a relationship in the database (usually one to
                     many or many to many), and this resource will provide all the entries of type “related-entity-name” that are in a
                     relation with the entry of type “main-entity-name” that has the id equal to <em>main-entity-id/</em>. For example,
@@ -265,7 +273,7 @@
                 <p>In order to ensure a good communication between back-end and front-end, we introduced models for the resources, that
                     they have to respect.</p>
                 <h5 id="course">Course</h5>
-                <p>The Course resource represents information the <strong>services</strong> that the association is offering, which are
+                <p>The Course resource represents information about the <strong>services</strong> that the association is offering, which are
                     Italian Language courses. It has the following properties:</p>
                 <ul>
                     <li><strong>id</strong>: integer - the unique identifier of a course</li>
@@ -366,7 +374,7 @@
                 </ul>
                 <h5 id="comment">Comment</h5>
                 <p>The Comment resource represents a review or a testimonial given by students that have participated into the
-                    association’s courses and events. They can be reviews of the association, or comments about a specific volunteer
+                    association’s courses. They can be reviews of the association, or comments about a specific volunteer
                     (teacher). It has the following properties:</p>
                 <ul>
                     <li><strong>id</strong>: integer - the unique identifier of a comment</li>
@@ -383,14 +391,14 @@
             <div class="content-second-level">
             <img src="/backend/assets/img/DesignSchemas-01.svg" alt="ER Diagram" title="ER Diagram">
             <p>In the OpenAPI specifications, there are 5 data models for the main entities of our database: Person model, Course model, Event model, Resource model and Comment model.</p>
-            <p>The Resource model and the Comment model have the same attributes as in the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
+            <p>The Resource model and the Comment model have the same attributes as the ER model. On the other hand, additional data was added to the other three models in order to fulfill the relationships between the entities. A Person, for example, will have associated the Course in which he/she is involved, the coordinated Events and the Comments (reviews) that the students have made about him/her, with some of their properties as well.</p>
             <p>In the same way, a request to get an Event will carry the Person coordinating that Event, and the Course that is associated to the Event; and finally, a Course will also give information about each Person teaching it and the Events that are recommended to students following that Course.</p>
                 
             </div>
         </div>
         <div id="implementation" class="chapter">
             <h2>Implementation</h2>
-            <h3 id="tools-used">Tools used</h3>
+            <h3 id="tools-used">Tools used - Back-end</h3>
             <h4 id="javascript">JavaScript</h4>
             <div class="content-second-level">
                 <p>JavaScript is the main programming language used for web development, that is able to bring functionality upon
@@ -406,14 +414,14 @@
             <h4 id="swagger-with-openapi-specifications">Swagger with OpenAPI Specifications</h4>
             <div class="content-second-level">
                 <p>Swagger is a framework that is used for easily creating documentation and managing REST APIs. It is based on OpenAPI
-                    Specifications, that are rules for configuring REST APIs in a JSON or YAML document. Swagger frameworn offers data
+                    Specifications, that are rules for configuring REST APIs in a JSON or YAML document. Swagger framework offers data
                     validation, routing the request to appropriate controls, an interface for the documentation in which requests can be
                     tested out, and many more.</p>
             </div>
             <h4 id="knex.js">KNEX.JS</h4>
             <div class="content-second-level">
                 <p>Knex.js is a query-builder library for JavaScript in which you use different methods in order to connect and perform
-                    operations over databases. The Insieme web app uses this library for creating tables, saving and retrieving data
+                    operations over databases. The InSieme web app uses this library for creating tables, saving and retrieving data
                     from the database.</p>
             </div>
             <h4 id="postgresql">PostgreSQL</h4>
@@ -427,6 +435,18 @@
                     cloud, without prior knowledge of server management and configuration. It comes with a CLI (Command-Line Interface)
                     that makes it very easy to deploy the latest version of a website online. If the website needs a database, Heroku
                     offers the possibility to add a PostgreSLQ database as an addon, that you can connect to the web app.</p>
+            </div>
+            <hr>
+            <h3 id="tools-used">Tools used - Front-end</h3>
+            <h4 id="javascript">Bootstrap</h4>
+            <div class="content-second-level">
+                <p>One of the world’s most popular front-end open source toolkit to style and customize websites, it was very useful for 
+                    its grid system and some of its stand-alone components, such as cards, navigation bar and buttons.</p>
+            </div>
+            <h4 id="javascript">Font-Awesome</h4>
+            <div class="content-second-level">
+                <p>Font-Awesome provides a wide library of icons, which we used in the footer and in the buttons, and a toolkit to manage them.
+                </p>
             </div>
             <hr>
             <h3 id="discussion">Discussion</h3>
@@ -453,8 +473,7 @@
                 <div class="question"> Why do you think your web application adheres to common practices to partition a
                 REST-based web application (static assets vs. application data)?
                 </div>
-                <div class="answer"> We used the Swagger UI interface to test every endpoint and we solved the ocasional bugs
-                The Insieme web app has a clear separation of static assets, such as HTML, CSS and
+                <div class="answer"> The InSieme web app has a clear separation of static assets, such as HTML, CSS and
                 JavaScript files that build the user interface (front-end), from the business logic JavaScript files that only
                 handle operations with data. The front-end, static files are stored in the folder “public”, which is configured in
                 the application server to serve its files as static. All the other files constitute the server functionality and
@@ -543,8 +562,22 @@
                         <li><em>10%</em> of his work time was spent in helping on  <span class="chip">design</span> </li>
                     </ul>
                 </div>
-
-
+            <hr>
+            <h3 id="development-process">Development process</h3>
+            <img src="/backend/assets/img/jira.jpg" alt="Jira - Kanban Board with stories"
+                title="Jira - Kanban Board with stories">
+            <p>The transition from the design phase to development started from our user scenarios. Considering the goals and the scenarios, we split them into small
+                pieces of functioanlity, that translated into user stories. We used a Kanban board in Jira to organize the stories and development tasks, and for each 
+                 story we prepared a layout version for 3 screen dimensions in Adobe XD. Based on the shared design we created assets and started developing each functionality. 
+                 The stories corresponded to branches in GitHub where we collaborated to write both the frontend and backend tasks needed to achieve the functionality specified
+                 in the user stories. Once they were done, the feature branch was merged into master, and the user story was marked as DONE in Jira.</p>
+            <p>Examples of user stories:
+                 <ul>
+                     <li>As a student, I want to check the location of the event so that I know how to get there</li>
+                     <li>As a prospective student, I want to see the details of my selected course so that I can confirm that the scope and the schedule fit my needs</li>
+                     <li>As a prospective teacher(volunteer), I would like to see which are the coordinators of the association’s activity</li>
+                 </ul>
+            </p>
             <hr>
             <h3 id="analysis-of-existing-api">Analysis of existing API</h3>
 
@@ -600,24 +633,28 @@
             <h3 id="learning-outcome">Learning outcome</h3>
 
             <h4>Aida Denisa Opîrlesc</h4>
-            <p>Aida is very passionate about technology and digital product development, and has experience in both web and mobile development. She is more familiar to front-end technology, so she decided to take over the back-end of this web application, in order to learn how to build a Node.JS application.</p>
-            <p>It has been challenging to work with unfamiliar technology, such as Node.JS, Knex.JS and Swagger. She learned what are OpenAPI specifications and how to implement a REST API starting from them. She also learned how to manage the database connection and tables starting fron Knex.JS</p>
-            <p>Another challenge was debugging in production on the Heroku platform and finding solutions to unexpected back-end and front-end issues.</p>
-            <p>She enjoyed working with Nathalie and Lorenzo, and feels that she learned a lot working with them. She will use this knowledge in her professional web developer career, and on side projects that she is working on.</p>
-
+            <div class="content-second-level">
+                <p>Aida is very passionate about technology and digital product development, and has experience in both web and mobile development. She is more familiar to front-end technology, so she decided to take over the back-end of this web application, in order to learn how to build a Node.JS application.</p>
+                <p>It has been challenging to work with unfamiliar technology, such as Node.JS, Knex.JS and Swagger. She learned what are OpenAPI specifications and how to implement a REST API starting from them. She also learned how to manage the database connection and tables starting fron Knex.JS</p>
+                <p>Another challenge was debugging in production on the Heroku platform and finding solutions to unexpected back-end and front-end issues.</p>
+                <p>She enjoyed working with Nathalie and Lorenzo, and feels that she learned a lot working with them. She will use this knowledge in her professional web developer career, and on side projects that she is working on.</p>
+            </div>
+            
 
             <h4>Nathalie Giselle Ospina Cruz</h4>
-            <p>Nathalie learned there is an impact of design decisions in the backend and in the frontend development. She gained a new understanding of the structure of the web application layers which will be useful in her role as a designer to communicate better with developing teams and translate the user needs into functionalities. </p>
-            <p>She also increased her knowledge about usability, responsiveness and accessibility. She is now capable of collaborating in a development project through GitHub, populating a database with Swagger, styling with CSS3 to translate the layout design in the web layout, and using Bootstrap to some extent. </p>
-            <p>While learning these aspects from zero, she also increased her knowledge of design; tools such as Adobe XD, study of design principles and user stories for features’ design. She would like to know more about different frameworks that are used in the market, such as Angular, React or Vue. </p>
-            <p>The new knowledge acquired is meaningful for her as a product-service designer considering the high demand of UX/UI designers. She is currently engaged in an internship with a digital team where end-to-end knowledge as well as the capability of collaboration between designers and engineers is very valuable.</p>
-
+            <div class="content-second-level">
+                <p>Nathalie learned there is an impact of design decisions in the backend and in the frontend development. She gained a new understanding of the structure of the web application layers which will be useful in her role as a designer to communicate better with developing teams and translate the user needs into functionalities. </p>
+                <p>She also increased her knowledge about usability, responsiveness and accessibility. She is now capable of collaborating in a development project through GitHub, populating a database with Swagger, styling with CSS3 to translate the layout design in the web layout, and using Bootstrap to some extent. </p>
+                <p>While learning these aspects from zero, she also increased her knowledge of design; tools such as Adobe XD, study of design principles and user stories for features’ design. She would like to know more about different frameworks that are used in the market, such as Angular, React or Vue. </p>
+                <p>The new knowledge acquired is meaningful for her as a product-service designer considering the high demand of UX/UI designers. She is currently engaged in an internship with a digital team where end-to-end knowledge as well as the capability of collaboration between designers and engineers is very valuable.</p>
+            </div>
 
             <h4>Lorenzo Amici</h4>
-
-            <p>Lorenzo, coming from the Geoinformatics Engineering master and from an environmental background, had just a little previous experience with HTML and CSS; now he has really strengthened his abilities in these languages and truly understood what it means to code and build a real web application, and the structure that supports it. He now also has much more confidence with coding in JavaScript and using CSS to style the pages, since our group wanted to follow the previous design choices very precisely. </p>
-            <p>Moreover he discovered tools such as Bootstrap that helped him a lot in the work, and gained much more experience with GitHub and the management of a group project in general. A key feature he got is a deeper consciousness on how all the elements of a website interact and communicate with each other.</p>
-            <p>He is now very passionate about applying problem solving to front-end development and wants to keep learning to do it better. </p>
+            <div class="content-second-level">
+                <p>Lorenzo, coming from the Geoinformatics Engineering master and from an environmental background, had just a little previous experience with HTML and CSS; now he has really strengthened his abilities in these languages and truly understood what it means to code and build a real web application, and the structure that supports it. He now also has much more confidence with coding in JavaScript and using CSS to style the pages, since our group wanted to follow the previous design choices very precisely. </p>
+                <p>Moreover he discovered tools such as Bootstrap that helped him a lot in the work, and gained much more experience with GitHub and the management of a group project in general. A key feature he got is a deeper consciousness on how all the elements of a website interact and communicate with each other.</p>
+                <p>He is now very passionate about applying problem solving to front-end development and wants to keep learning to do it better. </p>
+            </div>
 
         </div>
     </div>

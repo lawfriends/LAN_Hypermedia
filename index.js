@@ -7,7 +7,8 @@ var fs = require('fs'),
 var app = require('connect')();
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
-var serverPort = 8080;
+var serverPort = process.env.PORT || 5000;
+var cors = require('cors');
 
 var serveStatic = require('serve-static');
 let { setupDataLayer } = require("./datalayer")
@@ -26,6 +27,9 @@ var swaggerDoc = jsyaml.safeLoad(spec);
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
+
+  app.use(cors());
+  
   // Interpret Swagger resources and attach metadata to request - must be first in swagger-tools middleware chain
   app.use(middleware.swaggerMetadata());
 
@@ -40,6 +44,22 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Serve the static files from public folder 
   app.use(serveStatic(__dirname + "/public"));
+
+  // // Allow whitelisted domain to pass CORS policy
+  // app.use(function(req, res, next) {
+  //   var allowedOrigins = ['https://wave.webaim.org'];
+  //   console.log(req.headers.referer)
+  //   var origin = req.headers.referer;
+  //   if(allowedOrigins.indexOf(origin) > -1){
+  //     req.setHeader('Access-Control-Allow-Origin', origin);
+  //   }
+  //   //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+  //   req.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  //   req.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  //   req.setHeader('Access-Control-Allow-Credentials', true);
+  //   return next();
+  // });
+  
 
   setupDataLayer().then( () => {
 
