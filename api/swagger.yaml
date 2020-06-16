@@ -361,7 +361,7 @@ definitions:
     properties:
       id:
         type: "integer"
-        example: 1
+        example: 2
       title:
         type: "string"
         example: "Guided Visit;Guided Visit to Museo Bagatti Valsecchi"
@@ -385,7 +385,7 @@ definitions:
     title: "Event"
     description: "an event"
     example: 
-      id: 1
+      id: 2
       title: "Guided Visit;Guided Visit to Museo"
       date: "2021-10-19T08:23:54+02:00"
       location: "Corso Magenta, 15, 20123 Milano MI"
@@ -456,7 +456,7 @@ definitions:
         image: "/assets/img/allcourses/02-basic.png"
         description: "This is the basic course of the Italian Language lessons"
       comments:
-      - id: 9
+      - id: 10
         text: "This is a very nice teacher"
         date: "2019-10-19T08:23:54+02:00"
         student_name: "Mohammed Ali"
@@ -523,7 +523,7 @@ definitions:
     properties:
       id:
         type: "integer"
-        example: 1
+        example: 2
       cerf_level:
         type: "string"
         example: "A1"
@@ -539,7 +539,7 @@ definitions:
     title: "Resource"
     description: "a course resource"
     example:
-      id: 1
+      id: 2
       course_id: 1
       title: "Starting Unit N.1"
       url: "/assets/img/allcourses/introductory/intro-resources/n1-starting-unit.pdf"
@@ -549,7 +549,7 @@ definitions:
     properties:
       id:
         type: "integer"
-        example: 1
+        example: 16
       text:
         type: "string"
         example: "'Classes are in small groups of different nationalities where we learn to share'"
@@ -570,7 +570,7 @@ definitions:
     title: "Comment"
     description: "a comment about a teacher"
     example:
-      id: 1
+      id: 16
       text: "'Classes are in small groups of different nationalities where we learn to share'"
       date: "2019-10-19T08:23:54+02:00"
       student_name: "Daniela Sainz"
