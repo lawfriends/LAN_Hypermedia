@@ -12,8 +12,8 @@ function getAllPeople() {
     fetch("/v1/people").then(function(response) {
         return response.json();
     }).then(function(people) {
+        var teachers = 0;
         for(var i=0; i<people.length; i++){
-            var teachers = 0;
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
                 var personCol = document.createElement("div");
@@ -51,6 +51,7 @@ function getAllPeople() {
                 coordinatorRow.appendChild(personCol);
             }
             else if(people[i].role == "teacher"){
+                teachers++;
                 var teacherRow = document.querySelector("#teacherRow");
                 var personCol = document.createElement("div");
                 personCol.classList.add("col-xl-3", "col-md-5", "col-12", "column");
