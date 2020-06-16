@@ -247,7 +247,7 @@ paths:
       tags:
       - "Person"
       summary: "Add a new person"
-      description: "If you need to add a new person in the database, use the person object without specifying an id. The id is automatically created by the database, and you will receive it in the response.\n You should specify to which course the volunteer is involved in, by adding a course object that contains the id of the course in the Person object. \n The response does not return any nested information that the person may have. If you need detailed information of one particular person, please see the call to /person/{id}"
+      description: "If you need to add a new person in the database, use the person object without specifying an id or comments about it. The id is automatically created by the database, and you will receive it in the response.\n For adding comments about a specific volunteer, see /comments resourse. \n You should specify to which course the volunteer is involved in, by adding a course object that contains the id of the course in the Person object. \n The response does not return any nested information that the person may have. If you need detailed information of one particular person, please see the call to /person/{id}"
       operationId: "personPOST"
       consumes:
       - "application/json"
@@ -563,7 +563,7 @@ definitions:
       person_id:
         type: "integer"
         description: "if you add a comment about the association, then you have to leave this property null"
-        example: 1
+        example: 2
       photo:
         type: "string"
         example: "/assets/img/students/daniela.png"
@@ -575,4 +575,4 @@ definitions:
       date: "2019-10-19T08:23:54.000Z"
       student_name: "Daniela Sainz"
       photo: "/assets/img/students/daniela.png"
-      person_id: 1
+      person_id: 2
