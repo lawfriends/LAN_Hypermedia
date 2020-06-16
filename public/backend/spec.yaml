@@ -391,9 +391,9 @@ definitions:
       location: "Corso Magenta, 15, 20123 Milano MI"
       description: "Improve your italian knowledge and culture"
       photos: "/assets/img/allevents/event/01-november-bigger.jpg"
-      contact_id: 1
+      contact_id: 2
       coordinator: 
-        id: 1
+        id: 2
         name: "Chiara Pozzi"
         photo: "/assets/img/volunteers/01-chiara-pozzi.png"
       courses: 
@@ -405,7 +405,7 @@ definitions:
     properties:
       id:
         type: "integer"
-        example: 1
+        example: 2
       name:
         type: "string"
         example: "Chiara Pozzi"
@@ -442,7 +442,7 @@ definitions:
     title: "Person"
     description: "a volunteer"
     example:
-      id: 1
+      id: 2
       name: "Chiara Pozzi"
       photo: "/assets/img/volunteers/01-chiara-pozzi.png;/assets/img/volunteers/profile/01-chiara-pozzi-big.jpg"
       role: "teacher"
@@ -508,11 +508,11 @@ definitions:
       image: "/assets/img/allcourses/03-intermediate.png"
       cerf_level: "B1"
       volunteers: 
-      - id: 1
+      - id: 2
         name: "Chiara Pozzi"
         photo: "/assets/img/volunteers/01-chiara-pozzi.png"
       events: 
-      - id: 1
+      - id: 3
         title: "Museum night"
         date: "2019-10-19T08:23:54+02:00"
         location: "Corso Magenta, 15, 20123 Milano MI"

@@ -37,7 +37,7 @@ exports.save = function(event) {
           ['id','date','title','location','description','photos', 'contact_id']
           )
           .then((eventSaved)=>{
-            if(event.courses.length > 0) {
+            if(event.courses && event.courses.length > 0) {
               var coursePresentations = event.courses.map(course => { 
                 return { 
                   course_id: course.id,
@@ -59,7 +59,7 @@ exports.save = function(event) {
           })
           .catch((error)=> {
             console.log(error)
-            reject();
+            resolve();
           });     
     });
 }
@@ -108,7 +108,7 @@ exports.getEventById = function(id) {
         resolve(event);
       })
       .catch((error)=>{
-        reject();
+        resolve();
       });
     
   });
