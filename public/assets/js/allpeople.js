@@ -12,6 +12,7 @@ function getAllPeople() {
     fetch("/v1/people").then(function(response) {
         return response.json();
     }).then(function(people) {
+        var teachers = 0;
         for(var i=0; i<people.length; i++){
             if(people[i].role == "coordinator"){
                 var coordinatorRow = document.querySelector("#coordinatorRow");
@@ -50,6 +51,8 @@ function getAllPeople() {
                 coordinatorRow.appendChild(personCol);
             }
             else if(people[i].role == "teacher"){
+                teachers++;
+                console.log(teachers);
                 var teacherRow = document.querySelector("#teacherRow");
                 var personCol = document.createElement("div");
                 personCol.classList.add("col-xl-3", "col-md-5", "col-12", "column");
@@ -69,18 +72,23 @@ function getAllPeople() {
                 var imageCol = document.createElement("div");
                 imageCol.classList.add("col");
                 var teacherPhoto = document.createElement("img");
-                teacherPhoto.src = people[i].photo.split(";")[0];
+                //teacherPhoto.src = people[i].photo.split(";")[0];
+                teacherPhoto.src = "/assets/img/volunteers/01-chiara-pozzi.png";
                 teacherPhoto.setAttribute("alt", people[i].name.concat(" image"));
                 imageCol.appendChild(teacherPhoto);
                 infoRow.appendChild(infoCol);
                 infoRow.appendChild(imageCol);
                 personCol.appendChild(infoRow);
                 teacherRow.appendChild(personCol);
+                if(teachers>8){
+                    personCol.style.display = "none";
+                    personCol.classList.add("hiddenPerson");
+                }
             }
-            if(i>9 && people[i].role == "teacher"){
+            /*if(i>9 && people[i].role == "teacher"){
                 personCol.style.display = "none";
                 personCol.classList.add("hiddenPerson");
-            }
+            }*/
         }
         document.querySelector("#showMoreButton").addEventListener("click", showMoreButton);  
     })
