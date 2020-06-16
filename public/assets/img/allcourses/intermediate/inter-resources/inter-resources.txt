@@ -1,1 +1,0 @@
-created intermediate resources folder

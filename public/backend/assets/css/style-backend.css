@@ -275,6 +275,16 @@ ul.work-time-split {
 
 }
 
+.request.neutral {
+    border:1px solid #4c4c4c;
+}
+
+.request.neutral .method {
+    color: #ffffff;
+    background: #4c4c4c;
+}
+
+
 blockquote {
     margin-left:20px;
     font-style: italic;
@@ -282,7 +292,14 @@ blockquote {
     border: 1px solid #cee8df;
 }
 
-.content-second-level img {
+
+.content-second-level img,
+.chapter img {
+    width:100%;
+}
+
+#presentation-layer + .content-second-level img,
+#data-layer + .content-second-level img {
     float: right;
     max-width: 300px;
     margin: 0;
@@ -290,5 +307,8 @@ blockquote {
 }
 
 #application-layer + .content-second-level img {
+    float: right;
+    margin: 0;
+    max-height: 400px;
     max-width:500px;
 }
